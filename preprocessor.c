@@ -18,7 +18,7 @@ FILE *preprocess(FILE *fp) {
     allocFail(ptr);
     str = malloc(LABEL_SIZE + 1);
     allocFail(str);
-    while(tmp = fgets(ptr, ROW_SIZE, fp)) {
+    while((tmp = fgets(ptr, ROW_SIZE, fp))) {
         nextToken(str, &tmp);
         mcr = find_macr(&tb, str);
         if(mcr)

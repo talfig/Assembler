@@ -70,7 +70,7 @@ void addToTable(macr_table *tb, macr *ptr) {
     macr *tmp = getTail(tb);
 
     /* If the bucket is empty, set the new node as the head */
-    if(!tmp) tb->head = ptr;
+    if(!tmp) setHead(tb, ptr);
     else setNext(tmp, ptr); /* Otherwise, add the new node at the end of the list */
 }
 
@@ -90,19 +90,25 @@ void freeTable(macr_table *tb) {
 
 void save_macr(macr_table *tb, char *str, FILE *fp) {
     char *info, *ptr, *tmp;
+    int len;
     size_t size = ROW_SIZE + 1;
     macr *mcr = malloc(sizeof(macr));
     if(!mcr) {
         fprintf(stderr, "Memory allocation failed!\n");
         exit(EXIT_FAILURE);
     }
-    setName(mcr, str);
+    setNext(mcr, NULL);
+    setName(mcr, strdup(str));
+    if (!getName(mcr)) {
+        fprintf(stderr, "Memory allocation failed for name!\n");
+        free(mcr);
+        exit(EXIT_FAILURE);
+    }
     info = malloc(size);
     allocFail(info);
     ptr = malloc(size);
     allocFail(ptr);
-    do {
-        tmp = fgets(ptr, ROW_SIZE, fp);
+    while((tmp = fgets(ptr, ROW_SIZE, fp))) {
         nextToken(str, &tmp);
         if(!strcmp(str, "endmacr"))
             break;
@@ -113,10 +119,12 @@ void save_macr(macr_table *tb, char *str, FILE *fp) {
             free(ptr);
             exit(EXIT_FAILURE);
         }
-        tmp += size - ROW_SIZE - 1;
+        info = tmp;
+        tmp += len;
         strcpy(tmp, ptr);
+        len = strlen(info);
         size += ROW_SIZE;
-    } while(1);
+    }
     setInfo(mcr, info);
     addToTable(tb, mcr);
     free(ptr);
