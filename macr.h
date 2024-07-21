@@ -37,6 +37,6 @@ void freeTable(macr_table *tb);
 
 macr *find_macr(macr_table *tb, char *str);
 
-void save_macr(macr_table *tb, char *str, FILE *fp);
+void save_macr(macr_table *tb, char *str, FILE *fp, FILE *fptr);
 
 #endif /* MACR */

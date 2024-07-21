@@ -7,17 +7,13 @@
 #include "token_utils.h"
 
 FILE *preprocess(FILE *fp) {
-    char *ptr, *str, *tmp;
+    char ptr[ROW_SIZE + 1], str[LABEL_SIZE + 1], *tmp;
     FILE *fptr;
     macr *mcr;
     macr_table tb;
     emptyTable(&tb);
     fptr = fopen("out.txt", "w");
     openFail(fptr);
-    ptr = malloc(ROW_SIZE + 1);
-    allocFail(ptr);
-    str = malloc(LABEL_SIZE + 1);
-    allocFail(str);
     while((tmp = fgets(ptr, ROW_SIZE, fp))) {
         nextToken(str, &tmp);
         mcr = find_macr(&tb, str);
@@ -27,11 +23,9 @@ FILE *preprocess(FILE *fp) {
             fprintf(fptr, "%s", ptr);
         else {
             nextToken(str, &tmp);
-            save_macr(&tb, str, fp);
+            save_macr(&tb, str, fp, fptr);
         }
     }
-    free(str);
-    free(ptr);
     freeTable(&tb);
     fclose(fp);
     return fptr;

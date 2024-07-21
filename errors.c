@@ -1,17 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "macr.h"
 
-void allocFail(char *ptr) { /* Add file closer */
-    if (!ptr) {
-        fprintf(stderr, "Memory allocation failed!\n");
-        exit(EXIT_FAILURE);
-    }
-}
-
-void reallocFail(char *ptr, char *new_ptr) { /* Add file closer */
-    if(!new_ptr) {
-        fprintf(stderr, "Memory reallocation failed!\n");
-        free(ptr);
+void allocFail(char *ptr, macr_table *tb, FILE *fp, FILE *fptr) { /* Add file closer */
+    if(!ptr) {
+        fprintf(stderr, "Memory allocation failed for name!\n");
+        freeTable(tb);
+        fclose(fp);
+        fclose(fptr);
         exit(EXIT_FAILURE);
     }
 }

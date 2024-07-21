@@ -82,50 +82,55 @@ void freeTable(macr_table *tb) {
     while(ptr) {
         tmp = ptr;
         ptr = getNext(ptr);
-        free(tmp->name);
-        free(tmp->info);
+        if(tmp->name)
+            free(tmp->name);
+        if(tmp->info)
+            free(tmp->info);
         free(tmp);
     }
 }
 
-void save_macr(macr_table *tb, char *str, FILE *fp) {
-    char *info, *ptr, *tmp;
-    int len;
-    size_t size = ROW_SIZE + 1;
+char *my_strdup(const char *s) {
+    char *d = malloc(strlen(s) + 1);
+    if (d == NULL) return NULL;
+    strcpy(d, s);
+    return d;
+}
+
+void save_macr(macr_table *tb, char *str, FILE *fp, FILE *fptr) {
+    char *info, *tmp, ptr[ROW_SIZE + 1];
+    int len = 0;
     macr *mcr = malloc(sizeof(macr));
     if(!mcr) {
         fprintf(stderr, "Memory allocation failed!\n");
+        freeTable(tb);
+        fclose(fp);
+        fclose(fptr);
         exit(EXIT_FAILURE);
     }
     setNext(mcr, NULL);
-    setName(mcr, strdup(str));
-    if (!getName(mcr)) {
-        fprintf(stderr, "Memory allocation failed for name!\n");
-        free(mcr);
-        exit(EXIT_FAILURE);
-    }
-    info = malloc(size);
-    allocFail(info);
-    ptr = malloc(size);
-    allocFail(ptr);
+    setName(mcr, my_strdup(str));
+    addToTable(tb, mcr);
+    allocFail(getName(mcr), tb, fp, fptr);
+    info = malloc(0);
+    allocFail(info, tb, fp, fptr);
     while((tmp = fgets(ptr, ROW_SIZE, fp))) {
         nextToken(str, &tmp);
         if(!strcmp(str, "endmacr"))
             break;
-        tmp = realloc(info, size);
+        tmp = realloc(info, len + ROW_SIZE + 1);
         if(!tmp) {
             fprintf(stderr, "Memory reallocation failed!\n");
             free(info);
-            free(ptr);
+            freeTable(tb);
+            fclose(fp);
+            fclose(fptr);
             exit(EXIT_FAILURE);
         }
         info = tmp;
         tmp += len;
         strcpy(tmp, ptr);
         len = strlen(info);
-        size += ROW_SIZE;
     }
     setInfo(mcr, info);
-    addToTable(tb, mcr);
-    free(ptr);
 }

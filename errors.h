@@ -1,7 +1,7 @@
 #ifndef ERRORS_H
 #define ERRORS_H
 
-void allocFail(char *ptr);
+void allocFail(char *ptr, macr_table *tb, FILE *fp, FILE *fptr);
 
 void reallocFail(char *ptr, char *tmp);
 
