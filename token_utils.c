@@ -1,12 +1,8 @@
-int isWhitespace(char a) {
-    return  (a == ' ') ||
-            (a == '\t') ||
-            (a == '\n');
-}
+#include <ctype.h>
 
 void nextToken(char *dest, char **ptr) {
-    while(*ptr && isWhitespace(**ptr)) (*ptr)++;
-    while(*ptr && !isWhitespace(**ptr)) {
+    while(*ptr && **ptr && isspace(**ptr)) (*ptr)++;
+    while(*ptr && **ptr && !isspace(**ptr)) {
         *dest = **ptr;
         dest++;
         (*ptr)++;

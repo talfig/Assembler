@@ -47,7 +47,7 @@ void setHead(macr_table *tb, macr *head) {
 macr *find_macr(macr_table *tb, char *str) {
     macr *ptr = getHead(tb);
     while(ptr) {
-        if(!strcmp(getName(ptr), str))
+        if(!strcmp(str, getName(ptr)))
             return ptr;
         ptr = getNext(ptr);
     }
@@ -91,15 +91,16 @@ void freeTable(macr_table *tb) {
 }
 
 char *my_strdup(const char *s) {
-    char *d = malloc(strlen(s) + 1);
-    if (d == NULL) return NULL;
-    strcpy(d, s);
-    return d;
+    size_t len = strlen(s);
+    char *res = malloc(len + 1);
+    if(!res) return NULL;
+    strcpy(res, s);
+    return res;
 }
 
 void save_macr(macr_table *tb, char *str, FILE *fp, FILE *fptr) {
-    char *info, *tmp, ptr[ROW_SIZE + 1];
-    int len = 0;
+    char *info, *new_info, *tmp, ptr[ROW_SIZE + 1];
+    unsigned long len = 0;
     macr *mcr = malloc(sizeof(macr));
     if(!mcr) {
         fprintf(stderr, "Memory allocation failed!\n");
@@ -118,8 +119,8 @@ void save_macr(macr_table *tb, char *str, FILE *fp, FILE *fptr) {
         nextToken(str, &tmp);
         if(!strcmp(str, "endmacr"))
             break;
-        tmp = realloc(info, len + ROW_SIZE + 1);
-        if(!tmp) {
+        new_info = realloc(info, len + ROW_SIZE + 1);
+        if(!new_info) {
             fprintf(stderr, "Memory reallocation failed!\n");
             free(info);
             freeTable(tb);
@@ -127,10 +128,11 @@ void save_macr(macr_table *tb, char *str, FILE *fp, FILE *fptr) {
             fclose(fptr);
             exit(EXIT_FAILURE);
         }
-        info = tmp;
-        tmp += len;
+        info = new_info;
+        tmp = info + len;
         strcpy(tmp, ptr);
         len = strlen(info);
     }
     setInfo(mcr, info);
 }
+
