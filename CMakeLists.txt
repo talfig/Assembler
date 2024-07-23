@@ -14,4 +14,7 @@ add_executable(mmn14 main.c
         errors.c
         errors.h
         token_utils.c
-        token_utils.h)
+        token_utils.h
+        label.h
+        label.c
+        globals.h)

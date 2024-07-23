@@ -10,14 +10,14 @@ FILE *preprocess(FILE *fp) {
     FILE *fptr;
     macr *mcr;
     macr_table tb;
-    emptyTable(&tb);
+    emptyMacrTable(&tb);
     fptr = fopen("out.txt", "w");
     openFail(fptr);
     while((tmp = fgets(ptr, ROW_SIZE, fp))) {
         nextToken(str, &tmp);
         mcr = find_macr(&tb, str);
         if(mcr)
-            fprintf(fptr, "%s", getInfo(mcr));
+            fprintf(fptr, "%s", mcr->info);
         else if(strcmp(str, "macr"))
             fprintf(fptr, "%s", ptr);
         else {
@@ -25,7 +25,7 @@ FILE *preprocess(FILE *fp) {
             save_macr(&tb, str, fp, fptr);
         }
     }
-    freeTable(&tb);
+    freeMacrTable(&tb);
     fclose(fp);
     return fptr;
 }
