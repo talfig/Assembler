@@ -30,13 +30,13 @@ typedef enum {
     STRING,
     ENTRY,
     EXTERN,
-    INSTRUCT_NONE
-} instruct;
+    INSTRUCTION_NONE
+} instruction;
 
 opcode get_opcode(const char *str);
 
 regis get_register(const char *str);
 
-instruct get_instruction(const char *str);
+instruction get_instruction(const char *str);
 
 #endif /* GLOBALS_H */

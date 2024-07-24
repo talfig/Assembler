@@ -33,11 +33,11 @@ regis get_register(const char *str) {
     return regis_none; /* For unknown strings */
 }
 
-instruct get_instruction(const char *str) {
+instruction get_instruction(const char *str) {
     if (!strcmp(str, "data")) return DATA;
     if (!strcmp(str, "string")) return STRING;
     if (!strcmp(str, "entry")) return ENTRY;
     if (!strcmp(str, "extern")) return EXTERN;
-    return INSTRUCT_NONE; /* For unknown strings */
+    return INSTRUCTION_NONE; /* For unknown strings */
 }
 

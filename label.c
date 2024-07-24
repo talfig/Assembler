@@ -69,7 +69,7 @@ label *find_label(label_table *tb, char *str) {
 int isLegalName(label_table *label_tb, macr_table *macr_tb, char *name) {
     opcode op = get_opcode(name);
     regis rg = get_register(name);
-    instruct ist = get_instruction(name);
+    instruction inst = get_instruction(name);
     label *lb = find_label(label_tb, name);
     macr *mcr = find_macr(macr_tb, name);
     return  isLabel(name) &&
@@ -78,7 +78,7 @@ int isLegalName(label_table *label_tb, macr_table *macr_tb, char *name) {
             isLabel(name) &&
             (op == opcode_none) &&
             (rg == regis_none) &&
-            (ist == INSTRUCT_NONE) &&
+            (inst == INSTRUCTION_NONE) &&
             (lb == NULL) &&
             (mcr == NULL);
 }
