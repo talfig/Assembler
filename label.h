@@ -3,8 +3,6 @@
 
 #include "macr.h"
 
-int isLabel(char *str);
-
 typedef struct label{
     int address;
     char *name;
@@ -26,6 +24,6 @@ void freeLabelTable(label_table *tb);
 
 label *find_label(label_table *tb, char *name);
 
-int isLegalName(label_table *label_tb, macr_table *macr_tb, char *name);
+int isLegalLabelName(label_table *label_tb, macr_table *macr_tb, char *name);
 
 #endif /* LABEL_H */

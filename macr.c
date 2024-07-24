@@ -1,10 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "macr.h"
 #include "errors.h"
 #include "preprocessor.h"
 #include "token_utils.h"
+#include "globals.h"
+
+int isLegalName(char *name) {
+    if(!name || !(*name)) return 0;
+    if(!isalpha(*name)) return 0;
+
+    while(*name) {
+        if(!isalnum(*name) && *name != '_')
+            return 0;
+        name++;
+    }
+
+    return 1;
+}
+
 
 /* macr_table */
 
@@ -63,7 +79,7 @@ char *my_strdup(const char *s) {
     return res;
 }
 
-int save_macr(macr_table *tb, char *name, FILE *fp) {
+int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr) {
     char *info, *new_info, *tmp, ptr[ROW_SIZE + 1], str[LABEL_SIZE + 1];
     unsigned long len = 0;
     macr *mcr = malloc(sizeof(macr));
@@ -71,16 +87,17 @@ int save_macr(macr_table *tb, char *name, FILE *fp) {
         fprintf(stderr, "Memory allocation failed!\n");
         freeMacrTable(tb);
         fclose(fp);
-        return 1;
+        fclose(fptr);
+        exit(EXIT_FAILURE);
     }
 
     mcr->next = NULL;
     mcr->name = my_strdup(name);
     addToMacrTable(tb, mcr);
-    if(allocFail(mcr->name, tb, fp)) return 1;
+    allocFail(mcr->name, tb, fp, fptr);
 
     info = malloc(0);
-    if(allocFail(info, tb, fp)) return 1;
+    allocFail(info, tb, fp, fptr);
 
     while((tmp = fgets(ptr, ROW_SIZE + 1, fp))) {
         nextToken(name, LABEL_SIZE + 1, &tmp);
@@ -88,7 +105,7 @@ int save_macr(macr_table *tb, char *name, FILE *fp) {
         if(!strcmp(name, "endmacr")) {
             if(*str) {
                 fprintf(stderr, "Line must contain only a macro definition!\n");
-                return -1;
+                return MACR_DEF_ERR;
             }
             break;
         }
@@ -99,7 +116,8 @@ int save_macr(macr_table *tb, char *name, FILE *fp) {
             free(info);
             freeMacrTable(tb);
             fclose(fp);
-            return 1;
+            fclose(fptr);
+            exit(EXIT_FAILURE);
         }
         info = new_info;
         tmp = info + len;
@@ -108,4 +126,18 @@ int save_macr(macr_table *tb, char *name, FILE *fp) {
     }
     mcr->info = info;
     return 0;
+}
+
+int isLegalMacrName(macr_table *macr_tb, char *name) {
+    opcode op = get_opcode(name);
+    regis rg = get_register(name);
+    instruction inst = get_instruction(name);
+    macr *mcr = find_macr(macr_tb, name);
+    return  isLegalName(name) &&
+            strcmp(name, "macr") &&
+            strcmp(name, "endmacr") &&
+            (op == opcode_none) &&
+            (rg == regis_none) &&
+            (inst == INSTRUCTION_NONE) &&
+            (mcr == NULL);
 }

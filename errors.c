@@ -1,21 +1,21 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "macr.h"
 
-int allocFail(const char *ptr, macr_table *tb, FILE *fp) { /* Add file closer */
+void allocFail(const char *ptr, macr_table *tb, FILE *fp, FILE *fptr) { /* Add file closer */
     if(!ptr) {
         fprintf(stderr, "Memory allocation failed for name!\n");
         freeMacrTable(tb);
         fclose(fp);
-        return 1;
+        fclose(fptr);
+        exit(EXIT_FAILURE);
     }
-    return 0;
 }
 
-int openFail(FILE *fp) {
+void openFail(FILE *fp) {
     if(!fp) {
         fprintf(stderr, "Unable to open the file!\n");
-        return 1;
+        exit(EXIT_FAILURE);
     }
-    return 0;
 }
 

@@ -3,6 +3,10 @@
 
 #include "stdio.h"
 
+#define MACR_DEF_ERR 1
+
+int isLegalName(char *name);
+
 typedef struct macr {
     char *name;
     char *info;
@@ -23,6 +27,8 @@ void freeMacrTable(macr_table *tb);
 
 macr *find_macr(macr_table *tb, char *name);
 
-int save_macr(macr_table *tb, char *name, FILE *fp);
+int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr);
+
+int isLegalMacrName(macr_table *macr_tb, char *name);
 
 #endif /* MACR */

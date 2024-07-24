@@ -3,8 +3,8 @@
 
 #include "macr.h"
 
-int allocFail(const char *ptr, macr_table *tb, FILE *fp);
+void allocFail(const char *ptr, macr_table *tb, FILE *fp, FILE *fptr);
 
-int openFail(FILE *fp);
+void openFail(FILE *fp);
 
 #endif /* ERRORS_H */
