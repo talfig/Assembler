@@ -3,8 +3,8 @@
 
 #include <stdio.h>
 
-#define ROW_SIZE 81
-#define LABEL_SIZE 31
+#define MAX_ROW_SIZE 81
+#define MAX_LABEL_SIZE 31
 
 int preprocess(FILE *fp);
 
