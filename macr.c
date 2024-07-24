@@ -71,6 +71,20 @@ macr *find_macr(macr_table *tb, char *name) {
     return NULL;
 }
 
+int isLegalMacrName(macr_table *macr_tb, char *name) {
+    opcode op = get_opcode(name);
+    regis rg = get_register(name);
+    instruction inst = get_instruction(name);
+    macr *mcr = find_macr(macr_tb, name);
+    return  isLegalName(name) &&
+            strcmp(name, "macr") &&
+            strcmp(name, "endmacr") &&
+            (op == opcode_none) &&
+            (rg == regis_none) &&
+            (inst == INSTRUCTION_NONE) &&
+            (mcr == NULL);
+}
+
 char *my_strdup(const char *s) {
     size_t len = strlen(s);
     char *res = malloc(len + 1);
@@ -126,18 +140,4 @@ int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr) {
     }
     mcr->info = info;
     return 0;
-}
-
-int isLegalMacrName(macr_table *macr_tb, char *name) {
-    opcode op = get_opcode(name);
-    regis rg = get_register(name);
-    instruction inst = get_instruction(name);
-    macr *mcr = find_macr(macr_tb, name);
-    return  isLegalName(name) &&
-            strcmp(name, "macr") &&
-            strcmp(name, "endmacr") &&
-            (op == opcode_none) &&
-            (rg == regis_none) &&
-            (inst == INSTRUCTION_NONE) &&
-            (mcr == NULL);
 }
