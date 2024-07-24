@@ -31,4 +31,4 @@ int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr);
 
 int isLegalMacrName(macr_table *macr_tb, char *name);
 
-#endif /* MACR */
+#endif /* MACR_H */

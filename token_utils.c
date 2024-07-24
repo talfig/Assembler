@@ -1,4 +1,5 @@
 #include <ctype.h>
+#include <stdlib.h>
 
 void nextToken(char *dest, size_t dest_size, char **ptr) {
     size_t i = 0;
