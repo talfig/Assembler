@@ -48,6 +48,7 @@ int preprocess(FILE *fp) {
                     else return 1;
                 }
             } else {
+                fprintf(stderr, "Invalid macro name!\n");
                 foundErr = 1;
                 break;
             }

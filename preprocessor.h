@@ -2,6 +2,7 @@
 #define PREPROCESSOR_H
 
 #include <stdio.h>
+
 #define ROW_SIZE 81
 #define LABEL_SIZE 31
 

@@ -6,7 +6,7 @@
 int isLabel(char *str);
 
 typedef struct label{
-    int line;
+    int address;
     char *name;
     int isdata;
     struct label *next;
