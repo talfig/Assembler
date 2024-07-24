@@ -5,6 +5,6 @@
 #define ROW_SIZE 81
 #define LABEL_SIZE 31
 
-FILE *preprocess(FILE *fp);
+int preprocess(FILE *fp);
 
 #endif /* PREPROCESSOR_H */

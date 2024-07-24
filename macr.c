@@ -18,7 +18,7 @@ macr *getMacrTail(macr_table *tb) {
     if(!ptr) return NULL;
 
     /* Traverse the list to find the tail macr */
-    while(ptr -> next) ptr = ptr -> next;
+    while(ptr -> next) ptr = ptr->next;
     return ptr;
 }
 
@@ -63,7 +63,7 @@ char *my_strdup(const char *s) {
     return res;
 }
 
-void save_macr(macr_table *tb, char *str, FILE *fp, FILE *fptr) {
+int save_macr(macr_table *tb, char *str, FILE *fp) {
     char *info, *new_info, *tmp, ptr[ROW_SIZE + 1];
     unsigned long len = 0;
     macr *mcr = malloc(sizeof(macr));
@@ -71,27 +71,27 @@ void save_macr(macr_table *tb, char *str, FILE *fp, FILE *fptr) {
         fprintf(stderr, "Memory allocation failed!\n");
         freeMacrTable(tb);
         fclose(fp);
-        fclose(fptr);
-        exit(EXIT_FAILURE);
+        return 1;
     }
+
     mcr->next = NULL;
     mcr->name = my_strdup(str);
     addToMacrTable(tb, mcr);
-    allocFail(mcr->name, tb, fp, fptr);
+    if(allocFail(mcr->name, tb, fp)) return 1;
+
     info = malloc(0);
-    allocFail(info, tb, fp, fptr);
-    while((tmp = fgets(ptr, ROW_SIZE, fp))) {
-        nextToken(str, &tmp);
-        if(!strcmp(str, "endmacr"))
-            break;
+    if(allocFail(info, tb, fp)) return 1;
+
+    while((tmp = fgets(ptr, ROW_SIZE + 1, fp))) {
+        nextToken(str, LABEL_SIZE + 1, &tmp);
+        if(!strcmp(str, "endmacr")) break;
         new_info = realloc(info, len + ROW_SIZE + 1);
         if(!new_info) {
             fprintf(stderr, "Memory reallocation failed!\n");
             free(info);
             freeMacrTable(tb);
             fclose(fp);
-            fclose(fptr);
-            exit(EXIT_FAILURE);
+            return 1;
         }
         info = new_info;
         tmp = info + len;
@@ -99,4 +99,5 @@ void save_macr(macr_table *tb, char *str, FILE *fp, FILE *fptr) {
         len = strlen(info);
     }
     mcr->info = info;
+    return 0;
 }

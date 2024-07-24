@@ -1,6 +1,8 @@
 #ifndef LABEL_H
 #define LABEL_H
 
+#include "macr.h"
+
 int isLabel(char *str);
 
 typedef struct label{
@@ -23,5 +25,7 @@ void addToLabelTable(label_table *tb, label *ptr);
 void freeLabelTable(label_table *tb);
 
 label *find_label(label_table *tb, char *str);
+
+int isLegalName(label_table *label_tb, macr_table *macr_tb, char *name);
 
 #endif /* LABEL_H */

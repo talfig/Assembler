@@ -1,11 +1,21 @@
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "label.h"
+#include "macr.h"
+#include "globals.h"
 
 int isLabel(char *str) {
-    return  (strlen(str) <= 31) &&
-            ('a' <= str[0] && str[0] <= 'z' ||
-            'A' <= str[0] && str[0] <= 'Z');
+    if(!str || !(*str)) return 0;
+    if(!isalpha(*str)) return 0;
+
+    while(*str) {
+        if(!isalnum(*str) && *str != '_')
+            return 0;
+        str++;
+    }
+
+    return 1;
 }
 
 /* label_table */
@@ -54,4 +64,21 @@ label *find_label(label_table *tb, char *str) {
         ptr = ptr->next;
     }
     return NULL;
+}
+
+int isLegalName(label_table *label_tb, macr_table *macr_tb, char *name) {
+    opcode op = get_opcode(name);
+    regis rg = get_register(name);
+    instruct ist = get_instruction(name);
+    label *lb = find_label(label_tb, name);
+    macr *mcr = find_macr(macr_tb, name);
+    return  isLabel(name) &&
+            strcmp(name, "macr") &&
+            strcmp(name, "endmacr") &&
+            isLabel(name) &&
+            (op == opcode_none) &&
+            (rg == regis_none) &&
+            (ist == INSTRUCT_NONE) &&
+            (lb == NULL) &&
+            (mcr == NULL);
 }

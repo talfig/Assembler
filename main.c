@@ -1,7 +1,8 @@
 #include "preprocessor.h"
+#include "errors.h"
 
 int main(int argc, char *argv[]) {
-    FILE *fp = preprocess(fopen("test.txt", "r"));
-    fclose(fp);
-    return 0;
+    FILE *fp = fopen("test.txt", "r");
+    openFail(fp);
+    return preprocess(fp);
 }

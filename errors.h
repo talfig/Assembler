@@ -1,8 +1,10 @@
 #ifndef ERRORS_H
 #define ERRORS_H
 
-void allocFail(char *ptr, macr_table *tb, FILE *fp, FILE *fptr);
+#include "macr.h"
 
-void openFail(FILE *fp);
+int allocFail(const char *ptr, macr_table *tb, FILE *fp);
+
+int openFail(FILE *fp);
 
 #endif /* ERRORS_H */

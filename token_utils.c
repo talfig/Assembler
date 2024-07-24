@@ -1,11 +1,17 @@
 #include <ctype.h>
 
-void nextToken(char *dest, char **ptr) {
-    while(*ptr && **ptr && isspace(**ptr)) (*ptr)++;
-    while(*ptr && **ptr && !isspace(**ptr)) {
-        *dest = **ptr;
-        dest++;
+void nextToken(char *dest, size_t dest_size, char **ptr) {
+    size_t i = 0;
+
+    if(dest_size < 1) return;
+    while(**ptr && isspace(**ptr))
+        (*ptr)++;
+
+    while(**ptr && !isspace(**ptr) && i < dest_size - 1) {
+        dest[i] = **ptr;
+        i++;
         (*ptr)++;
     }
-    *dest = '\0';
+
+    dest[i] = '\0';
 }

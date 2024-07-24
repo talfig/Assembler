@@ -1,6 +1,8 @@
 #ifndef TOKEN_UTILS_H
 #define TOKEN_UTILS_H
 
-void nextToken(char *dest, char **ptr);
+#include <stdlib.h>
+
+void nextToken(char *dest, size_t dest_size, char **ptr);
 
 #endif /* MMN14_TOKEN_UTILS_H */
