@@ -8,8 +8,8 @@
 #include "label.h"
 
 int preprocess(FILE *fp) {
-    char ptr[ROW_SIZE + 1], str[LABEL_SIZE + 1], *tmp;
-    int foundErr = 0;
+    char ptr[ROW_SIZE + 1], str[LABEL_SIZE + 1], name[LABEL_SIZE + 1], *tmp;
+    int foundErr = 0, exit_code;
     FILE *fptr;
     macr *mcr;
     label_table label_tb;
@@ -30,13 +30,22 @@ int preprocess(FILE *fp) {
             fprintf(fptr, "%s", mcr->info);
         else if(strcmp(str, "macr"))
             fprintf(fptr, "%s", ptr);
+
         else {
+            nextToken(name, LABEL_SIZE + 1, &tmp);
             nextToken(str, LABEL_SIZE + 1, &tmp);
-            if(isLegalName(&label_tb, &macr_tb, str)) {
-                if(save_macr(&macr_tb, str, fp)) {
+            if(*str) {
+                fprintf(stderr, "Line must contain only a macro definition!\n");
+                return 1;
+            }
+
+            if(isLegalName(&label_tb, &macr_tb, name)) {
+                exit_code = save_macr(&macr_tb, name, fp);
+                if(exit_code) {
                     fclose(fptr);
-                    freeLabelTable(&label_tb);
-                    exit(EXIT_FAILURE);
+                    freeLabelTable(&label_tb); /* macr_tb is already freed */
+                    if(exit_code == 1) exit(EXIT_FAILURE);
+                    else return 1;
                 }
             } else {
                 foundErr = 1;

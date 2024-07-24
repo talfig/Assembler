@@ -45,10 +45,10 @@ void freeMacrTable(macr_table *tb) {
     }
 }
 
-macr *find_macr(macr_table *tb, char *str) {
+macr *find_macr(macr_table *tb, char *name) {
     macr *ptr = tb->head;
     while(ptr) {
-        if(!strcmp(str, ptr->name))
+        if(!strcmp(name, ptr->name))
             return ptr;
         ptr = ptr->next;
     }
@@ -63,8 +63,8 @@ char *my_strdup(const char *s) {
     return res;
 }
 
-int save_macr(macr_table *tb, char *str, FILE *fp) {
-    char *info, *new_info, *tmp, ptr[ROW_SIZE + 1];
+int save_macr(macr_table *tb, char *name, FILE *fp) {
+    char *info, *new_info, *tmp, ptr[ROW_SIZE + 1], str[LABEL_SIZE + 1];
     unsigned long len = 0;
     macr *mcr = malloc(sizeof(macr));
     if(!mcr) {
@@ -75,7 +75,7 @@ int save_macr(macr_table *tb, char *str, FILE *fp) {
     }
 
     mcr->next = NULL;
-    mcr->name = my_strdup(str);
+    mcr->name = my_strdup(name);
     addToMacrTable(tb, mcr);
     if(allocFail(mcr->name, tb, fp)) return 1;
 
@@ -83,8 +83,16 @@ int save_macr(macr_table *tb, char *str, FILE *fp) {
     if(allocFail(info, tb, fp)) return 1;
 
     while((tmp = fgets(ptr, ROW_SIZE + 1, fp))) {
+        nextToken(name, LABEL_SIZE + 1, &tmp);
         nextToken(str, LABEL_SIZE + 1, &tmp);
-        if(!strcmp(str, "endmacr")) break;
+        if(!strcmp(name, "endmacr")) {
+            if(*str) {
+                fprintf(stderr, "Line must contain only a macro definition!\n");
+                return -1;
+            }
+            break;
+        }
+
         new_info = realloc(info, len + ROW_SIZE + 1);
         if(!new_info) {
             fprintf(stderr, "Memory reallocation failed!\n");

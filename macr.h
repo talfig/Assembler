@@ -21,8 +21,8 @@ void addToMacrTable(macr_table *tb, macr *ptr);
 
 void freeMacrTable(macr_table *tb);
 
-macr *find_macr(macr_table *tb, char *str);
+macr *find_macr(macr_table *tb, char *name);
 
-int save_macr(macr_table *tb, char *str, FILE *fp);
+int save_macr(macr_table *tb, char *name, FILE *fp);
 
 #endif /* MACR */

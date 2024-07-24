@@ -56,10 +56,10 @@ void freeLabelTable(label_table *tb) {
     }
 }
 
-label *find_label(label_table *tb, char *str) {
+label *find_label(label_table *tb, char *name) {
     label *ptr = tb->head;
     while(ptr) {
-        if(!strcmp(str, ptr->name))
+        if(!strcmp(name, ptr->name))
             return ptr;
         ptr = ptr->next;
     }
