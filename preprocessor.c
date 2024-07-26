@@ -33,7 +33,7 @@ int preprocess(FILE *fp) {
         else {
             nextToken(name, MAX_LABEL_SIZE + 1, &tmp);
             nextToken(str, MAX_LABEL_SIZE + 1, &tmp);
-            if(*str) {
+            if(*str || !(*name)) {
                 fprintf(stderr, "Line must contain only a macro definition!\n");
                 return EXIT_FAILURE;
             }
