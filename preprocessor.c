@@ -27,8 +27,15 @@ int preprocess(FILE *fp) {
         if(mcr)
             fprintf(fptr, "%s", mcr->info);
 
-        else if(strcmp(str, "macr"))
-            fprintf(fptr, "%s", ptr);
+        else if(strcmp(str, "macr")) {
+            if(!strstr(tmp, "macr"))
+                fprintf(fptr, "%s", ptr);
+            else {
+                fprintf(stderr, "Line must contain only a macro definition!\n");
+                return EXIT_FAILURE;
+            }
+
+        }
 
         else {
             nextToken(name, MAX_LABEL_SIZE + 1, &tmp);
