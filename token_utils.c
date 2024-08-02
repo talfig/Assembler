@@ -1,18 +1,20 @@
 #include <ctype.h>
-#include <stdlib.h>
 
-void nextToken(char *dest, size_t dest_size, char **ptr) {
-    size_t i = 0;
+int nextToken(char *dest, char **ptr, const char delim) {
+    int count = 0;
 
-    if(dest_size < 1) return;
-    while(**ptr && isspace(**ptr))
-        (*ptr)++;
-
-    while(**ptr && !isspace(**ptr) && i < dest_size - 1) {
-        dest[i] = **ptr;
-        i++;
+    while(**ptr && isspace(**ptr) && **ptr == delim) {
+        if(**ptr == delim)
+            count++;
         (*ptr)++;
     }
 
-    dest[i] = '\0';
+    while(**ptr && !isspace(**ptr) && **ptr != delim) {
+        *dest = **ptr;
+        dest++;
+        (*ptr)++;
+    }
+
+    *dest = '\0';
+    return count;
 }

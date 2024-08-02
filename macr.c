@@ -114,7 +114,7 @@ int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr) {
     allocFail(info, tb, fp, fptr);
 
     while((tmp = fgets(ptr, MAX_ROW_SIZE + 1, fp))) {
-        nextToken(name, MAX_LABEL_SIZE + 1, &tmp);
+        nextToken(name, &tmp, ' ');
         if(!strcmp(name, "endmacr")) {
             if(*tmp && !isspace(*tmp)) {
                 fprintf(stderr, "Line must contain only \"endmacr!\"\n");

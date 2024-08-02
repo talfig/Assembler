@@ -5,7 +5,7 @@
 #include "preprocessor.h"
 #include "token_utils.h"
 
-int preprocess(FILE *fp) {
+int first_pass(FILE *fp) {
     char ptr[MAX_ROW_SIZE + 1], str[MAX_LABEL_SIZE + 1], name[MAX_LABEL_SIZE + 1], *tmp;
     int foundErr = 0, exit_code;
     FILE *fptr;
@@ -22,16 +22,10 @@ int preprocess(FILE *fp) {
 
     while((tmp = fgets(ptr, MAX_ROW_SIZE + 1, fp))) {
         nextToken(str, &tmp, ' ');
-        nextToken(name, &tmp, ' ');
         mcr = find_macr(&macr_tb, str);
 
-        if(mcr) {
-            if(*name) {
-                fprintf(stderr, "Line must contain only the macro name!\n");
-                return EXIT_FAILURE;
-            }
+        if(mcr)
             fprintf(fptr, "%s", mcr->info);
-        }
 
         else if(strcmp(str, "macr")) {
             if(!strstr(tmp, "macr"))
@@ -44,6 +38,7 @@ int preprocess(FILE *fp) {
         }
 
         else {
+            nextToken(name, &tmp, ' ');
             nextToken(str, &tmp, ' ');
             if(*str || !(*name)) {
                 fprintf(stderr, "Line must contain only a macro definition!\n");
@@ -66,3 +61,4 @@ int preprocess(FILE *fp) {
     fclose(fptr);
     return foundErr;
 }
+
