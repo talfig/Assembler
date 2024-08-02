@@ -2,11 +2,12 @@
 #define LABEL_H
 
 #include "macr.h"
+#include "globals.h"
 
 typedef struct label{
     int address;
     char *name;
-    int isdata;
+    instruction info;
     struct label *next;
 } label;
 

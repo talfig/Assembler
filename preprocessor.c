@@ -4,15 +4,19 @@
 #include "macr.h"
 #include "preprocessor.h"
 #include "token_utils.h"
+#include "errors.h"
 
 int preprocess(FILE *fp) {
-    char ptr[MAX_ROW_SIZE + 1], str[MAX_LABEL_SIZE + 1], name[MAX_LABEL_SIZE + 1], *tmp;
+    char ptr[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 1], name[MAX_LABEL_SIZE + 1], *tmp;
     int foundErr = 0, exit_code;
     FILE *fptr;
     macr *mcr;
     macr_table macr_tb;
-
     emptyMacrTable(&macr_tb);
+
+    if(checkLines("test.txt"))
+        foundErr = EXIT_FAILURE;
+
     fptr = fopen("out.txt", "w");
     if(!fptr) {
         fprintf(stderr, "Unable to open the file!\n");
@@ -20,7 +24,7 @@ int preprocess(FILE *fp) {
         exit(EXIT_FAILURE);
     }
 
-    while((tmp = fgets(ptr, MAX_ROW_SIZE + 1, fp))) {
+    while((tmp = fgets(ptr, MAX_LINE_SIZE + 1, fp))) {
         nextToken(str, &tmp, ' ');
         nextToken(name, &tmp, ' ');
         mcr = find_macr(&macr_tb, str);
@@ -28,7 +32,7 @@ int preprocess(FILE *fp) {
         if(mcr) {
             if(*name) {
                 fprintf(stderr, "Line must contain only the macro name!\n");
-                return EXIT_FAILURE;
+                foundErr = EXIT_FAILURE;
             }
             fprintf(fptr, "%s", mcr->info);
         }
@@ -38,7 +42,7 @@ int preprocess(FILE *fp) {
                 fprintf(fptr, "%s", ptr);
             else {
                 fprintf(stderr, "Line must contain only a macro definition!\n");
-                return EXIT_FAILURE;
+                foundErr = EXIT_FAILURE;
             }
 
         }
@@ -47,7 +51,7 @@ int preprocess(FILE *fp) {
             nextToken(str, &tmp, ' ');
             if(*str || !(*name)) {
                 fprintf(stderr, "Line must contain only a macro definition!\n");
-                return EXIT_FAILURE;
+                foundErr = EXIT_FAILURE;
             }
 
             if(isLegalMacrName(&macr_tb, name)) {
@@ -56,7 +60,6 @@ int preprocess(FILE *fp) {
             } else {
                 fprintf(stderr, "Invalid macro name!\n");
                 foundErr = EXIT_FAILURE;
-                break;
             }
         }
     }

@@ -6,21 +6,21 @@
 #include "token_utils.h"
 
 int first_pass(FILE *fp) {
-    char ptr[MAX_ROW_SIZE + 1], str[MAX_LABEL_SIZE + 1], name[MAX_LABEL_SIZE + 1], *tmp;
+    char ptr[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 1], name[MAX_LABEL_SIZE + 1], *tmp;
     int foundErr = 0, exit_code;
     FILE *fptr;
     macr *mcr;
     macr_table macr_tb;
 
     emptyMacrTable(&macr_tb);
-    fptr = fopen("out.txt", "w");
+    fptr = fopen("first_pass.txt", "w");
     if(!fptr) {
         fprintf(stderr, "Unable to open the file!\n");
         fclose(fp);
         exit(EXIT_FAILURE);
     }
 
-    while((tmp = fgets(ptr, MAX_ROW_SIZE + 1, fp))) {
+    while((tmp = fgets(ptr, MAX_LINE_SIZE + 1, fp))) {
         nextToken(str, &tmp, ' ');
         mcr = find_macr(&macr_tb, str);
 
