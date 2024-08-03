@@ -46,6 +46,8 @@ typedef struct {
 
 opcode get_opcode(const char *str);
 
+int count_operands(const char *str);
+
 regis get_register(const char *str);
 
 instruction get_instruction(const char *str);
