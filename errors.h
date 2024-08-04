@@ -5,10 +5,10 @@
 
 const char *getError(int error_code);
 
-int checkLines(char *file_name);
-
 void allocFail(const char *ptr, macr_table *tb, FILE *fp, FILE *fptr);
 
 void openFail(FILE *fp);
+
+int checkLines(char *file_name);
 
 #endif /* ERRORS_H */

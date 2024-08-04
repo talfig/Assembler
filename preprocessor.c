@@ -33,6 +33,7 @@ int preprocess(FILE *fp) {
             if(*name) {
                 fprintf(stderr, "Line must contain only the macro name!\n");
                 foundErr = EXIT_FAILURE;
+                continue;
             }
             fprintf(fptr, "%s", mcr->info);
         }
@@ -43,6 +44,7 @@ int preprocess(FILE *fp) {
             else {
                 fprintf(stderr, "Line must contain only a macro definition!\n");
                 foundErr = EXIT_FAILURE;
+                continue;
             }
 
         }
@@ -52,6 +54,7 @@ int preprocess(FILE *fp) {
             if(*str || !(*name)) {
                 fprintf(stderr, "Line must contain only a macro definition!\n");
                 foundErr = EXIT_FAILURE;
+                continue;
             }
 
             if(isLegalMacrName(&macr_tb, name)) {
@@ -60,6 +63,7 @@ int preprocess(FILE *fp) {
             } else {
                 fprintf(stderr, "Invalid macro name!\n");
                 foundErr = EXIT_FAILURE;
+                continue;
             }
         }
     }

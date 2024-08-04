@@ -52,18 +52,17 @@ label *find_label(label_table *tb, char *name) {
     return NULL;
 }
 
-int isLegalLabelName(label_table *label_tb, macr_table *macr_tb, char *name) {
+/* add the macro */
+int isLegalLabelName(label_table *label_tb, char *name) {
     opcode op = get_opcode(name);
     regis rg = get_register(name);
     instruction inst = get_instruction(name);
     label *lb = find_label(label_tb, name);
-    macr *mcr = find_macr(macr_tb, name);
     return  isLegalName(name) &&
             strcmp(name, "macr") &&
             strcmp(name, "endmacr") &&
             (op == opcode_none) &&
             (rg == regis_none) &&
             (inst == INSTRUCTION_NONE) &&
-            (lb == NULL) &&
-            (mcr == NULL);
+            (lb == NULL);
 }

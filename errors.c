@@ -3,6 +3,10 @@
 #include <string.h>
 #include "macr.h"
 #include "preprocessor.h"
+#include "globals.h"
+#include "token_utils.h"
+#include "label.h"
+#include "integer_utils.h"
 
 const char *getError(int error_code) {
     const char *errors[] = {
@@ -60,37 +64,9 @@ const char *getError(int error_code) {
     return errors[error_code];
 }
 
-int checkLines(char *file_name) {
-    FILE *fp;
-    char line[MAX_LINE_SIZE + 2];
-    int foundErr = 0;
-
-    /* Open the file in read mode */
-    fp = fopen(file_name, "r");
-    if(!fp) {
-        fprintf(stderr, "Unable to open the file!\n");
-        return EXIT_FAILURE;
-    }
-
-    /* Read each line of the file */
-    while(fgets(line, MAX_LINE_SIZE + 2, fp)) {
-        if(strlen(line) > MAX_LINE_SIZE) {
-            foundErr = 1;
-            break;
-        }
-    }
-    if(foundErr)
-        fprintf(stderr, "Found line that exceeds %d characters!\n", MAX_LINE_SIZE);
-
-    /* Close the file */
-    fclose(fp);
-
-    return EXIT_SUCCESS;
-}
-
 void allocFail(const char *ptr, macr_table *tb, FILE *fp, FILE *fptr) { /* Add file closer */
     if(!ptr) {
-        fprintf(stderr, "Memory allocation failed for name!\n");
+        fprintf(stderr, "Memory allocation failed!\n");
         freeMacrTable(tb);
         fclose(fp);
         fclose(fptr);
@@ -105,3 +81,64 @@ void openFail(FILE *fp) {
     }
 }
 
+int checkLines(char *file_name) {
+    FILE *fp;
+    char line[MAX_LINE_SIZE + 2];
+    int foundErr = EXIT_SUCCESS;
+
+    /* Open the file in read mode */
+    fp = fopen(file_name, "r");
+    if(!fp) {
+        fprintf(stderr, "Unable to open the file!\n");
+        return EXIT_FAILURE;
+    }
+
+    /* Read each line of the file */
+    while(fgets(line, MAX_LINE_SIZE + 2, fp)) {
+        if(strlen(line) > MAX_LINE_SIZE) {
+            fprintf(stderr, "Line is too long!\n");
+            foundErr = EXIT_FAILURE;
+        }
+    }
+
+    /* Close the file */
+    fclose(fp);
+
+    return foundErr;
+}
+
+int parse_opcode(opcode op, char *ptr, label_table *label_tb, int line_counter) {
+    char str[MAX_LABEL_SIZE + 1], *tmp;
+    switch(op) {
+        case mov:
+        case add:
+        case sub:
+            nextToken(str, &ptr, ' ');
+
+            if(!find_label(label_tb, str) &&
+            isLegalInteger(str) &&
+            get_register(str) == regis_none)
+
+        case cmp:
+
+        case lea:
+
+        case clr:
+        case not:
+        case inc:
+        case dec:
+        case red:
+
+        case jmp:
+        case bne:
+        case jsr:
+
+        case prn:
+
+        case rts:
+        case stop:
+
+        case opcode_none:
+            break;
+    }
+}

@@ -4,7 +4,7 @@
 #include "macr.h"
 #include "globals.h"
 
-typedef struct label{
+typedef struct label {
     int address;
     char *name;
     instruction info;
@@ -25,6 +25,7 @@ void freeLabelTable(label_table *tb);
 
 label *find_label(label_table *tb, char *name);
 
-int isLegalLabelName(label_table *label_tb, macr_table *macr_tb, char *name);
+/* add the macro */
+int isLegalLabelName(label_table *label_tb, char *name);
 
 #endif /* LABEL_H */

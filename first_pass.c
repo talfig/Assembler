@@ -2,63 +2,55 @@
 #include <stdlib.h>
 #include <string.h>
 #include "macr.h"
+#include "label.h"
 #include "preprocessor.h"
 #include "token_utils.h"
+#include "globals.h"
 
 int first_pass(FILE *fp) {
     char ptr[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 1], name[MAX_LABEL_SIZE + 1], *tmp;
-    int foundErr = 0, exit_code;
-    FILE *fptr;
-    macr *mcr;
-    macr_table macr_tb;
-
-    emptyMacrTable(&macr_tb);
-    fptr = fopen("first_pass.txt", "w");
-    if(!fptr) {
-        fprintf(stderr, "Unable to open the file!\n");
-        fclose(fp);
-        exit(EXIT_FAILURE);
-    }
-
+    int foundErr = 0, count_op;
+    label *lb;
+    label_table label_tb;
+    opcode op;
+    instruction instruct;
+    emptyLabelTable(&label_tb);
     while((tmp = fgets(ptr, MAX_LINE_SIZE + 1, fp))) {
+        if(tmp[0] == ';')
+            continue;
         nextToken(str, &tmp, ' ');
-        mcr = find_macr(&macr_tb, str);
+        if(str[strlen(str) - 1] == ':') {
+            str[strlen(str) - 1] = '\0';
 
-        if(mcr)
-            fprintf(fptr, "%s", mcr->info);
-
-        else if(strcmp(str, "macr")) {
-            if(!strstr(tmp, "macr"))
-                fprintf(fptr, "%s", ptr);
-            else {
-                fprintf(stderr, "Line must contain only a macro definition!\n");
-                return EXIT_FAILURE;
-            }
-
-        }
-
-        else {
-            nextToken(name, &tmp, ' ');
-            nextToken(str, &tmp, ' ');
-            if(*str || !(*name)) {
-                fprintf(stderr, "Line must contain only a macro definition!\n");
-                return EXIT_FAILURE;
-            }
-
-            if(isLegalMacrName(&macr_tb, name)) {
-                exit_code = save_macr(&macr_tb, name, fp, fptr);
-                if(exit_code) return exit_code;
-            } else {
-                fprintf(stderr, "Invalid macro name!\n");
+            /* add error message to the function and change it in the preprocessor */
+            if(!isLegalLabelName(&label_tb, str)) {
                 foundErr = EXIT_FAILURE;
-                break;
+                continue;
             }
+
+            lb = malloc(sizeof(label));
+            if(!lb) {
+                fprintf(stderr, "Memory allocation failed!\n");
+                fclose(fp);
+                freeLabelTable(&label_tb);
+                exit(EXIT_FAILURE);
+            }
+            lb->address = 0;
+            lb->next = NULL;
+            lb->info = INSTRUCTION_NONE;
+            lb->name = my_strdup(str);
+            if(!(lb->name)) {
+                fprintf(stderr, "Memory allocation failed!\n");
+                fclose(fp);
+                freeLabelTable(&label_tb);
+                exit(EXIT_FAILURE);
+            }
+            addToLabelTable(&label_tb, lb);
         }
     }
 
-    freeMacrTable(&macr_tb);
+    freeLabelTable(&label_tb);
     fclose(fp);
-    fclose(fptr);
     return foundErr;
 }
 
