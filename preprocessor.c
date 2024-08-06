@@ -7,8 +7,8 @@
 #include "errors.h"
 
 int preprocess(FILE *fp) {
-    char ptr[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 1], name[MAX_LABEL_SIZE + 1], *tmp;
-    int foundErr = 0, exit_code;
+    char line[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 1], name[MAX_LABEL_SIZE + 1], *tmp;
+    int foundErr = EXIT_SUCCESS, exit_code;
     FILE *fptr;
     macr *mcr;
     macr_table macr_tb;
@@ -24,7 +24,7 @@ int preprocess(FILE *fp) {
         exit(EXIT_FAILURE);
     }
 
-    while((tmp = fgets(ptr, MAX_LINE_SIZE + 1, fp))) {
+    while((tmp = fgets(line, MAX_LINE_SIZE + 1, fp))) {
         nextToken(str, &tmp, ' ');
         nextToken(name, &tmp, ' ');
         mcr = find_macr(&macr_tb, str);
@@ -40,7 +40,7 @@ int preprocess(FILE *fp) {
 
         else if(strcmp(str, "macr")) {
             if(!strstr(tmp, "macr"))
-                fprintf(fptr, "%s", ptr);
+                fprintf(fptr, "%s", line);
             else {
                 fprintf(stderr, "Line must contain only a macro definition!\n");
                 foundErr = EXIT_FAILURE;

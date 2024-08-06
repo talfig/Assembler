@@ -84,7 +84,7 @@ void openFail(FILE *fp) {
 int checkLines(char *file_name) {
     FILE *fp;
     char line[MAX_LINE_SIZE + 2];
-    int foundErr = EXIT_SUCCESS;
+    int foundErr = EXIT_SUCCESS, last;
 
     /* Open the file in read mode */
     fp = fopen(file_name, "r");
@@ -95,7 +95,15 @@ int checkLines(char *file_name) {
 
     /* Read each line of the file */
     while(fgets(line, MAX_LINE_SIZE + 2, fp)) {
-        if(strlen(line) > MAX_LINE_SIZE) {
+        last = strlen(line) - 1;
+
+        if(line[last] == '\n' && strlen(line) > MAX_LINE_SIZE) {
+            fprintf(stderr, "Line is too long!\n");
+            foundErr = EXIT_FAILURE;
+        }
+
+        /* Last line */
+        else if(line[last] != '\n' && strlen(line) >= MAX_LINE_SIZE) {
             fprintf(stderr, "Line is too long!\n");
             foundErr = EXIT_FAILURE;
         }
@@ -107,38 +115,75 @@ int checkLines(char *file_name) {
     return foundErr;
 }
 
-int parse_opcode(opcode op, char *ptr, label_table *label_tb, int line_counter) {
-    char str[MAX_LABEL_SIZE + 1], *tmp;
+int is_1_2(label_table *label_tb, char *str) {
+    char *ptr = str;
+    if(find_label(label_tb, str))
+        return 1;
+    if(*ptr == '*' && get_register(ptr + 1) != regis_none)
+        return 1;
+    return 0;
+}
+
+int is_1_2_3(label_table *label_tb, char *str) {
+    if(is_1_2(label_tb, str) || get_register(str) != regis_none)
+        return 1;
+    return 0;
+}
+
+int is_0_1_2_3(label_table *label_tb, char *str) {
+    if(is_1_2_3(label_tb, str) || parseInstructionInt(str) != INSTRUCTION_MAX_VALUE + 1)
+        return 1;
+    return 0;
+}
+
+
+int parse_opcode(opcode op, char *ptr, label_table *label_tb) {
+    char str1[MAX_LABEL_SIZE + 1], str2[MAX_LABEL_SIZE + 1], str3[MAX_LABEL_SIZE + 1];
+    nextToken(str1, &ptr, ' ');
+    nextToken(str2, &ptr, ' ');
+    nextToken(str3, &ptr, ' ');
+
+    /* remember to separate *str3 and to add an error message */
     switch(op) {
         case mov:
         case add:
         case sub:
-            nextToken(str, &ptr, ' ');
-
-            if(!find_label(label_tb, str) &&
-            isLegalInteger(str) &&
-            get_register(str) == regis_none)
+            if(!is_1_2_3(label_tb, str1)
+            || !is_0_1_2_3(label_tb, str2)
+            || *str3)
+                return 1;
 
         case cmp:
+            if(!is_0_1_2_3(label_tb, str1)
+               || !is_0_1_2_3(label_tb, str2)
+               || *str3)
+                return 1;
 
         case lea:
-
+            if(!is_1_2_3(label_tb, str1)
+               || !find_label(label_tb, str2)
+               || *str3)
+                return 1;
         case clr:
         case not:
         case inc:
         case dec:
         case red:
-
+            if(!is_1_2_3(label_tb, str1) || *str3)
+                return 1;
         case jmp:
         case bne:
         case jsr:
-
+            if(!is_1_2(label_tb, str1) || *str3)
+                return 1;
         case prn:
-
+            if(!is_0_1_2_3(label_tb, str1) || *str3)
+                return 1;
         case rts:
         case stop:
-
+            if(*str3)
+                return 1;
         case opcode_none:
-            break;
+            return 1;
     }
 }

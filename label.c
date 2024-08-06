@@ -66,3 +66,32 @@ int isLegalLabelName(label_table *label_tb, char *name) {
             (inst == INSTRUCTION_NONE) &&
             (lb == NULL);
 }
+
+int parseLabel(label_table *label_tb, char *str, FILE *fp) {
+    label *lb;
+
+    /* add error message to the function and change it in the preprocessor */
+    if(!isLegalLabelName(&label_tb, str))
+        return EXIT_FAILURE;
+
+    lb = malloc(sizeof(label));
+    if(!lb) {
+        fprintf(stderr, "Memory allocation failed!\n");
+        fclose(fp);
+        freeLabelTable(&label_tb);
+        exit(EXIT_FAILURE);
+    }
+    lb->address = 0;
+    lb->next = NULL;
+    lb->info = INSTRUCTION_NONE;
+    lb->name = my_strdup(str);
+    if(!(lb->name)) {
+        fprintf(stderr, "Memory allocation failed!\n");
+        fclose(fp);
+        freeLabelTable(&label_tb);
+        exit(EXIT_FAILURE);
+    }
+    addToLabelTable(&label_tb, lb);
+
+    return EXIT_SUCCESS;
+}

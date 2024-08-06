@@ -12,6 +12,9 @@ int isLegalName(char *name) {
     if(!name || !(*name)) return 0;
     if(!isalpha(*name)) return 0;
 
+    if(strlen(name) > MAX_LABEL_SIZE)
+        return 0;
+
     while(*name) {
         if(!isalnum(*name) && *name != '_')
             return 0;
@@ -94,7 +97,7 @@ char *my_strdup(const char *s) {
 }
 
 int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr) {
-    char *info, *new_info, *tmp, ptr[MAX_LINE_SIZE + 1];
+    char *info, *new_info, *tmp, line[MAX_LINE_SIZE + 1];
     unsigned long len = 0;
     macr *mcr = malloc(sizeof(macr));
     if(!mcr) {
@@ -113,7 +116,7 @@ int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr) {
     info = malloc(0);
     allocFail(info, tb, fp, fptr);
 
-    while((tmp = fgets(ptr, MAX_LINE_SIZE + 1, fp))) {
+    while((tmp = fgets(line, MAX_LINE_SIZE + 1, fp))) {
         nextToken(name, &tmp, ' ');
         if(!strcmp(name, "endmacr")) {
             if(*tmp && !isspace(*tmp)) {
@@ -137,7 +140,7 @@ int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr) {
         }
         info = new_info;
         tmp = info + len;
-        strcpy(tmp, ptr);
+        strcpy(tmp, line);
         len = strlen(info);
     }
     mcr->info = info;

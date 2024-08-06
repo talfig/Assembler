@@ -28,4 +28,7 @@ label *find_label(label_table *tb, char *name);
 /* add the macro */
 int isLegalLabelName(label_table *label_tb, char *name);
 
+/* add the macro */
+int parseLabel(label_table *label_tb, char *str, FILE *fp);
+
 #endif /* LABEL_H */

@@ -6,47 +6,37 @@
 #include "preprocessor.h"
 #include "token_utils.h"
 #include "globals.h"
+#include "integer_utils.h"
 
 int first_pass(FILE *fp) {
     char ptr[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 1], name[MAX_LABEL_SIZE + 1], *tmp;
-    int foundErr = 0, count_op;
-    label *lb;
+    int foundErr = EXIT_SUCCESS, line_counter = 0, IC = 0, DC = 0;
     label_table label_tb;
     opcode op;
-    instruction instruct;
     emptyLabelTable(&label_tb);
+
     while((tmp = fgets(ptr, MAX_LINE_SIZE + 1, fp))) {
-        if(tmp[0] == ';')
+        if(*tmp == ';')
             continue;
+
         nextToken(str, &tmp, ' ');
         if(str[strlen(str) - 1] == ':') {
             str[strlen(str) - 1] = '\0';
-
-            /* add error message to the function and change it in the preprocessor */
-            if(!isLegalLabelName(&label_tb, str)) {
+            /* add error message */
+            if(parseLabel(&label_tb, str, fp)) {
                 foundErr = EXIT_FAILURE;
                 continue;
             }
 
-            lb = malloc(sizeof(label));
-            if(!lb) {
-                fprintf(stderr, "Memory allocation failed!\n");
-                fclose(fp);
-                freeLabelTable(&label_tb);
-                exit(EXIT_FAILURE);
+            nextToken(str, &tmp, ' ');
+            if(!strcmp(str, ".data")) {
+                if(!isLegalData(tmp))
+                    continue;
+                
             }
-            lb->address = 0;
-            lb->next = NULL;
-            lb->info = INSTRUCTION_NONE;
-            lb->name = my_strdup(str);
-            if(!(lb->name)) {
-                fprintf(stderr, "Memory allocation failed!\n");
-                fclose(fp);
-                freeLabelTable(&label_tb);
-                exit(EXIT_FAILURE);
-            }
-            addToLabelTable(&label_tb, lb);
         }
+
+        /* check opcode or .data or .string */
     }
 
     freeLabelTable(&label_tb);

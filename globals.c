@@ -22,43 +22,6 @@ opcode get_opcode(const char *str) {
     return opcode_none; /* For unknown strings */
 }
 
-int count_operands(const char *str) {
-    size_t i;
-    const opcodeMapping opcode_map[] = {
-            /* Two operands */
-            {"mov", mov},
-            {"cmp", cmp},
-            {"add", add},
-            {"sub", sub},
-            {"lea", lea},
-
-            /* One operand */
-            {"clr", clr},
-            {"not", not},
-            {"inc", inc},
-            {"dec", dec},
-            {"jmp", jmp},
-            {"bne", bne},
-            {"red", red},
-            {"prn", prn},
-            {"jsr", jsr},
-
-            /* Zero operands */
-            {"rts", rts},
-            {"stop", stop}
-    };
-
-    for(i = 0; i < OPCODE_COUNT; ++i) {
-        if(!strcmp(str, opcode_map[i].name)) {
-            if(i <= 4) return 2;
-            if(i <= 13) return 1;
-            return 0;
-        }
-    }
-    return -1;
-}
-
-
 regis get_register(const char *str) {
     size_t i;
     const registerMapping register_map[] = {
