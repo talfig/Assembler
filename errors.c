@@ -98,13 +98,13 @@ int checkLines(char *file_name) {
         last = strlen(line) - 1;
 
         if(line[last] == '\n' && strlen(line) > MAX_LINE_SIZE) {
-            fprintf(stderr, "Line is too long!\n");
+            printf("Line is too long!\n");
             foundErr = EXIT_FAILURE;
         }
 
         /* Last line */
         else if(line[last] != '\n' && strlen(line) >= MAX_LINE_SIZE) {
-            fprintf(stderr, "Line is too long!\n");
+            printf("Line is too long!\n");
             foundErr = EXIT_FAILURE;
         }
     }
@@ -115,30 +115,31 @@ int checkLines(char *file_name) {
     return foundErr;
 }
 
-int is_1_2(label_table *label_tb, char *str) {
+int is_1_2(label_table *label_tb, macr_table *macr_tb, char *str) {
     char *ptr = str;
-    if(find_label(label_tb, str))
+
+    /* add the macro */
+    if(isLegalLabelName(label_tb, macr_tb, str))
         return 1;
     if(*ptr == '*' && get_register(ptr + 1) != regis_none)
         return 1;
     return 0;
 }
 
-int is_1_2_3(label_table *label_tb, char *str) {
-    if(is_1_2(label_tb, str) || get_register(str) != regis_none)
+int is_1_2_3(label_table *label_tb, macr_table *macr_tb, char *str) {
+    if(is_1_2(label_tb, macr_tb, str) || get_register(str) != regis_none)
         return 1;
     return 0;
 }
 
-int is_0_1_2_3(label_table *label_tb, char *str) {
-    if(is_1_2_3(label_tb, str) || parseInstructionInt(str) != INSTRUCTION_MAX_VALUE + 1)
+int is_0_1_2_3(label_table *label_tb, macr_table *macr_tb, char *str) {
+    if(is_1_2_3(label_tb, macr_tb, str) || parseInstructionInt(str) != INSTRUCTION_MAX_VALUE + 1)
         return 1;
     return 0;
 }
 
-
-int parse_opcode(opcode op, char *ptr, label_table *label_tb) {
-    char str1[MAX_LABEL_SIZE + 1], str2[MAX_LABEL_SIZE + 1], str3[MAX_LABEL_SIZE + 1];
+int isLegalOpcode(opcode op, char *ptr, label_table *label_tb, macr_table *macr_tb) {
+    char str1[MAX_LABEL_SIZE + 2], str2[MAX_LABEL_SIZE + 2], str3[MAX_LABEL_SIZE + 2];
     nextToken(str1, &ptr, ' ');
     nextToken(str2, &ptr, ' ');
     nextToken(str3, &ptr, ' ');
@@ -148,19 +149,19 @@ int parse_opcode(opcode op, char *ptr, label_table *label_tb) {
         case mov:
         case add:
         case sub:
-            if(!is_1_2_3(label_tb, str1)
-            || !is_0_1_2_3(label_tb, str2)
+            if(!is_1_2_3(label_tb, macr_tb, str1)
+            || !is_0_1_2_3(label_tb, macr_tb, str2)
             || *str3)
                 return 1;
 
         case cmp:
-            if(!is_0_1_2_3(label_tb, str1)
-               || !is_0_1_2_3(label_tb, str2)
+            if(!is_0_1_2_3(label_tb, macr_tb, str1)
+               || !is_0_1_2_3(label_tb, macr_tb, str2)
                || *str3)
                 return 1;
 
         case lea:
-            if(!is_1_2_3(label_tb, str1)
+            if(!is_1_2_3(label_tb, macr_tb, str1)
                || !find_label(label_tb, str2)
                || *str3)
                 return 1;
@@ -169,15 +170,15 @@ int parse_opcode(opcode op, char *ptr, label_table *label_tb) {
         case inc:
         case dec:
         case red:
-            if(!is_1_2_3(label_tb, str1) || *str3)
+            if(!is_1_2_3(label_tb, macr_tb, str1) || *str3)
                 return 1;
         case jmp:
         case bne:
         case jsr:
-            if(!is_1_2(label_tb, str1) || *str3)
+            if(!is_1_2(label_tb, macr_tb, str1) || *str3)
                 return 1;
         case prn:
-            if(!is_0_1_2_3(label_tb, str1) || *str3)
+            if(!is_0_1_2_3(label_tb, macr_tb, str1) || *str3)
                 return 1;
         case rts:
         case stop:
@@ -186,4 +187,53 @@ int parse_opcode(opcode op, char *ptr, label_table *label_tb) {
         case opcode_none:
             return 1;
     }
+
+    return 0;
+}
+
+
+int isLegalData(char *ptr) {
+    int num, isLegal = 1;
+    char str[DATA_MAX_SIZE + 1];
+
+    /* Check for the first token in the string */
+    if(nextToken(str, &ptr, ',')) return 0;
+
+    /* Iterate through each token */
+    while(*ptr) {
+        num = parseDataInt(ptr);
+
+        /* Check if the token is a valid integer */
+        if(num == DATA_MAX_VALUE + 1) return 0;
+
+        /* Validate the length of the integer */
+        else if(strlen(ptr) != countDigits(num)) {
+            printf("Invalid number - not an integer\n");
+            return 0;
+        }
+
+        /* Move to the next token */
+        else if(nextToken(str, &ptr, ',') != 1) return 0;
+    }
+
+    /* Final validation of the format */
+    if(*str) {
+        printf("Extraneous text after end of command\n");
+        isLegal = 0;
+    }
+
+    return isLegal;
+}
+
+int isLegalString(char *ptr) {
+    char str[MAX_LINE_SIZE + 1];
+
+    nextToken(str, &ptr, ' ');
+    if(str[0] != '\"' || str[strlen(str) - 1] != '\"')
+        return 0;
+
+    nextToken(str, &ptr, ' ');
+    if(*str) return 0;
+
+    return 1;
 }

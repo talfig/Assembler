@@ -27,7 +27,7 @@ void freeMacrTable(macr_table *tb);
 
 macr *find_macr(macr_table *tb, char *name);
 
-int isLegalMacrName(macr_table *macr_tb, char *name);
+int isLegalMacrName(macr_table *tb, char *name);
 
 char *my_strdup(const char *s);
 

@@ -13,6 +13,4 @@ int parseDataInt(char *str);
 
 int parseInstructionInt(char *str);
 
-int isLegalData(char *ptr);
-
 #endif /* INTEGER_UTILS_H */

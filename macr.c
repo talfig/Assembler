@@ -74,11 +74,11 @@ macr *find_macr(macr_table *tb, char *name) {
     return NULL;
 }
 
-int isLegalMacrName(macr_table *macr_tb, char *name) {
+int isLegalMacrName(macr_table *tb, char *name) {
     opcode op = get_opcode(name);
     regis rg = get_register(name);
     instruction inst = get_instruction(name);
-    macr *mcr = find_macr(macr_tb, name);
+    macr *mcr = find_macr(tb, name);
     return  isLegalName(name) &&
             strcmp(name, "macr") &&
             strcmp(name, "endmacr") &&
@@ -120,12 +120,12 @@ int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr) {
         nextToken(name, &tmp, ' ');
         if(!strcmp(name, "endmacr")) {
             if(*tmp && !isspace(*tmp)) {
-                fprintf(stderr, "Line must contain only \"endmacr!\"\n");
+                printf("Line must contain only \"endmacr!\"\n");
                 return MACR_DEF_ERR;
             }
             break;
         } else if(strstr(tmp, "endmacr")){
-            fprintf(stderr, "Line must contain only \"endmacr!\"\n");
+            printf("Line must contain only \"endmacr!\"\n");
             return MACR_DEF_ERR;
         }
 

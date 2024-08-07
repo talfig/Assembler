@@ -53,45 +53,50 @@ label *find_label(label_table *tb, char *name) {
 }
 
 /* add the macro */
-int isLegalLabelName(label_table *label_tb, char *name) {
+int isLegalLabelName(label_table *label_tb, macr_table *macr_tb, char *name) {
     opcode op = get_opcode(name);
     regis rg = get_register(name);
     instruction inst = get_instruction(name);
     label *lb = find_label(label_tb, name);
+    macr *mcr = find_macr(macr_tb, name);
     return  isLegalName(name) &&
             strcmp(name, "macr") &&
             strcmp(name, "endmacr") &&
             (op == opcode_none) &&
             (rg == regis_none) &&
             (inst == INSTRUCTION_NONE) &&
-            (lb == NULL);
+            (lb == NULL) &&
+            (mcr == NULL);
 }
 
-int parseLabel(label_table *label_tb, char *str, FILE *fp) {
+int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp) {
     label *lb;
 
     /* add error message to the function and change it in the preprocessor */
-    if(!isLegalLabelName(&label_tb, str))
+    if(!isLegalLabelName(label_tb, macr_tb, str))
         return EXIT_FAILURE;
 
     lb = malloc(sizeof(label));
     if(!lb) {
         fprintf(stderr, "Memory allocation failed!\n");
+        freeMacrTable(macr_tb);
+        freeLabelTable(label_tb);
         fclose(fp);
-        freeLabelTable(&label_tb);
         exit(EXIT_FAILURE);
     }
+
     lb->address = 0;
     lb->next = NULL;
     lb->info = INSTRUCTION_NONE;
     lb->name = my_strdup(str);
     if(!(lb->name)) {
         fprintf(stderr, "Memory allocation failed!\n");
+        freeMacrTable(macr_tb);
+        freeLabelTable(label_tb);
         fclose(fp);
-        freeLabelTable(&label_tb);
         exit(EXIT_FAILURE);
     }
-    addToLabelTable(&label_tb, lb);
+    addToLabelTable(label_tb, lb);
 
     return EXIT_SUCCESS;
 }

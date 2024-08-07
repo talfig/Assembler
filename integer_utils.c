@@ -59,37 +59,3 @@ int parseInstructionInt(char *str) {
     str++;
     return parseInt(str, INSTRUCTION_MIN_VALUE, INSTRUCTION_MAX_VALUE);
 }
-
-
-int isLegalData(char *ptr) {
-    int num, isLegal = 1;
-    char str[DATA_MAX_SIZE + 1];
-
-    /* Check for the first token in the string */
-    if(nextToken(str, &ptr, ',')) return 0;
-
-    /* Iterate through each token */
-    while(*ptr) {
-        num = parseDataInt(ptr);
-
-        /* Check if the token is a valid integer */
-        if(num == DATA_MAX_VALUE + 1) return 0;
-
-        /* Validate the length of the integer */
-        else if(strlen(ptr) != countDigits(num)) {
-            printf("Invalid number - not an integer\n");
-            return 0;
-        }
-
-        /* Move to the next token */
-        else if(nextToken(str, &ptr, ',') != 1) return 0;
-    }
-
-    /* Final validation of the format */
-    if(*str) {
-        printf("Extraneous text after end of command\n");
-        isLegal = 0;
-    }
-
-    return isLegal;
-}
