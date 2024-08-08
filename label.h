@@ -7,7 +7,7 @@
 typedef struct label {
     int address;
     char *name;
-    instruction info;
+    int isdata;
     struct label *next;
 } label;
 
@@ -20,6 +20,8 @@ void emptyLabelTable(label_table *tb);
 label *getLabelTail(label_table *tb);
 
 void addToLabelTable(label_table *tb, label *ptr);
+
+void increaseDataLabelTableAddress(label_table *tb, int num);
 
 void freeLabelTable(label_table *tb);
 

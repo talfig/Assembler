@@ -97,7 +97,7 @@ char *my_strdup(const char *s) {
 }
 
 int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr) {
-    char *info, *new_info, *tmp, line[MAX_LINE_SIZE + 1];
+    char *info, *new_info, *ptr, line[MAX_LINE_SIZE + 1];
     unsigned long len = 0;
     macr *mcr = malloc(sizeof(macr));
     if(!mcr) {
@@ -116,15 +116,15 @@ int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr) {
     info = malloc(0);
     allocFail(info, tb, fp, fptr);
 
-    while((tmp = fgets(line, MAX_LINE_SIZE + 1, fp))) {
-        nextToken(name, &tmp, ' ');
+    while((ptr = fgets(line, MAX_LINE_SIZE + 1, fp))) {
+        nextToken(name, &ptr, ' ');
         if(!strcmp(name, "endmacr")) {
-            if(*tmp && !isspace(*tmp)) {
+            if(*ptr && !isspace(*ptr)) {
                 printf("Line must contain only \"endmacr!\"\n");
                 return MACR_DEF_ERR;
             }
             break;
-        } else if(strstr(tmp, "endmacr")){
+        } else if(strstr(ptr, "endmacr")){
             printf("Line must contain only \"endmacr!\"\n");
             return MACR_DEF_ERR;
         }
@@ -139,8 +139,8 @@ int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr) {
             exit(EXIT_FAILURE);
         }
         info = new_info;
-        tmp = info + len;
-        strcpy(tmp, line);
+        ptr = info + len;
+        strcpy(ptr, line);
         len = strlen(info);
     }
     mcr->info = info;

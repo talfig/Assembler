@@ -28,6 +28,17 @@ void addToLabelTable(label_table *tb, label *ptr) {
     else tmp->next = ptr; /* Otherwise, add the new node at the end of the list */
 }
 
+void increaseDataLabelTableAddress(label_table *tb, int num) {
+    label *ptr;
+
+    ptr = tb->head;
+    while(ptr) {
+        if(ptr->isdata)
+            ptr->address += num;
+        ptr = ptr->next;
+    }
+}
+
 
 void freeLabelTable(label_table *tb) {
     label *ptr, *tmp;
@@ -73,8 +84,10 @@ int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp) 
     label *lb;
 
     /* add error message to the function and change it in the preprocessor */
-    if(!isLegalLabelName(label_tb, macr_tb, str))
+    if(!isLegalLabelName(label_tb, macr_tb, str)) {
+
         return EXIT_FAILURE;
+    }
 
     lb = malloc(sizeof(label));
     if(!lb) {
@@ -87,7 +100,7 @@ int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp) 
 
     lb->address = 0;
     lb->next = NULL;
-    lb->info = INSTRUCTION_NONE;
+    lb->isdata = 0;
     lb->name = my_strdup(str);
     if(!(lb->name)) {
         fprintf(stderr, "Memory allocation failed!\n");

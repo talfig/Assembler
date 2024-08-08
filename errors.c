@@ -7,6 +7,7 @@
 #include "token_utils.h"
 #include "label.h"
 #include "integer_utils.h"
+#include "opcode_utils.h"
 
 const char *getError(int error_code) {
     const char *errors[] = {
@@ -115,29 +116,6 @@ int checkLines(char *file_name) {
     return foundErr;
 }
 
-int is_1_2(label_table *label_tb, macr_table *macr_tb, char *str) {
-    char *ptr = str;
-
-    /* add the macro */
-    if(isLegalLabelName(label_tb, macr_tb, str))
-        return 1;
-    if(*ptr == '*' && get_register(ptr + 1) != regis_none)
-        return 1;
-    return 0;
-}
-
-int is_1_2_3(label_table *label_tb, macr_table *macr_tb, char *str) {
-    if(is_1_2(label_tb, macr_tb, str) || get_register(str) != regis_none)
-        return 1;
-    return 0;
-}
-
-int is_0_1_2_3(label_table *label_tb, macr_table *macr_tb, char *str) {
-    if(is_1_2_3(label_tb, macr_tb, str) || parseInstructionInt(str) != INSTRUCTION_MAX_VALUE + 1)
-        return 1;
-    return 0;
-}
-
 int isLegalOpcode(opcode op, char *ptr, label_table *label_tb, macr_table *macr_tb) {
     char str1[MAX_LABEL_SIZE + 2], str2[MAX_LABEL_SIZE + 2], str3[MAX_LABEL_SIZE + 2];
     nextToken(str1, &ptr, ' ');
@@ -149,43 +127,110 @@ int isLegalOpcode(opcode op, char *ptr, label_table *label_tb, macr_table *macr_
         case mov:
         case add:
         case sub:
-            if(!is_1_2_3(label_tb, macr_tb, str1)
-            || !is_0_1_2_3(label_tb, macr_tb, str2)
-            || *str3)
-                return 1;
+            /* add error message for each error */
+            if(!is1_2_3(label_tb, macr_tb, str1)) {
+
+                return 0;
+            } if(!is0_1_2_3(label_tb, macr_tb, str2)) {
+
+                return 0;
+            } if(*str3) {
+
+                return 0;
+            }
+
+            if(is2_3(str1) && is2_3(str2))
+                return 2;
+            return 3;
 
         case cmp:
-            if(!is_0_1_2_3(label_tb, macr_tb, str1)
-               || !is_0_1_2_3(label_tb, macr_tb, str2)
-               || *str3)
-                return 1;
+            /* add error message for each error */
+            if(!is0_1_2_3(label_tb, macr_tb, str1)) {
+
+                return 0;
+            } if(!is0_1_2_3(label_tb, macr_tb, str2)) {
+
+                return 0;
+            } if(*str3) {
+
+                return 0;
+            }
+            if(is2_3(str1) && is2_3(str2))
+                return 2;
+            return 3;
 
         case lea:
-            if(!is_1_2_3(label_tb, macr_tb, str1)
-               || !find_label(label_tb, str2)
-               || *str3)
-                return 1;
+            /* add error message for each error */
+            if(!is1_2_3(label_tb, macr_tb, str1)) {
+
+                return 0;
+            } if(!is1(label_tb, macr_tb, str1)) {
+
+                return 0;
+            } if(*str3) {
+
+                return 0;
+            }
+
+            return 3;
+
         case clr:
         case not:
         case inc:
         case dec:
         case red:
-            if(!is_1_2_3(label_tb, macr_tb, str1) || *str3)
-                return 1;
+            /* add error message for each error */
+            if(!is1_2_3(label_tb, macr_tb, str1)) {
+
+                return 0;
+            } if(*str3) {
+
+                return 0;
+            }
+
+            return 2;
+
         case jmp:
         case bne:
         case jsr:
-            if(!is_1_2(label_tb, macr_tb, str1) || *str3)
-                return 1;
+            /* add error message for each error */
+            if(!is1_2(label_tb, macr_tb, str1)) {
+
+                return 0;
+            } if(*str3) {
+
+                return 0;
+            }
+
+            return 2;
+
         case prn:
-            if(!is_0_1_2_3(label_tb, macr_tb, str1) || *str3)
-                return 1;
+            /* add error message for each error */
+            if(!is0_1_2_3(label_tb, macr_tb, str1)) {
+
+                return 0;
+            } if(*str3) {
+
+                return 0;
+            }
+
+            return 2;
+
         case rts:
         case stop:
-            if(*str3)
-                return 1;
-        case opcode_none:
+            /* add error message for each error */
+            if(*str3) {
+
+                return 0;
+            }
+
             return 1;
+
+        case opcode_none: {
+            /* add error message for each error */
+
+            break;
+        }
     }
 
     return 0;
@@ -193,7 +238,7 @@ int isLegalOpcode(opcode op, char *ptr, label_table *label_tb, macr_table *macr_
 
 
 int isLegalData(char *ptr) {
-    int num, isLegal = 1;
+    int num, countData = 0;
     char str[DATA_MAX_SIZE + 1];
 
     /* Check for the first token in the string */
@@ -202,6 +247,7 @@ int isLegalData(char *ptr) {
     /* Iterate through each token */
     while(*ptr) {
         num = parseDataInt(ptr);
+        countData++;
 
         /* Check if the token is a valid integer */
         if(num == DATA_MAX_VALUE + 1) return 0;
@@ -219,10 +265,10 @@ int isLegalData(char *ptr) {
     /* Final validation of the format */
     if(*str) {
         printf("Extraneous text after end of command\n");
-        isLegal = 0;
+        return 0;
     }
 
-    return isLegal;
+    return countData;
 }
 
 int isLegalString(char *ptr) {
@@ -235,5 +281,5 @@ int isLegalString(char *ptr) {
     nextToken(str, &ptr, ' ');
     if(*str) return 0;
 
-    return 1;
+    return strlen(str) - 2;
 }
