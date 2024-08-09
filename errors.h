@@ -7,16 +7,16 @@
 
 const char *getError(int error_code);
 
-void allocFail(const char *ptr, macr_table *tb, FILE *fp, FILE *fptr);
+void allocFail(const char *ptr, macr_table *tb, FILE *fp_in, FILE *fp_out);
 
 void openFail(FILE *fp);
 
 int checkLines(char *file_name);
 
-int isLegalOpcode(opcode op, char *ptr, label_table *label_tb, macr_table *macr_tb);
+int isLegalOpcode(opcode op, char *ptr, int line_counter, label_table *label_tb, macr_table *macr_tb);
 
-int isLegalData(char *ptr);
+int isLegalData(char *ptr, int line_counter);
 
-int isLegalString(char *ptr);
+int isLegalString(char *ptr, int line_counter);
 
 #endif /* ERRORS_H */

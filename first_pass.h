@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include "macr.h"
 
-int first_pass(FILE *fp, macr_table *macr_tb);
+#define MEMORY_SIZE 4096
+
+int first_pass(char *file_nam, macr_table *macr_tb);
 
 #endif /* FIRST_PASS_H */

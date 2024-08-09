@@ -4,7 +4,7 @@
 #include "label.h"
 #include "macr.h"
 
-int is0(char *str);
+int is0(char *str, int line_counter);
 
 int is1(label_table *label_tb, macr_table *macr_tb, char *str);
 
@@ -18,6 +18,6 @@ int is2_3(char *str);
 
 int is1_2_3(label_table *label_tb, macr_table *macr_tb, char *str);
 
-int is0_1_2_3(label_table *label_tb, macr_table *macr_tb, char *str);
+int is0_1_2_3(label_table *label_tb, macr_table *macr_tb, char *str, int line_counter);
 
 #endif /* OPCODE_UTILS_H */

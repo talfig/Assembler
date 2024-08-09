@@ -96,46 +96,46 @@ char *my_strdup(const char *s) {
     return res;
 }
 
-int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr) {
+int save_macr(macr_table *tb, char *name, int line_counter, FILE *fp_in, FILE *fp_out) {
     char *info, *new_info, *ptr, line[MAX_LINE_SIZE + 1];
     unsigned long len = 0;
     macr *mcr = malloc(sizeof(macr));
     if(!mcr) {
-        fprintf(stderr, "Memory allocation failed!\n");
+        fprintf(stderr, "%s\n", getError(0));
         freeMacrTable(tb);
-        fclose(fp);
-        fclose(fptr);
+        fclose(fp_in);
+        fclose(fp_out);
         exit(EXIT_FAILURE);
     }
 
     mcr->next = NULL;
     mcr->name = my_strdup(name);
     addToMacrTable(tb, mcr);
-    allocFail(mcr->name, tb, fp, fptr);
+    allocFail(mcr->name, tb, fp_in, fp_out);
 
     info = malloc(0);
-    allocFail(info, tb, fp, fptr);
+    allocFail(info, tb, fp_in, fp_out);
 
-    while((ptr = fgets(line, MAX_LINE_SIZE + 1, fp))) {
+    while((ptr = fgets(line, MAX_LINE_SIZE + 1, fp_in))) {
         nextToken(name, &ptr, ' ');
         if(!strcmp(name, "endmacr")) {
             if(*ptr && !isspace(*ptr)) {
-                printf("Line must contain only \"endmacr!\"\n");
+                printf("Error found in line %d: %s\n", line_counter, getError(14));
                 return MACR_DEF_ERR;
             }
             break;
         } else if(strstr(ptr, "endmacr")){
-            printf("Line must contain only \"endmacr!\"\n");
+            printf("Error found in line %d: %s\n", line_counter, getError(15));
             return MACR_DEF_ERR;
         }
 
         new_info = realloc(info, len + MAX_LINE_SIZE + 1);
         if(!new_info) {
-            fprintf(stderr, "Memory reallocation failed!\n");
+            fprintf(stderr, "%s\n", getError(1));
             free(info);
             freeMacrTable(tb);
-            fclose(fp);
-            fclose(fptr);
+            fclose(fp_in);
+            fclose(fp_out);
             exit(EXIT_FAILURE);
         }
         info = new_info;

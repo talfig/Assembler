@@ -9,8 +9,8 @@
 
 int countDigits(int num);
 
-int parseDataInt(char *str);
+int parseDataInt(char *str, int line_counter);
 
-int parseInstructionInt(char *str);
+int parseInstructionInt(char *str, int line_counter);
 
 #endif /* INTEGER_UTILS_H */

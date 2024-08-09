@@ -7,7 +7,8 @@
 typedef struct label {
     int address;
     char *name;
-    int isdata;
+    int is_data;
+    int is_extern;
     struct label *next;
 } label;
 

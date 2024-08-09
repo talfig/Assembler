@@ -2,14 +2,14 @@
 #include "macr.h"
 #include "integer_utils.h"
 
-int is0(char *str) {
-    if(parseInstructionInt(str) != INSTRUCTION_MAX_VALUE + 1)
+int is0(char *str, int line_counter) {
+    if(parseInstructionInt(str, line_counter) != INSTRUCTION_MAX_VALUE + 1)
         return 1;
     return 0;
 }
 
 int is1(label_table *label_tb, macr_table *macr_tb, char *str) {
-    if(isLegalLabelName(label_tb, macr_tb, str))
+    if(find_label(label_tb, str) || isLegalLabelName(label_tb, macr_tb, str))
         return 1;
     return 0;
 }
@@ -46,8 +46,8 @@ int is1_2_3(label_table *label_tb, macr_table *macr_tb, char *str) {
     return 0;
 }
 
-int is0_1_2_3(label_table *label_tb, macr_table *macr_tb, char *str) {
-    if(is0(str) || is1_2_3(label_tb, macr_tb, str))
+int is0_1_2_3(label_table *label_tb, macr_table *macr_tb, char *str, int line_counter) {
+    if(is0(str, line_counter) || is1_2_3(label_tb, macr_tb, str))
         return 1;
     return 0;
 }

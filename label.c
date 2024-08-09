@@ -3,6 +3,7 @@
 #include "label.h"
 #include "macr.h"
 #include "globals.h"
+#include "errors.h"
 
 /* label_table */
 
@@ -33,7 +34,7 @@ void increaseDataLabelTableAddress(label_table *tb, int num) {
 
     ptr = tb->head;
     while(ptr) {
-        if(ptr->isdata)
+        if(ptr->is_data)
             ptr->address += num;
         ptr = ptr->next;
     }
@@ -63,7 +64,6 @@ label *find_label(label_table *tb, char *name) {
     return NULL;
 }
 
-/* add the macro */
 int isLegalLabelName(label_table *label_tb, macr_table *macr_tb, char *name) {
     opcode op = get_opcode(name);
     regis rg = get_register(name);
@@ -83,15 +83,12 @@ int isLegalLabelName(label_table *label_tb, macr_table *macr_tb, char *name) {
 int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp) {
     label *lb;
 
-    /* add error message to the function and change it in the preprocessor */
-    if(!isLegalLabelName(label_tb, macr_tb, str)) {
-
-        return EXIT_FAILURE;
-    }
+    if(find_label(label_tb, str)) return EXIT_SUCCESS;
+    if(!isLegalLabelName(label_tb, macr_tb, str)) return EXIT_FAILURE;
 
     lb = malloc(sizeof(label));
     if(!lb) {
-        fprintf(stderr, "Memory allocation failed!\n");
+        fprintf(stderr, "%s\n", getError(0));
         freeMacrTable(macr_tb);
         freeLabelTable(label_tb);
         fclose(fp);
@@ -100,10 +97,11 @@ int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp) 
 
     lb->address = 0;
     lb->next = NULL;
-    lb->isdata = 0;
+    lb->is_data = 0;
+    lb->is_extern = 0;
     lb->name = my_strdup(str);
     if(!(lb->name)) {
-        fprintf(stderr, "Memory allocation failed!\n");
+        fprintf(stderr, "%s\n", getError(0));
         freeMacrTable(macr_tb);
         freeLabelTable(label_tb);
         fclose(fp);

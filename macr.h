@@ -31,6 +31,6 @@ int isLegalMacrName(macr_table *tb, char *name);
 
 char *my_strdup(const char *s);
 
-int save_macr(macr_table *tb, char *name, FILE *fp, FILE *fptr);
+int save_macr(macr_table *tb, char *name, int line_counter, FILE *fp_in, FILE *fp_out);
 
 #endif /* MACR_H */
