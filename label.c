@@ -81,7 +81,11 @@ int isLegalLabelName(label_table *label_tb, macr_table *macr_tb, char *name) {
 }
 
 int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp) {
-    label *lb;
+    label *lb = find_label(label_tb, str);
+    if(lb && lb->is_entry == 1) {
+        lb->is_entry++;
+        return EXIT_SUCCESS;
+    }
 
     if(!isLegalLabelName(label_tb, macr_tb, str)) return EXIT_FAILURE;
 

@@ -78,6 +78,9 @@ int preprocess(char *file_name) {
 
     fclose(fp_in);
     fclose(fp_out);
-    if(foundErr) return foundErr;
+    if(foundErr) {
+        freeMacrTable(&tb);
+        return foundErr;
+    }
     return first_pass("out.txt", &tb);
 }
