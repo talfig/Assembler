@@ -249,7 +249,7 @@ int isLegalOpcode(opcode op, char *ptr, short *iptr, int line_counter, label_tab
 int isLegalData(char *ptr, short *dptr, short idx, int line_counter) {
     int num, countData = 0;
     char str[DATA_MAX_SIZE + 1];
-    int tmp;
+    int tmp, len;
 
     /* Check for the first token in the string */
     if(nextToken(str, &ptr, ',')) {
@@ -266,8 +266,9 @@ int isLegalData(char *ptr, short *dptr, short idx, int line_counter) {
         if(num == DATA_MAX_VALUE + 1) return 0;
 
         /* Validate the length of the integer */
-
-        else if(strlen(str) != countDigits(num)) {
+        len = (int)strlen(str);
+        if(*str == '+') len--;
+        if(len != countDigits(num)) {
             printf("Error found in line %d: Not an integer \n", line_counter);
             return 0;
         }
