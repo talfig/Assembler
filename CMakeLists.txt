@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 90)
 # Add -pedantic and additional warning flags
 add_compile_options(-ansi -Wall -pedantic)
 
-add_executable(mmn14 main.c
+add_executable(mmn14 assembler.c
         macr.h
         macr.c
         preprocessor.c
@@ -20,4 +20,9 @@ add_executable(mmn14 main.c
         globals.h
         globals.c
         first_pass.c
-        first_pass.h)
+        first_pass.h
+        integer_utils.c
+        integer_utils.h
+        opcode_utils.c
+        opcode_utils.h
+)

@@ -9,6 +9,7 @@ typedef struct label {
     char *name;
     int is_data;
     int is_extern;
+    int is_entry;
     struct label *next;
 } label;
 

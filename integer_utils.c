@@ -1,9 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 #include "integer_utils.h"
-#include "token_utils.h"
 
 int countDigits(int num) {
     int count = 0;

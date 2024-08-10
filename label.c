@@ -99,6 +99,7 @@ int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp) 
     lb->next = NULL;
     lb->is_data = 0;
     lb->is_extern = 0;
+    lb->is_entry = 0;
     lb->name = my_strdup(str);
     if(!(lb->name)) {
         fprintf(stderr, "%s\n", getError(0));

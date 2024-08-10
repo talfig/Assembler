@@ -13,10 +13,10 @@ void openFail(FILE *fp);
 
 int checkLines(char *file_name);
 
-int isLegalOpcode(opcode op, char *ptr, int line_counter, label_table *label_tb, macr_table *macr_tb);
+int isLegalOpcode(opcode op, char *ptr, short *iptr, int line_counter, label_table *label_tb, macr_table *macr_tb);
 
-int isLegalData(char *ptr, int line_counter);
+int isLegalData(char *ptr, short *dptr, short idx, int line_counter);
 
-int isLegalString(char *ptr, int line_counter);
+int isLegalString(char *ptr, short *dptr, short idx, int line_counter);
 
 #endif /* ERRORS_H */

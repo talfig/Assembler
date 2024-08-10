@@ -11,7 +11,9 @@
 
 int first_pass(char *file_name, macr_table *macr_tb) {
     char line[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 2], *ptr;
-    int foundErr = EXIT_SUCCESS, line_counter = 0, IC = 0, DC = 0, extra_words;
+    short instructions[MEMORY_SIZE] = {0}, data[MEMORY_SIZE] = {0};
+    short *iptr = instructions, *dptr = data, IC = 0, DC = 0;
+    int foundErr = EXIT_SUCCESS, line_counter = 0, is_entry = 0, is_extern = 0, extra_words;
     label_table label_tb;
     label *lb = NULL;
     opcode op;
@@ -37,15 +39,15 @@ int first_pass(char *file_name, macr_table *macr_tb) {
                 foundErr = EXIT_FAILURE;
                 continue;
             }
-            lb = getLabelTail(&label_tb);
+            lb = find_label(&label_tb, str);
             nextToken(str, &ptr, ' ');
         }
 
         /* Check for data directives, opcodes, or labels */
         if(!strcmp(str, ".data") || !strcmp(str, ".string")) {
             if(!strcmp(str, ".data"))
-                extra_words = isLegalData(ptr, line_counter);
-            else extra_words = isLegalString(ptr, line_counter);
+                extra_words = isLegalData(ptr, dptr, DC, line_counter);
+            else extra_words = isLegalString(ptr, dptr, DC, line_counter);
 
             if(!extra_words) {
                 printf("%d", line_counter);
@@ -56,24 +58,28 @@ int first_pass(char *file_name, macr_table *macr_tb) {
                 lb->address = DC;
                 lb->is_data = 1;
             }
-            DC += extra_words;
+            DC += extra_words, dptr += extra_words;
+            if(!strcmp(str, ".string")) DC++, dptr++;
         } else if((op = get_opcode(str)) != opcode_none) {
-            extra_words = isLegalOpcode(op, ptr, line_counter, &label_tb, macr_tb);
+            extra_words = isLegalOpcode(op, ptr, iptr, line_counter, &label_tb, macr_tb);
             if(!extra_words) {
                 foundErr = EXIT_FAILURE;
                 continue;
             }
             if(lb) lb->address = IC + 100;
-            IC += extra_words;
+            IC += extra_words, iptr += extra_words;
         } else if(!strcmp(str, ".entry") || !strcmp(str, ".extern")) {
+            if(!strcmp(str, ".entry")) is_entry = 1;
+            else is_extern = 1;
             nextToken(str, &ptr, ' ');
             if(parseLabel(&label_tb, macr_tb, str, fp)) {
                 printf("Error: Invalid label in .entry/.extern at line %d.\n", line_counter);
                 foundErr = EXIT_FAILURE;
                 continue;
             }
-            lb = getLabelTail(&label_tb);
-            if(!strcmp(str, ".extern")) lb->is_extern = 1;
+            lb = find_label(&label_tb, str);
+            lb->is_extern = is_extern;
+            lb->is_entry = is_entry;
         } else if(!strcmp(str, "entry") || !strcmp(str, "extern") ||
                    !strcmp(str, "data") || !strcmp(str, "string")) {
             printf("Error: Missing '.' in directive at line %d.\n", line_counter);
@@ -81,6 +87,14 @@ int first_pass(char *file_name, macr_table *macr_tb) {
         } else {
             printf("Error: Unrecognized command or label at line %d.\n", line_counter);
             foundErr = EXIT_FAILURE;
+        }
+
+        if(IC + DC > MEMORY_SIZE) {
+            printf("Error: Out of memory.\n");
+            freeMacrTable(macr_tb);
+            freeLabelTable(&label_tb);
+            fclose(fp);
+            return EXIT_FAILURE;
         }
     }
 
