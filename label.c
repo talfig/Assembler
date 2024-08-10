@@ -83,7 +83,6 @@ int isLegalLabelName(label_table *label_tb, macr_table *macr_tb, char *name) {
 int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp) {
     label *lb;
 
-    if(find_label(label_tb, str)) return EXIT_SUCCESS;
     if(!isLegalLabelName(label_tb, macr_tb, str)) return EXIT_FAILURE;
 
     lb = malloc(sizeof(label));
