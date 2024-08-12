@@ -55,7 +55,7 @@ int parseDataInt(char *str, int line_counter) {
 int parseInstructionInt(char *str, int line_counter) {
     /* add a specific error */
     if(*str != '#') {
-
+        /* printf("Error at line %d: Missing # before integer.\n", line_counter); */
         return INSTRUCTION_MAX_VALUE + 1;
     }
     str++;

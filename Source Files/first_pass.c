@@ -112,5 +112,5 @@ int first_pass(char *file_name, macr_table *macr_tb) {
         return foundErr;
     }
 
-    return second_pass("out.txt", &label_tb, instructions, data);
+    return second_pass("out.txt", &label_tb, instructions, data, DC);
 }

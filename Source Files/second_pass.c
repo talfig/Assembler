@@ -7,18 +7,27 @@
 #include "globals.h"
 #include "errors.h"
 #include "opcode_utils.h"
+#include "file_utils.h"
 
-int second_pass(char *file_name, label_table *label_tb, unsigned short *instructions, unsigned short *data) {
+int second_pass(char *file_name, label_table *label_tb, unsigned short *instructions, unsigned short *data, int DC) {
     char line[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 2], *ptr;
-    int foundErr = EXIT_SUCCESS, line_counter = 0, i;
+    unsigned short foundErr = EXIT_SUCCESS, line_counter = 0, IC = 0;
     unsigned short *iptr = instructions;
     label *lb = NULL;
-    FILE *fp;
+    FILE *fp_in, *fp_out, *fp_ent, *fp_ext;
 
-    fp = fopen(file_name, "r");
-    openFail(fp);
+    /* fix the names */
+    fp_in = fopen(file_name, "r");
+    openFail(fp_in);
+    fp_out = fopen("encode.txt", "w");
+    openFail(fp_out);
+    fp_ent = fopen("ent.txt", "w");
+    openFail(fp_ent);
+    fp_ext = fopen("ext.txt", "w");
+    openFail(fp_ext);
 
-    while((ptr = fgets(line, MAX_LINE_SIZE + 1, fp))) {
+
+    while((ptr = fgets(line, MAX_LINE_SIZE + 1, fp_in))) {
         line_counter++;
 
         if(*ptr == ';') continue;
@@ -39,20 +48,26 @@ int second_pass(char *file_name, label_table *label_tb, unsigned short *instruct
                 foundErr = EXIT_FAILURE;
             }
         } else if(get_opcode(str) != opcode_none) {
-            iptr++;
-            if(parseOpcode(ptr, &iptr, line_counter, label_tb)) {
+            iptr++, IC++;
+            if(parseOpcode(ptr, &iptr, IC, line_counter, label_tb, fp_ext)) {
                 foundErr = EXIT_FAILURE;
                 continue;
             }
+            IC = iptr - instructions;
         }
     }
 
-    fclose(fp);
+    fprintf(fp_out, "  %d %d\n", IC, DC);
+    print_instructions(instructions, IC, fp_out);
+    print_data(data, IC, DC, fp_out);
+    create_entry_file(label_tb, fp_ent);
+
+    close_multiple_files(fp_in, fp_out, fp_ent, fp_ext);
+
     if(foundErr) {
         freeLabelTable(label_tb);
         return foundErr;
     }
-    for(i = 0; i < 40; i++)
-        printf("%d, %d\n", i + 1, instructions[i]);
+
     return EXIT_SUCCESS;
 }

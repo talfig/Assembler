@@ -55,7 +55,7 @@ int checkLabel(char *str, int line_counter, label_table *label_tb) {
     return 1;
 }
 
-void encode_extra_word(unsigned short *ptr, int opr1, int opr2, char *str1, label_table *label_tb) {
+void encode_extra_word(unsigned short *ptr, int idx, int opr1, int opr2, char *str1, label_table *label_tb, FILE *fp) {
     int num;
     label *lb;
     regis rg;
@@ -63,25 +63,30 @@ void encode_extra_word(unsigned short *ptr, int opr1, int opr2, char *str1, labe
     switch(opr1) {
         case 0:
             num = parseInstructionInt(str1, 0); /* 0 is just for the function */
-            *ptr = num << 3;
+            *ptr |= num << 3;
             *ptr |= 1 << 2;
             break;
         case 1:
             lb = find_label(label_tb, str1);
-            *ptr = lb->address << 3;
-            if(lb->is_extern) *ptr |= 1;
+            *ptr |= lb->address << 3;
+            if(lb->is_extern) {
+                fprintf(fp, "%s ", lb->name);
+                if(100 + idx < 1000) fprintf(fp, "0");
+                fprintf(fp, "%d\n", 100 + idx);
+                *ptr |= 1;
+            }
             else *ptr |= 1 << 1;
             break;
         case 2:
             str1++;
             rg = get_register(str1);
-            *ptr = 1 << 2;
+            *ptr |= 1 << 2;
             if(opr2 == -1) *ptr |= rg << 3;
             else *ptr |= rg << 6;
             break;
         case 3:
             rg = get_register(str1);
-            *ptr = 1 << 2;
+            *ptr |= 1 << 2;
             if(opr2 == -1) *ptr |= rg << 3;
             else *ptr |= rg << 6;
             break;
@@ -90,7 +95,7 @@ void encode_extra_word(unsigned short *ptr, int opr1, int opr2, char *str1, labe
     }
 }
 
-int parseOpcode(char *ptr, unsigned short **iptr, int line_counter, label_table *label_tb) {
+int parseOpcode(char *ptr, unsigned short **iptr, int idx, int line_counter, label_table *label_tb, FILE *fp) {
     char str1[MAX_LABEL_SIZE + 2], str2[MAX_LABEL_SIZE + 2];
     int opr1, opr2;
 
@@ -103,9 +108,9 @@ int parseOpcode(char *ptr, unsigned short **iptr, int line_counter, label_table 
     opr1 = which_address_method(label_tb, NULL, str1, 0);
     opr2 = which_address_method(label_tb, NULL, str2, 0);
 
-    encode_extra_word(*iptr, opr1, opr2, str1, label_tb);
-    if(!(opr1 >= 2 && opr2 >= 2)) (*iptr)++;
-    encode_extra_word(*iptr, opr2, -1, str2, label_tb);
+    encode_extra_word(*iptr, idx, opr1, opr2, str1, label_tb, fp);
+    if(!(opr1 == -1 || (opr1 >= 2 && opr2 >= 2))) idx++, (*iptr)++;
+    encode_extra_word(*iptr, idx, opr2, -1, str2, label_tb, fp);
 
     if(opr2 != -1) (*iptr)++;
     return EXIT_SUCCESS;
