@@ -3,6 +3,6 @@
 
 #include "label.h"
 
-int second_pass(char *file_name, label_table *label_tb, unsigned short *instructions, unsigned short *data);
+int second_pass(char *file_name, label_table *label_tb, unsigned short *instructions, unsigned short *data, int DC);
 
 #endif /* SECOND_PASS_H */
