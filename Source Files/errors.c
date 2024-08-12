@@ -129,9 +129,9 @@ int check_commas(int counter, const char *str, int line_counter) {
     return 0;
 }
 
-int isLegalOpcode(opcode op, char *ptr, short *iptr, int line_counter, label_table *label_tb, macr_table *macr_tb) {
+int isLegalOpcode(opcode op, char *ptr, unsigned short *iptr, int idx, int line_counter, label_table *label_tb, macr_table *macr_tb) {
     char str1[MAX_LABEL_SIZE + 2], str2[MAX_LABEL_SIZE + 2], str3[MAX_LABEL_SIZE + 2];
-    int tmp, opr1, opr2;
+    int tmp, opr1, opr2, foundErr = EXIT_SUCCESS;
 
     if(nextToken(str1, &ptr, ',')) {
         printf("Error: Illegal comma at line %d.\n", line_counter);
@@ -148,9 +148,13 @@ int isLegalOpcode(opcode op, char *ptr, short *iptr, int line_counter, label_tab
 
     opr1 = which_address_method(label_tb, macr_tb, str1, line_counter);
     opr2 = which_address_method(label_tb, macr_tb, str2, line_counter);
+
+
     if(opr2 == -1) opr2 = opr1, opr1 = -1;
-    first_word(iptr, op, opr1, opr2);
+    if(idx < MEMORY_SIZE) encode_first_word(iptr, op, opr1, opr2);
+    else foundErr = EXIT_FAILURE;
     if(opr1 == -1) opr1 = opr2, opr2 = -1;
+
     switch(op) {
         case mov:
         case add:
@@ -162,8 +166,8 @@ int isLegalOpcode(opcode op, char *ptr, short *iptr, int line_counter, label_tab
                 printf("Error: Invalid second operand at line %d.\n", line_counter);
                 return 0;
             }
-
-            if(opr1 <= 3 && opr1 >= 2 && opr2 <= 3 && opr2 >= 2) return 2;
+            if(foundErr) return foundErr;
+            if(opr1 >= 2 && opr2 >= 2) return 2;
             return 3;
 
         case cmp:
@@ -174,8 +178,8 @@ int isLegalOpcode(opcode op, char *ptr, short *iptr, int line_counter, label_tab
                 printf("Error: Invalid second operand at line %d.\n", line_counter);
                 return 0;
             }
-
-            if(opr1 <= 3 && opr1 >= 2 && opr2 <= 3 && opr2 >= 2) return 2;
+            if(foundErr) return foundErr;
+            if(opr1 >= 2 && opr2 >= 2) return 2;
             return 3;
 
         case lea:
@@ -186,7 +190,7 @@ int isLegalOpcode(opcode op, char *ptr, short *iptr, int line_counter, label_tab
                 printf("Error: Source operand must be a label at line %d.\n", line_counter);
                 return 0;
             }
-
+            if(foundErr) return foundErr;
             return 3;
 
         case clr:
@@ -201,7 +205,7 @@ int isLegalOpcode(opcode op, char *ptr, short *iptr, int line_counter, label_tab
                 printf("Error: Unexpected operand at line %d.\n", line_counter);
                 return 0;
             }
-
+            if(foundErr) return foundErr;
             return 2;
 
         case jmp:
@@ -214,7 +218,7 @@ int isLegalOpcode(opcode op, char *ptr, short *iptr, int line_counter, label_tab
                 printf("Error: Unexpected operand at line %d.\n", line_counter);
                 return 0;
             }
-
+            if(foundErr) return foundErr;
             return 2;
 
         case prn:
@@ -225,7 +229,7 @@ int isLegalOpcode(opcode op, char *ptr, short *iptr, int line_counter, label_tab
                 printf("Error: Unexpected operand at line %d.\n", line_counter);
                 return 0;
             }
-
+            if(foundErr) return foundErr;
             return 2;
 
         case rts:
@@ -234,19 +238,19 @@ int isLegalOpcode(opcode op, char *ptr, short *iptr, int line_counter, label_tab
                 printf("Error: Unexpected operand at line %d.\n", line_counter);
                 return 0;
             }
-
+            if(foundErr) return foundErr;
             return 1;
 
         /* check if needed opcode_none */
         default:
-            printf( "Error: Invalid opcode case at line %d.\n", line_counter);
+            printf("Error: Invalid opcode case at line %d.\n", line_counter);
             return 0;
     }
 }
 
 
 
-int isLegalData(char *ptr, short *dptr, short idx, int line_counter) {
+int isLegalData(char *ptr, unsigned short *dptr, int idx, int line_counter) {
     int num, countData = 0;
     char str[DATA_MAX_SIZE + 1];
     int tmp, len;
@@ -273,7 +277,7 @@ int isLegalData(char *ptr, short *dptr, short idx, int line_counter) {
             return 0;
         }
 
-        *dptr = (short)num;
+        *dptr = num;
         dptr++;
         idx++;
 
@@ -282,17 +286,14 @@ int isLegalData(char *ptr, short *dptr, short idx, int line_counter) {
         if(check_commas(tmp, str, line_counter)) return 0;
     }
 
-    if(idx >= MEMORY_SIZE) {
-        printf("Error: Out of memory.\n");
-        return 0;
-    }
+    if(idx >= MEMORY_SIZE) return 0;
 
     return countData;
 }
 
-int strcpy_ascii(short *dest, char *source, short idx) {
+int strcpy_ascii(unsigned short *dest, char *source, int idx) {
     while(*source && idx < MEMORY_SIZE) {
-        *dest = (short)*source;
+        *dest = (unsigned short)*source;
         idx++;
         dest++;
         source++;
@@ -303,7 +304,7 @@ int strcpy_ascii(short *dest, char *source, short idx) {
     return 0;
 }
 
-int isLegalString(char *ptr, short *dptr, short idx, int line_counter) {
+int isLegalString(char *ptr, unsigned short *dptr, int idx, int line_counter) {
     char str[MAX_LINE_SIZE + 1];
     int len;
 
@@ -316,10 +317,7 @@ int isLegalString(char *ptr, short *dptr, short idx, int line_counter) {
         return 0;
     }
     str[strlen(str) - 1] = '\0';
-    if(strcpy_ascii(dptr, str + 1, idx)) {
-        printf("Error: Out of memory.\n");
-        return 0;
-    }
+    if(strcpy_ascii(dptr, str + 1, idx)) return 0;
 
     nextToken(str, &ptr, ' ');
 

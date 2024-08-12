@@ -8,12 +8,14 @@
 #include "globals.h"
 #include "errors.h"
 #include "first_pass.h"
+#include "second_pass.h"
 
 int first_pass(char *file_name, macr_table *macr_tb) {
     char line[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 2], *ptr;
-    short instructions[MEMORY_SIZE] = {0}, data[MEMORY_SIZE] = {0};
-    short *iptr = instructions, *dptr = data, IC = 0, DC = 0;
-    int foundErr = EXIT_SUCCESS, line_counter = 0, is_entry = 0, extra_words;
+    unsigned short instructions[MEMORY_SIZE] = {0}, data[MEMORY_SIZE] = {0};
+    unsigned short *iptr = instructions, *dptr = data;
+    int IC = 0, DC = 0, is_out_of_memory = 0, is_entry = 0;
+    int foundErr = EXIT_SUCCESS, line_counter = 0, extra_words;
     label_table label_tb;
     label *lb = NULL;
     opcode op;
@@ -51,7 +53,6 @@ int first_pass(char *file_name, macr_table *macr_tb) {
             else extra_words = isLegalString(ptr, dptr, DC, line_counter);
 
             if(!extra_words) {
-                printf("%d", line_counter);
                 foundErr = EXIT_FAILURE;
                 continue;
             }
@@ -61,14 +62,15 @@ int first_pass(char *file_name, macr_table *macr_tb) {
             }
             DC += extra_words, dptr += extra_words;
             if(!strcmp(str, ".string")) DC++, dptr++;
+            lb = NULL;
         } else if((op = get_opcode(str)) != opcode_none) {
-            extra_words = isLegalOpcode(op, ptr, iptr, line_counter, &label_tb, macr_tb);
+            extra_words = isLegalOpcode(op, ptr, iptr, IC, line_counter, &label_tb, macr_tb);
             if(!extra_words) {
                 foundErr = EXIT_FAILURE;
                 continue;
             }
             if(lb) lb->address = IC + 100;
-            IC += extra_words, iptr += extra_words;
+            IC += extra_words, iptr += extra_words, lb = NULL;
         } else if(!strcmp(str, ".entry") || !strcmp(str, ".extern")) {
             if(!strcmp(str, ".entry")) is_entry = 1;
 
@@ -84,7 +86,7 @@ int first_pass(char *file_name, macr_table *macr_tb) {
             lb = find_label(&label_tb, str);
             if(is_entry) lb->is_entry = 1;
             else lb->is_extern = 1;
-            is_entry = 0;
+            is_entry = 0, lb = NULL;
         } else if(!strcmp(str, "entry") || !strcmp(str, "extern") ||
                    !strcmp(str, "data") || !strcmp(str, "string")) {
             printf("Error: Missing '.' in directive at line %d.\n", line_counter);
@@ -94,21 +96,21 @@ int first_pass(char *file_name, macr_table *macr_tb) {
             foundErr = EXIT_FAILURE;
         }
 
-        if(IC + DC > MEMORY_SIZE) {
+        if(IC + DC >= MEMORY_SIZE && !is_out_of_memory) {
             printf("Error: Out of memory.\n");
+            is_out_of_memory = 1;
             foundErr = EXIT_FAILURE;
-            break;
         }
     }
 
     increaseDataLabelTableAddress(&label_tb, IC + 100);
-
+    freeMacrTable(macr_tb);
     fclose(fp);
+
     if(foundErr) {
-        freeMacrTable(macr_tb);
         freeLabelTable(&label_tb);
         return foundErr;
     }
-    /* exe second pass */
-    return foundErr;
+
+    return second_pass("out.txt", &label_tb, instructions, data);
 }

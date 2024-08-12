@@ -65,7 +65,9 @@ void freeMacrTable(macr_table *tb) {
 }
 
 macr *find_macr(macr_table *tb, char *name) {
-    macr *ptr = tb->head;
+    macr *ptr = NULL;
+    if(tb) ptr = tb->head;
+
     while(ptr) {
         if(!strcmp(name, ptr->name))
             return ptr;
@@ -98,7 +100,7 @@ char *my_strdup(const char *s) {
 
 int save_macr(macr_table *tb, char *name, int line_counter, FILE *fp_in, FILE *fp_out) {
     char *info, *new_info, *ptr, line[MAX_LINE_SIZE + 1];
-    unsigned long len = 0;
+    int len = 0;
     macr *mcr = malloc(sizeof(macr));
     if(!mcr) {
         fprintf(stderr, "%s\n", getError(0));
@@ -141,7 +143,7 @@ int save_macr(macr_table *tb, char *name, int line_counter, FILE *fp_in, FILE *f
         info = new_info;
         ptr = info + len;
         strcpy(ptr, line);
-        len = strlen(info);
+        len = (int)strlen(info);
     }
     mcr->info = info;
     return 0;
