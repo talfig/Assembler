@@ -56,6 +56,7 @@ void freeLabelTable(label_table *tb) {
 
 label *find_label(label_table *tb, char *name) {
     label *ptr = tb->head;
+
     while(ptr) {
         if(!strcmp(name, ptr->name))
             return ptr;
@@ -103,6 +104,7 @@ int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp) 
     lb->is_data = 0;
     lb->is_extern = 0;
     lb->is_entry = 0;
+    lb->is_defined = 1;
     lb->name = my_strdup(str);
     if(!(lb->name)) {
         fprintf(stderr, "%s\n", getError(0));

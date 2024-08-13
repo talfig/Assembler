@@ -48,7 +48,9 @@ void encode_first_word(unsigned short *ptr, opcode op, int opr1, int opr2) {
 }
 
 int checkLabel(char *str, int line_counter, label_table *label_tb) {
-    if(isLegalLabelName(label_tb, NULL, str)) {
+    label *lb = find_label(label_tb, str);
+
+    if(isLegalLabelName(label_tb, NULL, str) || (lb && !lb->is_defined)) {
         printf("Error: Found label at line %d that is not defined in the file.\n", line_counter);
         return 0;
     }

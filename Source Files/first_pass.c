@@ -72,6 +72,7 @@ int first_pass(char *file_name, macr_table *macr_tb) {
             if(lb) lb->address = IC + 100;
             IC += extra_words, iptr += extra_words, lb = NULL;
         } else if(!strcmp(str, ".entry") || !strcmp(str, ".extern")) {
+            if(lb) lb->is_defined = 0;
             if(!strcmp(str, ".entry")) is_entry = 1;
 
             nextToken(str, &ptr, ' ');
