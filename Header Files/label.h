@@ -29,10 +29,12 @@ void freeLabelTable(label_table *tb);
 
 label *find_label(label_table *tb, char *name);
 
-/* add the macro */
 int isLegalLabelName(label_table *label_tb, macr_table *macr_tb, char *name);
 
-/* add the macro */
 int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp);
+
+int has_entry_label(label_table *label_tb);
+
+int has_extern_label(label_table *label_tb);
 
 #endif /* LABEL_H */
