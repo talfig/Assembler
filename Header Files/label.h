@@ -10,6 +10,7 @@ typedef struct label {
     int is_data;
     int is_extern;
     int is_entry;
+    int is_defined;
     struct label *next;
 } label;
 
