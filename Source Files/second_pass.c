@@ -64,10 +64,13 @@ int second_pass(char *file_name, label_table *label_tb, unsigned short *instruct
 
     close_multiple_files(fp_in, fp_out, fp_ent, fp_ext);
 
-    if(foundErr) {
-        freeLabelTable(label_tb);
-        return foundErr;
-    }
+    if(!has_entry_label(label_tb))
+        remove_file("ent.txt", label_tb);
+    if(!has_extern_label(label_tb))
+        remove_file("ext.txt", label_tb);
 
+    freeLabelTable(label_tb);
+
+    if(foundErr) return EXIT_FAILURE;
     return EXIT_SUCCESS;
 }

@@ -278,6 +278,7 @@ int isLegalData(char *ptr, unsigned short *dptr, int idx, int line_counter) {
         }
 
         *dptr = num;
+        *dptr &= CLEAR_MSB;
         dptr++;
         idx++;
 
@@ -287,13 +288,13 @@ int isLegalData(char *ptr, unsigned short *dptr, int idx, int line_counter) {
     }
 
     if(idx >= MEMORY_SIZE) return 0;
-
     return countData;
 }
 
 int strcpy_ascii(unsigned short *dest, char *source, int idx) {
     while(*source && idx < MEMORY_SIZE) {
         *dest = (unsigned short)*source;
+        *dest &= CLEAR_MSB;
         idx++;
         dest++;
         source++;
@@ -308,19 +309,15 @@ int isLegalString(char *ptr, unsigned short *dptr, int idx, int line_counter) {
     char str[MAX_LINE_SIZE + 1];
     int len;
 
-    nextToken(str, &ptr, ' ');
-    len = (int)strlen(str) - 2;
-
-    /* Check if the string is properly enclosed in double quotes */
-    if(str[0] != '\"' || str[strlen(str) - 1] != '\"') {
-        printf("Error: String not properly enclosed in double quotes at line %d.\n", line_counter);
+    if(nextString(str, &ptr, line_counter)) {
+        printf("%s\n\n", str);
         return 0;
     }
-    str[strlen(str) - 1] = '\0';
-    if(strcpy_ascii(dptr, str + 1, idx)) return 0;
+
+    len = (int)strlen(str);
+    if(strcpy_ascii(dptr, str, idx)) return 0;
 
     nextToken(str, &ptr, ' ');
-
     /* Ensure there are no additional tokens after the string */
     if(*str) {
         printf("Error: Unexpected token after string at line %d.\n", line_counter);

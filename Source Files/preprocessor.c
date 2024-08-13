@@ -80,7 +80,7 @@ int preprocess(char *file_name) {
     fclose(fp_out);
     if(foundErr) {
         freeMacrTable(&tb);
-        return foundErr;
+        return EXIT_FAILURE;
     }
     return first_pass("out.txt", &tb);
 }

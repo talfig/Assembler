@@ -115,3 +115,27 @@ int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp) 
 
     return EXIT_SUCCESS;
 }
+
+int has_entry_label(label_table *label_tb) {
+    label *ptr = label_tb->head;
+
+    while(ptr) {
+        if(ptr->is_entry)
+            return 1;
+        ptr = ptr->next;
+    }
+
+    return 0;
+}
+
+int has_extern_label(label_table *label_tb) {
+    label *ptr = label_tb->head;
+
+    while(ptr) {
+        if(ptr->is_extern)
+            return 1;
+        ptr = ptr->next;
+    }
+
+    return 0;
+}

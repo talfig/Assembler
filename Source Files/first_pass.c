@@ -109,7 +109,7 @@ int first_pass(char *file_name, macr_table *macr_tb) {
 
     if(foundErr) {
         freeLabelTable(&label_tb);
-        return foundErr;
+        return EXIT_FAILURE;
     }
 
     return second_pass("out.txt", &label_tb, instructions, data, DC);

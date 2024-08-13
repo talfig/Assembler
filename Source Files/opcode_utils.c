@@ -93,6 +93,7 @@ void encode_extra_word(unsigned short *ptr, int idx, int opr1, int opr2, char *s
         default:
             break;
     }
+    *ptr &= CLEAR_MSB;
 }
 
 int parseOpcode(char *ptr, unsigned short **iptr, int idx, int line_counter, label_table *label_tb, FILE *fp) {

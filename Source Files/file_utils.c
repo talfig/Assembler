@@ -37,3 +37,10 @@ void close_multiple_files(FILE *fp1, FILE *fp2, FILE *fp3, FILE *fp4) {
     fclose(fp3);
     fclose(fp4);
 }
+
+void remove_file(const char *filename, label_table *label_tb) {
+    if(remove(filename)) {
+        freeLabelTable(label_tb);
+        fprintf(stderr, "Error deleting the file");
+    }
+}
