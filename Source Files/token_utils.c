@@ -33,7 +33,7 @@ int nextString(char *dest, char **ptr, int line_counter) {
 
     (*ptr)++;
     while(**ptr && **ptr != '\"') {
-        if(**ptr < MIN_CHAR_VALUE || **ptr > MAX_CHAR_VALUE) {
+        if(!isprint(**ptr)) {
             printf("Error: String contains invalid character at line %d.\n", line_counter);
             return 1;
         }
