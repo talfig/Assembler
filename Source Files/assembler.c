@@ -1,5 +1,5 @@
-#include "preprocessor.h"
+#include "file_utils.h"
 
 int main(int argc, char *argv[]) {
-    return preprocess("test5.txt");
+    return assembler(argc, argv);
 }

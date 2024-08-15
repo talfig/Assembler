@@ -9,6 +9,7 @@
 #include "errors.h"
 #include "first_pass.h"
 #include "second_pass.h"
+#include "file_utils.h"
 
 int first_pass(char *file_name, macr_table *macr_tb) {
     char line[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 2], *ptr;
@@ -22,8 +23,7 @@ int first_pass(char *file_name, macr_table *macr_tb) {
     FILE *fp;
     emptyLabelTable(&label_tb);
 
-    fp = fopen(file_name, "r");
-    openFail(fp);
+    fp = open_file_with_suffix(file_name, ".am", "r", &label_tb, macr_tb);
 
     while((ptr = fgets(line, MAX_LINE_SIZE + 1, fp))) {
         line_counter++;
@@ -72,7 +72,10 @@ int first_pass(char *file_name, macr_table *macr_tb) {
             if(lb) lb->address = IC + 100;
             IC += extra_words, iptr += extra_words, lb = NULL;
         } else if(!strcmp(str, ".entry") || !strcmp(str, ".extern")) {
-            if(lb) lb->is_defined = 0;
+            if(lb) {
+                printf("Warning: label declared before \".entry\" or \".extern\" at line %d.\n", line_counter);
+                delLabelFromTable(&label_tb, lb);
+            }
             if(!strcmp(str, ".entry")) is_entry = 1;
 
             nextToken(str, &ptr, ' ');
@@ -113,5 +116,5 @@ int first_pass(char *file_name, macr_table *macr_tb) {
         return EXIT_FAILURE;
     }
 
-    return second_pass("out.txt", &label_tb, instructions, data, DC);
+    return second_pass(file_name, &label_tb, instructions, data, DC);
 }

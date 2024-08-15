@@ -29,6 +29,22 @@ void addToLabelTable(label_table *tb, label *ptr) {
     else tmp->next = ptr; /* Otherwise, add the new node at the end of the list */
 }
 
+void delLabelFromTable(label_table *tb, label *lb) {
+    label *ptr = tb->head;
+
+    if(ptr == lb) {
+        tb->head = lb->next;
+        free(lb->name);
+        free(lb);
+        return;
+    }
+    while(ptr->next != lb) ptr = ptr->next;
+
+    ptr->next = lb->next;
+    free(lb->name);
+    free(lb);
+}
+
 void increaseDataLabelTableAddress(label_table *tb, int num) {
     label *ptr;
 
@@ -72,8 +88,8 @@ int isLegalLabelName(label_table *label_tb, macr_table *macr_tb, char *name) {
     label *lb = find_label(label_tb, name);
     macr *mcr = find_macr(macr_tb, name);
     return  isLegalName(name) &&
-            strcmp(name, "macr") &&
-            strcmp(name, "endmacr") &&
+            strcmp(name, "macr") != 0 &&
+            strcmp(name, "endmacr") != 0 &&
             (op == opcode_none) &&
             (rg == regis_none) &&
             (inst == INSTRUCTION_NONE) &&
@@ -99,13 +115,9 @@ int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp) 
         exit(EXIT_FAILURE);
     }
 
-    lb->address = 0;
-    lb->next = NULL;
-    lb->is_data = 0;
-    lb->is_extern = 0;
-    lb->is_entry = 0;
-    lb->is_defined = 1;
-    lb->name = my_strdup(str);
+    lb->address = 0, lb->is_data = 0, lb->is_extern = 0, lb->is_entry = 0;
+    lb->next = NULL, lb->name = my_strdup(str);
+
     if(!(lb->name)) {
         fprintf(stderr, "%s\n", getError(0));
         freeMacrTable(macr_tb);

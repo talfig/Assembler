@@ -82,8 +82,8 @@ int isLegalMacrName(macr_table *tb, char *name) {
     instruction inst = get_instruction(name);
     macr *mcr = find_macr(tb, name);
     return  isLegalName(name) &&
-            strcmp(name, "macr") &&
-            strcmp(name, "endmacr") &&
+            strcmp(name, "macr") != 0 &&
+            strcmp(name, "endmacr") != 0 &&
             (op == opcode_none) &&
             (rg == regis_none) &&
             (inst == INSTRUCTION_NONE) &&

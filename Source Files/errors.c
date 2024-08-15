@@ -9,64 +9,40 @@
 #include "integer_utils.h"
 #include "opcode_utils.h"
 #include "first_pass.h"
+#include "file_utils.h"
+#include "errors.h"
 
 const char *getError(int error_code) {
     const char *errors[] = {
             "Memory allocation failed",
             "Memory reallocation failed",
             ".as file name is missing",
-            "The file name is too long",
-            "The provided file name does not exist",
             "macro definition after the start of the line",
-            ".am file is missing",
             "The Line is too long",
             "Extraneous text after macro name",
             "Unable to open the file",
-            "Failed to open file for reading",
             "Missing name in macro definition",
             "Invalid data - not an integer",
             "Invalid macro name",
-            "Setting a position in a file failed",
             "Extraneous text after \"endmacr\"",
             "\"endmacr\" after the start of the line",
             "Macro has more than one definition",
-            "Failed to copy file during macros expansion",
-            "Macros expansion in an .as file failed",
-            "Macro call before declaration",
             "Illegal name for a macro",
-            "Line is too long",
             "Illegal opcode",
             "Extraneous text after end of command",
             "Illegal argument",
             "Missing argument",
-            "Missing comma between argument in a command line with two arguments",
-            "Label not defined in the assembly file",
-            "Illegal label after .entry",
-            "Illegal comma near opcode",
-            "More commas than needed",
-            "Comma in the wrong place",
-            "Illegal char near opcode or label",
-            "Illegal char",
             "Missing comma",
             "Multiple consecutive commas",
             "Illegal label declaration",
             "Missing ':' after label declaration",
-            "Illegal register name. Use only @r1-@r7",
             "Illegal comma",
-            "Data line without '. before directive",
-            "Instruction '.data' line contains non-number info",
-            "Comma after the last number in a '.data' line",
-            "Missing '\"' after '.string'",
-            "Extra text after the string end in '.string' line",
-            "IC too big for word CPU word length",
-            "Label definition repeats more than once",
-            "Label defined as .extern and defined in file",
-            "Input number in .data line is out of range",
-            "Illegal data line directive",
-            "Instruction '.data' line contains illegal chars or syntax error"
+            "Invalid source operand",
+            "Invalid destination operand",
+            "Unexpected operand"
     };
 
-    if (error_code < 0 || error_code >= sizeof(errors) / sizeof(errors[0]))
+    if(error_code < 0 || error_code >= sizeof(errors) / sizeof(errors[0]))
         return "Unknown error code";
 
     return errors[error_code];
@@ -95,12 +71,8 @@ int checkLines(char *file_name) {
     int foundErr = EXIT_SUCCESS, line_counter = 0, len;
 
     /* Open the file in read mode */
-    fp = fopen(file_name, "r");
-    if(!fp) {
-        fprintf(stderr, "%s\n", getError(6));
-        return EXIT_FAILURE;
-    }
-
+    fp = open_file_with_suffix(file_name, ".as", "r", NULL, NULL);
+    
     /* Read each line of the file */
     while(fgets(line, MAX_LINE_SIZE + 2, fp)) {
         len = (int)strlen(line);
@@ -172,10 +144,10 @@ int isLegalOpcode(opcode op, char *ptr, unsigned short *iptr, int idx, int line_
 
         case cmp:
             if(opr1 == -1) {
-                printf("Error: Invalid first operand at line %d.\n", line_counter);
+                printf("Error: Invalid source operand at line %d.\n", line_counter);
                 return 0;
             } if(opr2 == -1) {
-                printf("Error: Invalid second operand at line %d.\n", line_counter);
+                printf("Error: Invalid destination operand at line %d.\n", line_counter);
                 return 0;
             }
             if(foundErr) return foundErr;
@@ -183,11 +155,11 @@ int isLegalOpcode(opcode op, char *ptr, unsigned short *iptr, int idx, int line_
             return 3;
 
         case lea:
-            if(opr1 == -1) {
+            if(opr1 != 1) {
                 printf("Error: Invalid source operand at line %d.\n", line_counter);
                 return 0;
             } if(opr2 <= 0) {
-                printf("Error: Source operand must be a label at line %d.\n", line_counter);
+                printf("Error: Invalid destination operand at line %d.\n", line_counter);
                 return 0;
             }
             if(foundErr) return foundErr;
@@ -243,7 +215,6 @@ int isLegalOpcode(opcode op, char *ptr, unsigned short *iptr, int idx, int line_
 
         /* check if needed opcode_none */
         default:
-            printf("Error: Invalid opcode case at line %d.\n", line_counter);
             return 0;
     }
 }
