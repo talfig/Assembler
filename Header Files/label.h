@@ -10,7 +10,6 @@ typedef struct label {
     int is_data;
     int is_extern;
     int is_entry;
-    int is_defined;
     struct label *next;
 } label;
 
@@ -23,6 +22,8 @@ void emptyLabelTable(label_table *tb);
 label *getLabelTail(label_table *tb);
 
 void addToLabelTable(label_table *tb, label *ptr);
+
+void delLabelFromTable(label_table *tb, label *lb);
 
 void increaseDataLabelTableAddress(label_table *tb, int num);
 
