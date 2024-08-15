@@ -1,12 +1,13 @@
 cmake_minimum_required(VERSION 3.27)
-project(mmn14 C)
+project(Assembler C)
 
 set(CMAKE_C_STANDARD 90)
 
 # Add -pedantic and additional warning flags
 add_compile_options(-ansi -Wall -pedantic)
 
-add_executable(mmn14 assembler.c
+
+add_executable(Assembler assembler.c
         macr.h
         macr.c
         preprocessor.c
@@ -25,4 +26,8 @@ add_executable(mmn14 assembler.c
         integer_utils.h
         opcode_utils.c
         opcode_utils.h
+        second_pass.c
+        second_pass.h
+        file_utils.c
+        file_utils.h
 )
