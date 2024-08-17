@@ -7,20 +7,19 @@
 #include "globals.h"
 #include "opcode_utils.h"
 #include "file_utils.h"
+#include "errors_handling.h"
 
 int second_pass(char *file_name, label_table *label_tb, unsigned short *instructions, unsigned short *data, int DC) {
-    char line[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 2];
-    char *ptr, *file_name_ob, *file_name_ent, *file_name_ext;
+    char line[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 2], *ptr;
     unsigned short foundErr = EXIT_SUCCESS, line_counter = 0, IC = 0;
     unsigned short *iptr = instructions;
     label *lb = NULL;
     FILE *fp_in, *fp_out, *fp_ent, *fp_ext;
 
-    fp_in = open_file_with_suffix(file_name, ".am", "r", label_tb, NULL);
-    fp_out = open_file_with_suffix(file_name, ".ob", "w", label_tb, NULL);
-    fp_ent = open_file_with_suffix(file_name, ".ent", "w", label_tb, NULL);
-    fp_ext = open_file_with_suffix(file_name, ".ext", "w", label_tb, NULL);
-
+    fp_in = open_file_with_suffix(file_name, ".am", "r", label_tb, NULL, NULL, NULL, NULL);
+    fp_out = open_file_with_suffix(file_name, ".ob", "w", label_tb, NULL, fp_in, NULL, NULL);
+    fp_ent = open_file_with_suffix(file_name, ".ent", "w", label_tb, NULL, fp_in, fp_out, NULL);
+    fp_ext = open_file_with_suffix(file_name, ".ext", "w", label_tb, NULL, fp_in, fp_out, fp_ent);
 
     while((ptr = fgets(line, MAX_LINE_SIZE + 1, fp_in))) {
         line_counter++;
@@ -39,10 +38,10 @@ int second_pass(char *file_name, label_table *label_tb, unsigned short *instruct
             nextToken(str, &ptr, ' ');
             lb = find_label(label_tb, str);
             if(lb && !lb->address) {
-                printf("Error: Found .entry label at line %d that is not defined in the file \n", line_counter);
+                printError(line_counter, ENTRY_LABEL_UNDEFINED);
                 foundErr = EXIT_FAILURE;
             }
-        } else if(get_opcode(str) != opcode_none) {
+        } else if(get_opcode(str) != unknown_opcode) {
             iptr++, IC++;
             if(parseOpcode(ptr, &iptr, IC, line_counter, label_tb, fp_ext)) {
                 foundErr = EXIT_FAILURE;
@@ -58,21 +57,10 @@ int second_pass(char *file_name, label_table *label_tb, unsigned short *instruct
     create_entry_file(label_tb, fp_ent);
     close_multiple_files(fp_in, fp_out, fp_ent, fp_ext);
 
-    if(foundErr) {
-        file_name_ob = append_suffix(file_name, ".ob", label_tb, NULL);
-        remove_file(file_name_ob, label_tb, NULL);
-        free(file_name_ob);
-    }
-    if(foundErr || !has_entry_label(label_tb)) {
-        file_name_ent = append_suffix(file_name, ".ent", label_tb, NULL);
-        remove_file(file_name_ent, label_tb, NULL);
-        free(file_name_ent);
-    }
-    if(foundErr || !has_extern_label(label_tb)) {
-        file_name_ext = append_suffix(file_name, ".ext", label_tb, NULL);
-        remove_file(file_name_ext, label_tb, NULL);
-        free(file_name_ext);
-    }
+    if(foundErr) process_file(file_name, ".ob", label_tb);
+    if(foundErr || !has_entry_label(label_tb)) process_file(file_name, ".ent", label_tb);
+    if(foundErr || !has_extern_label(label_tb)) process_file(file_name, ".ext", label_tb);
+    printf(">>> Finished working on the file %s%s\n", file_name, ".am");
     freeLabelTable(label_tb);
 
     if(foundErr) return EXIT_FAILURE;

@@ -5,6 +5,7 @@
 #include "preprocessor.h"
 #include "token_utils.h"
 #include "opcode_utils.h"
+#include "errors_handling.h"
 
 int is0(char *str, int line_counter) {
     if(parseInstructionInt(str, line_counter) != INSTRUCTION_MAX_VALUE + 1)
@@ -21,13 +22,13 @@ int is1(label_table *label_tb, macr_table *macr_tb, char *str) {
 int is2(char *str) {
     char *ptr = str;
 
-    if(*ptr == '*' && get_register(ptr + 1) != regis_none)
+    if(*ptr == '*' && get_register(ptr + 1) != unknown_register)
         return 1;
     return 0;
 }
 
 int is3(char *str) {
-    if(get_register(str) != regis_none)
+    if(get_register(str) != unknown_register)
         return 1;
     return 0;
 }
@@ -49,7 +50,7 @@ void encode_first_word(unsigned short *ptr, opcode op, int opr1, int opr2) {
 
 int checkLabel(char *str, int line_counter, label_table *label_tb) {
     if(isLegalLabelName(label_tb, NULL, str)) {
-        printf("Error: Found label at line %d that is not defined in the file.\n", line_counter);
+        printError(line_counter, UNDEFINED_LABEL);
         return 0;
     }
     return 1;

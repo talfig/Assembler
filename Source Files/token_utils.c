@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "token_utils.h"
+#include "errors_handling.h"
 
 int nextToken(char *dest, char **ptr, const char delim) {
     int count = 0;
@@ -24,17 +25,17 @@ int nextToken(char *dest, char **ptr, const char delim) {
 int nextString(char *dest, char **ptr, int line_counter) {
     while(**ptr && isspace(**ptr)) (*ptr)++;
     if(!(**ptr)) {
-        printf("Error: Missing String at line %d.\n", line_counter);
+        printError(line_counter, MISSING_STRING);
         return 1;
     } else if(**ptr != '\"') {
-        printf("Error: String not properly starts with \" at line %d.\n", line_counter);
+        printError(line_counter, STRING_NOT_STARTED_PROPERLY);
         return 1;
     }
 
     (*ptr)++;
     while(**ptr && **ptr != '\"') {
         if(!isprint(**ptr)) {
-            printf("Error: String contains invalid character at line %d.\n", line_counter);
+            printError(line_counter, INVALID_CHARACTER);
             return 1;
         }
         *dest = **ptr;
@@ -44,7 +45,7 @@ int nextString(char *dest, char **ptr, int line_counter) {
     *dest = '\0';
 
     if(!(**ptr)) {
-        printf("Error: String not properly closed with \" at line %d.\n", line_counter);
+        printError(line_counter, STRING_NOT_CLOSED_PROPERLY);
         return 1;
     }
     (*ptr)++;

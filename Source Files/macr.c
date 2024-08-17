@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "macr.h"
-#include "errors.h"
+#include "errors_handling.h"
 #include "preprocessor.h"
 #include "token_utils.h"
 #include "globals.h"
@@ -84,60 +84,60 @@ int isLegalMacrName(macr_table *tb, char *name) {
     return  isLegalName(name) &&
             strcmp(name, "macr") != 0 &&
             strcmp(name, "endmacr") != 0 &&
-            (op == opcode_none) &&
-            (rg == regis_none) &&
-            (inst == INSTRUCTION_NONE) &&
+            (op == unknown_opcode) &&
+            (rg == unknown_register) &&
+            (inst == UNKNOWN_INSTRUCTION) &&
             (mcr == NULL);
 }
 
 char *my_strdup(const char *s) {
     size_t len = strlen(s);
-    char *res = malloc(len + 1);
+    char *res = (char *)malloc(len + 1);
     if(!res) return NULL;
     strcpy(res, s);
     return res;
 }
 
-int save_macr(macr_table *tb, char *name, int line_counter, FILE *fp_in, FILE *fp_out) {
-    char *info, *new_info, *ptr, line[MAX_LINE_SIZE + 1];
-    int len = 0;
-    macr *mcr = malloc(sizeof(macr));
+int save_macr(macr_table *tb, char *name, int line_counter, FILE *fp1, FILE *fp2) {
+    char *info, *new_info, *ptr, line[MAX_LINE_SIZE + 2];
+    int len = 0, foundErr = EXIT_SUCCESS;
+    macr *mcr = (macr *)malloc(sizeof(macr));
     if(!mcr) {
-        fprintf(stderr, "%s\n", getError(0));
+        fprintf(stderr, "    %s\n", getError(ALLOC_FAILED));
         freeMacrTable(tb);
-        fclose(fp_in);
-        fclose(fp_out);
+        fclose(fp1);
+        fclose(fp2);
         exit(EXIT_FAILURE);
     }
 
     mcr->next = NULL;
     mcr->name = my_strdup(name);
     addToMacrTable(tb, mcr);
-    allocFail(mcr->name, tb, fp_in, fp_out);
+    allocFail(mcr->name, tb, fp1, fp2);
 
-    info = malloc(0);
-    allocFail(info, tb, fp_in, fp_out);
+    info = (char *)malloc(0);
+    allocFail(info, tb, fp1, fp2);
 
-    while((ptr = fgets(line, MAX_LINE_SIZE + 1, fp_in))) {
+    while((ptr = fgets(line, MAX_LINE_SIZE + 2, fp1))) {
+        line_counter++;
+        if(checkLine(fp1, line, line_counter)) foundErr = EXIT_FAILURE;
+
         nextToken(name, &ptr, ' ');
         if(!strcmp(name, "endmacr")) {
             if(*ptr && !isspace(*ptr)) {
-                printf("Error found in line %d: %s\n", line_counter, getError(14));
-                return MACR_DEF_ERR;
+                printError(line_counter, EXTRANEOUS_TEXT_AFTER_ENDMACR);
+                return EXIT_FAILURE;
             }
             break;
-        } else if(strstr(ptr, "endmacr")){
-            printf("Error found in line %d: %s\n", line_counter, getError(15));
-            return MACR_DEF_ERR;
         }
 
-        new_info = realloc(info, len + MAX_LINE_SIZE + 1);
+        new_info = (char *)realloc(info, len + MAX_LINE_SIZE + 1);
         if(!new_info) {
-            fprintf(stderr, "%s\n", getError(1));
+            fprintf(stderr, "    %s\n", getError(REALLOC_FAILED));
             free(info);
             freeMacrTable(tb);
-            fclose(fp_in);
-            fclose(fp_out);
+            fclose(fp1);
+            fclose(fp2);
             exit(EXIT_FAILURE);
         }
         info = new_info;
@@ -146,5 +146,7 @@ int save_macr(macr_table *tb, char *name, int line_counter, FILE *fp_in, FILE *f
         len = (int)strlen(info);
     }
     mcr->info = info;
-    return 0;
+
+    if(foundErr) return EXIT_FAILURE;
+    return line_counter;
 }

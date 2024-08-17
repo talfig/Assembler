@@ -19,7 +19,7 @@ opcode get_opcode(const char *str) {
             return opcode_map[i].value;
     }
 
-    return opcode_none; /* For unknown strings */
+    return unknown_opcode; /* For unknown strings */
 }
 
 regis get_register(const char *str) {
@@ -36,7 +36,7 @@ regis get_register(const char *str) {
             return register_map[i].value;
     }
 
-    return regis_none; /* For unknown strings */
+    return unknown_register; /* For unknown strings */
 }
 
 instruction get_instruction(const char *str) {
@@ -51,5 +51,5 @@ instruction get_instruction(const char *str) {
             return instruction_map[i].value;
     }
 
-    return INSTRUCTION_NONE; /* For unknown strings */
+    return UNKNOWN_INSTRUCTION; /* For unknown strings */
 }

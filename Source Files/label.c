@@ -3,7 +3,7 @@
 #include "label.h"
 #include "macr.h"
 #include "globals.h"
-#include "errors.h"
+#include "errors_handling.h"
 
 /* label_table */
 
@@ -90,9 +90,9 @@ int isLegalLabelName(label_table *label_tb, macr_table *macr_tb, char *name) {
     return  isLegalName(name) &&
             strcmp(name, "macr") != 0 &&
             strcmp(name, "endmacr") != 0 &&
-            (op == opcode_none) &&
-            (rg == regis_none) &&
-            (inst == INSTRUCTION_NONE) &&
+            (op == unknown_opcode) &&
+            (rg == unknown_register) &&
+            (inst == UNKNOWN_INSTRUCTION) &&
             (lb == NULL) &&
             (mcr == NULL);
 }
@@ -106,9 +106,9 @@ int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp) 
 
     if(!isLegalLabelName(label_tb, macr_tb, str)) return EXIT_FAILURE;
 
-    lb = malloc(sizeof(label));
+    lb = (label *)malloc(sizeof(label));
     if(!lb) {
-        fprintf(stderr, "%s\n", getError(0));
+        fprintf(stderr, "    %s\n", getError(ALLOC_FAILED));
         freeMacrTable(macr_tb);
         freeLabelTable(label_tb);
         fclose(fp);
@@ -119,7 +119,7 @@ int parseLabel(label_table *label_tb, macr_table *macr_tb, char *str, FILE *fp) 
     lb->next = NULL, lb->name = my_strdup(str);
 
     if(!(lb->name)) {
-        fprintf(stderr, "%s\n", getError(0));
+        fprintf(stderr, "    %s\n", getError(ALLOC_FAILED));
         freeMacrTable(macr_tb);
         freeLabelTable(label_tb);
         fclose(fp);

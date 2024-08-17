@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "integer_utils.h"
+#include "errors_handling.h"
 
 int countDigits(int num) {
     int count = 0;
@@ -30,7 +31,7 @@ int parseInt(char *str, int min, int max, int line_counter) {
     while(*str) {
         /* Checking if each character is a digit */
         if(*str < '0' || *str > '9') {
-            printf("Error: Not an integer at line %d.\n", line_counter);
+            printError(line_counter, NOT_INTEGER);
             return max + 1;
         }
 
@@ -39,7 +40,7 @@ int parseInt(char *str, int min, int max, int line_counter) {
 
         /* Checking if result is within the acceptable range */
         if(sign * result < min || sign * result > max) {
-            printf("Error: Number out of range at line %d.\n", line_counter);
+            printError(line_counter, NUMBER_OUT_OF_RANGE);
             return max + 1;
         }
         str++;
