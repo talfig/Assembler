@@ -3,8 +3,6 @@
 
 #include "stdio.h"
 
-#define MACR_DEF_ERR 1
-
 int isLegalName(char *name);
 
 typedef struct macr {
@@ -31,6 +29,6 @@ int isLegalMacrName(macr_table *tb, char *name);
 
 char *my_strdup(const char *s);
 
-int save_macr(macr_table *tb, char *name, int line_counter, FILE *fp_in, FILE *fp_out);
+int save_macr(macr_table *tb, char *name, int line_counter, FILE *fp1, FILE *fp2);
 
 #endif /* MACR_H */

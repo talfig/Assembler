@@ -14,7 +14,7 @@ typedef enum {
     bne, red,
     prn, jsr,
     rts, stop,
-    opcode_none
+    unknown_opcode
 } opcode;
 
 typedef struct {
@@ -23,7 +23,7 @@ typedef struct {
 } opcodeMapping;
 
 typedef enum {
-    r0, r1, r2, r3, r4, r5, r6, r7, regis_none
+    r0, r1, r2, r3, r4, r5, r6, r7, unknown_register
 } regis;
 
 typedef struct {
@@ -36,7 +36,7 @@ typedef enum {
     STRING,
     ENTRY,
     EXTERN,
-    INSTRUCTION_NONE
+    UNKNOWN_INSTRUCTION
 } instruction;
 
 typedef struct {
