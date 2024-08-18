@@ -12,7 +12,7 @@
 #include "file_utils.h"
 
 int first_pass(char *file_name, macr_table *macr_tb) {
-    char line[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 2], *ptr;
+    char line[MAX_LINE_SIZE + 1], str[MAX_LINE_SIZE + 1], *ptr;
     unsigned short instructions[MEMORY_SIZE] = {0}, data[MEMORY_SIZE] = {0};
     unsigned short *iptr = instructions, *dptr = data;
     int IC = 0, DC = 0, is_out_of_memory = 0, is_entry = 0, is_extern = 0;

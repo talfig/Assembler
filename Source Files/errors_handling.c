@@ -168,7 +168,7 @@ int check_commas(int counter, const char *str, int line_counter) {
  * @return The number of memory words used by the instruction, or 0 if an error occurs.
  */
 int isLegalOpcode(opcode op, char *ptr, unsigned short *iptr, int idx, int line_counter, label_table *label_tb, macr_table *macr_tb) {
-    char str1[MAX_LABEL_SIZE + 2], str2[MAX_LABEL_SIZE + 2], str3[MAX_LABEL_SIZE + 2];
+    char str1[MAX_LINE_SIZE + 1], str2[MAX_LINE_SIZE + 1], str3[MAX_LINE_SIZE + 1];
     int tmp, opr1, opr2, foundErr = EXIT_SUCCESS;
 
     /* Retrieve the first operand */
@@ -320,7 +320,7 @@ int isLegalOpcode(opcode op, char *ptr, unsigned short *iptr, int idx, int line_
  */
 int isLegalData(char *ptr, unsigned short *dptr, int idx, int line_counter) {
     int num, countData = 0;
-    char str[DATA_MAX_SIZE + 1];
+    char str[MAX_LINE_SIZE + 1];
     int tmp, len;
 
     /* Check for the first token in the string */
@@ -347,8 +347,8 @@ int isLegalData(char *ptr, unsigned short *dptr, int idx, int line_counter) {
 
         *dptr = num;        /* Store the number in the data pointer */
         *dptr &= CLEAR_MSB; /* Clear the most significant bit */
-        dptr++;
-        idx++;
+        if(++idx < MEMORY_SIZE) dptr++;
+
 
         /* Move to the next token */
         tmp = nextToken(str, &ptr, ',');

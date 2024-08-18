@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "integer_utils.h"
 #include "errors_handling.h"
 

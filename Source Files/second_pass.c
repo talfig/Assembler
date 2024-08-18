@@ -10,7 +10,7 @@
 #include "errors_handling.h"
 
 int second_pass(char *file_name, label_table *label_tb, unsigned short *instructions, unsigned short *data, int DC) {
-    char line[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 2], *ptr;
+    char line[MAX_LINE_SIZE + 1], str[MAX_LABEL_SIZE + 1], *ptr;
     unsigned short foundErr = EXIT_SUCCESS, line_counter = 0, IC = 0;
     unsigned short *iptr = instructions;
     label *lb = NULL;

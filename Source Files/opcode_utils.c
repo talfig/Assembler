@@ -74,6 +74,7 @@ void encode_extra_word(unsigned short *ptr, int idx, int opr1, int opr2, char *s
                 fprintf(fp, "%s ", lb->name);
                 if(100 + idx < 1000) fprintf(fp, "0");
                 fprintf(fp, "%d\n", 100 + idx);
+                lb->is_extern++;
                 *ptr |= 1;
             }
             else *ptr |= 1 << 1;
@@ -98,7 +99,7 @@ void encode_extra_word(unsigned short *ptr, int idx, int opr1, int opr2, char *s
 }
 
 int parseOpcode(char *ptr, unsigned short **iptr, int idx, int line_counter, label_table *label_tb, FILE *fp) {
-    char str1[MAX_LABEL_SIZE + 2], str2[MAX_LABEL_SIZE + 2];
+    char str1[MAX_LABEL_SIZE + 1], str2[MAX_LABEL_SIZE + 1];
     int opr1, opr2;
 
     nextToken(str1, &ptr, ',');

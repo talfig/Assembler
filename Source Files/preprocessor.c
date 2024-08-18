@@ -9,7 +9,7 @@
 #include "file_utils.h"
 
 int preprocessor(char *file_name) {
-    char line[MAX_LINE_SIZE + 2], str[MAX_LABEL_SIZE + 2], name[MAX_LABEL_SIZE + 2], *file_name_am, *ptr;
+    char line[MAX_LINE_SIZE + 2], str[MAX_LINE_SIZE + 1], name[MAX_LINE_SIZE + 1], *file_name_am, *ptr;
     int foundErr = EXIT_SUCCESS, line_counter = 0, exit_code;
     FILE *fp_in, *fp_out;
     macr *mcr;

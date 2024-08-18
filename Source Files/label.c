@@ -146,7 +146,7 @@ int has_extern_label(label_table *label_tb) {
     label *ptr = label_tb->head;
 
     while(ptr) {
-        if(ptr->is_extern)
+        if(ptr->is_extern > 1)
             return 1;
         ptr = ptr->next;
     }

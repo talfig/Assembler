@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <ctype.h>
 #include "token_utils.h"
 #include "errors_handling.h"
