@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.27)
-project(Assembler C)
+project(assembler C)
 
 set(CMAKE_C_STANDARD 90)
 
@@ -7,7 +7,7 @@ set(CMAKE_C_STANDARD 90)
 add_compile_options(-ansi -Wall -pedantic)
 
 
-add_executable(Assembler assembler.c
+add_executable(assembler assembler.c
         macr.h
         macr.c
         preprocessor.c
