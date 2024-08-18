@@ -216,6 +216,7 @@ int isLegalOpcode(opcode op, char *ptr, unsigned short *iptr, int idx, int line_
                 return 0;
             }
             if(foundErr) return foundErr;
+
             /* Return the number of words used based on addressing methods */
             if(opr1 >= 2 && opr2 >= 2) return 2;
             return 3;
@@ -230,6 +231,7 @@ int isLegalOpcode(opcode op, char *ptr, unsigned short *iptr, int idx, int line_
                 return 0;
             }
             if(foundErr) return foundErr;
+
             /* Return the number of words used based on addressing methods */
             if(opr1 >= 2 && opr2 >= 2) return 2;
             return 3;
@@ -267,7 +269,7 @@ int isLegalOpcode(opcode op, char *ptr, unsigned short *iptr, int idx, int line_
         case jmp:
         case bne:
         case jsr:
-            /* Jump instructions with one operand */
+            /* instructions with one operand */
             if(opr1 <= 0 || opr1 == 3) {
                 printError(line_counter, INVALID_OPERAND);
                 return 0;
@@ -281,7 +283,7 @@ int isLegalOpcode(opcode op, char *ptr, unsigned short *iptr, int idx, int line_
             return 2;
 
         case prn:
-            /* Print instruction with one operand */
+            /* instruction with one operand */
             if(opr1 == -1) {
                 printError(line_counter, INVALID_OPERAND);
                 return 0;
@@ -349,7 +351,6 @@ int isLegalData(char *ptr, unsigned short *dptr, int idx, int line_counter) {
         *dptr &= CLEAR_MSB; /* Clear the most significant bit */
         if(++idx < MEMORY_SIZE) dptr++;
 
-
         /* Move to the next token */
         tmp = nextToken(str, &ptr, ',');
         if(check_commas(tmp, str, line_counter)) return 0; /* Check for comma errors */
@@ -373,8 +374,7 @@ int strcpy_ascii(unsigned short *dest, char *source, int idx) {
     while(*source && idx < MEMORY_SIZE) {
         *dest = (unsigned short)*source; /* Convert character to unsigned short */
         *dest &= CLEAR_MSB;              /* Clear the most significant bit */
-        idx++;
-        dest++;
+        if(++idx < MEMORY_SIZE) dest++;
         source++;
     }
     /* Check for memory overflow */

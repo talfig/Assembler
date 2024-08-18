@@ -1,6 +1,19 @@
+/**
+ * @file integer_utils.c
+ * @brief Contains utility functions for handling integers.
+ *
+ * This file includes error handling for invalid inputs.
+ */
+
 #include "integer_utils.h"
 #include "errors_handling.h"
 
+/**
+ * @brief Counts the number of digits in an integer.
+ *
+ * @param num The integer whose digits are to be counted.
+ * @return The number of digits in the integer.
+ */
 int countDigits(int num) {
     int count = 0;
 
@@ -15,6 +28,18 @@ int countDigits(int num) {
     return count;
 }
 
+/**
+ * @brief Parses a string to an integer with range validation.
+ *
+ * This function parses a string representation of an integer.
+ * It also prints an error message if the string is not a valid integer or if the result is out of range.
+ *
+ * @param str The string containing the integer representation.
+ * @param min The minimum acceptable value for the integer.
+ * @param max The maximum acceptable value for the integer.
+ * @param line_counter The line number for error reporting.
+ * @return The parsed integer value, or max + 1 if there is an error.
+ */
 int parseInt(char *str, int min, int max, int line_counter) {
     int result = 0;
     int sign = 1;
@@ -48,10 +73,27 @@ int parseInt(char *str, int min, int max, int line_counter) {
     return sign * result;
 }
 
+/**
+ * @brief Parses a string to an integer with data-specific range validation.
+ *
+ * @param str The string containing the integer representation.
+ * @param line_counter The line number for error reporting.
+ * @return The parsed integer value, or DATA_MAX_VALUE + 1 if there is an error.
+ */
 int parseDataInt(char *str, int line_counter) {
     return parseInt(str, DATA_MIN_VALUE, DATA_MAX_VALUE, line_counter);
 }
 
+/**
+ * @brief Parses a string to an integer for instruction-specific values.
+ *
+ * This function parses a string representing an instruction integer and
+ * ensuring it starts with '#'.
+ *
+ * @param str The string containing the integer representation, prefixed with '#'.
+ * @param line_counter The line number for error reporting.
+ * @return The parsed integer value, or INSTRUCTION_MAX_VALUE + 1 if there is an error.
+ */
 int parseInstructionInt(char *str, int line_counter) {
     if(*str != '#') return INSTRUCTION_MAX_VALUE + 1;
     return parseInt(str + 1, INSTRUCTION_MIN_VALUE, INSTRUCTION_MAX_VALUE, line_counter);
