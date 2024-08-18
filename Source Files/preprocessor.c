@@ -50,7 +50,10 @@ int preprocessor(char *file_name) {
         line_counter++;
 
         /* Check for errors in the current line */
-        if(checkLine(fp_in, line, line_counter)) foundErr = EXIT_FAILURE;
+        if(checkLine(fp_in, line, line_counter)) {
+            foundErr = EXIT_FAILURE;
+            continue;
+        }
 
         nextToken(str, &ptr, ' ');
         nextToken(name, &ptr, ' ');
@@ -64,13 +67,11 @@ int preprocessor(char *file_name) {
                 printError(line_counter, EXTRANEOUS_TEXT_AFTER_MACRO);
                 foundErr = EXIT_FAILURE;
             }
-            else
-                /* Write the macro's content to the output file */
-                fprintf(fp_out, "%s", mcr->info);
+            /* Write the macro's content to the output file */
+            else fprintf(fp_out, "%s", mcr->info);
         }
-        else if(strcmp(str, "macr") != 0)
-            /* If the line is not a macro definition, write it to the output file */
-            fprintf(fp_out, "%s", line);
+        /* If the line is not a macro definition, write it to the output file */
+        else if(strcmp(str, "macr") != 0) fprintf(fp_out, "%s", line);
         else {
             /* Handle macro definition */
             nextToken(str, &ptr, ' ');
