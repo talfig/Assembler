@@ -14,6 +14,7 @@
 #include "globals.h"
 
 /**
+ * @enum Error
  * @brief Enum representing various types of errors that can occur.
  */
 typedef enum {
