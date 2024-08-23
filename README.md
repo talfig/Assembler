@@ -40,8 +40,11 @@ Here is a simple example of an assembly program:
 start:  mov r1, r2
         add r3, r4
         stop
+```
 
 ## Installation
 To build the assembler, ensure you have a C compiler installed. Then, clone the repository and run:
 ```make
+make
+```
 This will compile the assembler and create the executable file.
