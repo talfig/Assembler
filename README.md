@@ -130,7 +130,38 @@ The assembler encodes the first word of each instruction using the following for
 | Opcode |||| Source operand |||| Destination operand |||| The field A,R,E |||
 | Fourth bit | Third bit | Second bit | First bit | Method 3 | Method 2 | Method 1 | Method 0 | Method 3 | Method 2 | Method 1 | Method 0 |  A  |  R  |  E  |
 
-### 📚 **Types of Statements in Assembly Language**
+## 🧠 **Addressing Methods Encoding**
+
+### Immediate Addressing
+- **Operand Representation:** The operand itself, which is a 12-bit two's complement integer, is contained in bits 14-3 of the word.
+- **A,R,E Bits:** In immediate addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
+
+### Direct Addressing
+- **Operand Representation:** The operand is a memory address, with the word at this address in memory being the operand. The address is represented as a 12-bit unsigned number in bits 14-3 of the word.
+- **A,R,E Bits:** 
+  - If the address is internal (i.e., within the current source file), the `R` bit is set to 1, and the `A` and `E` bits are set to 0.
+  - If the address is external (i.e., from another source file), the `E` bit is set to 1, and the `A` and `R` bits are set to 0.
+
+### Indirect Register Addressing
+- **Operand Representation:** Accesses memory through a pointer in a register. The content of the register is a memory address, and the word at this address is the operand. The address is represented as a 15-bit unsigned number in the register.
+- **A,R,E Bits:** In indirect register addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
+- **Register Coding:**
+  - If the operand is a destination, bits 5-3 of the word contain the register number used as a pointer.
+  - If the operand is a source, bits 8-6 of the word contain the register number used as a pointer.
+  - If there are two operands using indirect register addressing, both registers share the same word, with bits 5-3 containing the destination register and bits 8-6 containing the source register.
+
+### Direct Register Addressing
+- **Operand Representation:** The operand is a direct register.
+- **A,R,E Bits:** In direct register addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
+- **Register Coding:**
+  - If the register is a destination, bits 5-3 of the word contain the register number.
+  - If the register is a source, bits 8-6 of the word contain the register number.
+  - If there are two operands using either direct register or indirect register addressing, both registers share the same word, with bits 5-3 containing the destination register and bits 8-6 containing the source register.
+
+### Unused Bits
+- Any bits in the instruction word that are not used should be set to 0.
+
+## 📚 **Types of Statements in Assembly Language**
 
 Assembly language typically includes four types of statements:
 
@@ -141,7 +172,7 @@ Assembly language typically includes four types of statements:
 | **Instruction Statement** | A line containing valid assembly code that the assembler will translate into machine language. These lines typically contain an opcode and operands. |
 | **Directive Statement**  | A line that starts with a dot `.` followed by a directive keyword (e.g., `.entry`, `.extern`). These lines instruct the assembler on how to process the subsequent code. |
 
-### ⚙️ **Supported Operations and Addressing Methods**
+## ⚙️ **Supported Operations and Addressing Methods**
 
 Our assembler supports the following operations and the corresponding addressing modes:
 
@@ -172,7 +203,7 @@ Our assembler handles the following instructions during the second pass: `mov`, 
 
 You can replace the names of the operation functions such as `K`, `STR`, `LIST`, `MAIN`, `LOOP`, `END` in the assembler with names that match each function's purpose.
 
-### 📜 Example Program
+## 📜 Example Program
 
 Here’s a quick demo of an assembly program in action:
 
