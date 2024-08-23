@@ -16,30 +16,67 @@
 
 Our assembler brings to life a variety of opcodes for your coding pleasure:
 
-- `mov` (0) – Move data
-- `cmp` (1) – Compare values
-- `add` (2) – Addition
-- `sub` (3) – Subtraction
-- `lea` (4) – Load effective address
-- `clr` (5) – Clear data
-- `not` (6) – Bitwise NOT
-- `inc` (7) – Increment
-- `dec` (8) – Decrement
-- `jmp` (9) – Jump to address
-- `bne` (10) – Branch if not equal
-- `red` (11) – Read input
-- `prn` (12) – Print output
-- `jsr` (13) – Jump to subroutine
-- `rts` (14) – Return from subroutine
-- `stop` (15) – Halt execution
+- (0) `mov` – Move data
+- (1) `cmp` – Compare values
+- (2) `add` – Addition
+- (3) `sub` – Subtraction
+- (4) `lea` – Load effective address
+- (5) `clr` – Clear data
+- (6) `not` – Bitwise NOT
+- (7) `inc` – Increment
+- (8) `dec` – Decrement
+- (9) `jmp` – Jump to address
+- (10) `bne` – Branch if not equal
+- (11) `red` – Read input
+- (12) `prn` – Print output
+- (13) `jsr` – Jump to subroutine
+- (14) `rts` – Return from subroutine
+- (15) `stop` – Halt execution
 
 ## ✍️ Assembly Language Syntax
 
 Write your assembly code with these cool features:
 
+- **Macros:** Define macros with macr <macro_name>, include a series of instructions, and close with endmacr. This helps to simplify repetitive code.
+
+Example:
+
+```assembly
+macr myMacro
+    mov r1, r2
+    add r3, r4
+endmacr
+```
+
+- **Directives:** Use special commands like .entry, .extern, and more to manage your code's structure.
+
+Example:
+
+```assembly
+.extern var1
+.entry start
+```
+
+
+- **Instructions:** Use our supported opcodes to perform operations in your assembly code. Each opcode corresponds to a specific machine instruction.
+
+Example:
+
+```assembly
+mov r1, r2
+add r3, r4
+jmp start
+```
+
 - **Labels:** Define and use labels in your code.
-- **Directives:** Use special commands like `.entry`, `.extern`, and more.
-- **Macros:** Define macros with `macr <macro_name>`, include instructions, and close with `endmacr`.
+
+Example:
+
+```assembly
+Label: mov r1, r2
+```
+
+Each instruction and operation is carefully designed to give you complete control over your assembly code, allowing you to write efficient and functional programs.
 
 ## 📌 Addressing Methods
 Understanding the addressing methods used in our assembler is key to writing effective assembly code. Here’s a breakdown of the supported addressing methods:
@@ -55,7 +92,8 @@ Each addressing mode allows for flexible data manipulation, enabling you to writ
 Here’s a quick demo of an assembly program in action:
 
 ```assembly
-start:  mov r1, r2
+; Assembly Program
+Start:  mov r1, r2
         add r3, r4
         stop
 ```
