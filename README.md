@@ -96,6 +96,41 @@ The assembler encodes the first word of each instruction using the following for
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|----|----|
 | Opcode            |||| Mode 3 | Mode 2 | Mode 1 | Mode 0 | Mode 3 | Mode 2 | Mode 1 | Mode 0 |  A  |  R  |  E  |
 
+### 📚 **Types of Statements in Assembly Language**
+
+Assembly language typically includes four types of statements:
+
+| **Statement Type**    | **Explanation**                                                                                                  |
+|-----------------------|------------------------------------------------------------------------------------------------------------------|
+| **Empty Statement**    | A line that contains only whitespace (spaces, tabs, etc.). Essentially, it does nothing and will be ignored during compilation. |
+| **Comment Statement**  | A line beginning with a semicolon `;` which is used to comment out code or add explanations in the assembly source. These are also ignored by the assembler. |
+| **Instruction Statement** | A line containing valid assembly code that the assembler will translate into machine language. These lines typically contain an opcode and operands. |
+| **Directive Statement**  | A line that starts with a dot `.` followed by a directive keyword (e.g., `.entry`, `.extern`). These lines instruct the assembler on how to process the subsequent code. |
+
+### ⚙️ **Supported Operations and Addressing Modes**
+
+Our assembler supports the following operations and the corresponding addressing modes:
+
+| **Operation** | **Source Operand Addressing Modes** | **Destination Operand Addressing Modes** |
+|---------------|-------------------------------------|------------------------------------------|
+| `mov`         | 0,1,2,3                             | 0,1,2,3                                  |
+| `cmp`         | 0,1,2,3                             | 0,1,2,3                                  |
+| `add`         | 0,1,2,3                             | 1,2,3                                    |
+| `sub`         | 0,1,2,3                             | 1,2,3                                    |
+| `lea`         | 1                                   | 0,1,2,3                                  |
+| `clr`         | -                                   | 1,2,3                                    |
+| `not`         | -                                   | 1,2,3                                    |
+| `inc`         | -                                   | 1,2,3                                    |
+| `dec`         | -                                   | 1,2,3                                    |
+| `jmp`         | -                                   | 1,2                                      |
+| `bne`         | -                                   | 1,2                                      |
+| `red`         | -                                   | 1,2,3                                    |
+| `prn`         | -                                   | 0,1,2,3                                  |
+| `jsr`         | -                                   | 1,2                                      |
+| `rts`         | -                                   | -                                        |
+| `stop`        | -                                   | -                                        |
+
+
 ### 📜 Example Program
 
 Here’s a quick demo of an assembly program in action:
