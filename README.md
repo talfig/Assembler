@@ -130,6 +130,58 @@ The assembler encodes the first word of each instruction using the following for
 | Opcode |||| Source operand |||| Destination operand |||| The field A,R,E |||
 | Fourth bit | Third bit | Second bit | First bit | Mode 3 | Mode 2 | Mode 1 | Mode 0 | Mode 3 | Mode 2 | Mode 1 | Mode 0 |  A  |  R  |  E  |
 
+## 📊 Extra Word Encoding for Addressing Methods
+
+In an assembler, the extra word refers to additional data that is required when using certain addressing methods. This data is encoded during the assembly process and is essential for executing the instruction correctly. Here's how the extra word is handled for each addressing method and the overall encoding process:
+
+### Immediate Addressing (Method 0)
+- **Description:** The operand is a constant value provided directly in the instruction.
+- **Extra Word:** Required. The extra word contains the actual immediate value that is to be used in the operation.
+- **Encoding Process:** 
+  - The opcode is encoded in the first word, followed by the mode bits indicating immediate addressing.
+  - The immediate value is placed in the extra word.
+  - Example: 
+    ```assembly
+    mov #5, r1
+    ```
+    Here, the immediate value `5` is stored as the extra word.
+
+### Direct Addressing (Method 1)
+- **Description:** The operand is a memory address directly specified in the instruction.
+- **Extra Word:** Required. The extra word contains the address of the operand in memory.
+- **Encoding Process:** 
+  - The opcode is encoded in the first word, followed by the mode bits indicating direct addressing.
+  - The memory address is placed in the extra word.
+  - Example:
+    ```assembly
+    mov label, r2
+    ```
+    The address corresponding to `label` is stored in the extra word.
+
+### Indirect Addressing (Method 2)
+- **Description:** The operand is a memory address stored in a register, and the instruction operates on the value at that address.
+- **Extra Word:** Required. The extra word contains the register that holds the memory address.
+- **Encoding Process:** 
+  - The opcode is encoded in the first word, followed by the mode bits indicating indirect addressing.
+  - The extra word contains the value stored in the register pointing to the memory location.
+  - Example:
+    ```assembly
+    mov *r3, r4
+    ```
+    The address stored in `r3` is used, and its value is moved to `r4`.
+
+### Indexed Addressing (Method 3)
+- **Description:** The operand is accessed using a base register plus an offset.
+- **Extra Word:** Required. The extra word contains the base register and the offset value.
+- **Encoding Process:** 
+  - The opcode is encoded in the first word, followed by the mode bits indicating indexed addressing.
+  - The extra word contains the base register value and the offset.
+  - Example:
+    ```assembly
+    mov r5, r6
+    ```
+    The content at `r5` (considering offset if any) is loaded into `r6`.
+
 ### 📚 **Types of Statements in Assembly Language**
 
 Assembly language typically includes four types of statements:
