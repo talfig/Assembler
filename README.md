@@ -45,30 +45,32 @@ start:  mov r1, r2
 ## Installation
 To build the assembler, ensure you have a C compiler installed. Then, clone the repository and run:
 
-```markdown
+```batch
 make
 ```
 
 This will compile the assembler and create the executable file.
 
 ## Usage
-To assemble an assembly file:
+To run the assembler on assembly file:
 
-bash
-Copy code
+```batch
 ./assembler <source_file>
+```
+
 Replace <source_file> with the path to your assembly code file.
 
-Error Handling
+## Error Handling
 The assembler generates error messages that mimic those found in typical compiler outputs. Errors include:
 
-Memory allocation failure
-Unrecognized commands
-Syntax errors
-Logical errors
-Directory Structure
+- Memory allocation failure
+- Unrecognized commands
+- Syntax errors
+- Logical errors
+
+## Directory Structure
 The project is organized as follows:
 
-Source_Files/: Contains the source code files.
-Header_Files/: Contains the header files.
-Object_Files/: Object files generated during compilation.
+- Source_Files/: Contains the source code files.
+- Header_Files/: Contains the header files.
+- Object_Files/: Object files generated during compilation.
