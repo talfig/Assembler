@@ -125,8 +125,8 @@ The assembler encodes the first word of each instruction using the following for
 
 | 14  | 13  | 12  | 11  | 10  |  9  |  8  |  7  |  6  |  5  |  4  |  3  |  2  |  1  |  0  |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|----|----|
-| Opcode |-------|-------|-------| Source operand |-------|-------|-------| Destination operand |-------|-------|-------| The field A,R,E |-------|-------|
-| Fourth bit | Third bit | Second bit | First bit | Mode 3 | Mode 2 | Mode 1 | Mode 0 | Mode 3 | Mode 2 | Mode 1 | Mode 0 |  A  |  R  |  E  |
+| Opcode |||| Source operand |||| Destination operand |||| The field A,R,E |||
+| bit 3 | bit 2 | bit 1 | bit 0 | Mode 3 | Mode 2 | Mode 1 | Mode 0 | Mode 3 | Mode 2 | Mode 1 | Mode 0 |  A  |  R  |  E  |
 
 ### 📚 **Types of Statements in Assembly Language**
 
