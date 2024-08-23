@@ -111,7 +111,7 @@ label: mov r1, r2
 
 Each instruction and operation is carefully designed to give you complete control over your assembly code, allowing you to write efficient and functional programs.
 
-## 📌 Addressing Methods (modes)
+## 📌 Addressing Methods (Modes)
 Understanding the addressing methods used in our assembler is key to writing effective assembly code. Here’s a breakdown of the supported addressing methods:
 
 - **(0) Immediate Addressing (#):** In this mode, the operand is a constant value. For example, mov #5, r1 loads the value 5 directly into register r1.
