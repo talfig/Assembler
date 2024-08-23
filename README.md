@@ -94,7 +94,7 @@ The assembler encodes the first word of each instruction using the following for
 
 | 14  | 13  | 12  | 11  | 10  |  9  |  8  |  7  |  6  |  5  |  4  |  3  |  2  |  1  |  0  |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|----|----|
-| Opcode |||| Source Operand |||| Destination Operand |||||||
+| Opcode |||| Source operand |||| Destination operand |||| The field A.R.E |||
 ||||| Mode 3 | Mode 2 | Mode 1 | Mode 0 | Mode 3 | Mode 2 | Mode 1 | Mode 0 |  A  |  R  |  E  |
 
 ### 📚 **Types of Statements in Assembly Language**
