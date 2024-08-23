@@ -88,7 +88,15 @@ Understanding the addressing methods used in our assembler is key to writing eff
 
 Each addressing mode allows for flexible data manipulation, enabling you to write efficient and powerful assembly code.
 
-### 📜 Example Code
+## 📊 First Word Encoding
+
+| Bit  | 14 | 13 | 12 | 11 | 10 |  9 |  8 |  7 |  6 |  5 |  4 |  3 |  2 |  1 |  0 |
+|------|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
+| Field|    |    |    |    |    |    |    |    |    |    |    |    | A  | R  | E  |
+|      | opcode | Source Operand Addressing | Destination Operand Addressing | A,R,E |
+
+
+### 📜 Example Program
 
 Here’s a quick demo of an assembly program in action:
 
