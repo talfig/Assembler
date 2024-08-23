@@ -6,6 +6,18 @@
   🛠️ Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
+## 🖥️ **Hardware**
+
+- The computer in this project is comprised of a CPU (Central Processing Unit) - a work unit containing registers and RAM. Some of the memory also serves as a stack.
+
+- The CPU contains 8 general registers: `r0, r1, r2, r3, r4, r5, r6, r7`. The size of each register is 15 bits. The content of the registers is initialized to 0, and the least significant 3 bits of each register are always written as the letter 'z' in lowercase.
+
+- Additionally, the CPU contains a register named PSW (program status word), which contains several flags representing the status of the program at any given moment. These flags are typically used to indicate conditions like carry or overflow after arithmetic operations.
+
+- The memory size is 4096 bytes, addressed from 0-4095, with each address being 15 bits long. The memory content is treated as "words", similar to registers.
+
+- The machine works with a big-endian system, meaning the most significant byte is stored at the smallest memory address. The numbers are stored using 2's complement (negative numbers), and characters are encoded in ASCII.
+
 ## 🚀 Features
 
 - **Custom Assembly Language:** Dive into our unique assembly language with a defined set of opcodes.
