@@ -52,7 +52,7 @@ make
 This will compile the assembler and create the executable file.
 
 ## Usage
-To run the assembler on assembly file:
+To run the assembler on a certain file:
 
 ```batch
 ./assembler <source_file>
