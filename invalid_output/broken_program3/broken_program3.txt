@@ -1,0 +1,14 @@
+>>> Started working on the file broken_program3.as
+    No errors were found in the file broken_program3.as during macro expansion
+>>> Finished working on the file broken_program3.as
+>>> Started working on the file broken_program3.am
+    Error found in line 17: Unrecognized command
+    Error found in line 19: Multiple consecutive commas
+    Error found in line 22: Invalid operand
+    Error found in line 26: Unrecognized command
+    Error found in line 29: Number out of range
+    Error found in line 29: Invalid destination operand
+    Error found in line 31: Not an integer
+    Error found in line 31: Invalid destination operand
+    Error found in line 33: Invalid operand
+>>> Finished working on the file broken_program3.am

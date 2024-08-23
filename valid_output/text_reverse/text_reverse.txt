@@ -1,0 +1,6 @@
+>>> Started working on the file text_reverse.as
+    No errors were found in the file text_reverse.as during macro expansion
+>>> Finished working on the file text_reverse.as
+>>> Started working on the file text_reverse.am
+    No errors were found in the file text_reverse.am
+>>> Finished working on the file text_reverse.am

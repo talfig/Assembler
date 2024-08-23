@@ -1,0 +1,6 @@
+>>> Started working on the file string_length.as
+    No errors were found in the file string_length.as during macro expansion
+>>> Finished working on the file string_length.as
+>>> Started working on the file string_length.am
+    No errors were found in the file string_length.am
+>>> Finished working on the file string_length.am
