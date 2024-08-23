@@ -172,6 +172,97 @@ Assembly language typically includes four types of statements:
 | **Instruction Statement** | A line containing valid assembly code that the assembler will translate into machine language. These lines typically contain an opcode and operands. |
 | **Directive Statement**  | A line that starts with a dot `.` followed by a directive keyword (e.g., `.entry`, `.extern`). These lines instruct the assembler on how to process the subsequent code. |
 
+### **Instruction Statements:**
+
+#### 1. `.data` Instruction
+- The `.data` instruction allocates space in the data image to store the specified integer values.
+- Parameters: One or more legal integers separated by commas.
+
+Example:
+
+  ```assembly
+  .data 7, -57, +17, 9
+  ```
+
+In this example, the assembler allocates four consecutive words in the data image for the numbers. If a label is defined, it will be associated with the address of the first value.
+
+```assembly
+XYZ: .data 7, -57, +17, 9
+```
+
+Here, XYZ is a label associated with the address of the first value (7). This label can be referenced in the program.
+
+#### 2. `.string` Instruction
+- The `.string` instruction allocates space in the data image to store a string.
+- Parameters: A single legal string enclosed in double quotes.
+
+Example:
+
+```assembly
+STR: .string "abcdef"
+```
+The string "abcdef" is stored in the data image with each character in a separate word, followed by a `0` to indicate the end of the string. The label `STR` refers to the address of the first character.
+
+#### 3. .entry Instruction
+- The `.entry` instruction identifies a label that can be referenced from other assembly source files.
+- Parameters: A single label name defined in the current source file.
+
+Example:
+
+```assembly
+.entry HELLO
+```
+
+This instruction marks the label HELLO as available for external reference.
+
+#### 4. .extern Instruction
+- The `.extern` instruction indicates that a label is defined in another source file.
+- Parameters: A single label name that is defined externally.
+
+Example:
+
+```assembly
+.extern HELLO
+```
+
+This indicates that the label HELLO is defined in another source file and will be linked accordingly.
+
+### 💬 Instruction Fields
+
+#### Labels
+- A label is a symbolic representation of an address in memory.
+- Syntax:
+  -  Maximum length: 31 characters.
+  -  Ends with a colon :, which must be directly attached to the label name without spaces.
+
+Example:
+
+```assembly
+Hello:
+X:
+He10:
+```
+
+Labels are case-sensitive and must be unique within the same file.
+
+#### Numbers
+- Legal numbers are decimal integers that can be positive or negative.
+
+Example:
+
+```assembly
+123, -57, +17
+```
+
+#### Strings
+- A legal string is a sequence of printable ASCII characters enclosed in double quotes.
+
+Example:
+
+```assembly
+"hello world"
+```
+
 ## ⚙️ **Supported Operations and Addressing Methods**
 
 Our assembler supports the following operations and the corresponding addressing modes:
