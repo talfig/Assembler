@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file assembler.c
  * @brief Entry point for the assembler program.
  *
