@@ -111,7 +111,7 @@ label: mov r1, r2
 
 Each instruction and operation is carefully designed to give you complete control over your assembly code, allowing you to write efficient and functional programs.
 
-## 📌 Addressing Methods
+## 📌 Addressing Methods (modes)
 Understanding the addressing methods used in our assembler is key to writing effective assembly code. Here’s a breakdown of the supported addressing methods:
 
 - **(0) Immediate Addressing (#):** In this mode, the operand is a constant value. For example, mov #5, r1 loads the value 5 directly into register r1.
@@ -193,11 +193,11 @@ Assembly language typically includes four types of statements:
 | **Instruction Statement** | A line containing valid assembly code that the assembler will translate into machine language. These lines typically contain an opcode and operands. |
 | **Directive Statement**  | A line that starts with a dot `.` followed by a directive keyword (e.g., `.entry`, `.extern`). These lines instruct the assembler on how to process the subsequent code. |
 
-### ⚙️ **Supported Operations and Addressing Modes**
+### ⚙️ **Supported Operations and Addressing Methods**
 
 Our assembler supports the following operations and the corresponding addressing modes:
 
-| **Operation** | **Source Operand Addressing Modes** | **Destination Operand Addressing Modes** |
+| **Operation** | **Source Operand Addressing Methods** | **Destination Operand Addressing Methods** |
 |---------------|-------------------------------------|------------------------------------------|
 | `mov`         | 0,1,2,3                             | 0,1,2,3                                  |
 | `cmp`         | 0,1,2,3                             | 0,1,2,3                                  |
