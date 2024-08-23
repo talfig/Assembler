@@ -84,8 +84,10 @@ endmacr
 Example:
 
 ```assembly
-.extern var1
-.entry start
+.extern start
+.entry end
+.string "str"
+.data 1, -5, 0
 ```
 
 
