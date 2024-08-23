@@ -112,6 +112,7 @@ label: mov r1, r2
 Each instruction and operation is carefully designed to give you complete control over your assembly code, allowing you to write efficient and functional programs.
 
 ## 📌 Addressing Methods (Modes)
+
 Understanding the addressing methods used in our assembler is key to writing effective assembly code. Here’s a breakdown of the supported addressing methods:
 
 - **(0) Immediate Addressing (#):** In this mode, the operand is a constant value. For example, mov #5, r1 loads the value 5 directly into register r1.
@@ -133,16 +134,19 @@ The assembler encodes the first word of each instruction using the following for
 ## 🧠 **Addressing Methods Encoding**
 
 ### Immediate Addressing
+
 - **Operand Representation:** The operand itself, which is a 12-bit two's complement integer, is contained in bits 14-3 of the word.
 - **A,R,E Bits:** In immediate addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
 
 ### Direct Addressing
+
 - **Operand Representation:** The operand is a memory address, with the word at this address in memory being the operand. The address is represented as a 12-bit unsigned number in bits 14-3 of the word.
 - **A,R,E Bits:** 
   - If the address is internal (i.e., within the current source file), the `R` bit is set to 1, and the `A` and `E` bits are set to 0.
   - If the address is external (i.e., from another source file), the `E` bit is set to 1, and the `A` and `R` bits are set to 0.
 
 ### Indirect Register Addressing
+
 - **Operand Representation:** Accesses memory through a pointer in a register. The content of the register is a memory address, and the word at this address is the operand. The address is represented as a 15-bit unsigned number in the register.
 - **A,R,E Bits:** In indirect register addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
 - **Register Coding:**
@@ -151,6 +155,7 @@ The assembler encodes the first word of each instruction using the following for
   - If there are two operands using indirect register addressing, both registers share the same word, with bits 5-3 containing the destination register and bits 8-6 containing the source register.
 
 ### Direct Register Addressing
+
 - **Operand Representation:** The operand is a direct register.
 - **A,R,E Bits:** In direct register addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
 - **Register Coding:**
@@ -159,6 +164,7 @@ The assembler encodes the first word of each instruction using the following for
   - If there are two operands using either direct register or indirect register addressing, both registers share the same word, with bits 5-3 containing the destination register and bits 8-6 containing the source register.
 
 ### Unused Bits
+
 - Any bits in the instruction word that are not used should be set to 0.
 
 ## 📚 **Types of Statements in Assembly Language**
@@ -175,6 +181,7 @@ Assembly language typically includes four types of statements:
 ### **Instruction Statements:**
 
 #### 1. `.data` Instruction
+
 - The `.data` instruction allocates space in the data image to store the specified integer values.
 - Parameters: One or more legal integers separated by commas.
 
@@ -192,7 +199,8 @@ XYZ: .data 7, -57, +17, 9
 
 Here, XYZ is a label associated with the address of the first value (7). This label can be referenced in the program.
 
-#### 2. `.string` Instruction
+#### `.string` Instruction
+
 - The `.string` instruction allocates space in the data image to store a string.
 - Parameters: A single legal string enclosed in double quotes.
 
@@ -203,7 +211,8 @@ STR: .string "abcdef"
 ```
 The string "abcdef" is stored in the data image with each character in a separate word, followed by a `0` to indicate the end of the string. The label `STR` refers to the address of the first character.
 
-#### 3. .entry Instruction
+#### `.entry` Instruction
+
 - The `.entry` instruction identifies a label that can be referenced from other assembly source files.
 - Parameters: A single label name defined in the current source file.
 
@@ -215,7 +224,8 @@ Example:
 
 This instruction marks the label HELLO as available for external reference.
 
-#### 4. .extern Instruction
+#### `.extern` Instruction
+
 - The `.extern` instruction indicates that a label is defined in another source file.
 - Parameters: A single label name that is defined externally.
 
@@ -227,9 +237,10 @@ Example:
 
 This indicates that the label HELLO is defined in another source file and will be linked accordingly.
 
-### 💬 Instruction Fields
+### Instruction Fields
 
 #### Labels
+
 - A label is a symbolic representation of an address in memory.
 - Syntax:
   -  Maximum length: 31 characters.
@@ -246,6 +257,7 @@ He10:
 Labels are case-sensitive and must be unique within the same file.
 
 #### Numbers
+
 - Legal numbers are decimal integers that can be positive or negative.
 
 Example:
@@ -255,12 +267,90 @@ Example:
 ```
 
 #### Strings
+
 - A legal string is a sequence of printable ASCII characters enclosed in double quotes.
 
 Example:
 
 ```assembly
 "hello world"
+```
+
+### Instruction Statement Formats
+
+#### Two-Operand Instruction
+
+- Format: `label: opcode source-operand, target-operand`
+
+Example:
+
+``assembly
+HELLO: add r7, B
+```
+
+#### One-Operand Instruction
+
+- Format: `label: opcode target-operand`
+
+Example:
+
+``assembly
+HELLO: bne XYZ
+```
+
+#### No-Operand Instruction
+
+- Format: `label: opcode`
+
+Example:
+
+``assembly
+END: stop
+```
+
+## Macro Handling
+
+When the assembler receives an assembly program, it first expands all macros before proceeding with the assembly process. If there are macros, the assembler generates an expanded program, which is then assembled into machine code. Here's how a sample program looks before and after macro expansion:
+
+Before Macro Expansion:
+
+``assembly
+MAIN: add r3, LIST
+LOOP: prn #48
+macr m_macr
+cmp r3, #-6
+bne END
+endmacr
+lea STR, r6
+inc r6
+mov *r6, K
+sub rl, r4
+m_macr
+dec K
+jmp LOOP
+END: stop
+STR: .string "abcd"
+LIST: .data 6, -9
+K: .data 31
+```
+
+After Macro Expansion:
+
+```assembly
+MAIN: add r3, LIST
+LOOP: prn #48
+lea STR, r6
+inc r6
+mov *r6, K
+sub rl, r4
+cmp r3, #-6
+bne END
+dec K
+jmp LOOP
+END: stop
+STR: .string "abcd"
+LIST: .data 6, -9
+K: .data 31
 ```
 
 ## ⚙️ **Supported Operations and Addressing Methods**
@@ -325,6 +415,7 @@ make
 You’ll have the assembler ready in no time!
 
 ## 🎯 Usage
+
 To run the assembler on a certain file:
 
 ```bash
@@ -334,6 +425,7 @@ To run the assembler on a certain file:
 Replace <source_file> with the path to your assembly code file.
 
 ## ⚠️ Error Handling
+
 Bumped into issues? No worries! Our assembler offers descriptive error messages such as:
 
 - **Memory allocation failure**
@@ -341,6 +433,7 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
 - **Syntax errors**
 
 ## 📁 Directory Structure
+
 The project is organized as follows:
 
 - **Build and Configuration:** Contains build scripts and configuration files.
@@ -353,4 +446,5 @@ The project is organized as follows:
 - **Object Files:** Contains object files generated during compilation.
 
 ## 🌐 License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
