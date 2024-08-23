@@ -1,0 +1,78 @@
+>>> Started working on the file broken_program6.as
+    No errors were found in the file broken_program6.as during macro expansion
+>>> Finished working on the file broken_program6.as
+>>> Started working on the file broken_program6.am
+    Error found in line 4: Unrecognized command
+    Error found in line 5: Unrecognized command
+    Error found in line 6: Unrecognized command
+    Error found in line 7: Unrecognized command
+    Error found in line 8: Unrecognized command
+    Error found in line 9: Unrecognized command
+    Error found in line 10: Unrecognized command
+    Error found in line 11: Unrecognized command
+    Error found in line 12: Unrecognized command
+    Error found in line 13: Unrecognized command
+    Error found in line 14: Unrecognized command
+    Error found in line 15: Unrecognized command
+    Error found in line 16: Unrecognized command
+    Error found in line 17: Unrecognized command
+    Error found in line 18: Unrecognized command
+    Error found in line 19: Unrecognized command
+    Error found in line 20: Unrecognized command
+    Error found in line 21: Unrecognized command
+    Error found in line 22: Unrecognized command
+    Error found in line 23: Unrecognized command
+    Error found in line 24: Unrecognized command
+    Error found in line 25: Unrecognized command
+    Error found in line 26: Unrecognized command
+    Error found in line 27: Unrecognized command
+    Error found in line 28: Unrecognized command
+    Error found in line 29: Unrecognized command
+    Error found in line 30: Unrecognized command
+    Error found in line 31: Unrecognized command
+    Error found in line 32: Unrecognized command
+    Error found in line 33: Unrecognized command
+    Error found in line 34: Unrecognized command
+    Error found in line 35: Unrecognized command
+    Error found in line 36: Unrecognized command
+    Error found in line 37: Unrecognized command
+    Error found in line 38: Unrecognized command
+    Error found in line 39: Unrecognized command
+    Error found in line 42: Unrecognized command
+    Error found in line 43: Missing comma
+    Error found in line 44: Unexpected operand
+    Error found in line 45: Missing comma
+    Error found in line 46: Unexpected operand
+    Error found in line 47: Unexpected operand
+    Error found in line 50: Unrecognized command
+    Error found in line 51: Unrecognized command
+    Error found in line 52: Unrecognized command
+    Error found in line 53: Unrecognized command
+    Error found in line 54: Unrecognized command
+    Error found in line 57: Missing comma
+    Error found in line 58: Extraneous text after string
+    Error found in line 60: Invalid label
+    Error found in line 61: Invalid label
+    Error found in line 64: Not an integer
+    Error found in line 65: Extraneous text after string
+    Error found in line 66: Invalid label
+    Error found in line 67: Label has more than one definition
+    Error found in line 68: Invalid label
+    Error found in line 71: Missing comma
+    Error found in line 72: Multiple consecutive commas
+    Error found in line 73: Missing comma
+    Error found in line 74: Multiple consecutive commas
+    Error found in line 75: Missing comma
+    Error found in line 76: Unrecognized command
+    Error found in line 79: Unexpected operand
+    Error found in line 80: Unexpected operand
+    Error found in line 81: Unexpected operand
+    Error found in line 82: Unexpected operand
+    Error found in line 83: Missing comma
+    Error found in line 84: Unexpected operand
+    Error found in line 87: Unrecognized command
+    Error found in line 88: Unrecognized command
+    Error found in line 89: Unrecognized command
+    Error found in line 90: Unrecognized command
+    Error found in line 91: Unrecognized command
+>>> Finished working on the file broken_program6.am

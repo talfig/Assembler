@@ -1,0 +1,3 @@
+>>> Started working on the file broken_program2.as
+    Error found in line 9: Missing name in macro definition
+>>> Finished working on the file broken_program2.as

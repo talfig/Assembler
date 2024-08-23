@@ -1,0 +1,6 @@
+>>> Started working on the file text_encryption.as
+    No errors were found in the file text_encryption.as during macro expansion
+>>> Finished working on the file text_encryption.as
+>>> Started working on the file text_encryption.am
+    No errors were found in the file text_encryption.am
+>>> Finished working on the file text_encryption.am

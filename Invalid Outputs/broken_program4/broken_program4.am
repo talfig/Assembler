@@ -1,0 +1,41 @@
+; file complex_broken_program4.as
+
+.entry MAIN
+.entry HANDLE_STRINGS
+.entry DATA_PROCESS
+
+.extern PRINT
+
+; Incorrect macro with bad definition and multiple issues
+; Error: "Extraneous text after \"endmacr\""
+
+MAIN:    jsr HANDLE_STRINGS
+         jsr DATA_PROCESS
+         jsr PRINT
+         stop
+
+HANDLE_STRINGS: 
+         prn "Unclosed string
+; Error: "String not properly closed with \""
+         prn "Invalid@char!"
+; Error: "String contains invalid character"
+         .string "Hello, extra_text"
+; Error: "Extraneous text after string"
+         mov #1, r2
+         add r2, r3_extra
+; Error: "Unexpected operand"
+         rts
+
+DATA_PROCESS: 
+         .data 12345, 9999999999999999999
+; Error: "Number out of range"
+         mov r1, invalid_label
+; Error: "Invalid destination operand"
+         .data , 
+; Error: "Multiple consecutive commas"
+         mov r0, ,r3
+; Error: "Illegal comma"
+         jsr STR_PROCESS_MACRO
+         mov #5, r_invalid
+; Error: "Invalid destination operand"
+         rts
