@@ -6,12 +6,6 @@
   🛠️ Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
-## 📽️ Quick Overview
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/talfig/Assembler/assembler-demo.gif" alt="Assembler Demo" width="600">
-</p>
-Watch how our assembler converts your assembly code into efficient machine language, handling errors and optimizing macros on the fly.
-
 ## 🚀 Features
 
 - **Custom Assembly Language:** Dive into our unique assembly language with a defined set of opcodes.
