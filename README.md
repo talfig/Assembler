@@ -132,7 +132,7 @@ Our assembler supports the following operations and the corresponding addressing
 
 ## 🔁 Assembler with Two Passes
 
-In the first pass of the assembler, the program reads the assembly code to determine the symbols (variables) appearing in the program, assigns an address to each symbol, and builds the symbol table. In the second pass, using the symbol table, the assembler generates the actual machine code.
+In the first pass of the assembler, the program reads the assembly code to determine the symbols (labels) appearing in the program, assigns an address to each symbol, and builds the symbol table. In the second pass, using the symbol table, the assembler generates the actual machine code.
 
 Our assembler handles the following instructions during the second pass: `mov`, `jmp`, `prn`, `sub`, `cmp`, `inc`, `bne`, `stop`. The corresponding machine code is generated based on the opcode and the operands provided.
 
