@@ -63,19 +63,19 @@ Replace <source_file> with the path to your assembly code file.
 ## Error Handling
 The assembler generates error messages that mimic those found in typical compiler outputs. Errors include:
 
-- Memory allocation failure
-- Unrecognized commands
-- Syntax errors
-- Logical errors
+- **Memory allocation failure**
+- **Unrecognized commands**
+- **Syntax errors**
+- **Logical errors**
 
 ## Directory Structure
 The project is organized as follows:
 
-- Build and Configuration - Contains build scripts and configuration files.
-- Header Files - Contains header files for the project.
-- Invalid Inputs - Contains input files that are expected to cause errors.
-- Invalid Outputs - Contains output files corresponding to invalid inputs.
-- Source Files - Contains the source code files.
-- Valid Inputs - Contains input files that should be processed correctly.
-- Valid Outputs - Contains output files corresponding to valid inputs.
-- Object Files - Contains object files generated during compilation.
+- **Build and Configuration:** Contains build scripts and configuration files.
+- **Header Files:** Contains header files for the project.
+- **Invalid Inputs:** Contains input files that are expected to cause errors.
+- **Invalid Outputs:** Contains output files corresponding to invalid inputs.
+- **Source Files:** Contains the source code files.
+- **Valid Inputs:** Contains input files that should be processed correctly.
+- **Valid Outputs:** Contains output files corresponding to valid inputs.
+- **Object Files:** Contains object files generated during compilation.
