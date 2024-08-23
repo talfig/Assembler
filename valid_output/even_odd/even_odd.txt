@@ -1,6 +1,0 @@
->>> Started working on the file even_odd.as
-    No errors were found in the file even_odd.as during macro expansion
->>> Finished working on the file even_odd.as
->>> Started working on the file even_odd.am
-    No errors were found in the file even_odd.am
->>> Finished working on the file even_odd.am
