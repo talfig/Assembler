@@ -1,40 +1,49 @@
-# Assembler
+<h1 align="center">🔧 Assembler: The Code Converter</h1>
 
-## Overview
-This project is an assembler written in C. It converts assembly language code into machine code. The assembler supports a specific assembly language that includes various opcodes and directives.
+<p align="center">
+  Welcome to the ultimate assembler built in C! Transform your assembly code into machine language with flair and precision.
+  <br>
+  🚀 Custom Assembly Language | 🛠️ Macro Magic | 💡 Detailed Error Reporting
+</p>
 
-## Features
-- **Assembly Language Support:** The assembler handles a custom assembly language with a defined set of opcodes.
-- **Macro Handling:** Supports the creation and use of macros within the assembly code.
-- **Error Handling:** Provides detailed error messages similar to those seen in compilers.
+## 🚀 Features
 
-## Opcodes Supported
-The assembler supports the following opcodes:
-- `mov` (0)
-- `cmp` (1)
-- `add` (2)
-- `sub` (3)
-- `lea` (4)
-- `clr` (5)
-- `not` (6)
-- `inc` (7)
-- `dec` (8)
-- `jmp` (9)
-- `bne` (10)
-- `red` (11)
-- `prn` (12)
-- `jsr` (13)
-- `rts` (14)
-- `stop` (15)
+- **Custom Assembly Language:** Dive into our unique assembly language with a defined set of opcodes.
+- **Macro Wizardry:** Create and use powerful macros to streamline your assembly code.
+- **Smart Error Handling:** Get detailed, compiler-like error messages to troubleshoot with ease.
 
-## Assembly Language Syntax
-The assembler uses a specific syntax for writing assembly code, including:
-- **Labels:** Labels can be defined and used within the code.
-- **Directives:** Special commands like `.entry`, `.extern`, etc.
-- **Macros:** The syntax for defining macros is `macr <macro_name>`, followed by instructions, and `endmacr`.
+## 🧩 Supported Opcodes
 
-### Example Code
-Here is a simple example of an assembly program:
+Our assembler brings to life a variety of opcodes for your coding pleasure:
+
+- `mov` (0) – Move data
+- `cmp` (1) – Compare values
+- `add` (2) – Addition
+- `sub` (3) – Subtraction
+- `lea` (4) – Load effective address
+- `clr` (5) – Clear data
+- `not` (6) – Bitwise NOT
+- `inc` (7) – Increment
+- `dec` (8) – Decrement
+- `jmp` (9) – Jump to address
+- `bne` (10) – Branch if not equal
+- `red` (11) – Read input
+- `prn` (12) – Print output
+- `jsr` (13) – Jump to subroutine
+- `rts` (14) – Return from subroutine
+- `stop` (15) – Halt execution
+
+## ✍️ Assembly Language Syntax
+
+Write your assembly code with these cool features:
+
+- **Labels:** Define and use labels in your code.
+- **Directives:** Use special commands like `.entry`, `.extern`, and more.
+- **Macros:** Define macros with `macr <macro_name>`, include instructions, and close with `endmacr`.
+
+### 📜 Example Code
+
+Here’s a quick demo of an assembly program in action:
 
 ```assembly
 start:  mov r1, r2
@@ -42,12 +51,16 @@ start:  mov r1, r2
         stop
 ```
 
-## Installation
+## 🛠️ Installation
 Ready to build? Follow these steps:
 
 **1.** Ensure you have a C compiler installed.
 
-**2.** Clone this repository.
+**2.** Clone this repository with:
+
+```bash
+git clone https://github.com/talfig/Assembler.git
+```
 
 **3.** Navigate to the project directory and run:
 
@@ -55,9 +68,9 @@ Ready to build? Follow these steps:
 make
 ```
 
-This will compile the assembler and create the executable file.
+You’ll have the assembler ready in no time!
 
-## Usage
+## 🎯 Usage
 To run the assembler on a certain file:
 
 ```bash
@@ -66,14 +79,14 @@ To run the assembler on a certain file:
 
 Replace <source_file> with the path to your assembly code file.
 
-## Error Handling
-Encounter errors? No problem! Our assembler provides descriptive error messages similar to those from compilers:
+## ⚠️ Error Handling
+Bumped into issues? No worries! Our assembler offers descriptive error messages such as:
 
 - **Memory allocation failure**
 - **Unrecognized commands**
 - **Syntax errors**
 
-## Directory Structure
+## 📁 Directory Structure
 The project is organized as follows:
 
 - **Build and Configuration:** Contains build scripts and configuration files.
