@@ -92,10 +92,10 @@ Each addressing mode allows for flexible data manipulation, enabling you to writ
 
 The assembler encodes the first word of each instruction using the following format:
 
-| 14 | 13 | 12 | 11 | 10 |  9 |  8 |  7 |  6 |  5 |  4 |  3 |  2 |  1 |  0 |
-|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
-| opcode      |       Source Operand Addressing       |     Destination Operand Addressing    | A  | R  | E  |
-|             |     Mode 3     |     Mode 2     |     Mode 1     |     Mode 0     |     Mode 3     |     Mode 2     |     Mode 1     |     Mode 0     | 
+| Bit   | 14  | 13  | 12  | 11  | 10  | 9   | 8   | 7   | 6   | 5   | 4   | 3   | 2  | 1  | 0  |
+|-------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|----|----|
+| Field | Opcode           | Source Addressing Mode  | Destination Addressing Mode | A  | R  | E  |
+| Value | Opcode Bit 3     | Opcode Bit 2            | Opcode Bit 1                | Opcode Bit 0 | Mode Bit 3 | Mode Bit 2 | Mode Bit 1 | Mode Bit 0 | Mode Bit 3 | Mode Bit 2 | Mode Bit 1 | Mode Bit 0 | A  | R  | E  |
 
 
 ### 📜 Example Program
