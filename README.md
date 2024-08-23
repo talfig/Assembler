@@ -6,6 +6,25 @@
   🛠️ Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
+## 📝 Project Background and Objectives
+
+As is known, there are many programming languages, and a large number of programs written in different languages can run on the same computer. How does the computer recognize so many languages? The answer is simple: the computer actually understands only one language: machine code, which is stored in memory as a sequence of binary digits. This code is divided by the Central Processing Unit (CPU) into small segments with meaning: instructions, addresses, and data.
+
+In fact, computer memory is an array of bits, usually grouped into fixed-size units (bytes, words). There is no physical difference, visible to an unskilled eye, between the part of memory where a program is located and the rest of the memory.
+
+The CPU can perform a variety of simple operations called machine instructions, using the registers within the CPU and the computer memory. Examples include transferring a number from memory to a register or back, adding 1 to a number in a register, checking if a number in a register is zero, and performing addition and subtraction between two registers.
+
+Machine instructions and their combinations make up the program as it is loaded into memory. Each source program (the program as written by the programmer) will eventually be translated into this final form by a special software tool.
+
+The CPU executes code in the format of machine language. This is a sequence of bits representing a binary encoding of a series of machine instructions making up the program. This code is not readable to users and thus it is not convenient to write or read programs directly in machine language. Assembly language allows representing machine instructions in a more symbolic and user-friendly manner. However, it still needs to be translated into machine code for the program to run on the computer. This translation is done by a tool called an assembler.
+
+Each CPU model (i.e., each computer architecture) has its own specific machine language and, correspondingly, its own specific assembly language. Therefore, each assembler (translation tool) is dedicated and unique to each CPU.
+
+The task of the assembler is to create a file containing machine code from a given source file written in assembly language. This is the first step in the process of getting a program ready to run on computer hardware. The subsequent steps are linking and loading, but these are not covered in this context.
+
+The goal of this project is to write an assembler (i.e., a program that translates into machine code) for a specifically defined assembly language for this project.
+
+
 ## 🖥️ **Hardware**
 
 - The computer in this project is comprised of a CPU (Central Processing Unit) - a work unit containing registers and RAM. Some of the memory also serves as a stack.
