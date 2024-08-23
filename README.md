@@ -94,7 +94,7 @@ The assembler encodes the first word of each instruction using the following for
 
 | 14  | 13  | 12  | 11  | 10  | 9   | 8   | 7   | 6   | 5   | 4   | 3   | 2  | 1  | 0  |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|----|----|
-| Opcode | Opcode | Opcode | Opcode | Mode 3 | Mode 2 | Mode 1 | Mode 0 | Mode 3 | Mode 2 | Mode 1 | Mode 0 | A  | R  | E  |
+| Opcode | Mode 3 | Mode 2 | Mode 1 | Mode 0 | Mode 3 | Mode 2 | Mode 1 | Mode 0 | A  | R  | E  |
 
 
 ### 📜 Example Program
