@@ -111,7 +111,7 @@ label: mov r1, r2
 
 Each instruction and operation is carefully designed to give you complete control over your assembly code, allowing you to write efficient and functional programs.
 
-## 📌 Addressing Methods (Modes)
+## 📌 Addressing Methods
 Understanding the addressing methods used in our assembler is key to writing effective assembly code. Here’s a breakdown of the supported addressing methods:
 
 - **(0) Immediate Addressing (#):** In this mode, the operand is a constant value. For example, mov #5, r1 loads the value 5 directly into register r1.
@@ -128,7 +128,7 @@ The assembler encodes the first word of each instruction using the following for
 | 14  | 13  | 12  | 11  | 10  |  9  |  8  |  7  |  6  |  5  |  4  |  3  |  2  |  1  |  0  |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|----|----|
 | Opcode |||| Source operand |||| Destination operand |||| The field A,R,E |||
-| Fourth bit | Third bit | Second bit | First bit | Mode 3 | Mode 2 | Mode 1 | Mode 0 | Mode 3 | Mode 2 | Mode 1 | Mode 0 |  A  |  R  |  E  |
+| Fourth bit | Third bit | Second bit | First bit | Method 3 | Method 2 | Method 1 | Method 0 | Method 3 | Method 2 | Method 1 | Method 0 |  A  |  R  |  E  |
 
 ## 📊 Extra Word Encoding for Addressing Methods
 
