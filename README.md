@@ -66,7 +66,6 @@ The assembler generates error messages that mimic those found in typical compile
 - **Memory allocation failure**
 - **Unrecognized commands**
 - **Syntax errors**
-- **Logical errors**
 
 ## Directory Structure
 The project is organized as follows:
