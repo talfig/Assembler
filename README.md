@@ -119,7 +119,7 @@ Understanding the addressing methods used in our assembler is key to writing eff
 
 Each addressing mode allows for flexible data manipulation, enabling you to write efficient and powerful assembly code.
 
-## 📊 First Word Encoding
+## 👨‍💻 First Word Encoding
 
 The assembler encodes the first word of each instruction using the following format:
 
