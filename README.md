@@ -43,7 +43,11 @@ start:  mov r1, r2
 ```
 
 ## Installation
-To build the assembler, ensure you have a C compiler installed. Then, clone the repository and run:
+Ready to build? Follow these steps:
+
+1. Ensure you have a C compiler installed.
+2. Clone this repository.
+3. Navigate to the project directory and run:
 
 ```bash
 make
