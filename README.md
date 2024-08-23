@@ -3,7 +3,7 @@
 <p align="center">
   Welcome to the ultimate assembler built in C! Transform your assembly code into machine language with flair and precision.
   <br>
-  🚀 Custom Assembly Language | 🛠️ Macro Magic | 💡 Detailed Error Reporting
+  🛠️ Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
 ## 🚀 Features
