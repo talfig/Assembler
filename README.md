@@ -208,3 +208,6 @@ The project is organized as follows:
 - **Valid Inputs:** Contains input files that should be processed correctly.
 - **Valid Outputs:** Contains output files corresponding to valid inputs.
 - **Object Files:** Contains object files generated during compilation.
+
+## 🌐 License
+This project is licensed under the MIT License - see the LICENSE file for details.
