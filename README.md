@@ -45,9 +45,9 @@ start:  mov r1, r2
 ## Installation
 Ready to build? Follow these steps:
 
-1. Ensure you have a C compiler installed.
-2. Clone this repository.
-3. Navigate to the project directory and run:
+**1.** Ensure you have a C compiler installed.
+**2.** Clone this repository.
+**3.** Navigate to the project directory and run:
 
 ```bash
 make
@@ -65,7 +65,7 @@ To run the assembler on a certain file:
 Replace <source_file> with the path to your assembly code file.
 
 ## Error Handling
-The assembler generates error messages that mimic those found in typical compiler outputs. Errors include:
+Encounter errors? No problem! Our assembler provides descriptive error messages similar to those from compilers:
 
 - **Memory allocation failure**
 - **Unrecognized commands**
