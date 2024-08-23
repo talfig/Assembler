@@ -115,7 +115,7 @@ Each instruction and operation is carefully designed to give you complete contro
 Understanding the addressing methods used in our assembler is key to writing effective assembly code. Here’s a breakdown of the supported addressing methods:
 
 - **(0) Immediate Addressing (#):** In this mode, the operand is a constant value. For example, mov #5, r1 loads the value 5 directly into register r1.
-- **(1) Direct Addressing: (label)** This mode uses a direct reference to a memory location. For example, mov label, r2 moves the value stored at label into register r2.
+- **(1) Direct Addressing (label):** This mode uses a direct reference to a memory location. For example, mov label, r2 moves the value stored at label into register r2.
 - **(2) Indirect Addressing (\*register):** This method accesses memory indirectly through a register. For example, mov *r3, r4 moves the value pointed by r3 into r4.
 - **(3) Indexed Addressing (register):** This method accesses the value of a base register. For instance, mov r5, r6 loads the value from the memory location of r5 into r6.
 
