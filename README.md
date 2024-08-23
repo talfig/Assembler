@@ -178,9 +178,9 @@ Assembly language typically includes four types of statements:
 | **Instruction Statement** | A line containing valid assembly code that the assembler will translate into machine language. These lines typically contain an opcode and operands. |
 | **Directive Statement**  | A line that starts with a dot `.` followed by a directive keyword (e.g., `.entry`, `.extern`). These lines instruct the assembler on how to process the subsequent code. |
 
-### **Instruction Statements**
+### 🧰 **Instruction Statements**
 
-**`.data` Instruction**
+**1. `.data` Instruction**
 - The `.data` instruction allocates space in the data image to store the specified integer values.
 - Parameters: One or more legal integers separated by commas.
 
@@ -198,7 +198,7 @@ XYZ: .data 7, -57, +17, 9
 
 Here, XYZ is a label associated with the address of the first value (7). This label can be referenced in the program.
 
-**`.string` Instruction**
+**2. `.string` Instruction**
 - The `.string` instruction allocates space in the data image to store a string.
 - Parameters: A single legal string enclosed in double quotes.
 
@@ -209,7 +209,7 @@ STR: .string "abcdef"
 ```
 The string "abcdef" is stored in the data image with each character in a separate word, followed by a `0` to indicate the end of the string. The label `STR` refers to the address of the first character.
 
-**`.entry` Instruction**
+**3. `.entry` Instruction**
 - The `.entry` instruction identifies a label that can be referenced from other assembly source files.
 - Parameters: A single label name defined in the current source file.
 
@@ -221,7 +221,7 @@ Example:
 
 This instruction marks the label HELLO as available for external reference.
 
-**`.extern` Instruction**
+**4. `.extern` Instruction**
 - The `.extern` instruction indicates that a label is defined in another source file.
 - Parameters: A single label name that is defined externally.
 
@@ -233,9 +233,9 @@ Example:
 
 This indicates that the label HELLO is defined in another source file and will be linked accordingly.
 
-### Instruction Fields
+### 🛑 Instruction Fields
 
-**Labels**
+**1. Labels**
 - A label is a symbolic representation of an address in memory.
 - Syntax:
   -  Maximum length: 31 characters.
@@ -251,7 +251,7 @@ He10:
 
 Labels are case-sensitive and must be unique within the same file.
 
-**Numbers**
+**2. Numbers**
 - Legal numbers are decimal integers that can be positive or negative.
 
 Example:
@@ -260,7 +260,7 @@ Example:
 123, -57, +17
 ```
 
-**Strings**
+**3. Strings**
 - A legal string is a sequence of printable ASCII characters enclosed in double quotes.
 
 Example:
@@ -269,9 +269,9 @@ Example:
 "hello world"
 ```
 
-### Instruction Statement Formats
+### 📋 Instruction Statement Formats
 
-**Two-Operand Instruction**
+**1. Two-Operand Instruction**
 - Format: `label: opcode source-operand, target-operand`
 
 Example:
@@ -280,7 +280,7 @@ Example:
 HELLO: add r7, B
 ```
 
-**One-Operand Instruction**
+**2. One-Operand Instruction**
 - Format: `label: opcode target-operand`
 
 Example:
@@ -289,7 +289,7 @@ Example:
 HELLO: bne XYZ
 ```
 
-**No-Operand Instruction**
+**3. No-Operand Instruction**
 - Format: `label: opcode`
 
 Example:
@@ -298,7 +298,7 @@ Example:
 END: stop
 ```
 
-## Macro Handling
+## 🔍 Macro Handling
 
 When the assembler receives an assembly program, it first expands all macros before proceeding with the assembly process. If there are macros, the assembler generates an expanded program, which is then assembled into machine code. Here's how a sample program looks before and after macro expansion:
 
@@ -386,6 +386,7 @@ start:  mov r1, r2
 ```
 
 ## 🛠️ Installation
+
 Ready to build? Follow these steps:
 
 **1.** Ensure you have a C compiler installed.
