@@ -378,7 +378,7 @@ You can replace the names of the operation functions such as `K`, `STR`, `LIST`,
 
 Here’s a quick demo of an assembly program in action:
 
-The program before the assembler:
+Pre-assembler program:
 
 ```assembly
 ; file ps.as 
@@ -406,7 +406,7 @@ K: .data 31
 .extern L3
 ```
 
-The program after running the assembler:
+Post-assembler program:
 
 ```bash
   32 9
