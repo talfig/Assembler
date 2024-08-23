@@ -8,7 +8,7 @@
 
 ## 📽️ Quick Overview
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/your-username/your-repo/assembler-demo.gif" alt="Assembler Demo" width="600">
+  <img src="https://user-images.githubusercontent.com/talfig/Assembler/assembler-demo.gif" alt="Assembler Demo" width="600">
 </p>
 Watch how our assembler converts your assembly code into efficient machine language, handling errors and optimizing macros on the fly.
 
