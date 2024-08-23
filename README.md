@@ -239,7 +239,7 @@ This indicates that the label HELLO is defined in another source file and will b
 - A label is a symbolic representation of an address in memory.
 - Syntax:
   -  Maximum length: 31 characters.
-  -  Ends with a colon :, which must be directly attached to the label name without spaces.
+  -  Ends with a colon `:`, which must be directly attached to the label name without spaces.
 
 Example:
 
