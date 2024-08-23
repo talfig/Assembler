@@ -45,7 +45,7 @@ start:  mov r1, r2
 ## Installation
 To build the assembler, ensure you have a C compiler installed. Then, clone the repository and run:
 
-```batch
+```bash
 make
 ```
 
@@ -54,7 +54,7 @@ This will compile the assembler and create the executable file.
 ## Usage
 To run the assembler on a certain file:
 
-```batch
+```bash
 ./assembler <source_file>
 ```
 
@@ -71,6 +71,11 @@ The assembler generates error messages that mimic those found in typical compile
 ## Directory Structure
 The project is organized as follows:
 
-- Source_Files/: Contains the source code files.
-- Header_Files/: Contains the header files.
-- Object_Files/: Object files generated during compilation.
+- Build and Configuration/: Contains build scripts and configuration files.
+- Header Files/: Contains header files for the project.
+- Invalid Inputs/: Contains input files that are expected to cause errors.
+- Invalid Outputs/: Contains output files corresponding to invalid inputs.
+- Source Files/: Contains the source code files.
+- Valid Inputs/: Contains input files that should be processed correctly.
+- Valid Outputs/: Contains output files corresponding to valid inputs.
+- Object Files/: Contains object files generated during compilation.
