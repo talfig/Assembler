@@ -85,6 +85,7 @@ Understanding the addressing methods used in our assembler is key to writing eff
 - **Direct Addressing: (Label)** This mode uses a direct reference to a memory location. For example, mov Label, r2 moves the value stored at var into register r2.
 - **Indirect Addressing (\*Register):** This method accesses memory indirectly through a register. For example, mov *r3, r4 moves the value pointed by r3 into r4.
 - **Indexed Addressing (Register):** This method accesses the value of a base register. For instance, mov r5, r6 loads the value from the memory location of r5 into r6.
+
 Each addressing mode allows for flexible data manipulation, enabling you to write efficient and powerful assembly code.
 
 ### 📜 Example Code
