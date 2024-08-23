@@ -44,7 +44,7 @@ start:  mov r1, r2
 
 ## Installation
 To build the assembler, ensure you have a C compiler installed. Then, clone the repository and run:
-```make
+```makefile
 make
 ```
 This will compile the assembler and create the executable file.
