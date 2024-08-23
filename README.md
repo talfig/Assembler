@@ -16,22 +16,22 @@
 
 Our assembler brings to life a variety of opcodes for your coding pleasure:
 
-- `mov` – Move data
-- `cmp` – Compare values
-- `add` – Addition
-- `sub` – Subtraction
-- `lea` – Load effective address
-- `clr` – Clear data
-- `not` – Bitwise NOT
-- `inc` – Increment
-- `dec` – Decrement
-- `jmp` – Jump to address
-- `bne` – Branch if not equal
-- `red` – Read input
-- `prn` – Print output
-- `jsr` – Jump to subroutine
-- `rts` – Return from subroutine
-- `stop` – Halt execution
+- (0) `mov` – Move data
+- (1) `cmp` – Compare values
+- (2) `add` – Addition
+- (3) `sub` – Subtraction
+- (4) `lea` – Load effective address
+- (5) `clr` – Clear data
+- (6) `not` – Bitwise NOT
+- (7) `inc` – Increment
+- (8) `dec` – Decrement
+- (9) `jmp` – Jump to address
+- (10) `bne` – Branch if not equal
+- (11) `red` – Read input
+- (12) `prn` – Print output
+- (13) `jsr` – Jump to subroutine
+- (14) `rts` – Return from subroutine
+- (15) `stop` – Halt execution
 
 ## ✍️ Assembly Language Syntax
 
