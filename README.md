@@ -6,8 +6,6 @@
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
-<hr>
-
 <h2 align="center">👤 About the Developer</h2>
 
 <p align="center">
