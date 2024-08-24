@@ -6,50 +6,46 @@
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary> Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#project-background-and-objectives">Project Background and Objectives</a></li>
-        <li><a href="#hardware">Hardware</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#supported-opcodes">Supported Opcodes</a></li>
-        <li><a href="#assembly-language-syntax">Assembly Language Syntax</a></li>
-        <li><a href="#addressing-methods-modes">Addressing Methods (Modes)</a></li>
-        <li><a href="#first-word-encoding">First Word Encoding</a></li>
-        <li><a href="#addressing-methods-encoding">Addressing Methods Encoding</a></li>
-        <li><a href="#types-of-statements-in-assembly-language">Types of Statements in Assembly Language</a></li>
-        <li><a href="#instruction-statements">Instruction Statements</a></li>
-        <li><a href="#instruction-fields">Instruction Fields</a></li>
-        <li><a href="#macro-handling">Macro Handling</a></li>
-        <li><a href="#supported-operations-and-addressing-methods">Supported Operations and Addressing Methods</a></li>
-        <li><a href="#assembler-with-two-passes">Assembler with Two Passes</a></li>
-        <li><a href="#example-program">Example Program</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#installation">Installation</a>
-    </li>
-    <li>
-      <a href="#usage">Usage</a>
-    </li>
-    <li>
-      <a href="#error-handling">Error Handling</a>
-    </li>
-    <li>
-      <a href="#license">License</a>
-    </li>
-    <li>
-      <a href="#contact">Contact</a>
-    </li>
-    <li>
-      <a href="#acknowledgments">Acknowledgments</a>
-    </li>
-  </ol>
-</details>
+## Table of Contents
+
+1. [Project Background and Objectives](#-project-background-and-objectives)
+2. [Hardware](#-hardware)
+3. [Features](#-features)
+4. [Supported Opcodes](#-supported-opcodes)
+5. [Assembly Language Syntax](#-assembly-language-syntax)
+   - [Macros](#-macros)
+   - [Directives](#-directives)
+   - [Instructions](#-instructions)
+   - [Labels](#-labels)
+6. [Addressing Methods (Modes)](#-addressing-methods-modes)
+7. [First Word Encoding](#-first-word-encoding)
+8. [Addressing Methods Encoding](#-addressing-methods-encoding)
+   - [Immediate Addressing](#-immediate-addressing)
+   - [Direct Addressing](#-direct-addressing)
+   - [Indirect Register Addressing](#-indirect-register-addressing)
+   - [Direct Register Addressing](#-direct-register-addressing)
+9. [Types of Statements in Assembly Language](#-types-of-statements-in-assembly-language)
+   - [Empty Statement](#-empty-statement)
+   - [Comment Statement](#-comment-statement)
+   - [Instruction Statement](#-instruction-statement)
+   - [Directive Statement](#-directive-statement)
+10. [Instruction Statement Formats](#-instruction-statement-formats)
+    - [Two-Operand Instruction](#-two-operand-instruction)
+    - [One-Operand Instruction](#-one-operand-instruction)
+    - [No-Operand Instruction](#-no-operand-instruction)
+11. [Linking and Loading: A,R,E Field Encoding](#-linking-and-loading-are-field-encoding)
+12. [Macro Handling](#-macro-handling)
+13. [Supported Operations and Addressing Methods](#-supported-operations-and-addressing-methods)
+14. [Assembler with Two Passes](#-assembler-with-two-passes)
+    - [First Pass](#-first-pass)
+    - [Second Pass](#-second-pass)
+15. [Example Program](#-example-program)
+16. [Installation](#-installation)
+17. [Usage](#-usage)
+18. [Error Handling](#-error-handling)
+19. [Directory Structure](#-directory-structure)
+20. [License](#-license)
+
 
 
 ## 📝 Project Background and Objectives
