@@ -7,12 +7,43 @@
 </p>
 
 <!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#project-background-and-objectives">Project Background and Objectives</a></li>
-  </ol>
-</details>
+- [Project Background and Objectives](#project-background-and-objectives)
+- [Hardware](#hardware)
+- [Features](#features)
+- [Supported Opcodes](#supported-opcodes)
+- [Assembly Language Syntax](#assembly-language-syntax)
+  - [Macros](#macros)
+  - [Directives](#directives)
+  - [Instructions](#instructions)
+  - [Labels](#labels)
+- [Addressing Methods (Modes)](#addressing-methods-modes)
+- [First Word Encoding](#first-word-encoding)
+- [Addressing Methods Encoding](#addressing-methods-encoding)
+  - [Immediate Addressing](#immediate-addressing)
+  - [Direct Addressing](#direct-addressing)
+  - [Indirect Register Addressing](#indirect-register-addressing)
+  - [Direct Register Addressing](#direct-register-addressing)
+- [Types of Statements in Assembly Language](#types-of-statements-in-assembly-language)
+  - [Empty Statement](#empty-statement)
+  - [Comment Statement](#comment-statement)
+  - [Instruction Statement](#instruction-statement)
+  - [Directive Statement](#directive-statement)
+- [Instruction Statement Formats](#instruction-statement-formats)
+  - [Two-Operand Instruction](#two-operand-instruction)
+  - [One-Operand Instruction](#one-operand-instruction)
+  - [No-Operand Instruction](#no-operand-instruction)
+- [Linking and Loading: A,R,E Field Encoding](#linking-and-loading-a-r-e-field-encoding)
+- [Macro Handling](#macro-handling)
+- [Supported Operations and Addressing Methods](#supported-operations-and-addressing-methods)
+- [Assembler with Two Passes](#assembler-with-two-passes)
+  - [First Pass](#first-pass)
+  - [Second Pass](#second-pass)
+- [Example Program](#example-program)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Error Handling](#error-handling)
+- [Directory Structure](#directory-structure)
+- [License](#license)
 
 ## 📝 Project Background and Objectives
 
