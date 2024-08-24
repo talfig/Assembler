@@ -682,7 +682,6 @@ The project is organized as follows:
 - **Source Files:** Contains the source code files.
 - **Valid Inputs:** Contains input files that should be processed correctly.
 - **Valid Outputs:** Contains output files corresponding to valid inputs.
-- **Object Files:** Contains object files generated during compilation.
 
 <!-- License -->
 <h2 id="license">🌐 License</h2>
