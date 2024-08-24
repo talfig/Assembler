@@ -685,7 +685,7 @@ K: .data 31
 
 Post-assembler program:
 
-```bash
+```ob
   32 9
 0100 12024
 0101 00304
@@ -728,6 +728,18 @@ Post-assembler program:
 0138 77767
 0139 77634
 0140 00037
+```
+
+```ent
+LIST 0137
+MAIN 0100
+```
+
+```ext
+fn1 0104
+L3 0114
+L3 0127
+L3 0128
 ```
 
 <!-- Installation -->
