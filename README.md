@@ -19,7 +19,7 @@
         <li><a href="#macros">Macros</a></li>
         <li><a href="#directives">Directives</a></li>
         <li><a href="#instructions">Instructions</a></li>
-        <li><a href="#labels">Labels1</a></li>
+        <li><a href="#labels1">Labels</a></li>
       </ul>
     </li>
     <li><a href="#addressing-methods-modes">Addressing Methods (Modes)</a></li>
