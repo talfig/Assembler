@@ -372,7 +372,7 @@ In the first pass of the assembler, the program reads the assembly code to deter
 
 Our assembler handles the following instructions during the second pass: `mov`, `jmp`, `prn`, `sub`, `cmp`, `inc`, `bne`, `stop`. The corresponding machine code is generated based on the opcode and the operands provided.
 
-Additionally, the assembler should replace the symbols `K`, `STR`, `LIST`, `MAIN`, `LOOP`, `D` with the memory addresses where each corresponding data or instruction is located.
+Additionally, the assembler should replace the symbols `K`, `STR`, `LIST`, `MAIN`, `LOOP`, `END` with the memory addresses where each corresponding data or instruction is located.
 
 ## 📜 Example Program
 
