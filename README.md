@@ -43,10 +43,10 @@
     </li>
     <li><a href="#instruction-statements">Instruction Statements</a>
       <ul>
-        <li><a href="#data-instruction">.data Instruction</a></li>
-        <li><a href="#string-instruction">.string Instruction</a></li>
-        <li><a href="#entry-instruction">.entry Instruction</a></li>
-        <li><a href="#extern-instruction">.extern Instruction</a></li>
+        <li><a href="#data-instruction">".data" Instruction</a></li>
+        <li><a href="#string-instruction">".string" Instruction</a></li>
+        <li><a href="#entry-instruction">".entry" Instruction</a></li>
+        <li><a href="#extern-instruction">".extern" Instruction</a></li>
       </ul>
     </li>
     <li><a href="#instruction-fields">Instruction Fields</a>
@@ -285,7 +285,7 @@ Assembly language typically includes four types of statements:
 <h2 id="instruction-statements">🧰 Instruction Statements</h2>
 
 <!-- .data Instruction -->
-<h3 id="data-instruction">.data Instruction</h3>
+<h3 id="data-instruction">".data" Instruction</h3>
 - The `.data` instruction allocates space in the data image to store the specified integer values.
 - Parameters: One or more legal integers separated by commas.
 
@@ -304,7 +304,7 @@ XYZ: .data 7, -57, +17, 9
 Here, XYZ is a label associated with the address of the first value (7). This label can be referenced in the program.
 
 <!-- .string Instruction -->
-<h3 id="string-instruction">.string Instruction</h3>
+<h3 id="string-instruction">".string" Instruction</h3>
 
 - The `.string` instruction allocates space in the data image to store a string.
 - Parameters: A single legal string enclosed in double quotes.
@@ -317,7 +317,7 @@ STR: .string "abcdef"
 The string "abcdef" is stored in the data image with each character in a separate word, followed by a `0` to indicate the end of the string. The label `STR` refers to the address of the first character.
 
 <!-- .entry Instruction -->
-<h3 id="entry-instruction"> .entry Instruction</h3>
+<h3 id="entry-instruction">".entry" Instruction</h3>
 
 - The `.entry` instruction identifies a label that can be referenced from other assembly source files.
 - Parameters: A single label name defined in the current source file.
@@ -331,7 +331,7 @@ Example:
 This instruction marks the label HELLO as available for external reference.
 
 <!-- .extern Instruction -->
-<h3 id="extern-instruction"> .extern Instruction</h3>
+<h3 id="extern-instruction">".extern" Instruction</h3>
 
 - The `.extern` instruction indicates that a label is defined in another source file.
 - Parameters: A single label name that is defined externally.
