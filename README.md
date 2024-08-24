@@ -609,14 +609,14 @@ Like in the Entries file, the order of the labels in the file does not matter.
 
 Here is a sample of binary machine code with corresponding comments:
 
-| Decimal Address | Source Code        | Explanation                             | Binary Machine Code |
-|-----------------|---------------------|-----------------------------------------|----------------------|
-| 0100            | MAIN: add r3, LIST | First word of instruction                | 001010000010100       |
+| Decimal Address | Source Code        | Explanation                             | Binary Machine Code  |
+|-----------------|--------------------|-----------------------------------------|----------------------|
+| 0100            | MAIN: add r3, LIST  | First word of instruction               | 001010000010100       |
 | 0101            |                     | Source register 3                       | 000000011000100       |
 | 0102            |                     | Address of label LIST                   | 000010001001010       |
-| 0103            |                     | Address of label fnl (external)         | 110100000010100       |
-| 0104            |                     | Address of label fnl (external)         | 000000000000001       |
-| 0105            | LOCA: prn #48       | Immediate value 48                      | 110000000001100       |
+| 0103            | jsr fn1             | Address of label fn1 (external)         | 110100000010100       |
+| 0104            |                     | Address of label fn1 (external)         | 000000000000001       |
+| 0105            | LOOP: prn #48       | Immediate value 48                      | 110000000001100       |
 | 0106            |                     | Immediate value 48                      | 000000110000100       |
 | 0107            | lea STR, r6         | Address of label STR                    | 010000101000100       |
 | 0108            |                     | Address of label STR                    | 000010000100010       |
@@ -624,35 +624,33 @@ Here is a sample of binary machine code with corresponding comments:
 | 0110            | inc r6              | Target register 6                       | 011100001000100       |
 | 0111            |                     | Target register 6                       | 000000000110100       |
 | 0112            | mov *r6, L3         | Source register 6                       | 000001000010100       |
-| 0113            |                     | Address of label L3 (external)         | 000000110000100       |
-| 0114            | sub rl, r4          | Source register 1 and target register 4 | 001110001000100       |
+| 0113            |                     | Address of label L3 (external)          | 000000110000100       |
+| 0114            | sub r1, r4          | Source register 1 and target register 4 | 001110001000100       |
 | 0115            |                     | Source register 1 and target register 4 | 000000001100100       |
 | 0116            | cmp r3, #-6         | Source register 3                       | 000110000001100       |
-| 0117            |                     | Immediate value -6                     | 000000011000100       |
-| 0118            | bne END             | Immediate value -6                     | 111111111010100       |
+| 0117            |                     | Immediate value -6                      | 000000011000100       |
+| 0118            | bne END             | Address of label END                    | 111111111010100       |
 | 0120            |                     | Address of label END                    | 101000000010100       |
-| 0121            | add r7, *r6         | Address of label END                    | 000010000011010       |
+| 0121            | add r7, *r6         | Source register 7 and target register 6 | 000010000011010       |
 | 0122            |                     | Source register r0 and target register 6 | 001010000100100       |
-| 0123            | clr K               | Target register 6                       | 000000111110100       |
+| 0123            | clr K               | Address of label K                      | 000000111110100       |
 | 0124            |                     | Address of label K                      | 010100000010100       |
 | 0125            |                     | Address of label K                      | 000010001100010       |
-| 0126            | sub L3, L3          | Address of label L3 (external)         | 001100100010100       |
-| 0127            |                     | Address of label L3 (external)         | 000000000000001       |
-| 0128            |                     | Address of label L3 (external)         | 000000000000001       |
-| 0129            | jmp LOOP            | Address of label LOOP                  | 100100000010100       |
-| 0130            |                     | Address of label LOOP                  | 000001101001010       |
-| 0131            | END: stop           | END: stop                               | 111100000000100       |
-| 0132            | STR:                | Ascii code 'a'                          | 000000001100001       |
+| 0126            | sub L3, L3          | Address of label L3 (external)          | 001100100010100       |
+| 0127            |                     | Address of label L3 (external)          | 000000000000001       |
+| 0128            |                     | Address of label L3 (external)          | 000000000000001       |
+| 0129            | jmp LOOP            | Address of label LOOP                   | 100100000010100       |
+| 0130            |                     | Address of label LOOP                   | 000001101001010       |
+| 0131            | END: stop           | Stop execution                          | 111100000000100       |
+| 0132            | STR: .string "abcd" | Ascii code 'a'                          | 000000001100001       |
 | 0133            |                     | Ascii code 'b'                          | 000000001100010       |
 | 0134            |                     | Ascii code 'c'                          | 000000001100011       |
 | 0135            |                     | Ascii code 'd'                          | 000000001100100       |
 | 0136            |                     | Ascii code '\0' (end of string)         | 000000000000000       |
 | 0137            | LIST: .data 6, -9   | Integer 6                               | 000000000000110       |
 | 0138            |                     | Integer -9                              | 111111111110111       |
-| 0139            |                     | .data -100                              | 111111111011100       |
-| 0140            |                     | Integer -100                            | 000000000011111       |
-| 0141            | K: .data 31         | Integer 31                              | 000000000011111       |
-
+| 0139            | .data -100          | Integer -100                            | 111111111011100       |
+| 0140            | K: .data 31         | Integer 31                              | 000000000011111       |
 
 <!-- Example Program -->
 <h2 id="example-program">📜 Example Program</h2>
