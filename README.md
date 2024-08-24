@@ -14,8 +14,6 @@
 
 <h2 align="center">Tal Figenblat</h2>
 
----
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
