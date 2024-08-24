@@ -544,7 +544,7 @@ A:
 ```
 
 <!-- Second Pass -->
-<h3 id="second-pass">📊 Second Pass</h3>
+<h3 id="second-pass">📉 Second Pass</h3>
 
 As seen in the first pass, the assembler cannot construct the machine code of operands using symbols that have not yet been defined. Only after the assembler has scanned the entire program, so that all symbols have already been entered into the symbol table, can the assembler complete the machine code of all operands.
 
