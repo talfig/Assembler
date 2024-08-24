@@ -91,8 +91,8 @@
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#usage">Usage</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#error-handling">Error Handling</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#directory-structure">Directory Structure</a></li>
-    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#connect-with-me">Connect with Me</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#license">License</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#connect-with-me">Connect with Me</a></li>
   </ol>
 </details>
 
@@ -815,6 +815,11 @@ The project is organized as follows:
 - **Valid Inputs:** Contains input files that should be processed correctly.
 - **Valid Outputs:** Contains output files corresponding to valid inputs.
 
+<!-- License -->
+<h2 id="license">© License</h2>
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/talfig/Assembler/blob/main/LICENSE) file for details.
+
 <!-- Connect with Me -->
 <h2 id="connect-with-me">📬 Connect with Me</h2>
 
@@ -823,8 +828,3 @@ The project is organized as follows:
     <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email" width="112.5" height="37.5">
   </a>
 </p>
-
-<!-- License -->
-<h2 id="license">© License</h2>
-
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/talfig/Assembler/blob/main/LICENSE) file for details.
