@@ -163,7 +163,7 @@ The assembler encodes the first word of each instruction using the following for
   - If the register is a source, bits 8-6 of the word contain the register number.
   - If there are two operands using either direct register or indirect register addressing, both registers share the same word, with bits 5-3 containing the destination register and bits 8-6 containing the source register.
 
-### 🗑️ Unused Bits
+### ❓ Unused Bits
 
 - Any bits in the instruction word that are not used should be set to 0.
 
