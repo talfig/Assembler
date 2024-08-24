@@ -10,7 +10,12 @@
   <strong>Tal Figenblat</strong>
 </p>
 
-![GitHub stars](https://img.shields.io/github/stars/talfig/Assembler?style=social)
+
+<p align="center">
+  <a href="https://github.com/talfig/Assembler">
+    <img src="https://img.shields.io/github/stars/talfig/Assembler?style=social" alt="GitHub stars">
+  </a>
+</p>
 
 <hr style="border: 1px solid #ddd; width: 50%; margin: 20px auto;">
 
