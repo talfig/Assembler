@@ -4,12 +4,17 @@
   Welcome to the ultimate assembler built in C, designed to transform your assembly code into machine language with precision and elegance.
   <br>
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
+</p>
+
+<p align="center">
   <a href="https://github.com/talfig/Assembler">
     <img src="https://img.shields.io/github/stars/talfig/Assembler?style=social" alt="GitHub stars">
   </a>
 </p>
 
 <h2 align="center">Tal Figenblat</h2>
+
+---
 
 <!-- TABLE OF CONTENTS -->
 <details>
