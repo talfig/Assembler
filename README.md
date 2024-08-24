@@ -309,7 +309,7 @@ XYZ: .data 7, -57, +17, 9
 Here, XYZ is a label associated with the address of the first value (7). This label can be referenced in the program.
 
 <!-- .string Instruction -->
-<h3 id="string-instruction">🔠 ".string" Instruction</h3>
+<h3 id="string-instruction">📑 ".string" Instruction</h3>
 
 - The `.string` instruction allocates space in the data image to store a string.
 - Parameters: A single legal string enclosed in double quotes.
