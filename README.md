@@ -19,7 +19,7 @@
         <li><a href="#macros">Macros</a></li>
         <li><a href="#directives">Directives</a></li>
         <li><a href="#instructions">Instructions</a></li>
-        <li><a href="#labels">Labels</a></li>
+        <li><a href="#labels">Labels1</a></li>
       </ul>
     </li>
     <li><a href="#addressing-methods-modes">Addressing Methods (Modes)</a></li>
@@ -51,7 +51,7 @@
     </li>
     <li><a href="#instruction-fields">Instruction Fields</a>
       <ul>
-        <li><a href="#labels">Labels</a></li>
+        <li><a href="#labels2">Labels</a></li>
         <li><a href="#numbers">Numbers</a></li>
         <li><a href="#strings">Strings</a></li>
       </ul>
@@ -189,7 +189,7 @@ jmp start
 ```
 
 <!-- Labels -->
-<h3 id="labels">Labels</h3>
+<h3 id="labels1">Labels</h3>
 
 Define and use labels in your code.
 
@@ -352,7 +352,7 @@ This indicates that the label HELLO is defined in another source file and will b
 <h2 id="instruction-fields">🛑 Instruction Fields</h2>
 
 <!-- Labels -->
-<h3 id="labels">Labels</h3>
+<h3 id="labels2">Labels</h3>
 
 - A label is a symbolic representation of an address in memory.
 - Syntax:
