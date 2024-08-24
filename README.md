@@ -6,7 +6,6 @@
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
-<!-- TABLE OF CONTENTS -->
 - [Project Background and Objectives](#project-background-and-objectives)
 - [Hardware](#hardware)
 - [Features](#features)
