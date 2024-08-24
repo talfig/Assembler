@@ -10,7 +10,7 @@
   <strong>Tal Figenblat</strong>
 </p>
 
-<hr style="border: 0.3px solid #ddd; width: 50%; margin: 20px auto;">
+<hr style="border: 1px solid #ddd; width: 50%; margin: 20px auto;">
 
 <!-- TABLE OF CONTENTS -->
 <details>
