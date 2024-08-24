@@ -8,6 +8,9 @@
 
 <p align="center">
   <strong>Tal Figenblat</strong>
+</p>
+
+<p align="center">
   <a href="https://github.com/talfig/Assembler">
     <img src="https://komarev.com/ghpvc/?username=talfig&label=Repo%20views&color=0e75b6&style=flat" alt="Repo views">
   </a>
