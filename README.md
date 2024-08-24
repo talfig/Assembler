@@ -349,11 +349,11 @@ Our assembler supports the following operations and the corresponding addressing
 
 | **Operation** | **Source Operand Addressing Methods** | **Destination Operand Addressing Methods** |
 |---------------|-------------------------------------|------------------------------------------|
-| `mov`         | 0,1,2,3                             | 0,1,2,3                                  |
+| `mov`         | 0,1,2,3                             | 1,2,3                                    |
 | `cmp`         | 0,1,2,3                             | 0,1,2,3                                  |
 | `add`         | 0,1,2,3                             | 1,2,3                                    |
 | `sub`         | 0,1,2,3                             | 1,2,3                                    |
-| `lea`         | 1                                   | 0,1,2,3                                  |
+| `lea`         | 1                                   | 1,2,3                                    |
 | `clr`         | -                                   | 1,2,3                                    |
 | `not`         | -                                   | 1,2,3                                    |
 | `inc`         | -                                   | 1,2,3                                    |
