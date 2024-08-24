@@ -4,7 +4,6 @@
   Welcome to the ultimate assembler built in C, designed to transform your assembly code into machine language with precision and elegance.
   <br>
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
-  <br>
   <h2 align="center">Tal Figenblat</h2>
 </p>
 
