@@ -313,7 +313,6 @@ In every machine code instruction (not data), the assembler inserts specific inf
 
 These bits are set according to the addressing modes used and the location of the symbols within the program, ensuring that the final machine code is adaptable for different memory layouts during execution.
 
-
 ## 📏 Macro Handling
 
 When the assembler receives an assembly program, it first expands all macros before proceeding with the assembly process. If there are macros, the assembler generates an expanded program, which is then assembled into machine code. Here's how a sample program looks before and after macro expansion:
