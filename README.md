@@ -190,10 +190,14 @@ Each instruction and operation is carefully designed to give you complete contro
 
 Understanding the addressing methods used in our assembler is key to writing effective assembly code. Here’s a breakdown of the supported addressing methods:
 
-- **(0) Immediate Addressing (#number):** In this mode, the operand is a constant value. For example, mov #5, r1 loads the value 5 directly into register r1.
-- **(1) Direct Addressing (label):** This mode uses a direct reference to a memory location. For example, mov label, r2 moves the value stored at label into register r2.
-- **(2) Indirect Addressing (\*register):** This method accesses memory indirectly through a register. For example, mov *r3, r4 moves the value pointed by r3 into r4.
-- **(3) Indexed Addressing (register):** This method accesses the value of a base register. For instance, mov r5, r6 loads the value from the memory location of r5 into r6.
+- **(0) Immediate Addressing (#number):**
+  - In this mode, the operand is a constant value. For example, mov #5, r1 loads the value 5 directly into register r1.
+- **(1) Direct Addressing (label):**
+  - This mode uses a direct reference to a memory location. For example, mov label, r2 moves the value stored at label into register r2.
+- **(2) Indirect Addressing (\*register):**
+  -  This method accesses memory indirectly through a register. For example, mov *r3, r4 moves the value pointed by r3 into r4.
+- **(3) Indexed Addressing (register):**
+  - This method accesses the value of a base register. For instance, mov r5, r6 loads the value from the memory location of r5 into r6.
 
 Each addressing method allows for flexible data manipulation, enabling you to write efficient and powerful assembly code.
 
@@ -262,7 +266,7 @@ Assembly language typically includes four types of statements:
 | **Directive Statement**  | A line that starts with a dot `.` followed by a directive keyword (e.g., `.entry`, `.extern`). These lines instruct the assembler on how to process the subsequent code. |
 
 <!-- Instruction Statements -->
-<h3 id="instruction-statements">🧰 Instruction Statements</h3>
+<h2 id="instruction-statements">🧰 Instruction Statements</h2>
 
 **1. `.data` Instruction**
 - The `.data` instruction allocates space in the data image to store the specified integer values.
@@ -318,7 +322,7 @@ Example:
 This indicates that the label HELLO is defined in another source file and will be linked accordingly.
 
 <!-- Instruction Fields -->
-<h3 id="instruction-fields">🛑 Instruction Fields</h3>
+<h2 id="instruction-fields">🛑 Instruction Fields</h2>
 
 **1. Labels**
 - A label is a symbolic representation of an address in memory.
@@ -355,7 +359,7 @@ Example:
 ```
 
 <!-- Instruction Statement Formats -->
-<h3 id="instruction-statement-formats">📋 Instruction Statement Formats</h3>
+<h2 id="instruction-statement-formats">📋 Instruction Statement Formats</h2>
 
 **1. Two-Operand Instruction**
 - Format: `label: opcode source-operand, target-operand`
@@ -385,11 +389,12 @@ END: stop
 ```
 
 <!-- Linking and Loading: A,R,E Field Encoding -->
-<h3 id="linking-and-loading-a-r-e-field-encoding">🔍 Linking and Loading: A,R,E Field Encoding</h3>
+<h2 id="linking-and-loading-a-r-e-field-encoding">🔍 Linking and Loading: A,R,E Field Encoding</h2>
 
 In every machine code instruction (not data), the assembler inserts specific information into the A, R, E field to facilitate the linking and loading process. This field contains three bits: A, R, and E, which indicate how the word should be treated when the program is loaded into memory for execution. The assembler initially generates code as if it were to be loaded at a start address. The information in these bits allows the code to be relocated to any address in memory without requiring reassembly.
 
-### 📡 The A,R,E Bits
+<!-- The A,R,E Bits -->
+<h2 id="the-a-r-e-bits">📡 The A,R,E Bits</h2>
 
 - **A (Absolute):** 
   - If the A bit is set to 1, it means the word's content is independent of the memory location where the program is loaded during execution (e.g., an immediate operand).
@@ -400,7 +405,8 @@ In every machine code instruction (not data), the assembler inserts specific inf
 
 These bits are set according to the addressing modes used and the location of the symbols within the program, ensuring that the final machine code is adaptable for different memory layouts during execution.
 
-## 📏 Macro Handling
+<!-- Macro Handling -->
+<h2 id="macro-handling">📏 Macro Handling</h2>
 
 When the assembler receives an assembly program, it first expands all macros before proceeding with the assembly process. If there are macros, the assembler generates an expanded program, which is then assembled into machine code. Here's how a sample program looks before and after macro expansion:
 
@@ -445,7 +451,8 @@ LIST: .data 6, -9
 K: .data 31
 ```
 
-## ⚙️ **Supported Operations and Addressing Methods**
+<!-- Supported Operations and Addressing Methods -->
+<h2 id="supported-operations-and-addressing-methods">⚙️ Supported Operations and Addressing Methods</h2>
 
 Our assembler supports the following operations and the corresponding addressing methods:
 
@@ -468,7 +475,8 @@ Our assembler supports the following operations and the corresponding addressing
 | `rts`         | -                                   | -                                        |
 | `stop`        | -                                   | -                                        |
 
-## 🔁 Assembler with Two Passes
+<!-- Assembler with Two Passes -->
+<h2 id="assembler-with-two-passes">🔁 Assembler with Two Passes</h2>
 
 In the first pass of the assembler, the program reads the assembly code to determine the symbols (labels) appearing in the program, assigns an address to each symbol, and builds the symbol table. In the second pass, using the symbol table, the assembler generates the actual machine code.
 
@@ -476,7 +484,8 @@ Our assembler handles the following instructions during the second pass: `mov`, 
 
 Additionally, the assembler should replace the symbols `K`, `STR`, `LIST`, `MAIN`, `LOOP`, `END` with the memory addresses where each corresponding data or instruction is located.
 
-### 📈 First Pass
+<!-- First Pass -->
+<h3 id="first-pass">📈 First Pass</h3>
 
 In the first pass, rules are required to determine the address to be assigned to each symbol. The basic principle is to count the memory locations occupied by the instructions. If each instruction is loaded into memory at the location following the previous instruction, such counting will indicate the address of the next instruction. This counting is performed by the assembler and is maintained in the instruction counter (IC). The initial value of IC is 100 (decimal), so the machine code of the first instruction is constructed to load into memory starting from address 100. The IC is updated with each instruction line that allocates space in memory. After the assembler determines the length of the instruction, the IC is increased by the number of cells (words) occupied by the instruction, and thus it points to the next available cell.
 
@@ -494,13 +503,15 @@ bne A
 A:
 ```
 
-### 📊 Second Pass
+<!-- Second Pass -->
+<h3 id="second-pass">📊 Second Pass</h3>
 
 As seen in the first pass, the assembler cannot construct the machine code of operands using symbols that have not yet been defined. Only after the assembler has scanned the entire program, so that all symbols have already been entered into the symbol table, can the assembler complete the machine code of all operands.
 
 To achieve this, the assembler performs a second pass over the source code. During this pass, it updates the machine code for operands by substituting the symbols with their corresponding values from the symbol table. By the end of this second pass, the entire program is fully translated into machine code.
 
-## 📜 Example Program
+<!-- Example Program -->
+<h2 id="example-program">📜 Example Program/h2>
 
 Here’s a quick demo of an assembly program in action:
 
@@ -579,7 +590,8 @@ Post-assembler program:
 0140 00037
 ```
 
-## 🛠️ Installation
+<!-- Installation -->
+<h2 id="installation">🛠️ Installation</h2>
 
 Ready to build? Follow these steps:
 
@@ -599,7 +611,8 @@ make
 
 You’ll have the assembler ready in no time!
 
-## 🎯 Usage
+<!-- Usage -->
+<h2 id="usage">🎯 Usage</h2>
 
 To run the assembler on a certain file:
 
@@ -609,7 +622,8 @@ To run the assembler on a certain file:
 
 Replace <source_file> with the path to your assembly code file.
 
-## ⚠️ Error Handling
+<!-- Error Handling -->
+<h2 id="error-handling">⚠️ Error Handling</h2>
 
 Bumped into issues? No worries! Our assembler offers descriptive error messages such as:
 
@@ -617,7 +631,8 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
 - **Unrecognized commands**
 - **Syntax errors**
 
-## 📁 Directory Structure
+<!-- Directory Structure -->
+<h2 id="directory-structure">📁 Directory Structure</h2>
 
 The project is organized as follows:
 
@@ -630,6 +645,7 @@ The project is organized as follows:
 - **Valid Outputs:** Contains output files corresponding to valid inputs.
 - **Object Files:** Contains object files generated during compilation.
 
-## 🌐 License
+<!-- License -->
+<h2 id="license">🌐 License</h2>
 
 This project is licensed under the MIT License - see the LICENSE file for details.
