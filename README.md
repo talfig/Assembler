@@ -6,10 +6,6 @@
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
-<hr style="border: 1px solid #ddd; width: 50%; margin: 20px auto;">
-
-<h2 align="center">👤 About the Developer</h2>
-
 <p align="center">
   <strong>Tal Figenblat</strong>
 </p>
