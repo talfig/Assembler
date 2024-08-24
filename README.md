@@ -14,8 +14,6 @@
   <strong>Tal Figenblat</strong>
 </p>
 
-<hr style="border: 1px solid #ddd; width: 50%; margin: 20px auto;">
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
