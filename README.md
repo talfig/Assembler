@@ -668,25 +668,26 @@ Below is the full binary encoding table obtained from the source file, followed 
 | 0109            |                     | Target register 6                       | 000000000110100       |
 | 0110            | inc r6              |                                         | 011100001000100       |
 | 0111            |                     | Target register 6                       | 000000000110100       |
-| 0112            | mov *r6, L3         | Source register 6                       | 000001000010100       |
-| 0113            |                     | Address of label L3 (external)          | 000000110000100       |
-| 0114            | sub r1, r4          | Source register 1                       | 001110001000100       |
-| 0115            |                     | Target register 4                       | 000000001100100       |
-| 0116            | cmp r3, #-6         | Source register 3                       | 000110000001100       |
-| 0117            |                     | Immediate value -6                      | 000000011000100       |
-| 0118            | bne END             |                                         | 111111111010100       |
-| 0120            |                     | Address of label END                    | 101000000010100       |
-| 0121            | add r7, *r6         | Source register 7                       | 000010000011010       |
-| 0122            |                     | Target register 6                       | 001010000100100       |
-| 0123            | clr K               | Address of label K                      | 000000111110100       |
-| 0124            |                     | Address of label K                      | 010100000010100       |
+| 0112            | mov *r6, L3         |                                         | 000001000010100       |
+| 0113            |                     | Source register 6                       | 000000110000100       |
+| 0114            |                     | Address of label L3 (external)          | 000000000000001       |
+| 0115            | sub r1, r4          |                                         | 001110001000100       |
+| 0116            |                     | Source register 1 and target register 4 | 000000001100100       |
+| 0117            | cmp r3, #-6         |                                         | 000110000001100       |
+| 0118            |                     | Source register 3                       | 000000011000100       |
+| 0119            |                     | Immediate value -6                      | 111111111010100       |
+| 0120            | bne END             |                                         | 101000000010100       |
+| 0121            |                     | Address of label END                    | 000010000011010       |
+| 0122            | add r7, *r6         |                                         | 001010000100100       |
+| 0123            |                     | Source register r0 and target register 6| 000000111110100       |
+| 0124            | clr K               |                                         | 010100000010100       |
 | 0125            |                     | Address of label K                      | 000010001100010       |
-| 0126            | sub L3, L3          | Address of label L3 (external)          | 001100100010100       |
+| 0126            | sub L3, L3          |                                         | 001100100010100       |
 | 0127            |                     | Address of label L3 (external)          | 000000000000001       |
 | 0128            |                     | Address of label L3 (external)          | 000000000000001       |
-| 0129            | jmp LOOP            | Address of label LOOP                   | 100100000010100       |
+| 0129            | jmp LOOP            |                                         | 100100000010100       |
 | 0130            |                     | Address of label LOOP                   | 000001101001010       |
-| 0131            | END: stop           | Stop execution                          | 111100000000100       |
+| 0131            | END: stop           |                                         | 111100000000100       |
 | 0132            | STR: .string "abcd" | Ascii code 'a'                          | 000000001100001       |
 | 0133            |                     | Ascii code 'b'                          | 000000001100010       |
 | 0134            |                     | Ascii code 'c'                          | 000000001100011       |
