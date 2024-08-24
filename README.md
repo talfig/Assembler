@@ -595,10 +595,14 @@ An object file fundamentally contains the described memory image. An object file
 
 The entries file is composed of text lines. Each line contains the name of a symbol defined as an entry and its value, as found in the symbol table. The values are represented in decimal format.
 
+The order of the labels in the file does not matter.
+
 <!-- Externals File Format -->
 <h3 id="externals-file-format">🌍 Externals File Format</h3>
 
 The externals file is also composed of text lines. Each line contains the name of a symbol defined as external and an address in machine code where an operand referring to this symbol is encoded. It is possible that there are multiple addresses in the machine code referring to the same external symbol. Each such reference will have a separate line in the externals file. The addresses are represented in decimal format.
+
+Like in the Entries file, the order of the labels in the file does not matter.
 
 <!-- Binary Machine Code -->
 <h2 id="binary-machine-code">🔢 Binary Machine Code</h2>
