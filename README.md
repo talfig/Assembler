@@ -788,7 +788,7 @@ clang --version
 git clone https://github.com/talfig/Assembler.git
 ```
 
-**3.** Navigate to the project directory where the Makefile is located using:
+**3.** Navigate to the project directory where the `makefile` is located using:
 
 ```bash
 cd Assembler
