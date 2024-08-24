@@ -6,6 +6,20 @@
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
+## Table of Contents
+- [Project Background and Objectives](#-project-background-and-objectives)
+- [Hardware](#-hardware)
+- [Features](#-features)
+- [Supported Opcodes](#-supported-opcodes)
+- [Assembly Language Syntax](#-assembly-language-syntax)
+- [Addressing Methods (Modes)](#-addressing-methods-modes)
+- [First Word Encoding](#-first-word-encoding)
+- [Types of Statements in Assembly Language](#-types-of-statements-in-assembly-language)
+- [Linking and Loading: A,R,E Field Encoding](#-linking-and-loading-are-field-encoding)
+- [Macro Handling](#-macro-handling)
+- [Supported Operations and Addressing Methods](#-supported-operations-and-addressing-methods)
+- [Assembler with Two Passes](#-assembler-with-two-passes)
+
 ## 📝 Project Background and Objectives
 
 As is known, there are many programming languages, and a large number of programs written in different languages can run on the same computer. How does the computer recognize so many languages? The answer is simple: the computer actually understands only one language: machine code, which is stored in memory as a sequence of binary digits. This code is divided by the Central Processing Unit (CPU) into small segments with meaning: instructions, addresses, and data.
