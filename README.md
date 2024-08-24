@@ -576,7 +576,7 @@ Example:
 ```
 
 <!-- Object File Format -->
-<h3 id="object-file-format">📄 Object File Format</h3>
+<h3 id="object-file-format">🖼️ Object File Format</h3>
 
 The assembler constructs a memory image where the encoding of the first instruction from the assembly file is placed at address 100 (in decimal) in memory. The encoding of the second instruction is placed at the address following the first instruction (depending on the number of words in the first instruction), and so on until the last instruction.
 
@@ -591,12 +591,12 @@ An object file fundamentally contains the described memory image. An object file
 - The following lines in the file contain the memory image. Each line contains two values: the address of a memory word and the content of that word. The address is written in decimal, padded to four digits (including leading zeros), and the content is written in octal, padded to five digits (including leading zeros). There is one space between the two values on each line.
 
 <!-- Entries File Format -->
-<h3 id="entries-file-format">📄 Entries File Format</h3>
+<h3 id="entries-file-format">🏠 Entries File Format</h3>
 
 The entries file is composed of text lines. Each line contains the name of a symbol defined as an entry and its value, as found in the symbol table. The values are represented in decimal format.
 
 <!-- Externals File Format -->
-<h3 id="externals-file-format">📄 Externals File Format</h3>
+<h3 id="externals-file-format">🌍 Externals File Format</h3>
 
 The externals file is also composed of text lines. Each line contains the name of a symbol defined as external and an address in machine code where an operand referring to this symbol is encoded. It is possible that there are multiple addresses in the machine code referring to the same external symbol. Each such reference will have a separate line in the externals file. The addresses are represented in decimal format.
 
