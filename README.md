@@ -84,8 +84,6 @@
 <!-- Project Background and Objectives -->
 <h2 id="project-background-and-objectives">📝 Project Background and Objectives</h2>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 As is known, there are many programming languages, and a large number of programs written in different languages can run on the same computer. How does the computer recognize so many languages? The answer is simple: the computer actually understands only one language: machine code, which is stored in memory as a sequence of binary digits. This code is divided by the Central Processing Unit (CPU) into small segments with meaning: instructions, addresses, and data.
 
 In fact, computer memory is an array of bits, usually grouped into fixed-size units (bytes, words). There is no physical difference, visible to an unskilled eye, between the part of memory where a program is located and the rest of the memory.
