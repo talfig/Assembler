@@ -361,7 +361,7 @@ END: stop
 
 In every machine code instruction (not data), the assembler inserts specific information into the A, R, E field to facilitate the linking and loading process. This field contains three bits: A, R, and E, which indicate how the word should be treated when the program is loaded into memory for execution. The assembler initially generates code as if it were to be loaded at a start address. The information in these bits allows the code to be relocated to any address in memory without requiring reassembly.
 
-### The A,R,E Bits:
+### 📡 The A,R,E Bits
 
 - **A (Absolute):** 
   - If the A bit is set to 1, it means the word's content is independent of the memory location where the program is loaded during execution (e.g., an immediate operand).
