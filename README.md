@@ -30,9 +30,9 @@
         <li><a href="#direct-addressing">Direct Addressing</a></li>
         <li><a href="#indirect-register-addressing">Indirect Register Addressing</a></li>
         <li><a href="#direct-register-addressing">Direct Register Addressing</a></li>
+        <li><a href="#unused-bits">Unused Bits</a></li>
       </ul>
     </li>
-    <li><a href="#unused-bits">Unused Bits</a></li>
     <li><a href="#types-of-statements-in-assembly-language">Types of Statements in Assembly Language</a>
       <ul>
         <li><a href="#empty-statement">Empty Statement</a></li>
