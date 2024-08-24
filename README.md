@@ -198,7 +198,7 @@ Understanding the addressing methods used in our assembler is key to writing eff
 Each addressing method allows for flexible data manipulation, enabling you to write efficient and powerful assembly code.
 
 <!-- First Word Encoding -->
-<h2 id="First Word Encoding">👨‍💻 First Word Encoding</h2>
+<h2 id="first-word-encoding">👨‍💻 First Word Encoding</h2>
 
 The assembler encodes the first word of each instruction using the following format:
 
@@ -208,16 +208,16 @@ The assembler encodes the first word of each instruction using the following for
 | Fourth bit | Third bit | Second bit | First bit | Method 3 | Method 2 | Method 1 | Method 0 | Method 3 | Method 2 | Method 1 | Method 0 |  A  |  R  |  E  |
 
 <!-- Addressing Methods Encoding -->
-<h2 id="Addressing Methods Encoding">🧠 Addressing Methods Encoding</h2>
+<h2 id="addressing-methods-encoding">🧠 Addressing Methods Encoding</h2>
 
 <!-- Immediate Addressing -->
-<h3 id="Immediate Addressing">⚡ Immediate Addressing</h3>
+<h3 id="immediate-addressing">⚡ Immediate Addressing</h3>
 
 - **Operand Representation:** The operand itself, which is a 12-bit two's complement integer, is contained in bits 14-3 of the word.
 - **A,R,E Bits:** In immediate addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
 
 <!-- Direct Addressing -->
-<h3 id="Direct Addressing">🏹 Direct Addressing</h3>
+<h3 id="direct-addressing">🏹 Direct Addressing</h3>
 
 - **Operand Representation:** The operand is a memory address, with the word at this address in memory being the operand. The address is represented as a 12-bit unsigned number in bits 14-3 of the word.
 - **A,R,E Bits:** 
@@ -225,7 +225,7 @@ The assembler encodes the first word of each instruction using the following for
   - If the address is external (i.e., from another source file), the `E` bit is set to 1, and the `A` and `R` bits are set to 0.
 
 <!-- Indirect Register Addressing -->
-<h3 id="Indirect Register Addressing">📲 Indirect Register Addressing</h3>
+<h3 id="indirect-register-addressing">📲 Indirect Register Addressing</h3>
 
 - **Operand Representation:** Accesses memory through a pointer in a register. The content of the register is a memory address, and the word at this address is the operand. The address is represented as a 15-bit unsigned number in the register.
 - **A,R,E Bits:** In indirect register addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
@@ -235,7 +235,7 @@ The assembler encodes the first word of each instruction using the following for
   - If there are two operands using indirect register addressing, both registers share the same word, with bits 5-3 containing the destination register and bits 8-6 containing the source register.
 
 <!-- Direct Register Addressing -->
-<h3 id="Direct Register Addressing">🚪 Direct Register Addressing</h3>
+<h3 id="direct-register-addressing">🚪 Direct Register Addressing</h3>
 
 - **Operand Representation:** The operand is a direct register.
 - **A,R,E Bits:** In direct register addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
@@ -245,11 +245,12 @@ The assembler encodes the first word of each instruction using the following for
   - If there are two operands using either direct register or indirect register addressing, both registers share the same word, with bits 5-3 containing the destination register and bits 8-6 containing the source register.
 
 <!-- Unused Bits -->
-<h3 id="Unused Bits">🗑️ Unused Bits</h3>
+<h3 id="unused-bits">🗑️ Unused Bits</h3>
 
 - Any bits in the instruction word that are not used should be set to 0.
 
-## 📚 **Types of Statements in Assembly Language**
+<!-- Types of Statements in Assembly Language -->
+<h2 id="types-of-statements-in-assembly-language">📚 Types of Statements in Assembly Language</h2>
 
 Assembly language typically includes four types of statements:
 
@@ -260,7 +261,8 @@ Assembly language typically includes four types of statements:
 | **Instruction Statement** | A line containing valid assembly code that the assembler will translate into machine language. These lines typically contain an opcode and operands. |
 | **Directive Statement**  | A line that starts with a dot `.` followed by a directive keyword (e.g., `.entry`, `.extern`). These lines instruct the assembler on how to process the subsequent code. |
 
-### 🧰 **Instruction Statements**
+<!-- Instruction Statements -->
+<h3 id="instruction-statements">🧰 Instruction Statements</h3>
 
 **1. `.data` Instruction**
 - The `.data` instruction allocates space in the data image to store the specified integer values.
@@ -315,7 +317,8 @@ Example:
 
 This indicates that the label HELLO is defined in another source file and will be linked accordingly.
 
-### 🛑 Instruction Fields
+<!-- Instruction Fields -->
+<h3 id="instruction-fields">🛑 Instruction Fields</h3>
 
 **1. Labels**
 - A label is a symbolic representation of an address in memory.
@@ -351,7 +354,8 @@ Example:
 "hello world"
 ```
 
-### 📋 Instruction Statement Formats
+<!-- Instruction Statement Formats -->
+<h3 id="instruction-statement-formats">📋 Instruction Statement Formats</h3>
 
 **1. Two-Operand Instruction**
 - Format: `label: opcode source-operand, target-operand`
@@ -380,7 +384,8 @@ Example:
 END: stop
 ```
 
-## 🔍 Linking and Loading: A,R,E Field Encoding
+<!-- Linking and Loading: A,R,E Field Encoding -->
+<h3 id="linking-and-loading-a-r-e-field-encoding">🔍 Linking and Loading: A,R,E Field Encoding</h3>
 
 In every machine code instruction (not data), the assembler inserts specific information into the A, R, E field to facilitate the linking and loading process. This field contains three bits: A, R, and E, which indicate how the word should be treated when the program is loaded into memory for execution. The assembler initially generates code as if it were to be loaded at a start address. The information in these bits allows the code to be relocated to any address in memory without requiring reassembly.
 
