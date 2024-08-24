@@ -148,7 +148,7 @@ Our assembler brings to life a variety of opcodes for your coding pleasure:
 Write your assembly code with these cool features:
 
 <!-- Macros -->
-<h3 id="macros">🗂️ Macros</h3>
+<h3 id="macros">🗃️ Macros</h3>
 
 Define macros with macr <macro_name>, include a series of instructions, and close with endmacr. This helps to simplify repetitive code.
 
