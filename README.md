@@ -389,7 +389,7 @@ An instruction can also refer to a symbol that has not yet been defined in the p
 ```assembly
 bne A
 ...
-A: ...
+A:
 ```
 
 ### 📊 Second Pass
