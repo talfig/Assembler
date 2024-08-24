@@ -766,9 +766,9 @@ L3 0128
 
 Ready to build? Follow these steps:
 
-Open your terminal or command prompt.
+**1.** Open your terminal or command prompt.
 
-**1.** Ensure you have a C compiler installed.
+**2.** Ensure you have a C compiler installed.
 
 Run the following command to check if GCC is installed:
 
@@ -782,13 +782,13 @@ If you prefer Clang, you can check its installation with:
 clang --version
 ```
 
-**2.** Clone this repository with:
+**3.** Clone this repository with:
 
 ```bash
 git clone https://github.com/talfig/Assembler.git
 ```
 
-**3.** Navigate to the project directory where the `makefile` is located using:
+**4.** Navigate to the project directory where the `makefile` is located using:
 
 ```bash
 cd Assembler
@@ -796,7 +796,7 @@ cd Assembler
 
 Replace `Assembler` with the actual name of the directory if it differs.
 
-**4.** Run the make command to compile the project and build the assembler:
+**5.** Run the make command to compile the project and build the assembler:
 
 ```bash
 make
