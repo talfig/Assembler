@@ -396,7 +396,7 @@ A:
 
 As seen in the first pass, the assembler cannot construct the machine code of operands using symbols that have not yet been defined. Only after the assembler has scanned the entire program, so that all symbols have already been entered into the symbol table, can the assembler complete the machine code of all operands.
 
-To do this, the assembler performs another pass (the second pass) over the entire source file and updates the machine code of operands using symbols, using the symbol values from the symbol table. At the end of the second pass, the program is fully translated into machine code.
+To achieve this, the assembler performs a second pass over the source code. During this pass, it updates the machine code for operands by substituting the symbols with their corresponding values from the symbol table. By the end of this second pass, the entire program is fully translated into machine code.
 
 ## 📜 Example Program
 
