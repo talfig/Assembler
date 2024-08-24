@@ -132,7 +132,7 @@ Our assembler brings to life a variety of opcodes for your coding pleasure:
 Write your assembly code with these cool features:
 
 <!-- Macros -->
-<h3 id="Macros">Macros</h2>
+<h3 id="Macros">Macros</h3>
 
 Define macros with macr <macro_name>, include a series of instructions, and close with endmacr. This helps to simplify repetitive code.
 
@@ -145,7 +145,8 @@ macr myMacro
 endmacr
 ```
 
-### Directives
+<!-- Directives -->
+<h3 id="Directives">Directives</h3>
 
 Use special commands like .entry, .extern, and more to manage your code's structure.
 
@@ -158,7 +159,8 @@ Example:
 .data 1, -5, 0
 ```
 
-### Instructions
+<!-- Instructions -->
+<h3 id="Instructions">Instructions</h3>
 
 Use our supported opcodes to perform operations in your assembly code. Each opcode corresponds to a specific machine instruction.
 
@@ -170,7 +172,8 @@ add r3, r4
 jmp start
 ```
 
-### Labels
+<!-- Labels -->
+<h3 id="Labels">Labels</h3>
 
 Define and use labels in your code.
 
@@ -182,7 +185,8 @@ label: mov r1, r2
 
 Each instruction and operation is carefully designed to give you complete control over your assembly code, allowing you to write efficient and functional programs.
 
-## 📌 Addressing Methods (Modes)
+<!-- Addressing Methods (Modes) -->
+<h2 id="Addressing Methods (Modes)">📌 Addressing Methods (Modes)</h2>
 
 Understanding the addressing methods used in our assembler is key to writing effective assembly code. Here’s a breakdown of the supported addressing methods:
 
@@ -209,7 +213,7 @@ The assembler encodes the first word of each instruction using the following for
 - **Operand Representation:** The operand itself, which is a 12-bit two's complement integer, is contained in bits 14-3 of the word.
 - **A,R,E Bits:** In immediate addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
 
-### 📍 Direct Addressing
+### 🏹 Direct Addressing
 
 - **Operand Representation:** The operand is a memory address, with the word at this address in memory being the operand. The address is represented as a 12-bit unsigned number in bits 14-3 of the word.
 - **A,R,E Bits:** 
