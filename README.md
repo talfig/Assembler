@@ -809,4 +809,4 @@ The project is organized as follows:
 <!-- License -->
 <h2 id="license">© License</h2>
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
