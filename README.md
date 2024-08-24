@@ -824,6 +824,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 <p align="left">
   <a href="mailto:talfig8@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email">
+    <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email" width="150" height="50">
   </a>
 </p>
+
