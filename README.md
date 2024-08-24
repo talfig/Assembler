@@ -820,4 +820,9 @@ The project is organized as follows:
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/talfig/Assembler/blob/main/LICENSE) file for details.
 
 <!-- Connect with Me -->
-<h2 id="connect-with-me">📧 Connect with Me</h2>
+<h2 id="connect-with-me">📬 Connect with Me</h2>
+<p align="center">
+  <a href="mailto:talfig8@gmail.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email">
+  </a>
+</p>
