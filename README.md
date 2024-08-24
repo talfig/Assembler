@@ -133,19 +133,19 @@ The assembler encodes the first word of each instruction using the following for
 
 ## 🧠 **Addressing Methods Encoding**
 
-### Immediate Addressing
+### ⚡ Immediate Addressing
 
 - **Operand Representation:** The operand itself, which is a 12-bit two's complement integer, is contained in bits 14-3 of the word.
 - **A,R,E Bits:** In immediate addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
 
-### Direct Addressing
+### 📍 Direct Addressing
 
 - **Operand Representation:** The operand is a memory address, with the word at this address in memory being the operand. The address is represented as a 12-bit unsigned number in bits 14-3 of the word.
 - **A,R,E Bits:** 
   - If the address is internal (i.e., within the current source file), the `R` bit is set to 1, and the `A` and `E` bits are set to 0.
   - If the address is external (i.e., from another source file), the `E` bit is set to 1, and the `A` and `R` bits are set to 0.
 
-### Indirect Register Addressing
+### 📲 Indirect Register Addressing
 
 - **Operand Representation:** Accesses memory through a pointer in a register. The content of the register is a memory address, and the word at this address is the operand. The address is represented as a 15-bit unsigned number in the register.
 - **A,R,E Bits:** In indirect register addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
@@ -154,7 +154,7 @@ The assembler encodes the first word of each instruction using the following for
   - If the operand is a source, bits 8-6 of the word contain the register number used as a pointer.
   - If there are two operands using indirect register addressing, both registers share the same word, with bits 5-3 containing the destination register and bits 8-6 containing the source register.
 
-### Direct Register Addressing
+### 🚪 Direct Register Addressing
 
 - **Operand Representation:** The operand is a direct register.
 - **A,R,E Bits:** In direct register addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
@@ -163,7 +163,7 @@ The assembler encodes the first word of each instruction using the following for
   - If the register is a source, bits 8-6 of the word contain the register number.
   - If there are two operands using either direct register or indirect register addressing, both registers share the same word, with bits 5-3 containing the destination register and bits 8-6 containing the source register.
 
-### Unused Bits
+### 🗑️ Unused Bits
 
 - Any bits in the instruction word that are not used should be set to 0.
 
