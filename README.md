@@ -284,8 +284,8 @@ Assembly language typically includes four types of statements:
 <!-- Instruction Statements -->
 <h2 id="instruction-statements">🧰 Instruction Statements</h2>
 
-<!-- 1. .data Instruction -->
-<h3 id="data-instruction">1. ".data" Instruction</h3>
+<!-- .data Instruction -->
+<h3 id="data-instruction">.data Instruction</h3>
 - The `.data` instruction allocates space in the data image to store the specified integer values.
 - Parameters: One or more legal integers separated by commas.
 
@@ -303,8 +303,8 @@ XYZ: .data 7, -57, +17, 9
 
 Here, XYZ is a label associated with the address of the first value (7). This label can be referenced in the program.
 
-<!-- 2. .string Instruction -->
-<h3 id="string-instruction">2. ".string" Instruction</h3>
+<!-- .string Instruction -->
+<h3 id="string-instruction">.string Instruction</h3>
 
 - The `.string` instruction allocates space in the data image to store a string.
 - Parameters: A single legal string enclosed in double quotes.
@@ -316,8 +316,8 @@ STR: .string "abcdef"
 ```
 The string "abcdef" is stored in the data image with each character in a separate word, followed by a `0` to indicate the end of the string. The label `STR` refers to the address of the first character.
 
-<!-- 3. .entry Instruction -->
-<h3 id="entry-instruction">3. ".entry" Instruction</h3>
+<!-- .entry Instruction -->
+<h3 id="entry-instruction"> .entry Instruction</h3>
 
 - The `.entry` instruction identifies a label that can be referenced from other assembly source files.
 - Parameters: A single label name defined in the current source file.
@@ -330,8 +330,8 @@ Example:
 
 This instruction marks the label HELLO as available for external reference.
 
-<!-- 4. .extern Instruction -->
-<h3 id="extern-instruction">4. ".extern" Instruction</h3>
+<!-- .extern Instruction -->
+<h3 id="extern-instruction"> .extern Instruction</h3>
 
 - The `.extern` instruction indicates that a label is defined in another source file.
 - Parameters: A single label name that is defined externally.
@@ -347,8 +347,8 @@ This indicates that the label HELLO is defined in another source file and will b
 <!-- Instruction Fields -->
 <h2 id="instruction-fields">🛑 Instruction Fields</h2>
 
-<!-- 1. Labels -->
-<h3 id="labels">1. Labels</h3>
+<!-- Labels -->
+<h3 id="labels">Labels</h3>
 
 - A label is a symbolic representation of an address in memory.
 - Syntax:
@@ -365,8 +365,8 @@ He10:
 
 Labels are case-sensitive and must be unique within the same file.
 
-<!-- 2. Numbers -->
-<h3 id="numbers">2. Numbers</h3>
+<!-- Numbers -->
+<h3 id="numbers">Numbers</h3>
 
 - Legal numbers are decimal integers that can be positive or negative.
 
@@ -376,8 +376,8 @@ Example:
 123, -57, +17
 ```
 
-<!-- 3. Strings -->
-<h3 id="strings">3. Strings</h3>
+<!-- Strings -->
+<h3 id="strings">Strings</h3>
 
 - A legal string is a sequence of printable ASCII characters enclosed in double quotes.
 
@@ -390,8 +390,8 @@ Example:
 <!-- Instruction Statement Formats -->
 <h2 id="instruction-statement-formats">📋 Instruction Statement Formats</h2>
 
-<!-- 1. Two-Operand Instruction -->
-<h3 id="two-operand-instruction">1. Two-Operand Instruction</h3>
+<!-- Two-Operand Instruction -->
+<h3 id="two-operand-instruction">Two-Operand Instruction</h3>
 
 - Format: `label: opcode source-operand, target-operand`
 
@@ -401,8 +401,8 @@ Example:
 HELLO: add r7, B
 ```
 
-<!-- 2. One-Operand Instruction -->
-<h3 id="one-operand-instruction">2. One-Operand Instruction</h3>
+<!-- One-Operand Instruction -->
+<h3 id="one-operand-instruction">One-Operand Instruction</h3>
 
 - Format: `label: opcode target-operand`
 
@@ -412,9 +412,8 @@ Example:
 HELLO: bne XYZ
 ```
 
-**3. No-Operand Instruction**
-<!-- 3. No-Operand Instruction -->
-<h3 id="no-operand-instruction">3. No-Operand Instruction</h3>
+<!-- No-Operand Instruction -->
+<h3 id="no-operand-instruction">No-Operand Instruction</h3>
 
 - Format: `label: opcode`
 
