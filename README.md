@@ -6,31 +6,6 @@
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
-## Table of Contents
-1. [Project Background and Objectives](#-project-background-and-objectives)
-2. [Hardware](#-hardware)
-3. [Features](#-features)
-4. [Supported Opcodes](#-supported-opcodes)
-5. [Assembly Language Syntax](#-assembly-language-syntax)
-   - [Addressing Methods (Modes)](#-addressing-methods-modes)
-   - [First Word Encoding](#-first-word-encoding)
-   - [Addressing Methods Encoding](#-addressing-methods-encoding)
-6. [Types of Statements in Assembly Language](#-types-of-statements-in-assembly-language)
-   - [Instruction Statements](#-instruction-statements)
-   - [Instruction Statement Formats](#-instruction-statement-formats)
-7. [Linking and Loading: A,R,E Field Encoding](#-linking-and-loading-are-field-encoding)
-8. [Macro Handling](#-macro-handling)
-9. [Supported Operations and Addressing Methods](#-supported-operations-and-addressing-methods)
-10. [Assembler with Two Passes](#-assembler-with-two-passes)
-    - [First Pass](#-first-pass)
-    - [Second Pass](#-second-pass)
-11. [Example Program](#-example-program)
-12. [Installation](#-installation)
-13. [Usage](#-usage)
-14. [Error Handling](#-error-handling)
-15. [Directory Structure](#-directory-structure)
-16. [License](#-license)
-
 ## 📝 Project Background and Objectives
 
 As is known, there are many programming languages, and a large number of programs written in different languages can run on the same computer. How does the computer recognize so many languages? The answer is simple: the computer actually understands only one language: machine code, which is stored in memory as a sequence of binary digits. This code is divided by the Central Processing Unit (CPU) into small segments with meaning: instructions, addresses, and data.
