@@ -85,7 +85,7 @@ The task of the assembler is to create a file containing machine code from a giv
 The goal of this project is to write an assembler (i.e., a program that translates into machine code) for a specifically defined assembly language for this project.
 
 <!-- Hardware -->
-<h2 id="Hardware">🖥️ Hardware</h2>
+<h2 id="hardware">🖥️ Hardware</h2>
 
 - The computer in this project is comprised of a CPU (Central Processing Unit) - a work unit containing registers and RAM. Some of the memory also serves as a stack.
 
@@ -98,14 +98,14 @@ The goal of this project is to write an assembler (i.e., a program that translat
 - The machine works with a big-endian system, meaning the most significant byte is stored at the smallest memory address. The numbers are stored using 2's complement (negative numbers), and characters are encoded in ASCII.
 
 <!-- Features -->
-<h2 id="Features">🚀 Features</h2>
+<h2 id="features">🚀 Features</h2>
 
 - **Custom Assembly Language:** Dive into our unique assembly language with a defined set of opcodes.
 - **Macro Wizardry:** Create and use powerful macros to streamline your assembly code.
 - **Smart Error Handling:** Get detailed, compiler-like error messages to troubleshoot with ease.
 
 <!-- Supported Opcodes -->
-<h2 id="Supported Opcodes">🧩 Supported Opcodes</h2>
+<h2 id="supported-opcodes">🧩 Supported Opcodes</h2>
 
 Our assembler brings to life a variety of opcodes for your coding pleasure:
 
@@ -127,12 +127,12 @@ Our assembler brings to life a variety of opcodes for your coding pleasure:
 - (15) `stop` – Halt execution
 
 <!-- Assembly Language Syntax -->
-<h2 id="Assembly Language Syntax">✍️ Assembly Language Syntax</h2>
+<h2 id="assembly-language-syntax">✍️ Assembly Language Syntax</h2>
 
 Write your assembly code with these cool features:
 
 <!-- Macros -->
-<h3 id="Macros">Macros</h3>
+<h3 id="macros">Macros</h3>
 
 Define macros with macr <macro_name>, include a series of instructions, and close with endmacr. This helps to simplify repetitive code.
 
@@ -146,7 +146,7 @@ endmacr
 ```
 
 <!-- Directives -->
-<h3 id="Directives">Directives</h3>
+<h3 id="directives">Directives</h3>
 
 Use special commands like .entry, .extern, and more to manage your code's structure.
 
@@ -160,7 +160,7 @@ Example:
 ```
 
 <!-- Instructions -->
-<h3 id="Instructions">Instructions</h3>
+<h3 id="instructions">Instructions</h3>
 
 Use our supported opcodes to perform operations in your assembly code. Each opcode corresponds to a specific machine instruction.
 
@@ -173,7 +173,7 @@ jmp start
 ```
 
 <!-- Labels -->
-<h3 id="Labels">Labels</h3>
+<h3 id="labels">Labels</h3>
 
 Define and use labels in your code.
 
@@ -186,7 +186,7 @@ label: mov r1, r2
 Each instruction and operation is carefully designed to give you complete control over your assembly code, allowing you to write efficient and functional programs.
 
 <!-- Addressing Methods (Modes) -->
-<h2 id="Addressing Methods (Modes)">📌 Addressing Methods (Modes)</h2>
+<h2 id="addressing-methods-modes">📌 Addressing Methods (Modes)</h2>
 
 Understanding the addressing methods used in our assembler is key to writing effective assembly code. Here’s a breakdown of the supported addressing methods:
 
