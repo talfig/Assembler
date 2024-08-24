@@ -27,7 +27,7 @@
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#macros">Macros</a></li>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#directives">Directives</a></li>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#instructions">Instructions</a></li>
-        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#labels1">Labels</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#variables">Variables</a></li>
       </ul>
     </li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#addressing-methods-modes">Addressing Methods (Modes)</a></li>
@@ -59,7 +59,7 @@
     </li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#instruction-fields">Instruction Fields</a>
       <ul>
-        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#labels2">Labels</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#labels">Labels</a></li>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#numbers">Numbers</a></li>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#strings">Strings</a></li>
       </ul>
@@ -203,15 +203,15 @@ add r3, r4
 jmp start
 ```
 
-<!-- Labels -->
-<h3 id="labels1">🏷️ Labels</h3>
+<!-- Variables -->
+<h3 id="variables">❓ Variables</h3>
 
 Define and use labels in your code.
 
 Example:
 
 ```assembly
-label: mov r1, r2
+var: mov r1, r2
 ```
 
 Each instruction and operation is carefully designed to give you complete control over your assembly code, allowing you to write efficient and functional programs.
@@ -371,7 +371,7 @@ This indicates that the label HELLO is defined in another source file and will b
 <h2 id="instruction-fields">🛑 Instruction Fields</h2>
 
 <!-- Labels -->
-<h3 id="labels2">🏷️ Labels</h3>
+<h3 id="labels">🏷️ Labels</h3>
 
 - A label is a symbolic representation of an address in memory.
 - Syntax:
