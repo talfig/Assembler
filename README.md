@@ -32,12 +32,28 @@
         <li><a href="#direct-register-addressing">Direct Register Addressing</a></li>
       </ul>
     </li>
+    <li><a href="#unused-bits">Unused Bits</a></li>
     <li><a href="#types-of-statements-in-assembly-language">Types of Statements in Assembly Language</a>
       <ul>
         <li><a href="#empty-statement">Empty Statement</a></li>
         <li><a href="#comment-statement">Comment Statement</a></li>
         <li><a href="#instruction-statement">Instruction Statement</a></li>
         <li><a href="#directive-statement">Directive Statement</a></li>
+      </ul>
+    </li>
+    <li><a href="#instruction-statements">Instruction Statements</a>
+      <ul>
+        <li><a href="#data-instruction">.data Instruction</a></li>
+        <li><a href="#string-instruction">.string Instruction</a></li>
+        <li><a href="#entry-instruction">.entry Instruction</a></li>
+        <li><a href="#extern-instruction">.extern Instruction</a></li>
+      </ul>
+    </li>
+    <li><a href="#instruction-fields">Instruction Fields</a>
+      <ul>
+        <li><a href="#labels">Labels</a></li>
+        <li><a href="#numbers">Numbers</a></li>
+        <li><a href="#strings">Strings</a></li>
       </ul>
     </li>
     <li><a href="#instruction-statement-formats">Instruction Statement Formats</a>
