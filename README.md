@@ -659,11 +659,11 @@ Below is the full binary encoding table obtained from the source file, followed 
 | 0100            | MAIN: add r3, LIST  | First word of instruction               | 001010000010100       |
 | 0101            |                     | Source register 3                       | 000000011000100       |
 | 0102            |                     | Address of label LIST                   | 000010001001010       |
-| 0103            | jsr fn1             | Address of label fn1 (external)         | 110100000010100       |
+| 0103            | jsr fn1             |                                         | 110100000010100       |
 | 0104            |                     | Address of label fn1 (external)         | 000000000000001       |
-| 0105            | LOOP: prn #48       | Immediate value 48                      | 110000000001100       |
+| 0105            | LOOP: prn #48       |                                         | 110000000001100       |
 | 0106            |                     | Immediate value 48                      | 000000110000100       |
-| 0107            | lea STR, r6         | Address of label STR                    | 010000101000100       |
+| 0107            | lea STR, r6         |                                         | 010000101000100       |
 | 0108            |                     | Address of label STR                    | 000010000100010       |
 | 0109            |                     | Target register 6                       | 000000000110100       |
 | 0110            | inc r6              |                                         | 011100001000100       |
@@ -671,7 +671,7 @@ Below is the full binary encoding table obtained from the source file, followed 
 | 0112            | mov *r6, L3         | Source register 6                       | 000001000010100       |
 | 0113            |                     | Address of label L3 (external)          | 000000110000100       |
 | 0114            | sub r1, r4          | Source register 1                       | 001110001000100       |
-| 0115            |                     | target register 4                       | 000000001100100       |
+| 0115            |                     | Target register 4                       | 000000001100100       |
 | 0116            | cmp r3, #-6         | Source register 3                       | 000110000001100       |
 | 0117            |                     | Immediate value -6                      | 000000011000100       |
 | 0118            | bne END             |                                         | 111111111010100       |
