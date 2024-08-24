@@ -547,7 +547,7 @@ As seen in the first pass, the assembler cannot construct the machine code of op
 To achieve this, the assembler performs a second pass over the source code. During this pass, it updates the machine code for operands by substituting the symbols with their corresponding values from the symbol table. By the end of this second pass, the entire program is fully translated into machine code.
 
 <!-- Example Program -->
-<h2 id="example-program">📜 Example Program/h2>
+<h2 id="example-program">📜 Example Program</h2>
 
 Here’s a quick demo of an assembly program in action:
 
