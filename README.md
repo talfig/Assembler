@@ -6,7 +6,6 @@
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
   <br>
   <h2 align="center">Tal Figenblat</h2>
-  <br>
 </p>
 
 <p align="center">
