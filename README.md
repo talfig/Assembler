@@ -729,14 +729,14 @@ Below is the full binary encoding table obtained from the source file, followed 
 0140 00037
 ```
 
-**entry file:**
+**entries file:**
 
 ```ent
 LIST 0137
 MAIN 0100
 ```
 
-**extern file:**
+**externals file:**
 
 ```ext
 fn1 0104
