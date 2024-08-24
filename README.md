@@ -10,58 +10,58 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#project-background-and-objectives">Project Background and Objectives</a></li>
-    <li><a href="#hardware">Hardware</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#supported-opcodes">Supported Opcodes</a></li>
-    <li><a href="#assembly-language-syntax">Assembly Language Syntax</a>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#project-background-and-objectives">Project Background and Objectives</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#hardware">Hardware</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#features">Features</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#supported-opcodes">Supported Opcodes</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#assembly-language-syntax">Assembly Language Syntax</a>
       <ul>
-        <li><a href="#macros">Macros</a></li>
-        <li><a href="#directives">Directives</a></li>
-        <li><a href="#instructions">Instructions</a></li>
-        <li><a href="#labels">Labels</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#macros">Macros</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#directives">Directives</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#instructions">Instructions</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#labels">Labels</a></li>
       </ul>
     </li>
-    <li><a href="#addressing-methods-modes">Addressing Methods (Modes)</a></li>
-    <li><a href="#first-word-encoding">First Word Encoding</a></li>
-    <li><a href="#addressing-methods-encoding">Addressing Methods Encoding</a>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#addressing-methods-modes">Addressing Methods (Modes)</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#first-word-encoding">First Word Encoding</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#addressing-methods-encoding">Addressing Methods Encoding</a>
       <ul>
-        <li><a href="#immediate-addressing">Immediate Addressing</a></li>
-        <li><a href="#direct-addressing">Direct Addressing</a></li>
-        <li><a href="#indirect-register-addressing">Indirect Register Addressing</a></li>
-        <li><a href="#direct-register-addressing">Direct Register Addressing</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#immediate-addressing">Immediate Addressing</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#direct-addressing">Direct Addressing</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#indirect-register-addressing">Indirect Register Addressing</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#direct-register-addressing">Direct Register Addressing</a></li>
       </ul>
     </li>
-    <li><a href="#types-of-statements-in-assembly-language">Types of Statements in Assembly Language</a>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#types-of-statements-in-assembly-language">Types of Statements in Assembly Language</a>
       <ul>
-        <li><a href="#empty-statement">Empty Statement</a></li>
-        <li><a href="#comment-statement">Comment Statement</a></li>
-        <li><a href="#instruction-statement">Instruction Statement</a></li>
-        <li><a href="#directive-statement">Directive Statement</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#empty-statement">Empty Statement</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#comment-statement">Comment Statement</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#instruction-statement">Instruction Statement</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#directive-statement">Directive Statement</a></li>
       </ul>
     </li>
-    <li><a href="#instruction-statement-formats">Instruction Statement Formats</a>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#instruction-statement-formats">Instruction Statement Formats</a>
       <ul>
-        <li><a href="#two-operand-instruction">Two-Operand Instruction</a></li>
-        <li><a href="#one-operand-instruction">One-Operand Instruction</a></li>
-        <li><a href="#no-operand-instruction">No-Operand Instruction</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#two-operand-instruction">Two-Operand Instruction</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#one-operand-instruction">One-Operand Instruction</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#no-operand-instruction">No-Operand Instruction</a></li>
       </ul>
     </li>
-    <li><a href="#linking-and-loading-are-field-encoding">Linking and Loading: A,R,E Field Encoding</a></li>
-    <li><a href="#macro-handling">Macro Handling</a></li>
-    <li><a href="#supported-operations-and-addressing-methods">Supported Operations and Addressing Methods</a></li>
-    <li><a href="#assembler-with-two-passes">Assembler with Two Passes</a>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#linking-and-loading-ar-e-field-encoding">Linking and Loading: A,R,E Field Encoding</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#macro-handling">Macro Handling</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#supported-operations-and-addressing-methods">Supported Operations and Addressing Methods</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#assembler-with-two-passes">Assembler with Two Passes</a>
       <ul>
-        <li><a href="#first-pass">First Pass</a></li>
-        <li><a href="#second-pass">Second Pass</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#first-pass">First Pass</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#second-pass">Second Pass</a></li>
       </ul>
     </li>
-    <li><a href="#example-program">Example Program</a></li>
-    <li><a href="#installation">Installation</a></li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#error-handling">Error Handling</a></li>
-    <li><a href="#directory-structure">Directory Structure</a></li>
-    <li><a href="#license">License</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#example-program">Example Program</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#installation">Installation</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#usage">Usage</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#error-handling">Error Handling</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#directory-structure">Directory Structure</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#license">License</a></li>
   </ol>
 </details>
 
