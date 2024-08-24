@@ -353,7 +353,7 @@ This indicates that the label HELLO is defined in another source file and will b
 <h2 id="instruction-fields">🛑 Instruction Fields</h2>
 
 <!-- Labels -->
-<h3 id="labels2">🔖 Labels</h3>
+<h3 id="labels2">🏷️ Labels</h3>
 
 - A label is a symbolic representation of an address in memory.
 - Syntax:
