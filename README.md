@@ -86,7 +86,7 @@ Example:
 ```assembly
 .extern start
 .entry end
-.string "str"
+.string "abcd"
 .data 1, -5, 0
 ```
 
