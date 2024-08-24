@@ -206,7 +206,7 @@ jmp start
 <!-- Variables (Labels) -->
 <h3 id="variables-labels">❓ Variables (Labels)</h3>
 
-Define and use variables (labels) in your code.
+Define and use variables in your code.
 
 Example:
 
