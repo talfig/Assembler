@@ -1,7 +1,3 @@
-<p align="left">
-  <strong>Tal Figenblat</strong>
-</p>
-
 <h1 align="center">🔧 Assembler: The Code Converter</h1>
 
 <p align="center">
@@ -9,6 +5,12 @@
   <br>
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
+
+<p align="center">
+  <strong>Tal Figenblat</strong>
+</p>
+
+<hr style="border: 1px solid #ddd; width: 50%; margin: 20px auto;">
 
 <!-- TABLE OF CONTENTS -->
 <details>
