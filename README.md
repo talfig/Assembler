@@ -105,7 +105,7 @@ The goal of this project is to write an assembler (i.e., a program that translat
 
 - The computer in this project is comprised of a CPU (Central Processing Unit) - a work unit containing registers and RAM. Some of the memory also serves as a stack.
 
-- The CPU contains 8 general registers: `r0, r1, r2, r3, r4, r5, r6, r7`. Each register is 15 bits in size, with the least significant bit labeled as bit 0 and the most significant bit as bit 14. The content of the registers is initialized to 0.
+- The CPU contains 8 general registers: `r0, r1, r2, r3, r4, r5, r6, r7`. Each register is 15 bits in size, with the least significant bit labeled as bit 0 and the most significant bit as bit 14. The content of the registers is initialized to 0. Register names are always written with a lowercase 'r'.
 
 - Additionally, the CPU contains a register named PSW (program status word), which contains several flags representing the status of the program at any given moment. These flags are typically used to indicate conditions like carry or overflow after arithmetic operations.
 
