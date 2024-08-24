@@ -698,7 +698,7 @@ Below is the full binary encoding table obtained from the source file, followed 
 | 0139            | .data -100          | Integer -100                            | 111111110011100       |
 | 0140            | K: .data 31         | Integer 31                              | 000000000011111       |
 
-**object file:**
+**Object file:**
 
 ```ob
   32 9
@@ -745,14 +745,14 @@ Below is the full binary encoding table obtained from the source file, followed 
 0140 00037
 ```
 
-**entries file:**
+**Entries file:**
 
 ```ent
 LIST 0137
 MAIN 0100
 ```
 
-**externals file:**
+**Externals file:**
 
 ```ext
 fn1 0104
