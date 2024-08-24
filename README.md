@@ -27,7 +27,6 @@
 <!-- Project Background and Objectives -->
 <h2 id="project-background-and-objectives">📝 Project Background and Objectives</h2>
 
-<p>
 
 As is known, there are many programming languages, and a large number of programs written in different languages can run on the same computer. How does the computer recognize so many languages? The answer is simple: the computer actually understands only one language: machine code, which is stored in memory as a sequence of binary digits. This code is divided by the Central Processing Unit (CPU) into small segments with meaning: instructions, addresses, and data.
 
@@ -45,7 +44,6 @@ The task of the assembler is to create a file containing machine code from a giv
 
 The goal of this project is to write an assembler (i.e., a program that translates into machine code) for a specifically defined assembly language for this project.
 
-<p>
 
 ## 🖥️ **Hardware**
 
