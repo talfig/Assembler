@@ -92,7 +92,7 @@
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#error-handling">Error Handling</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#directory-structure">Directory Structure</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#license">License</a></li>
-    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#connect-with-me">Connect with Me</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#contacts">Contacts</a></li>
   </ol>
 </details>
 
@@ -820,8 +820,8 @@ The project is organized as follows:
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/talfig/Assembler/blob/main/LICENSE) file for details.
 
-<!-- Connect with Me -->
-<h2 id="connect-with-me">📬 Connect with Me</h2>
+<!-- Contacts -->
+<h2 id="contacts">📬 Contacts </h2>
 
 <p align="left">
   <a href="mailto:talfig8@gmail.com">
