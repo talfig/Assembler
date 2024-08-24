@@ -106,8 +106,6 @@ The task of the assembler is to create a file containing machine code from a giv
 
 The goal of this project is to write an assembler (i.e., a program that translates into machine code) for a specifically defined assembly language for this project.
 
-<p align="right">talfig</p>
-
 <!-- Hardware -->
 <h2 id="hardware">🖥️ Hardware</h2>
 
@@ -121,16 +119,12 @@ The goal of this project is to write an assembler (i.e., a program that translat
 
 - The machine works with a big-endian system, meaning the most significant byte is stored at the smallest memory address. The numbers are stored using 2's complement (negative numbers), and characters are encoded in ASCII.
 
-<p align="right">talfig</p>
-
 <!-- Features -->
 <h2 id="features">🚀 Features</h2>
 
 - **Custom Assembly Language:** Dive into our unique assembly language with a defined set of opcodes.
 - **Macro Wizardry:** Create and use powerful macros to streamline your assembly code.
 - **Smart Error Handling:** Get detailed, compiler-like error messages to troubleshoot with ease.
-
-<p align="right">talfig</p>
 
 <!-- Supported Opcodes -->
 <h2 id="supported-opcodes">🧩 Supported Opcodes</h2>
@@ -154,14 +148,10 @@ Our assembler brings to life a variety of opcodes for your coding pleasure:
 - (14) `rts` – Return from subroutine
 - (15) `stop` – Halt execution
 
-<p align="right">talfig</p>
-
 <!-- Assembly Language Syntax -->
 <h2 id="assembly-language-syntax">✍️ Assembly Language Syntax</h2>
 
 Write your assembly code with these cool features:
-
-<p align="right">talfig</p>
 
 <!-- Macros -->
 <h3 id="macros">🗃️ Macros</h3>
@@ -177,8 +167,6 @@ macr myMacro
 endmacr
 ```
 
-<p align="right">talfig</p>
-
 <!-- Directives -->
 <h3 id="directives">🗒️ Directives</h3>
 
@@ -193,8 +181,6 @@ Example:
 .data 1, -5, 0
 ```
 
-<p align="right">talfig</p>
-
 <!-- Instructions -->
 <h3 id="instructions">🗺️ Instructions</h3>
 
@@ -208,8 +194,6 @@ add r3, r4
 jmp start
 ```
 
-<p align="right">talfig</p>
-
 <!-- Labels -->
 <h3 id="labels1">🏷️ Labels</h3>
 
@@ -222,8 +206,6 @@ label: mov r1, r2
 ```
 
 Each instruction and operation is carefully designed to give you complete control over your assembly code, allowing you to write efficient and functional programs.
-
-<p align="right">talfig</p>
 
 <!-- Addressing Methods (Modes) -->
 <h2 id="addressing-methods-modes">📌 Addressing Methods (Modes)</h2>
@@ -245,8 +227,6 @@ Understanding the addressing methods used in our assembler is key to writing eff
 
 Each addressing method allows for flexible data manipulation, enabling you to write efficient and powerful assembly code.
 
-<p align="right">talfig</p>
-
 <!-- First Word Encoding -->
 <h2 id="first-word-encoding">👨‍💻 First Word Encoding</h2>
 
@@ -256,8 +236,6 @@ The assembler encodes the first word of each instruction using the following for
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|----|----|
 | Opcode |||| Source operand |||| Destination operand |||| The field A,R,E |||
 | Fourth bit | Third bit | Second bit | First bit | Method 3 | Method 2 | Method 1 | Method 0 | Method 3 | Method 2 | Method 1 | Method 0 |  A  |  R  |  E  |
-
-<p align="right">talfig</p>
 
 <!-- Addressing Methods Encoding -->
 <h2 id="addressing-methods-encoding">🧠 Addressing Methods Encoding</h2>
