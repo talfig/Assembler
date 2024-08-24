@@ -575,6 +575,31 @@ Example:
 ./assembler x y hello
 ```
 
+<!-- Object File Format -->
+<h2 id="object-file-format">📄 Object File Format</h2>
+
+The assembler constructs a memory image where the encoding of the first instruction from the assembly file is placed at address 100 (in decimal) in memory. The encoding of the second instruction is placed at the address following the first instruction (depending on the number of words in the first instruction), and so on until the last instruction.
+
+Immediately after the encoding of the last instruction, the assembler places the encoding of the data created by `.data`, `.string`, and other data directives into the memory image. The data will be placed in the order it appears in the source file. An operand of an instruction referring to a symbol defined in the same file will be encoded to point to the appropriate location in the memory image created by the assembler.
+
+Note that variables appear in the memory image after the instructions. This is why it is necessary to update the symbol table, at the end of the first pass, with the values of symbols defining data (symbols of type `.data`).
+
+An object file fundamentally contains the described memory image. An object file is composed of text lines as follows:
+
+- The first line of the object file is the "header," which contains two decimal numbers: the total length of the instruction section (in memory words) followed by the total length of the data section (in memory words). There is one space between the two numbers.
+
+- The following lines in the file contain the memory image. Each line contains two values: the address of a memory word and the content of that word. The address is written in decimal, padded to four digits (including leading zeros), and the content is written in octal, padded to five digits (including leading zeros). There is one space between the two values on each line.
+
+<!-- Entries File Format -->
+<h2 id="entries-file-format">📄 Entries File Format</h2>
+
+The entries file is composed of text lines. Each line contains the name of a symbol defined as an entry and its value, as found in the symbol table. The values are represented in decimal format.
+
+<!-- Externals File Format -->
+<h2 id="externals-file-format">📄 Externals File Format</h2>
+
+The externals file is also composed of text lines. Each line contains the name of a symbol defined as external and an address in machine code where an operand referring to this symbol is encoded. It is possible that there are multiple addresses in the machine code referring to the same external symbol. Each such reference will have a separate line in the externals file. The addresses are represented in decimal format.
+
 <!-- Example Program -->
 <h2 id="example-program">📜 Example Program</h2>
 
