@@ -7,18 +7,22 @@
 </p>
 
 ## Table of Contents
-- [Project Background and Objectives](#-project-background-and-objectives)
-- [Hardware](#-hardware)
-- [Features](#-features)
-- [Supported Opcodes](#-supported-opcodes)
-- [Assembly Language Syntax](#-assembly-language-syntax)
-- [Addressing Methods (Modes)](#-addressing-methods-modes)
-- [First Word Encoding](#-first-word-encoding)
-- [Types of Statements in Assembly Language](#-types-of-statements-in-assembly-language)
-- [Linking and Loading: A,R,E Field Encoding](#-linking-and-loading-are-field-encoding)
-- [Macro Handling](#-macro-handling)
-- [Supported Operations and Addressing Methods](#-supported-operations-and-addressing-methods)
-- [Assembler with Two Passes](#-assembler-with-two-passes)
+<ul>
+  <li><a href="#project-background-and-objectives">📝 Project Background and Objectives</a></li>
+  <li><a href="#hardware">🖥️ Hardware</a></li>
+  <li><a href="#features">🚀 Features</a></li>
+  <li><a href="#supported-opcodes">🧩 Supported Opcodes</a></li>
+  <li><a href="#assembly-language-syntax">✍️ Assembly Language Syntax</a></li>
+  <li><a href="#addressing-methods">📌 Addressing Methods (Modes)</a></li>
+  <li><a href="#first-word-encoding">👨‍💻 First Word Encoding</a></li>
+  <li><a href="#addressing-methods-encoding">🧠 Addressing Methods Encoding</a></li>
+  <li><a href="#types-of-statements-in-assembly-language">📚 Types of Statements in Assembly Language</a></li>
+  <li><a href="#instruction-statement-formats">📋 Instruction Statement Formats</a></li>
+  <li><a href="#linking-and-loading-are-field-encoding">🔍 Linking and Loading: A,R,E Field Encoding</a></li>
+  <li><a href="#macro-handling">📏 Macro Handling</a></li>
+  <li><a href="#supported-operations-and-addressing-methods">⚙️ Supported Operations and Addressing Methods</a></li>
+  <li><a href="#assembler-with-two-passes">🔁 Assembler with Two Passes</a></li>
+</ul>
 
 ## 📝 Project Background and Objectives
 
