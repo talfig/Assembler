@@ -132,7 +132,7 @@ The goal of this project is to write an assembler (i.e., a program that translat
 <h2 id="features">🚀 Features</h2>
 
 - **Custom Assembly Language:** Dive into our unique assembly language with a defined set of opcodes.
-- **Macro Wizardry:** Create and use powerful macros to streamline your assembly code.
+- **Macro Efficiency:** Create and use powerful macros to streamline your assembly code.
 - **Smart Error Handling:** Get detailed, compiler-like error messages to troubleshoot with ease.
 
 <!-- Supported Opcodes -->
