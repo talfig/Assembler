@@ -190,14 +190,30 @@ Each instruction and operation is carefully designed to give you complete contro
 
 Understanding the addressing methods used in our assembler is key to writing effective assembly code. Here’s a breakdown of the supported addressing methods:
 
-- **(0) Immediate Addressing (#number):** In this mode, the operand is a constant value. For example, mov #5, r1 loads the value 5 directly into register r1.
-- **(1) Direct Addressing (label):** This mode uses a direct reference to a memory location. For example, mov label, r2 moves the value stored at label into register r2.
-- **(2) Indirect Addressing (\*register):** This method accesses memory indirectly through a register. For example, mov *r3, r4 moves the value pointed by r3 into r4.
-- **(3) Indexed Addressing (register):** This method accesses the value of a base register. For instance, mov r5, r6 loads the value from the memory location of r5 into r6.
+<!-- Immediate Addressing -->
+<h3 id="Immediate Addressing">(0) Immediate Addressing (#number)</h3>
+
+In this mode, the operand is a constant value. For example, mov #5, r1 loads the value 5 directly into register r1.
+
+<!-- Direct Addressing -->
+<h3 id="Direct Addressing">(1) Direct Addressing (label)</h3>
+
+This mode uses a direct reference to a memory location. For example, mov label, r2 moves the value stored at label into register r2.
+
+<!-- Indirect Addressing -->
+<h3 id="Indirect Addressing">(2) Indirect Addressing (\*register)</h3>
+
+This method accesses memory indirectly through a register. For example, mov *r3, r4 moves the value pointed by r3 into r4.
+
+<!-- Indexed Addressing -->
+<h3 id="Indexed Addressing">(3) Indexed Addressing (register)</h3>
+
+This method accesses the value of a base register. For instance, mov r5, r6 loads the value from the memory location of r5 into r6.
 
 Each addressing method allows for flexible data manipulation, enabling you to write efficient and powerful assembly code.
 
-## 👨‍💻 First Word Encoding
+<!-- First Word Encoding -->
+<h2 id="First Word Encoding">👨‍💻 First Word Encoding</h2>
 
 The assembler encodes the first word of each instruction using the following format:
 
@@ -206,21 +222,25 @@ The assembler encodes the first word of each instruction using the following for
 | Opcode |||| Source operand |||| Destination operand |||| The field A,R,E |||
 | Fourth bit | Third bit | Second bit | First bit | Method 3 | Method 2 | Method 1 | Method 0 | Method 3 | Method 2 | Method 1 | Method 0 |  A  |  R  |  E  |
 
-## 🧠 **Addressing Methods Encoding**
+<!-- Addressing Methods Encoding -->
+<h2 id="Addressing Methods Encoding">🧠 Addressing Methods Encoding</h2>
 
-### ⚡ Immediate Addressing
+<!-- Immediate Addressing -->
+<h3 id="Immediate Addressing">⚡ Immediate Addressing</h3>
 
 - **Operand Representation:** The operand itself, which is a 12-bit two's complement integer, is contained in bits 14-3 of the word.
 - **A,R,E Bits:** In immediate addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
 
-### 🏹 Direct Addressing
+<!-- Direct Addressing -->
+<h3 id="Direct Addressing">🏹 Direct Addressing</h3>
 
 - **Operand Representation:** The operand is a memory address, with the word at this address in memory being the operand. The address is represented as a 12-bit unsigned number in bits 14-3 of the word.
 - **A,R,E Bits:** 
   - If the address is internal (i.e., within the current source file), the `R` bit is set to 1, and the `A` and `E` bits are set to 0.
   - If the address is external (i.e., from another source file), the `E` bit is set to 1, and the `A` and `R` bits are set to 0.
 
-### 📲 Indirect Register Addressing
+<!-- Indirect Register Addressing -->
+<h3 id="Indirect Register Addressing">📲 Indirect Register Addressing</h3>
 
 - **Operand Representation:** Accesses memory through a pointer in a register. The content of the register is a memory address, and the word at this address is the operand. The address is represented as a 15-bit unsigned number in the register.
 - **A,R,E Bits:** In indirect register addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
@@ -229,7 +249,8 @@ The assembler encodes the first word of each instruction using the following for
   - If the operand is a source, bits 8-6 of the word contain the register number used as a pointer.
   - If there are two operands using indirect register addressing, both registers share the same word, with bits 5-3 containing the destination register and bits 8-6 containing the source register.
 
-### 🚪 Direct Register Addressing
+<!-- Direct Register Addressing -->
+<h3 id="Direct Register Addressing">🚪 Direct Register Addressing</h3>
 
 - **Operand Representation:** The operand is a direct register.
 - **A,R,E Bits:** In direct register addressing, the `A` bit is set to 1, and the other two bits (`R`, `E`) are set to 0.
@@ -238,7 +259,8 @@ The assembler encodes the first word of each instruction using the following for
   - If the register is a source, bits 8-6 of the word contain the register number.
   - If there are two operands using either direct register or indirect register addressing, both registers share the same word, with bits 5-3 containing the destination register and bits 8-6 containing the source register.
 
-### 🗑️ Unused Bits
+<!-- Unused Bits -->
+<h3 id="Unused Bits">🗑️ Unused Bits</h3>
 
 - Any bits in the instruction word that are not used should be set to 0.
 
