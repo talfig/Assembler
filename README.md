@@ -10,7 +10,7 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#project-background-and-objectives">📝 Project Background and Objectives</a></li>
+    <li><a href="#project-background-and-objectives"> 📝 Project Background and Objectives</a></li>
     <li><a href="#hardware">🖥️ Hardware</a></li>
     <li><a href="#features">🚀 Features</a></li>
     <li><a href="#supported-opcodes">🧩 Supported Opcodes</a></li>
