@@ -815,7 +815,11 @@ To run the assembler on a certain file:
 ./assembler <source_file>
 ```
 
-Replace <source_file> with the path to your assembly code file.
+Replace <source_file> with the path to your assembly code file. To process multiple files, list each file separated by spaces:
+
+```bash
+./assembler <source_file1> <source_file2> ...
+```
 
 <!-- Error Handling -->
 <h2 id="error-handling">⚠️ Error Handling</h2>
