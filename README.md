@@ -686,6 +686,6 @@ The project is organized as follows:
 - **Valid Outputs:** Contains output files corresponding to valid inputs.
 
 <!-- License -->
-<h2 id="license">🌐 License</h2>
+<h2 id="license">✅ License</h2>
 
 This project is licensed under the MIT License - see the LICENSE file for details.
