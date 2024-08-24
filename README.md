@@ -84,7 +84,8 @@ The task of the assembler is to create a file containing machine code from a giv
 
 The goal of this project is to write an assembler (i.e., a program that translates into machine code) for a specifically defined assembly language for this project.
 
-## 🖥️ **Hardware**
+<!-- Hardware -->
+<h2 id="Hardware">🖥️ Hardware</h2>
 
 - The computer in this project is comprised of a CPU (Central Processing Unit) - a work unit containing registers and RAM. Some of the memory also serves as a stack.
 
