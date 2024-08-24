@@ -666,18 +666,18 @@ Below is the full binary encoding table obtained from the source file, followed 
 | 0107            | lea STR, r6         | Address of label STR                    | 010000101000100       |
 | 0108            |                     | Address of label STR                    | 000010000100010       |
 | 0109            |                     | Target register 6                       | 000000000110100       |
-| 0110            | inc r6              | Target register 6                       | 011100001000100       |
+| 0110            | inc r6              |                                         | 011100001000100       |
 | 0111            |                     | Target register 6                       | 000000000110100       |
 | 0112            | mov *r6, L3         | Source register 6                       | 000001000010100       |
 | 0113            |                     | Address of label L3 (external)          | 000000110000100       |
-| 0114            | sub r1, r4          | Source register 1 and target register 4 | 001110001000100       |
-| 0115            |                     | Source register 1 and target register 4 | 000000001100100       |
+| 0114            | sub r1, r4          | Source register 1                       | 001110001000100       |
+| 0115            |                     | target register 4                       | 000000001100100       |
 | 0116            | cmp r3, #-6         | Source register 3                       | 000110000001100       |
 | 0117            |                     | Immediate value -6                      | 000000011000100       |
-| 0118            | bne END             | Address of label END                    | 111111111010100       |
+| 0118            | bne END             |                                         | 111111111010100       |
 | 0120            |                     | Address of label END                    | 101000000010100       |
-| 0121            | add r7, *r6         | Source register 7 and target register 6 | 000010000011010       |
-| 0122            |                     | Source register r0 and target register 6 | 001010000100100       |
+| 0121            | add r7, *r6         | Source register 7                       | 000010000011010       |
+| 0122            |                     | Target register 6                       | 001010000100100       |
 | 0123            | clr K               | Address of label K                      | 000000111110100       |
 | 0124            |                     | Address of label K                      | 010100000010100       |
 | 0125            |                     | Address of label K                      | 000010001100010       |
