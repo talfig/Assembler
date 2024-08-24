@@ -695,7 +695,7 @@ Below is the full binary encoding table obtained from the source file, followed 
 | 0136            |                     | Ascii code '\0' (end of string)         | 000000000000000       |
 | 0137            | LIST: .data 6, -9   | Integer 6                               | 000000000000110       |
 | 0138            |                     | Integer -9                              | 111111111110111       |
-| 0139            | .data -100          | Integer -100                            | 111111111011100       |
+| 0139            | .data -100          | Integer -100                            | 111111110011100       |
 | 0140            | K: .data 31         | Integer 31                              | 000000000011111       |
 
 **object file:**
