@@ -374,6 +374,30 @@ Our assembler handles the following instructions during the second pass: `mov`, 
 
 Additionally, the assembler should replace the symbols `K`, `STR`, `LIST`, `MAIN`, `LOOP`, `END` with the memory addresses where each corresponding data or instruction is located.
 
+### 📈 First Pass
+
+In the first pass, rules are required to determine the address to be assigned to each symbol. The basic principle is to count the memory locations occupied by the instructions. If each instruction is loaded into memory at the location following the previous instruction, such counting will indicate the address of the next instruction. This counting is performed by the assembler and is maintained in the instruction counter (IC). The initial value of IC is 100 (decimal), so the machine code of the first instruction is constructed to load into memory starting from address 100. The IC is updated with each instruction line that allocates space in memory. After the assembler determines the length of the instruction, the IC is increased by the number of cells (words) occupied by the instruction, and thus it points to the next available cell.
+
+As mentioned, to encode instructions in machine language, the assembler maintains a table that contains a corresponding code for each operation name. During translation, the assembler replaces each operation name with its code, and each operand is replaced with its corresponding encoding. However, this replacement process is not so simple. The instructions use various addressing modes for operands. The same operation can have different meanings in each addressing mode, and therefore different encodings are applied depending on the addressing methods. For example, the `mov` operation can refer to copying the content of a memory cell to a register or copying the content of one register to another, and so on. Each such possibility of `mov` might have a different encoding.
+
+The assembler needs to scan the entire instruction line and decide on the encoding based on the operands. Typically, the encoding is divided into a field for the operation name and additional fields containing information about the addressing methods. All fields together require one or more words in the machine code.
+
+When the assembler encounters a label at the beginning of the line, it recognizes it as a label definition and assigns it an address—the current content of the IC. Thus, all labels receive their addresses at the time of definition. These labels are entered into the symbol table, which, in addition to the label name, contains the address and additional attributes. When a label is referred to in the operand of any instruction, the assembler can retrieve the corresponding address from the symbol table.
+
+An instruction can also refer to a symbol that has not yet been defined in the program but will be defined later. For example, consider a branch instruction to an address defined by the label `A` that appears later in the code:
+
+```assembly
+bne A
+...
+A: ...
+```
+
+### 📊 Second Pass
+
+As seen in the first pass, the assembler cannot construct the machine code of operands using symbols that have not yet been defined. Only after the assembler has scanned the entire program, so that all symbols have already been entered into the symbol table, can the assembler complete the machine code of all operands.
+
+To do this, the assembler performs another pass (the second pass) over the entire source file and updates the machine code of operands using symbols, using the symbol values from the symbol table. At the end of the second pass, the program is fully translated into machine code.
+
 ## 📜 Example Program
 
 Here’s a quick demo of an assembly program in action:
