@@ -6,10 +6,13 @@
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
-<!-- Personal Information -->
-<h1 align="center">Tal Figenblat</h1>
+<hr>
+
+<h2 align="center">👤 About the Developer</h2>
 
 <p align="center">
+  <strong>Tal Figenblat</strong>
+  <br>
   <a href="mailto:talfig8@gmail.com">
     <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email">
   </a>
