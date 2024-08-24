@@ -12,7 +12,7 @@
   </a>
 </p>
 
-<h2 align="center">✨ Creator: Tal Figenblat ✨</h2>
+<h2 align="center">🌌 Creator: Tal Figenblat 🌌</h2>
 
 <!-- TABLE OF CONTENTS -->
 <details>
