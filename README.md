@@ -148,7 +148,7 @@ Our assembler brings to life a variety of opcodes for your coding pleasure:
 Write your assembly code with these cool features:
 
 <!-- Macros -->
-<h3 id="macros">Macros</h3>
+<h3 id="macros">🗂️ Macros</h3>
 
 Define macros with macr <macro_name>, include a series of instructions, and close with endmacr. This helps to simplify repetitive code.
 
@@ -162,7 +162,7 @@ endmacr
 ```
 
 <!-- Directives -->
-<h3 id="directives">Directives</h3>
+<h3 id="directives">🗒️ Directives</h3>
 
 Use special commands like `.entry`, `.extern`, and more to manage your code's structure.
 
@@ -176,7 +176,7 @@ Example:
 ```
 
 <!-- Instructions -->
-<h3 id="instructions">Instructions</h3>
+<h3 id="instructions">🗺️ Instructions</h3>
 
 Use our supported opcodes to perform operations in your assembly code. Each opcode corresponds to a specific machine instruction.
 
@@ -189,7 +189,7 @@ jmp start
 ```
 
 <!-- Labels -->
-<h3 id="labels1">Labels</h3>
+<h3 id="labels1">🏷️ Labels</h3>
 
 Define and use labels in your code.
 
@@ -289,7 +289,7 @@ Assembly language typically includes four types of statements:
 <h2 id="instruction-statements">🧰 Instruction Statements</h2>
 
 <!-- .data Instruction -->
-<h3 id="data-instruction">".data" Instruction</h3>
+<h3 id="data-instruction">📊 ".data" Instruction</h3>
 
 - The `.data` instruction allocates space in the data image to store the specified integer values.
 - Parameters: One or more legal integers separated by commas.
@@ -309,7 +309,7 @@ XYZ: .data 7, -57, +17, 9
 Here, XYZ is a label associated with the address of the first value (7). This label can be referenced in the program.
 
 <!-- .string Instruction -->
-<h3 id="string-instruction">".string" Instruction</h3>
+<h3 id="string-instruction">🔠 ".string" Instruction</h3>
 
 - The `.string` instruction allocates space in the data image to store a string.
 - Parameters: A single legal string enclosed in double quotes.
@@ -322,7 +322,7 @@ STR: .string "abcdef"
 The string "abcdef" is stored in the data image with each character in a separate word, followed by a `0` to indicate the end of the string. The label `STR` refers to the address of the first character.
 
 <!-- .entry Instruction -->
-<h3 id="entry-instruction">".entry" Instruction</h3>
+<h3 id="entry-instruction">📥 ".entry" Instruction</h3>
 
 - The `.entry` instruction identifies a label that can be referenced from other assembly source files.
 - Parameters: A single label name defined in the current source file.
@@ -336,7 +336,7 @@ Example:
 This instruction marks the label HELLO as available for external reference.
 
 <!-- .extern Instruction -->
-<h3 id="extern-instruction">".extern" Instruction</h3>
+<h3 id="extern-instruction">🌐 ".extern" Instruction</h3>
 
 - The `.extern` instruction indicates that a label is defined in another source file.
 - Parameters: A single label name that is defined externally.
@@ -371,7 +371,7 @@ He10:
 Labels are case-sensitive and must be unique within the same file.
 
 <!-- Numbers -->
-<h3 id="numbers">Numbers</h3>
+<h3 id="numbers">🔢 Numbers</h3>
 
 - Legal numbers are decimal integers that can be positive or negative.
 
@@ -382,7 +382,7 @@ Example:
 ```
 
 <!-- Strings -->
-<h3 id="strings">Strings</h3>
+<h3 id="strings">🔠 Strings</h3>
 
 - A legal string is a sequence of printable ASCII characters enclosed in double quotes.
 
@@ -396,7 +396,7 @@ Example:
 <h2 id="instruction-statement-formats">📋 Instruction Statement Formats</h2>
 
 <!-- Two-Operand Instruction -->
-<h3 id="two-operand-instruction">Two-Operand Instruction</h3>
+<h3 id="two-operand-instruction">2️⃣ Two-Operand Instruction</h3>
 
 - Format: `label: opcode source-operand, target-operand`
 
@@ -407,7 +407,7 @@ HELLO: add r7, B
 ```
 
 <!-- One-Operand Instruction -->
-<h3 id="one-operand-instruction">One-Operand Instruction</h3>
+<h3 id="one-operand-instruction">1️⃣ One-Operand Instruction</h3>
 
 - Format: `label: opcode target-operand`
 
@@ -418,7 +418,7 @@ HELLO: bne XYZ
 ```
 
 <!-- No-Operand Instruction -->
-<h3 id="no-operand-instruction">No-Operand Instruction</h3>
+<h3 id="no-operand-instruction">0️⃣ No-Operand Instruction</h3>
 
 - Format: `label: opcode`
 
