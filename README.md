@@ -92,6 +92,7 @@
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#error-handling">Error Handling</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#directory-structure">Directory Structure</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#license">License</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#connect-with-me">Connect with Me</a></li>
   </ol>
 </details>
 
