@@ -8,7 +8,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary> Table of Contents</summary>
+  <summary>Table of Contents</summary>
   <ol>
     <li><a href="#project-background-and-objectives">Project Background and Objectives</a></li>
     <li><a href="#hardware">Hardware</a></li>
@@ -64,9 +64,6 @@
     <li><a href="#license">License</a></li>
   </ol>
 </details>
-
-
-
 
 ## 📝 Project Background and Objectives
 
