@@ -298,7 +298,23 @@ Example:
 END: stop
 ```
 
-## 🔍 Macro Handling
+## 🔍 Linking and Loading: A,R,E Field Encoding
+
+In every machine code instruction (not data), the assembler inserts specific information into the A,R,E field to facilitate the linking and loading process. This field contains three bits - A, R, E -that indicate how the word should be treated when the program is loaded into memory for execution. The assembler initially generates code as if it were to be loaded at a start address. The information in these bits allows the code to be relocated to any address in memory without requiring reassembly.
+
+### The A,R,E Bits:
+
+- **A (Absolute):** 
+  - If the A bit is set to 1, it means the word's content is independent of the memory location where the program is loaded during execution (e.g., an immediate operand).
+- **R (Relocatable):**
+  - If the R bit is set to 1, it indicates that the word's content depends on the actual memory location where the program will be loaded (e.g., an internal label address).
+- **E (External):**
+  - If the E bit is set to 1, the word's content is dependent on the value of an external symbol (e.g., a label defined in another source file).
+
+These bits are set according to the addressing modes used and the location of the symbols within the program, ensuring that the final machine code is adaptable for different memory layouts during execution.
+
+
+## 📏 Macro Handling
 
 When the assembler receives an assembly program, it first expands all macros before proceeding with the assembly process. If there are macros, the assembler generates an expanded program, which is then assembled into machine code. Here's how a sample program looks before and after macro expansion:
 
