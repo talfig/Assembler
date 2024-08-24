@@ -604,10 +604,40 @@ The externals file is also composed of text lines. Each line contains the name o
 
 Like in the Entries file, the order of the labels in the file does not matter.
 
-<!-- Binary Machine Code -->
-<h2 id="binary-machine-code">🔢 Binary Machine Code</h2>
+<!-- Example Program -->
+<h2 id="example-program">📜 Example Program</h2>
 
-Here is a sample of binary machine code with corresponding comments:
+Here’s a quick demo of an assembly program in action:
+
+Pre-assembler program:
+
+```assembly
+; file ps.as 
+.entry LIST 
+.extern fn1 
+MAIN: add r3, LIST 
+jsr fn1 
+LOOP: prn #48 
+ lea STR, r6 
+ inc r6 
+ mov *r6, L3 
+ sub r1, r4 
+ cmp r3, #-6 
+ bne END 
+ add r7, *r6 
+ clr K 
+ sub L3, L3 
+.entry MAIN 
+ jmp LOOP 
+END: stop 
+STR: .string "abcd" 
+LIST: .data 6, -9 
+ .data -100 
+K: .data 31 
+.extern L3
+```
+
+Below is the full binary encoding table obtained from the source file, followed by the output file formats.
 
 | Decimal Address | Source Code        | Explanation                             | Binary Machine Code  |
 |-----------------|--------------------|-----------------------------------------|----------------------|
@@ -652,40 +682,9 @@ Here is a sample of binary machine code with corresponding comments:
 | 0139            | .data -100          | Integer -100                            | 111111111011100       |
 | 0140            | K: .data 31         | Integer 31                              | 000000000011111       |
 
-<!-- Example Program -->
-<h2 id="example-program">📜 Example Program</h2>
-
-Here’s a quick demo of an assembly program in action:
-
-Pre-assembler program:
-
-```assembly
-; file ps.as 
-.entry LIST 
-.extern fn1 
-MAIN: add r3, LIST 
-jsr fn1 
-LOOP: prn #48 
- lea STR, r6 
- inc r6 
- mov *r6, L3 
- sub r1, r4 
- cmp r3, #-6 
- bne END 
- add r7, *r6 
- clr K 
- sub L3, L3 
-.entry MAIN 
- jmp LOOP 
-END: stop 
-STR: .string "abcd" 
-LIST: .data 6, -9 
- .data -100 
-K: .data 31 
-.extern L3
-```
-
 Post-assembler program:
+
+object file:
 
 ```ob
   32 9
@@ -732,10 +731,14 @@ Post-assembler program:
 0140 00037
 ```
 
+entry file:
+
 ```ent
 LIST 0137
 MAIN 0100
 ```
+
+extern file:
 
 ```ext
 fn1 0104
