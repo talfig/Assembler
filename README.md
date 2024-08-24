@@ -24,7 +24,8 @@
   <li><a href="#assembler-with-two-passes">🔁 Assembler with Two Passes</a></li>
 </ul>
 
-## 📝 Project Background and Objectives
+<!-- Project Background and Objectives -->
+<h2 id="project-background-and-objectives">📝 Project Background and Objectives</h2>
 
 <p>
 
