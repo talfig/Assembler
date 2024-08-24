@@ -244,7 +244,7 @@ The assembler encodes the first word of each instruction using the following for
 | 14  | 13  | 12  | 11  | 10  |  9  |  8  |  7  |  6  |  5  |  4  |  3  |  2  |  1  |  0  |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|----|----|
 | Opcode |||| Source operand |||| Destination operand |||| The field A,R,E |||
-| Most significant bit | Third bit | Second bit | Least significant bit | Method 3 | Method 2 | Method 1 | Method 0 | Method 3 | Method 2 | Method 1 | Method 0 |  A  |  R  |  E  |
+| MSB | Third bit | Second bit | LSB | Method 3 | Method 2 | Method 1 | Method 0 | Method 3 | Method 2 | Method 1 | Method 0 |  A  |  R  |  E  |
 
 <!-- Addressing Methods Encoding -->
 <h2 id="addressing-methods-encoding">🧠 Addressing Methods Encoding</h2>
