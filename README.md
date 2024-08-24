@@ -16,14 +16,6 @@
 
 <hr style="border: 1px solid #ddd; width: 50%; margin: 20px auto;">
 
-<h2 align="center">📫 Connect with Me</h2>
-
-<p align="center">
-  <a href="mailto:talfig8@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email">
-  </a>
-</p>
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
