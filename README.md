@@ -120,7 +120,7 @@ Understanding the addressing methods used in our assembler is key to writing eff
 - **(2) Indirect Addressing (\*register):** This method accesses memory indirectly through a register. For example, mov *r3, r4 moves the value pointed by r3 into r4.
 - **(3) Indexed Addressing (register):** This method accesses the value of a base register. For instance, mov r5, r6 loads the value from the memory location of r5 into r6.
 
-Each addressing mode allows for flexible data manipulation, enabling you to write efficient and powerful assembly code.
+Each addressing method allows for flexible data manipulation, enabling you to write efficient and powerful assembly code.
 
 ## 👨‍💻 First Word Encoding
 
@@ -345,7 +345,7 @@ K: .data 31
 
 ## ⚙️ **Supported Operations and Addressing Methods**
 
-Our assembler supports the following operations and the corresponding addressing Methods:
+Our assembler supports the following operations and the corresponding addressing methods:
 
 | **Operation** | **Source Operand Addressing Methods** | **Destination Operand Addressing Methods** |
 |---------------|-------------------------------------|------------------------------------------|
