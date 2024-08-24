@@ -667,14 +667,10 @@ Replace <source_file> with the path to your assembly code file.
 
 Bumped into issues? No worries! Our assembler offers descriptive error messages such as:
 
-- **Memory allocation failure**
-  - Indicates a problem with allocating the necessary memory resources.
-- **Unrecognized commands**
-  - Shows when the assembler encounters commands it doesn’t understand.
-- **Syntax errors**
-  - Flags errors in the syntax of your assembly code.
-- **File Open Failure**
-  - If you encounter a file open failure, it usually means the file could not be found or accessed. Check the file path and ensure you have the necessary permissions.
+- **Memory allocation failure:** Indicates a problem with allocating the necessary memory resources.
+- **Unrecognized commands:** Shows when the assembler encounters commands it doesn’t understand.
+- **Syntax errors:** Flags errors in the syntax of your assembly code.
+- **File errors:** It usually means the file could not be found or accessed. Check the file path and ensure you have the necessary permissions.
 
 <!-- Directory Structure -->
 <h2 id="directory-structure">📁 Directory Structure</h2>
