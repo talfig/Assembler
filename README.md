@@ -27,7 +27,7 @@
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#macros">Macros</a></li>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#directives">Directives</a></li>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#instructions">Instructions</a></li>
-        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#variables">Variables</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#variables-labels">Variables (Labels)</a></li>
       </ul>
     </li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#addressing-methods-modes">Addressing Methods (Modes)</a></li>
@@ -203,10 +203,10 @@ add r3, r4
 jmp start
 ```
 
-<!-- Variables -->
-<h3 id="variables">❓ Variables</h3>
+<!-- Variables (Labels) -->
+<h3 id="variables-labels">❓ Variables (Labels)</h3>
 
-Define and use labels in your code.
+Define and use variables (labels) in your code.
 
 Example:
 
