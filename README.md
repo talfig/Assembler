@@ -164,7 +164,7 @@ endmacr
 <!-- Directives -->
 <h3 id="directives">Directives</h3>
 
-Use special commands like .entry, .extern, and more to manage your code's structure.
+Use special commands like `.entry`, `.extern`, and more to manage your code's structure.
 
 Example:
 
