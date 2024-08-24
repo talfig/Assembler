@@ -857,4 +857,4 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
   </a>
 </p>
 
-<p align="center"> talfig </p>
+<p align="right"> talfig </p>
