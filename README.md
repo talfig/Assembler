@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <h1>Tal Figenblat</h1>
+  <h1 align="center">Tal Figenblat</h1>
 </p>
 
 
