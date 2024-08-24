@@ -13,7 +13,6 @@
 <p align="center">
   <strong>Tal Figenblat</strong>
   <br>
-  Connect with me: 
   <a href="mailto:talfig8@gmail.com">
     <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email">
   </a>
