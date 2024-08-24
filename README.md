@@ -73,7 +73,7 @@
     </li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#linking-and-loading-a-r-e-field-encoding">Linking and Loading: A,R,E Field Encoding</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#macro-handling">Macro Handling</a></li>
-    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#supported-operations-and-addressing-methods">Supported Operations and Addressing Methods</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#addressing-methods-for-operations">Addressing Methods for Operations</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#assembler-with-two-passes">Assembler with Two Passes</a>
       <ul>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#first-pass">First Pass</a></li>
@@ -509,8 +509,8 @@ LIST: .data 6, -9
 K: .data 31
 ```
 
-<!-- Supported Operations and Addressing Methods -->
-<h2 id="supported-operations-and-addressing-methods">⚙️ Supported Operations and Addressing Methods</h2>
+<!-- Addressing Methods for Operations -->
+<h2 id="addressing-methods-for-operations">⚙️ Addressing Methods for Operations</h2>
 
 Our assembler supports the following operations and the corresponding addressing methods:
 
