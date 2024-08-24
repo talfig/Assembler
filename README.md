@@ -553,6 +553,28 @@ As seen in the first pass, the assembler cannot construct the machine code of op
 
 To achieve this, the assembler performs a second pass over the source code. During this pass, it updates the machine code for operands by substituting the symbols with their corresponding values from the symbol table. By the end of this second pass, the entire program is fully translated into machine code.
 
+<!-- Input and Output Files -->
+<h2 id="input-and-output-files">🖨️ Input and Output Files of the Assembler</h2>
+
+When running the assembler, command line arguments should include a list of source file names (one or more). These are text files containing programs written in the assembly language defined for this project.
+
+The assembler processes each source file separately and generates the following output files:
+
+- **`.am` file**: Contains the source file after the pre-assembler stage (after macro expansion).
+- **`.ob` file**: Contains the machine code.
+- **`.ext` file**: Includes details of all locations (addresses) in the machine code where an external symbol (declared with the `.extern` directive) is used.
+- **`.ent` file**: Includes details of all symbols declared as entry points (declared with the `.entry` directive).
+
+If the source file does not contain any `.extern` directives, the assembler will not create an `.ext` file. Similarly, if there are no `.entry` directives, an `.ent` file will not be generated.
+
+Source file names must have the `.as` extension. For example, `hello.as`, `x.as`, and `y.as` are valid names. When passing these file names as arguments to the assembler, the extension is omitted.
+
+Example:
+
+```bash
+./assembler x y hello
+```
+
 <!-- Example Program -->
 <h2 id="example-program">📜 Example Program</h2>
 
