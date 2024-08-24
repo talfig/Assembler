@@ -818,3 +818,6 @@ The project is organized as follows:
 <h2 id="license">© License</h2>
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/talfig/Assembler/blob/main/LICENSE) file for details.
+
+<!-- Connect with Me -->
+<h2 id="connect-with-me">📧 Connect with Me</h2>
