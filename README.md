@@ -6,13 +6,13 @@
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
-<h2 align="center">Tal Figenblat</h2>
-
 <p align="center">
   <a href="https://github.com/talfig/Assembler">
     <img src="https://img.shields.io/github/stars/talfig/Assembler?style=social" alt="GitHub stars">
   </a>
 </p>
+
+<h2 align="center">Tal Figenblat</h2>
 
 <!-- TABLE OF CONTENTS -->
 <details>
