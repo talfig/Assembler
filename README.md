@@ -6,6 +6,21 @@
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
+<!-- Personal Information -->
+<h1 align="center">Tal Figenblat</h1>
+
+<p align="center">
+  Researcher | Student | Software Developer
+  <br>
+  AI | Machine Learning | Development
+</p>
+
+<p align="center">
+  <a href="mailto:talfig8@gmail.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email">
+  </a>
+</p>
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
