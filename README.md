@@ -6,10 +6,11 @@
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
-<p align="center"> <img src="https://komarev.com/ghpvc/?username=talfig&label=Repo%20views&color=0e75b6&style=flat" alt="Repo views"> </p>
-
 <p align="center">
   <strong>Tal Figenblat</strong>
+  <a href="https://github.com/talfig/Assembler">
+    <img src="https://komarev.com/ghpvc/?username=talfig&label=Repo%20views&color=0e75b6&style=flat" alt="Repo views">
+  </a>
 </p>
 
 <hr style="border: 1px solid #ddd; width: 50%; margin: 20px auto;">
