@@ -6,7 +6,7 @@
   🎨 Custom Assembly Language | 🌟 Macro Magic | 💡 Detailed Error Reporting
 </p>
 
-<p align="center"> <img src="https://komarev.com/ghpvc/?username=talfig&label=Repo%20views&color=0e75b6&style=flat" alt="Assembler" /> </p>
+<p align="center"> <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email"> </p>
 
 <p align="center">
   <strong>Tal Figenblat</strong>
