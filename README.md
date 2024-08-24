@@ -97,13 +97,15 @@ The goal of this project is to write an assembler (i.e., a program that translat
 
 - The machine works with a big-endian system, meaning the most significant byte is stored at the smallest memory address. The numbers are stored using 2's complement (negative numbers), and characters are encoded in ASCII.
 
-## 🚀 Features
+<!-- Features -->
+<h2 id="Features">🚀 Features</h2>
 
 - **Custom Assembly Language:** Dive into our unique assembly language with a defined set of opcodes.
 - **Macro Wizardry:** Create and use powerful macros to streamline your assembly code.
 - **Smart Error Handling:** Get detailed, compiler-like error messages to troubleshoot with ease.
 
-## 🧩 Supported Opcodes
+<!-- Supported Opcodes -->
+<h2 id="Supported Opcodes">🧩 Supported Opcodes</h2>
 
 Our assembler brings to life a variety of opcodes for your coding pleasure:
 
@@ -124,11 +126,15 @@ Our assembler brings to life a variety of opcodes for your coding pleasure:
 - (14) `rts` – Return from subroutine
 - (15) `stop` – Halt execution
 
-## ✍️ Assembly Language Syntax
+<!-- Assembly Language Syntax -->
+<h2 id="Assembly Language Syntax">✍️ Assembly Language Syntax</h2>
 
 Write your assembly code with these cool features:
 
-- **Macros:** Define macros with macr <macro_name>, include a series of instructions, and close with endmacr. This helps to simplify repetitive code.
+<!-- Macros -->
+<h3 id="Macros">Macros</h2>
+
+Define macros with macr <macro_name>, include a series of instructions, and close with endmacr. This helps to simplify repetitive code.
 
 Example:
 
@@ -139,7 +145,9 @@ macr myMacro
 endmacr
 ```
 
-- **Directives:** Use special commands like .entry, .extern, and more to manage your code's structure.
+### Directives
+
+Use special commands like .entry, .extern, and more to manage your code's structure.
 
 Example:
 
@@ -150,8 +158,9 @@ Example:
 .data 1, -5, 0
 ```
 
+### Instructions
 
-- **Instructions:** Use our supported opcodes to perform operations in your assembly code. Each opcode corresponds to a specific machine instruction.
+Use our supported opcodes to perform operations in your assembly code. Each opcode corresponds to a specific machine instruction.
 
 Example:
 
@@ -161,7 +170,9 @@ add r3, r4
 jmp start
 ```
 
-- **Labels:** Define and use labels in your code.
+### Labels
+
+Define and use labels in your code.
 
 Example:
 
