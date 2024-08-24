@@ -276,6 +276,9 @@ The assembler encodes the first word of each instruction using the following for
 <!-- Types of Statements in Assembly Language -->
 <h2 id="types-of-statements-in-assembly-language">📚 Types of Statements in Assembly Language</h2>
 
+The maximum length of a line in the source file is 80 characters (excluding the 
+newline character `\n`).
+
 Assembly language typically includes four types of statements:
 
 | **Statement Type**    | **Explanation**                                                                                                  |
