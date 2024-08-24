@@ -8,27 +8,49 @@
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary> Table of Contents</summary>
   <ol>
-    <li><a href="#project-background-and-objectives">Project Background and Objectives</a></li>
-    <li><a href="#hardware">Hardware</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#supported-opcodes">Supported Opcodes</a></li>
-    <li><a href="#assembly-language-syntax">Assembly Language Syntax</a></li>
-    <li><a href="#addressing-methods-modes">Addressing Methods (Modes)</a></li>
-    <li><a href="#first-word-encoding">First Word Encoding</a></li>
-    <li><a href="#addressing-methods-encoding">Addressing Methods Encoding</a></li>
-    <li><a href="#types-of-statements-in-assembly-language">Types of Statements in Assembly Language</a></li>
-    <li><a href="#instruction-statements">Instruction Statements</a></li>
-    <li><a href="#macro-handling">Macro Handling</a></li>
-    <li><a href="#supported-operations-and-addressing-methods">Supported Operations and Addressing Methods</a></li>
-    <li><a href="#assembler-with-two-passes">Assembler with Two Passes</a></li>
-    <li><a href="#example-program">Example Program</a></li>
-    <li><a href="#installation">Installation</a></li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#error-handling">Error Handling</a></li>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#project-background-and-objectives">Project Background and Objectives</a></li>
+        <li><a href="#hardware">Hardware</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#supported-opcodes">Supported Opcodes</a></li>
+        <li><a href="#assembly-language-syntax">Assembly Language Syntax</a></li>
+        <li><a href="#addressing-methods-modes">Addressing Methods (Modes)</a></li>
+        <li><a href="#first-word-encoding">First Word Encoding</a></li>
+        <li><a href="#addressing-methods-encoding">Addressing Methods Encoding</a></li>
+        <li><a href="#types-of-statements-in-assembly-language">Types of Statements in Assembly Language</a></li>
+        <li><a href="#instruction-statements">Instruction Statements</a></li>
+        <li><a href="#instruction-fields">Instruction Fields</a></li>
+        <li><a href="#macro-handling">Macro Handling</a></li>
+        <li><a href="#supported-operations-and-addressing-methods">Supported Operations and Addressing Methods</a></li>
+        <li><a href="#assembler-with-two-passes">Assembler with Two Passes</a></li>
+        <li><a href="#example-program">Example Program</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#installation">Installation</a>
+    </li>
+    <li>
+      <a href="#usage">Usage</a>
+    </li>
+    <li>
+      <a href="#error-handling">Error Handling</a>
+    </li>
+    <li>
+      <a href="#license">License</a>
+    </li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+    <li>
+      <a href="#acknowledgments">Acknowledgments</a>
+    </li>
   </ol>
 </details>
+
 
 ## 📝 Project Background and Objectives
 
