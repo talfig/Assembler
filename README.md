@@ -290,6 +290,7 @@ Assembly language typically includes four types of statements:
 
 <!-- .data Instruction -->
 <h3 id="data-instruction">".data" Instruction</h3>
+
 - The `.data` instruction allocates space in the data image to store the specified integer values.
 - Parameters: One or more legal integers separated by commas.
 
