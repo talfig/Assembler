@@ -345,7 +345,7 @@ K: .data 31
 
 ## ⚙️ **Supported Operations and Addressing Methods**
 
-Our assembler supports the following operations and the corresponding addressing modes:
+Our assembler supports the following operations and the corresponding addressing Methods:
 
 | **Operation** | **Source Operand Addressing Methods** | **Destination Operand Addressing Methods** |
 |---------------|-------------------------------------|------------------------------------------|
