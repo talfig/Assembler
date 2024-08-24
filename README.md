@@ -72,6 +72,12 @@
         <li><a href="#second-pass">Second Pass</a></li>
       </ul>
     </li>
+    <li><a href="#object-file-format">Object File Format</a>
+      <ul>
+        <li><a href="#entries-file-format">Entries File Format</a></li>
+        <li><a href="#externals-file-format">Externals File Format</a></li>
+      </ul>
+    </li>
     <li><a href="#example-program">Example Program</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#usage">Usage</a></li>
