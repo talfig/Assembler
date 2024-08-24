@@ -622,7 +622,7 @@ Like in the Entries file, the order of the labels in the file does not matter.
 <!-- Example Program -->
 <h2 id="example-program">📜 Example Program</h2>
 
-Here’s a quick demo of an assembly program in action.
+Here’s a quick demo of an assembly program in action:
 
 Pre-assembler program:
 
