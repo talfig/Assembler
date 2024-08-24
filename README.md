@@ -92,7 +92,7 @@
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#error-handling">Error Handling</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#directory-structure">Directory Structure</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#license">License</a></li>
-    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#contacts">Contacts</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#contact">Contact</a></li>
   </ol>
 </details>
 
@@ -820,10 +820,13 @@ The project is organized as follows:
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/talfig/Assembler/blob/main/LICENSE) file for details.
 
-<!-- Contacts -->
-<h2 id="contacts">📬 Contacts </h2>
+<!-- Contact -->
+<h2 id="contact">📬 Contact </h2>
 
 <p align="left">
+  <a href="https://www.linkedin.com/in/talfig">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin" alt="LinkedIn" width="112.5" height="37.5">
+  </a>
   <a href="mailto:talfig8@gmail.com">
     <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email" width="112.5" height="37.5">
   </a>
