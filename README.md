@@ -928,7 +928,6 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
                     <li>fibonacci.ob</li>
                     <li>fibonacci.ent</li>
                     <li>fibonacci.ext</li>
-                    <li>fibonacci.txt</li>
                   </ul>
                 </li>
                 <li><strong style="color: #00c4cc;">📁 text_encryption</strong>
@@ -937,7 +936,6 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
                     <li>text_encryption.ob</li>
                     <li>text_encryption.ent</li>
                     <li>text_encryption.ext</li>
-                    <li>text_encryption.txt</li>
                   </ul>
                 </li>
                 <li>...</li>
