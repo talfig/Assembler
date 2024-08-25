@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file token_utils.c
  * @brief Utility functions for token extraction and string handling in the assembler.
  *
