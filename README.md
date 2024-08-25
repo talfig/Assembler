@@ -190,7 +190,7 @@ Our assembler brings to life a variety of opcodes for your coding pleasure:
 The CPU in this project includes a `Program Counter` (PC), an internal register (not a general-purpose register) that contains the memory address of the current instruction being executed. Instructions are divided into three groups based on the number of operands they require.
 
 <!-- First Group: Two-Operand Opcodes -->
-<h3 id="first-group-two-operand-opcodes">First Group: Two-Operand Opcodes</h3>
+<h3 id="first-group-two-operand-opcodes">☝️ First Group: Two-Operand Opcodes</h3>
 
 These instructions use two operands:
 
@@ -206,7 +206,7 @@ These instructions use two operands:
   - Example: `lea HELLO, r1` – Loads the address of `HELLO` into `r1`.
 
 <!-- Second Group: One-Operand Opcodes -->
-<h3 id="second-group-one-operand-opcodes">Second Group: One-Operand Opcodes</h3>
+<h3 id="second-group-one-operand-opcodes">✌️ Second Group: One-Operand Opcodes</h3>
 
 These instructions require only one operand:
 
@@ -230,7 +230,7 @@ These instructions require only one operand:
   - Example: `jsr FUNC` – Calls subroutine `FUNC` and saves return address.
 
 <!-- Third Group: No-Operand Opcodes -->
-<h3 id="third-group-no-operand-opcodes">Third Group: No-Operand Opcodes</h3>
+<h3 id="third-group-no-operand-opcodes">🤟 Third Group: No-Operand Opcodes</h3>
 
 These instructions do not require any operands:
 
