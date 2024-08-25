@@ -1058,7 +1058,7 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
 <!-- Program Status Word (PSW) -->
 <h3 id="program-status-word-psw">Program Status Word (PSW)</h3>
 
-The **Program Status Word (PSW)** is a special register in the CPU that contains flags and control bits reflecting the state of the processor. These flags are typically affected by the execution of arithmetic and logic instructions. The PSW is used to determine the outcome of conditional operations and to control the flow of the program.
+The Program Status Word (PSW) is a special register in the CPU that contains flags and control bits reflecting the state of the processor. These flags are typically affected by the execution of arithmetic and logic instructions. The PSW is used to determine the outcome of conditional operations and to control the flow of the program.
 
 Common Flags in the PSW:
 
@@ -1077,8 +1077,7 @@ Common Flags in the PSW:
 
 The flags in the PSW are often used by conditional branch instructions to make decisions based on the result of a previous operation. For example:
 
-- **bne (branch if not equal)**: 
-  - This instruction checks the **Z flag**. If the Z flag is `0` (indicating that the previous operation did not result in zero), the program will branch to the specified address.
+- **bne (branch if not equal)**: This instruction checks the Z flag; if the Z flag is `0` (indicating that the previous operation did not result in zero), the program will branch to the specified address.
 
 <!-- License -->
 <h2 id="license">© License</h2>
