@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file opcode_utils.c
  * @brief Utility functions for encoding and parsing opcodes in the assembler.
  *
