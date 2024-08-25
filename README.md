@@ -26,14 +26,17 @@
 </p>
 
 <p align="center">
+  <!-- Contributions Welcome -->
   <a href="https://github.com/talfig/Assembler">
     <img src="https://img.shields.io/badge/Contributions-Welcome-00c4cc?style=flat-square" alt="Contributions Welcome">
   </a>
+  <!-- Made with Love -->
   <a href="https://github.com/talfig/Assembler">
     <img src="https://img.shields.io/badge/Made%20with%20♥-00c4cc?style=flat-square" alt="Made with Love">
   </a>
 </p>
 
+<!-- Creator -->
 <h2 align="center">🌌 Creator: Tal Figenblat 🌌</h2>
 
 <!-- TABLE OF CONTENTS -->
