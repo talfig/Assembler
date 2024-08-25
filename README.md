@@ -65,6 +65,7 @@
       </ul>
     </li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#addressing-methods-modes">Addressing Methods (Modes)</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#addressing-methods-for-operations">Addressing Methods for Operations</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#first-word-encoding">First Word Encoding</a>
       <ul>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#opcodes">Opcodes (Bits 14-11)</a></li>
@@ -107,7 +108,6 @@
     </li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#linking-and-loading-a-r-e-field-encoding">Linking and Loading: A,R,E Field Encoding</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#macro-handling">Macro Handling</a></li>
-    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#addressing-methods-for-operations">Addressing Methods for Operations</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#assembler-with-two-passes">Assembler with Two Passes</a>
       <ul>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#first-pass">First Pass</a></li>
@@ -326,6 +326,30 @@ Our assembler supports four addressing methods, labeled as 0, 1, 2, and 3.
   - This method accesses the value of a base register. For instance, mov r5, r6 loads the value from the memory location of r5 into r6.
 
 Each addressing method allows for flexible data manipulation, enabling you to write efficient and powerful assembly code.
+
+<!-- Addressing Methods for Operations -->
+<h2 id="addressing-methods-for-operations">⚙️ Addressing Methods for Operations</h2>
+
+Our assembler supports the following operations and the corresponding addressing methods:
+
+| **Operation** | **Source Operand Addressing Methods** | **Destination Operand Addressing Methods** |
+|---------------|-------------------------------------|------------------------------------------|
+| `mov`         | 0,1,2,3                             | 1,2,3                                    |
+| `cmp`         | 0,1,2,3                             | 0,1,2,3                                  |
+| `add`         | 0,1,2,3                             | 1,2,3                                    |
+| `sub`         | 0,1,2,3                             | 1,2,3                                    |
+| `lea`         | 1                                   | 1,2,3                                    |
+| `clr`         | -                                   | 1,2,3                                    |
+| `not`         | -                                   | 1,2,3                                    |
+| `inc`         | -                                   | 1,2,3                                    |
+| `dec`         | -                                   | 1,2,3                                    |
+| `jmp`         | -                                   | 1,2                                      |
+| `bne`         | -                                   | 1,2                                      |
+| `red`         | -                                   | 1,2,3                                    |
+| `prn`         | -                                   | 0,1,2,3                                  |
+| `jsr`         | -                                   | 1,2                                      |
+| `rts`         | -                                   | -                                        |
+| `stop`        | -                                   | -                                        |
 
 <!-- First Word Encoding -->
 <h2 id="first-word-encoding">👨‍💻 First Word Encoding</h2>
@@ -636,30 +660,6 @@ STR: .string "abcd"
 LIST: .data 6, -9
 K: .data 31
 ```
-
-<!-- Addressing Methods for Operations -->
-<h2 id="addressing-methods-for-operations">⚙️ Addressing Methods for Operations</h2>
-
-Our assembler supports the following operations and the corresponding addressing methods:
-
-| **Operation** | **Source Operand Addressing Methods** | **Destination Operand Addressing Methods** |
-|---------------|-------------------------------------|------------------------------------------|
-| `mov`         | 0,1,2,3                             | 1,2,3                                    |
-| `cmp`         | 0,1,2,3                             | 0,1,2,3                                  |
-| `add`         | 0,1,2,3                             | 1,2,3                                    |
-| `sub`         | 0,1,2,3                             | 1,2,3                                    |
-| `lea`         | 1                                   | 1,2,3                                    |
-| `clr`         | -                                   | 1,2,3                                    |
-| `not`         | -                                   | 1,2,3                                    |
-| `inc`         | -                                   | 1,2,3                                    |
-| `dec`         | -                                   | 1,2,3                                    |
-| `jmp`         | -                                   | 1,2                                      |
-| `bne`         | -                                   | 1,2                                      |
-| `red`         | -                                   | 1,2,3                                    |
-| `prn`         | -                                   | 0,1,2,3                                  |
-| `jsr`         | -                                   | 1,2                                      |
-| `rts`         | -                                   | -                                        |
-| `stop`        | -                                   | -                                        |
 
 <!-- Assembler with Two Passes -->
 <h2 id="assembler-with-two-passes">🔁 Assembler with Two Passes</h2>
