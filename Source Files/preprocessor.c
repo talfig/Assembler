@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file preprocessor.c
  * @brief Handles the preprocessing of assembly files, specifically macro expansion.
  *
