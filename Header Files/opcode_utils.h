@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file opcode_utils.h
  * @brief Header file for utility functions related to opcode encoding and parsing.
  *
