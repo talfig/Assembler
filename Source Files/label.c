@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file label.c
  * @brief This file contains functions for managing a label table in an assembler.
  *
