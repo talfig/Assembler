@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file macr.c
  * @brief Contains functions for managing macro definitions in an assembler.
  *
