@@ -49,6 +49,13 @@
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#hardware">Hardware</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#features">Features</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#supported-opcodes">Supported Opcodes</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#machine-instructions-specification">Machine Instructions Specification</a>
+      <ul>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#first-group-two-operand-opcodes">First Group: Two-Operand Opcodes</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#second-group-one-operand-opcodes">Second Group: One-Operand Opcodes</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#third-group-no-operand-opcodes">Third Group: No-Operand Opcodes</a></li>
+      </ul>
+    </li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#assembly-language-syntax">Assembly Language Syntax</a>
       <ul>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#macros">Macros</a></li>
@@ -156,7 +163,7 @@ The goal of this project is to write an assembler (i.e., a program that translat
 - **Smart Error Handling:** Get detailed, compiler-like error messages to troubleshoot with ease.
 
 <!-- Supported Opcodes -->
-<h2 id="supported-opcodes">🧩 Supported Opcodes</h2>
+<h2 id="supported-opcodes">🕹️ Supported Opcodes</h2>
 
 Our assembler brings to life a variety of opcodes for your coding pleasure:
 
@@ -176,6 +183,61 @@ Our assembler brings to life a variety of opcodes for your coding pleasure:
 - (13) `jsr` – Jump to subroutine
 - (14) `rts` – Return from subroutine
 - (15) `stop` – Halt execution
+
+<!-- Machine Instructions Specification -->
+<h2 id="machine-instructions-specification">🧩 Machine Instructions Specification</h2>
+
+The CPU in this project includes a `Program Counter` (PC), an internal register (not a general-purpose register) that contains the memory address of the current instruction being executed. Instructions are divided into three groups based on the number of operands they require.
+
+<!-- First Group: Two-Operand Opcodes -->
+<h3 id="first-group-two-operand-opcodes">First Group: Two-Operand Opcodes</h3>
+
+These instructions use two operands:
+
+- **mov**: Copies the value from the source operand to the destination operand.
+  - Example: `mov A, r1` – Copies the content of memory address `A` to register `r1`.
+- **cmp**: Compares the source operand with the destination operand. The result is reflected in the status register (PSW).
+  - Example: `cmp A, r1` – Compares the content of memory address `A` with `r1`.
+- **add**: Adds the source operand to the destination operand and stores the result in the destination.
+  - Example: `add A, r1` – Adds the content of `A` to `r1` and stores the result in `r1`.
+- **sub**: Subtracts the source operand from the destination operand and stores the result in the destination.
+  - Example: `sub A, r1` – Subtracts the content of `A` from `r1` and stores the result in `r1`.
+- **lea**: Loads the effective address of the source operand into the destination register.
+  - Example: `lea HELLO, r1` – Loads the address of `HELLO` into `r1`.
+
+<!-- Second Group: One-Operand Opcodes -->
+<h3 id="second-group-one-operand-opcodes">Second Group: One-Operand Opcodes</h3>
+
+These instructions require only one operand:
+
+- **clr**: Clears the content of the operand.
+  - Example: `clr r2` – Clears the content of `r2`.
+- **not**: Inverts the bits of the operand.
+  - Example: `not r2` – Inverts all bits in `r2`.
+- **inc**: Increments the content of the operand by one.
+  - Example: `inc r2` – Increments `r2` by 1.
+- **dec**: Decrements the content of the operand by one.
+  - Example: `dec r2` – Decrements `r2` by 1.
+- **jmp**: Unconditionally jumps to the address specified by the operand.
+  - Example: `jmp LINE` – Jumps to the address labeled `LINE`.
+- **bne**: Branches to the specified address if the zero flag is not set.
+  - Example: `bne LINE` – Branches to `LINE` if zero flag is clear.
+- **red**: Reads a character from standard input into the operand.
+  - Example: `red r1` – Reads a character and stores it in `r1`.
+- **prn**: Prints the character stored in the operand to standard output.
+  - Example: `prn r1` – Prints the character stored in `r1`.
+- **jsr**: Jumps to a subroutine, saving the return address in the stack.
+  - Example: `jsr FUNC` – Calls subroutine `FUNC` and saves return address.
+
+<!-- Third Group: No-Operand Opcodes -->
+<h3 id="third-group-no-operand-opcodes">Third Group: No-Operand Opcodes</h3>
+
+These instructions do not require any operands:
+
+- **rts**: Returns from a subroutine by popping the return address from the stack.
+  - Example: `rts` – Returns from the current subroutine.
+- **stop**: Stops program execution.
+  - Example: `stop` – Halts the execution of the program.
 
 <!-- Assembly Language Syntax -->
 <h2 id="assembly-language-syntax">✍️ Assembly Language Syntax</h2>
