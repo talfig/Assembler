@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file preprocessor.h
  * @brief Header file for the preprocessor module.
  *
