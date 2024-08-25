@@ -1053,10 +1053,10 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
 </div>
 
 <!-- Appendix -->
-<h2 id="appendix"> Appendix </h2>
+<h2 id="appendix"> 📘 Appendix </h2>
 
 <!-- Program Status Word (PSW) -->
-<h3 id="program-status-word-psw">Program Status Word (PSW)</h3>
+<h3 id="program-status-word-psw">🚦 Program Status Word (PSW)</h3>
 
 The Program Status Word (PSW) is a special register in the CPU that contains flags and control bits reflecting the state of the processor. These flags are typically affected by the execution of arithmetic and logic instructions. The PSW is used to determine the outcome of conditional operations and to control the flow of the program.
 
