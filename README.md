@@ -67,14 +67,7 @@
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#unused-bits">Unused Bits</a></li>
       </ul>
     </li>
-    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#types-of-statements-in-assembly-language">Types of Statements in Assembly Language</a>
-      <ul>
-        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#empty-statement">Empty Statement</a></li>
-        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#comment-statement">Comment Statement</a></li>
-        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#instruction-statement">Instruction Statement</a></li>
-        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#directive-statement">Directive Statement</a></li>
-      </ul>
-    </li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#types-of-statements-in-assembly-language">Types of Statements in Assembly Language</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#directive-statements">Directive Statements</a>
       <ul>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#data-directive">".data" Directive</a></li>
