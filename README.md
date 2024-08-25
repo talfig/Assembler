@@ -49,7 +49,7 @@
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#hardware">Hardware</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#features">Features</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#supported-opcodes">Supported Opcodes</a></li>
-    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#machine-instructions-specification">Machine Instructions Specification</a>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#opcodes-specification">Opcodes Specification</a>
       <ul>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#first-group-two-operand-opcodes">First Group: Two-Operand Opcodes</a></li>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#second-group-one-operand-opcodes">Second Group: One-Operand Opcodes</a></li>
@@ -191,8 +191,8 @@ Our assembler brings to life a variety of opcodes for your coding pleasure:
 - (14) `rts` – Return from subroutine
 - (15) `stop` – Halt execution
 
-<!-- Machine Instructions Specification -->
-<h2 id="machine-instructions-specification">🧩 Machine Instructions Specification</h2>
+<!-- Opcodes Specification -->
+<h2 id="opcodes-specification">🧩 Opcodes Specification</h2>
 
 The CPU in this project includes a `Program Counter` (PC), an internal register (not a general-purpose register) that contains the memory address of the current instruction being executed. Instructions are divided into three groups based on the number of operands they require.
 
