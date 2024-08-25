@@ -1,6 +1,7 @@
 <!-- Assembler headline -->
 <h1 align="center">🔧 Assembler: The Code Converter</h1>
 
+<!-- Welcome description -->
 <p align="center">
   Welcome to the ultimate assembler built in C, designed to transform your assembly code into machine language with precision and elegance.
   <br>
