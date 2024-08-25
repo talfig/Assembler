@@ -29,6 +29,7 @@
   </a>
 </p>
 
+<!-- Creator -->
 <h2 align="center">🌌 Creator: Tal Figenblat 🌌</h2>
 
 <!-- TABLE OF CONTENTS -->
