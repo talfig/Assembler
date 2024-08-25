@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file label.h
  * @brief This header file defines the structures and function prototypes for managing labels in an assembler.
  *
