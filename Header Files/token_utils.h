@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file token_utils.h
  * @brief Header file for token extraction and string handling utilities.
  *
