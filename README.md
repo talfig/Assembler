@@ -626,6 +626,8 @@ In every machine code instruction (not data), the assembler inserts specific inf
 
 These bits are set according to the addressing modes used and the location of the symbols within the program, ensuring that the final machine code is adaptable for different memory layouts during execution.
 
+For comprehensive details on the linking and loading stage, please see the [Linking and Loading](https://github.com/talfig/Assembler/blob/main/README.md#linking-and-loading) section in the appendix.
+
 <!-- Macro Handling -->
 <h2 id="macro-handling">📐 Macro Handling</h2>
 
