@@ -303,6 +303,8 @@ Each instruction and operation is carefully designed to give you complete contro
 
 Understanding the addressing methods used in our assembler is key to writing effective assembly code. Here’s a breakdown of the supported addressing methods:
 
+Our assembler supports four addressing methods, labeled as 0, 1, 2, and 3.
+
 - **(0) Immediate Addressing:**
   - Format: `#number`
   - In this mode, the operand is a constant value. For example, mov #5, r1 loads the value 5 directly into register r1.
@@ -321,7 +323,40 @@ Each addressing method allows for flexible data manipulation, enabling you to wr
 <!-- First Word Encoding -->
 <h2 id="first-word-encoding">👨‍💻 First Word Encoding</h2>
 
-The assembler encodes the first word of each instruction using the following format:
+In our assembler project, instruction encoding is done in the first word of the machine instruction. Here's a breakdown of how the encoding works:
+
+<!-- Opcodes (14-11) -->
+<h3 id="operation-codes-opcodes">Opcodes (14-11)</h3>
+
+- The opcode is represented by bits 14-11 of the first word in the instruction. Each opcode corresponds symbolically to an assembly operation name, and these operation names are always written in lowercase.
+
+<!-- Source Operand (Bits 10-7) -->
+<h3 id="source-operand-addressing-method">Source Operand (Bits 10-7)</h3>
+
+- These bits encode the addressing method for the source operand. Each addressing method has a dedicated bit:
+  - If the source operand is provided in this method, the corresponding bit is set to 1.
+  - Otherwise, the bit is set to 0.
+- If the instruction does not have a source operand, all four bits are cleared to 0.
+
+<!-- Destination Operand (Bits 6-3) -->
+<h3 id="destination-operand-addressing-method">Destination Operand (Bits 6-3)</h3>
+
+- Similar to the source operand, these bits encode the addressing method for the destination operand:
+  - A bit is set to 1 if the destination operand is provided in this method.
+  - Otherwise, the bit is set to 0.
+- If the instruction does not have a destination operand, all four bits are cleared to 0.
+
+<!-- A,R,E Field (Bits 2-0) -->
+<h3 id="a-r-e-field">A,R,E Field (Bits 2-0)</h3>
+
+- This field characterizes the role of the A, R, E bits in the machine code:
+  - The A bit is always set to 1 in the first word of every instruction.
+  - The R and E bits are set to 0.
+- This field is added to each word in the instruction's encoding.
+
+If you’d like to delve into this information now, you can check out the [Linking and Loading: A,R,E Field Encoding](https://github.com/talfig/Assembler/blob/main/README.md#linking-and-loading-a-r-e-field-encoding) section for more details.
+
+For a detailed breakdown of how the bits are allocated, see the table below:
 
 | 14  | 13  | 12  | 11  | 10  |  9  |  8  |  7  |  6  |  5  |  4  |  3  |  2  |  1  |  0  |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|----|----|
@@ -330,6 +365,10 @@ The assembler encodes the first word of each instruction using the following for
 
 <!-- Addressing Methods Encoding -->
 <h2 id="addressing-methods-encoding">🧠 Addressing Methods Encoding</h2>
+
+Addressing methods often require additional words in the machine code for each operand.
+
+When an instruction contains two operands, the additional word for the source operand is encoded first, followed by the word for the destination operand. There is a special case where both operands are encoded using a single shared word.
 
 <!-- Immediate Addressing -->
 <h3 id="immediate-addressing">⚡ Immediate Addressing</h3>
