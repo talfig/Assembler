@@ -884,7 +884,7 @@ Here's an overview of the project structure:
 │   ├── invalid_output2.txt
 │   └── ...
 ├── 📁 **Source Files**
-│   ├── main.c
+│   ├── assembler.c
 │   ├── first_pass.c
 │   └── ...
 ├── 📁 **Valid Inputs**
