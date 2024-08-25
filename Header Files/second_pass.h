@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file second_pass.h
  * @brief Header file for the second pass of the assembler process.
  *
