@@ -887,8 +887,16 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
             <strong style="color: #00c4cc;">📁 Invalid Outputs</strong>
             <p style="margin: 0; padding: 0 0 10px 20px;">Contains output files corresponding to invalid inputs.</p>
             <ul style="list-style-type: none; padding-left: 20px;">
-                <li>invalid_output1.txt</li>
-                <li>invalid_output2.txt</li>
+                <li><strong style="color: #00c4cc;">📁 broken_program1</strong>
+                  <ul style="list-style-type: none; padding-left: 20px;">
+                    <li>broken_program1.txt</li>
+                  </ul>
+                </li>
+                <li><strong style="color: #00c4cc;">📁 broken_program2</strong>
+                  <ul style="list-style-type: none; padding-left: 20px;">
+                    <li>broken_program2.txt</li>
+                  </ul>
+                </li>
                 <li>...</li>
             </ul>
         </li>
@@ -914,8 +922,24 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
             <strong style="color: #00c4cc;">📁 Valid Outputs</strong>
             <p style="margin: 0; padding: 0 0 10px 20px;">Contains output files corresponding to valid inputs.</p>
             <ul style="list-style-type: none; padding-left: 20px;">
-                <li>fibonacci.ob</li>
-                <li>text_encryption.ob</li>
+                <li><strong style="color: #00c4cc;">📁 fibonacci</strong>
+                  <ul style="list-style-type: none; padding-left: 20px;">
+                    <li>fibonacci.am</li>
+                    <li>fibonacci.ob</li>
+                    <li>fibonacci.ent</li>
+                    <li>fibonacci.ext</li>
+                    <li>fibonacci.txt</li>
+                  </ul>
+                </li>
+                <li><strong style="color: #00c4cc;">📁 text_encryption</strong>
+                  <ul style="list-style-type: none; padding-left: 20px;">
+                    <li>text_encryption.am</li>
+                    <li>text_encryption.ob</li>
+                    <li>text_encryption.ent</li>
+                    <li>text_encryption.ext</li>
+                    <li>text_encryption.txt</li>
+                  </ul>
+                </li>
                 <li>...</li>
             </ul>
         </li>
