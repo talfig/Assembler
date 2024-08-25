@@ -1052,6 +1052,34 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
     </ul>
 </div>
 
+<!-- Appendix -->
+<h2 id="appendix"> Appendix </h2>
+
+<!-- Program Status Word (PSW) -->
+<h3 id="program-status-word-psw">Program Status Word (PSW)</h3>
+
+The **Program Status Word (PSW)** is a special register in the CPU that contains flags and control bits reflecting the state of the processor. These flags are typically affected by the execution of arithmetic and logic instructions. The PSW is used to determine the outcome of conditional operations and to control the flow of the program.
+
+Common Flags in the PSW:
+
+- **Z (Zero) Flag**: 
+  - Set to `1` if the result of an operation is zero.
+  - Cleared (`0`) if the result is non-zero.
+  
+- **N (Negative) Flag**: 
+  - Set if the result of an operation is negative.
+  
+- **C (Carry) Flag**: 
+  - Set if an arithmetic operation generates a carry out of or a borrow into the high-order bit.
+  
+- **V (Overflow) Flag**: 
+  - Set if an arithmetic operation results in an overflow, meaning the result is too large to be represented in the destination operand.
+
+The flags in the PSW are often used by conditional branch instructions to make decisions based on the result of a previous operation. For example:
+
+- **bne (branch if not equal)**: 
+  - This instruction checks the **Z flag**. If the Z flag is `0` (indicating that the previous operation did not result in zero), the program will branch to the specified address.
+
 <!-- License -->
 <h2 id="license">© License</h2>
 
