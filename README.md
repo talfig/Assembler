@@ -201,50 +201,50 @@ The CPU in this project includes a `Program Counter` (PC), an internal register 
 
 These instructions use two operands:
 
-- **mov**: Copies the value from the source operand to the destination operand.
-  - Example: `mov A, r1` – Copies the content of memory address `A` to register `r1`.
-- **cmp**: Compares the source operand with the destination operand. The result is reflected in the status register (PSW).
-  - Example: `cmp A, r1` – Compares the content of memory address `A` with `r1`.
-- **add**: Adds the source operand to the destination operand and stores the result in the destination.
-  - Example: `add A, r1` – Adds the content of `A` to `r1` and stores the result in `r1`.
-- **sub**: Subtracts the source operand from the destination operand and stores the result in the destination.
-  - Example: `sub A, r1` – Subtracts the content of `A` from `r1` and stores the result in `r1`.
+- **mov**: Copies the content of the source operand to the destination operand.
+  - **Example:** `mov A, r1` – Copies the value from memory address `A` to register `r1`.
+- **cmp**: Compares the value of the source operand with the destination operand. The comparison results affect the flags in the status register (PSW).
+  - **Example:** `cmp A, r1` – Compares the value at memory address `A` with the value in register `r1`. The Z flag in the PSW is set if they are equal.
+- **add**: Adds the value of the source operand to the destination operand and stores the result in the destination.
+  - **Example:** `add A, r0` – Adds the value from memory address `A` to register `r0` and stores the result in `r0`.
+- **sub**: Subtracts the value of the source operand from the destination operand and stores the result in the destination.
+  - **Example:** `sub #3, r1` – Subtracts `3` from the value in register `r1` and stores the result in `r1`.
 - **lea**: Loads the effective address of the source operand into the destination register.
-  - Example: `lea HELLO, r1` – Loads the address of `HELLO` into `r1`.
+  - **Example:** `lea HELLO, r1` – Loads the address of `HELLO` into register `r1`.
 
 <!-- Second Group: One-Operand Opcodes -->
 <h3 id="second-group-one-operand-opcodes">✌️ Second Group: One-Operand Opcodes</h3>
 
 These instructions require only one operand:
 
-- **clr**: Clears the content of the operand.
-  - Example: `clr r2` – Clears the content of `r2`.
-- **not**: Inverts the bits of the operand.
-  - Example: `not r2` – Inverts all bits in `r2`.
+- **clr**: Clears the content of the operand, setting it to zero.
+  - **Example:** `clr r2` – Clears the content of register `r2`.
+- **not**: Inverts all bits of the operand.
+  - **Example:** `not r2` – Inverts all bits in register `r2`.
 - **inc**: Increments the content of the operand by one.
-  - Example: `inc r2` – Increments `r2` by 1.
+  - **Example:** `inc r2` – Increments the value in register `r2` by 1.
 - **dec**: Decrements the content of the operand by one.
-  - Example: `dec r2` – Decrements `r2` by 1.
+  - **Example:** `dec C` – Decrements the value in register `C` by 1.
 - **jmp**: Unconditionally jumps to the address specified by the operand.
-  - Example: `jmp LINE` – Jumps to the address labeled `LINE`.
-- **bne**: Branches to the specified address if the zero flag is not set.
-  - Example: `bne LINE` – Branches to `LINE` if zero flag is clear.
-- **red**: Reads a character from standard input into the operand.
-  - Example: `red r1` – Reads a character and stores it in `r1`.
-- **prn**: Prints the character stored in the operand to standard output.
-  - Example: `prn r1` – Prints the character stored in `r1`.
-- **jsr**: Jumps to a subroutine, saving the return address in the stack.
-  - Example: `jsr FUNC` – Calls subroutine `FUNC` and saves return address.
+  - **Example:** `jmp LINE` – Jumps to the address labeled `LINE`.
+- **bne**: Branches to the specified address if the Z flag in the PSW is not set.
+  - **Example:** `bne LINE` – Branches to `LINE` if the Z flag is clear.
+- **red**: Reads a character from standard input and stores it in the operand.
+  - **Example:** `red r1` – Reads a character from stdin and stores it in register `r1`.
+- **prn**: Prints the content of the operand to standard output.
+  - **Example:** `prn r1` – Prints the value in register `r1` to stdout.
+- **jsr**: Jumps to a subroutine, saving the return address on the stack.
+  - **Example:** `jsr FUNC` – Calls subroutine `FUNC` and saves the return address.
 
 <!-- Third Group: No-Operand Opcodes -->
 <h3 id="third-group-no-operand-opcodes">🤟 Third Group: No-Operand Opcodes</h3>
 
 These instructions do not require any operands:
 
-- **rts**: Returns from a subroutine by popping the return address from the stack.
-  - Example: `rts` – Returns from the current subroutine.
+- **rts**: Returns from a subroutine by popping the return address from the stack into the Program Counter (PC).
+  - **Example:** `rts` – Returns from the current subroutine.
 - **stop**: Stops program execution.
-  - Example: `stop` – Halts the execution of the program.
+  - **Example:** `stop` – Halts the execution of the program.
 
 <!-- Assembly Language Syntax -->
 <h2 id="assembly-language-syntax">✍️ Assembly Language Syntax</h2>
