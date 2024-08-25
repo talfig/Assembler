@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file first_pass.c
  * @brief Handles the first pass of the assembler process.
  *
