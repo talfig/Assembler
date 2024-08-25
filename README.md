@@ -865,6 +865,7 @@ The project is organized as follows:
 
 Here's an overview of the project structure:
 
+```plaintext
 📁 **Project Directory**
 ├── 📁 **Build and Configuration**
 │   ├── makefile
@@ -894,6 +895,7 @@ Here's an overview of the project structure:
     ├── valid_output1.txt
     ├── valid_output2.txt
     └── ...
+```
 
 <!-- License -->
 <h2 id="license">© License</h2>
