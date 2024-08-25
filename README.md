@@ -851,51 +851,75 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
 - **File errors:** It usually means the file could not be found or accessed. Check the file path and ensure you have the necessary permissions.
 
 <!-- Directory Structure -->
-<h2 id="directory-structure">📁 Directory Structure</h2>
-
-The project is organized as follows:
-
-- **Build and Configuration:** Contains build scripts and configuration files.
-- **Header Files:** Contains header files for the project.
-- **Invalid Inputs:** Contains input files that are expected to cause errors.
-- **Invalid Outputs:** Contains output files corresponding to invalid inputs.
-- **Source Files:** Contains the source code files.
-- **Valid Inputs:** Contains input files that should be processed correctly.
-- **Valid Outputs:** Contains output files corresponding to valid inputs.
-
-Here's an overview of the project structure:
-
-```plaintext
-📁 Project Directory
-├── 📁 Build and Configuration
-│   ├── makefile
-│   ├── assembler
-│   └── ...
-├── 📁 Header Files
-│   ├── first_pass.h
-│   ├── second_pass.h
-│   └── ...
-├── 📁 Invalid Inputs
-│   ├── invalid_input1.as
-│   ├── invalid_input2.as
-│   └── ...
-├── 📁 Invalid Outputs
-│   ├── invalid_output1.txt
-│   ├── invalid_output2.txt
-│   └── ...
-├── 📁 Source Files
-│   ├── assembler.c
-│   ├── first_pass.c
-│   └── ...
-├── 📁 Valid Inputs
-│   ├── valid_input1.as
-│   ├── valid_input2.as
-│   └── ...
-└── 📁 Valid Outputs
-    ├── valid_output1.txt
-    ├── valid_output2.txt
-    └── ...
-```
+<div style="font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; padding: 20px; max-width: 700px; margin: auto;">
+    <h2 id="directory-structure" style="color: #00c4cc;">📁 Directory Structure</h2>
+    <p>The project is organized as follows:</p>
+    <ul style="list-style-type: none; padding: 0;">
+        <li>
+            <strong style="color: #00c4cc;">📁 Build and Configuration</strong>
+            <p style="margin: 0; padding: 0 0 10px 20px;">Contains build scripts and configuration files.</p>
+            <ul style="list-style-type: none; padding-left: 20px;">
+                <li>makefile</li>
+                <li>assembler</li>
+                <li>...</li>
+            </ul>
+        </li>
+        <li>
+            <strong style="color: #00c4cc;">📁 Header Files</strong>
+            <p style="margin: 0; padding: 0 0 10px 20px;">Contains header files for the project.</p>
+            <ul style="list-style-type: none; padding-left: 20px;">
+                <li>first_pass.h</li>
+                <li>second_pass.h</li>
+                <li>...</li>
+            </ul>
+        </li>
+        <li>
+            <strong style="color: #00c4cc;">📁 Invalid Inputs</strong>
+            <p style="margin: 0; padding: 0 0 10px 20px;">Contains input files that are expected to cause errors.</p>
+            <ul style="list-style-type: none; padding-left: 20px;">
+                <li>invalid_input1.as</li>
+                <li>invalid_input2.as</li>
+                <li>...</li>
+            </ul>
+        </li>
+        <li>
+            <strong style="color: #00c4cc;">📁 Invalid Outputs</strong>
+            <p style="margin: 0; padding: 0 0 10px 20px;">Contains output files corresponding to invalid inputs.</p>
+            <ul style="list-style-type: none; padding-left: 20px;">
+                <li>invalid_output1.txt</li>
+                <li>invalid_output2.txt</li>
+                <li>...</li>
+            </ul>
+        </li>
+        <li>
+            <strong style="color: #00c4cc;">📁 Source Files</strong>
+            <p style="margin: 0; padding: 0 0 10px 20px;">Contains the source code files.</p>
+            <ul style="list-style-type: none; padding-left: 20px;">
+                <li>assembler.c</li>
+                <li>first_pass.c</li>
+                <li>...</li>
+            </ul>
+        </li>
+        <li>
+            <strong style="color: #00c4cc;">📁 Valid Inputs</strong>
+            <p style="margin: 0; padding: 0 0 10px 20px;">Contains input files that should be processed correctly.</p>
+            <ul style="list-style-type: none; padding-left: 20px;">
+                <li>valid_input1.as</li>
+                <li>valid_input2.as</li>
+                <li>...</li>
+            </ul>
+        </li>
+        <li>
+            <strong style="color: #00c4cc;">📁 Valid Outputs</strong>
+            <p style="margin: 0; padding: 0 0 10px 20px;">Contains output files corresponding to valid inputs.</p>
+            <ul style="list-style-type: none; padding-left: 20px;">
+                <li>valid_output1.txt</li>
+                <li>valid_output2.txt</li>
+                <li>...</li>
+            </ul>
+        </li>
+    </ul>
+</div>
 
 <!-- License -->
 <h2 id="license">© License</h2>
