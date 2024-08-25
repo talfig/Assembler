@@ -325,8 +325,8 @@ Each addressing method allows for flexible data manipulation, enabling you to wr
 
 In our assembler project, instruction encoding is done in the first word of the machine instruction. Here's a breakdown of how the encoding works:
 
-<!-- Opcodes (14-11) -->
-<h3 id="operation-codes-opcodes">➕ Opcodes (14-11)</h3>
+<!-- Opcodes (Bits 14-11) -->
+<h3 id="operation-codes-opcodes">➕ Opcodes (Bits 14-11)</h3>
 
 - The opcode is represented by bits 14-11 of the first word in the instruction. Each opcode corresponds symbolically to an assembly operation name, and these operation names are always written in lowercase.
 
