@@ -125,6 +125,11 @@
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#usage">Usage</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#error-handling">Error Handling</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#directory-structure">Directory Structure</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#appendix">Appendix</a>
+      <ul>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#program-status-word-psw">Program Status Word (PSW)</a></li>
+      </ul>
+    </li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#license">License</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#contact">Contact</a></li>
   </ol>
