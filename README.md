@@ -905,8 +905,8 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
             <strong style="color: #00c4cc;">📁 Valid Inputs</strong>
             <p style="margin: 0; padding: 0 0 10px 20px;">Contains input files that should be processed correctly.</p>
             <ul style="list-style-type: none; padding-left: 20px;">
-                <li>valid_input1.as</li>
-                <li>valid_input2.as</li>
+                <li>fibonacci.as</li>
+                <li>text_encryption.as</li>
                 <li>...</li>
             </ul>
         </li>
@@ -914,8 +914,8 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
             <strong style="color: #00c4cc;">📁 Valid Outputs</strong>
             <p style="margin: 0; padding: 0 0 10px 20px;">Contains output files corresponding to valid inputs.</p>
             <ul style="list-style-type: none; padding-left: 20px;">
-                <li>valid_output1.txt</li>
-                <li>valid_output2.txt</li>
+                <li>fibonacci.ob</li>
+                <li>text_encryption.ob</li>
                 <li>...</li>
             </ul>
         </li>
