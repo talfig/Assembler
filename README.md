@@ -878,8 +878,8 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
             <strong style="color: #00c4cc;">📁 Invalid Inputs</strong>
             <p style="margin: 0; padding: 0 0 10px 20px;">Contains input files that are expected to cause errors.</p>
             <ul style="list-style-type: none; padding-left: 20px;">
-                <li>invalid_input1.as</li>
-                <li>invalid_input2.as</li>
+                <li>broken_program1.as</li>
+                <li>broken_program2.as</li>
                 <li>...</li>
             </ul>
         </li>
