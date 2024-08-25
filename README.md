@@ -866,32 +866,32 @@ The project is organized as follows:
 Here's an overview of the project structure:
 
 ```plaintext
-📁 **Project Directory**
-├── 📁 **Build and Configuration**
+📁 Project Directory
+├── 📁 Build and Configuration
 │   ├── makefile
 │   ├── assembler
 │   └── ...
-├── 📁 **Header Files**
+├── 📁 Header Files
 │   ├── first_pass.h
 │   ├── second_pass.h
 │   └── ...
-├── 📁 **Invalid Inputs**
+├── 📁 Invalid Inputs
 │   ├── invalid_input1.as
 │   ├── invalid_input2.as
 │   └── ...
-├── 📁 **Invalid Outputs**
+├── 📁 Invalid Outputs
 │   ├── invalid_output1.txt
 │   ├── invalid_output2.txt
 │   └── ...
-├── 📁 **Source Files**
+├── 📁 Source Files
 │   ├── assembler.c
 │   ├── first_pass.c
 │   └── ...
-├── 📁 **Valid Inputs**
-│   ├── valid_input1.txt
-│   ├── valid_input2.txt
+├── 📁 Valid Inputs
+│   ├── valid_input1.as
+│   ├── valid_input2.as
 │   └── ...
-└── 📁 **Valid Outputs**
+└── 📁 Valid Outputs
     ├── valid_output1.txt
     ├── valid_output2.txt
     └── ...
