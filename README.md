@@ -19,17 +19,21 @@
   <a href="https://github.com/talfig/Assembler">
     <img src="https://komarev.com/ghpvc/?username=talfig&color=ff6347&style=flat-square" alt="Repo views">
   </a>
-  <!-- Last Commit -->
-  <a href="https://github.com/talfig/Assembler/commits/main">
-    <img src="https://img.shields.io/github/last-commit/talfig/Assembler?color=ff4500&label=Last%20Commit&style=flat-square" alt="Last commit">
-  </a>
   <!-- License -->
   <a href="https://github.com/talfig/Assembler/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/talfig/Assembler?color=9acd32&label=License&style=flat-square" alt="License">
   </a>
 </p>
 
-<!-- Creator -->
+<p align="center">
+  <a href="https://github.com/talfig/Assembler">
+    <img src="https://img.shields.io/badge/Contributions-Welcome-00c4cc?style=flat-square" alt="Contributions Welcome">
+  </a>
+  <a href="https://github.com/talfig/Assembler">
+    <img src="https://img.shields.io/badge/Made%20with%20♥-00c4cc?style=flat-square" alt="Made with Love">
+  </a>
+</p>
+
 <h2 align="center">🌌 Creator: Tal Figenblat 🌌</h2>
 
 <!-- TABLE OF CONTENTS -->
