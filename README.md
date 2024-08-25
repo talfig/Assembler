@@ -9,23 +9,23 @@
 <p align="center">
   <!-- GitHub Stars -->
   <a href="https://github.com/talfig/Assembler">
-    <img src="https://img.shields.io/github/stars/talfig/Assembler?style=social" alt="GitHub stars">
+    <img src="https://img.shields.io/github/stars/talfig/Assembler?color=ff69b4&label=Stars&logo=github&style=for-the-badge" alt="GitHub stars">
   </a>
   <!-- GitHub Forks -->
   <a href="https://github.com/talfig/Assembler/fork">
-    <img src="https://img.shields.io/github/forks/talfig/Assembler?style=social" alt="GitHub forks">
+    <img src="https://img.shields.io/github/forks/talfig/Assembler?color=ffd700&label=Forks&logo=github&style=for-the-badge" alt="GitHub forks">
   </a>
   <!-- Repo Views -->
   <a href="https://github.com/talfig/Assembler">
-    <img src="https://komarev.com/ghpvc/?username=talfig&color=blue" alt="Repo views">
+    <img src="https://komarev.com/ghpvc/?username=talfig&color=00c4cc&style=for-the-badge" alt="Repo views">
   </a>
   <!-- Last Commit -->
   <a href="https://github.com/talfig/Assembler/commits/main">
-    <img src="https://img.shields.io/github/last-commit/talfig/Assembler" alt="Last commit">
+    <img src="https://img.shields.io/github/last-commit/talfig/Assembler?color=ff4500&label=Last%20Commit&logo=git&style=for-the-badge" alt="Last commit">
   </a>
   <!-- License -->
   <a href="https://github.com/talfig/Assembler/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/talfig/Assembler" alt="License">
+    <img src="https://img.shields.io/github/license/talfig/Assembler?color=9acd32&label=License&style=for-the-badge" alt="License">
   </a>
 </p>
 
