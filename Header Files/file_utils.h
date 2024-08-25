@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file file_utils.h
  * @brief This header file declares the functions used for processing files, managing memory,
  * and handling errors during the assembly process.
