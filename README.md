@@ -863,6 +863,38 @@ The project is organized as follows:
 - **Valid Inputs:** Contains input files that should be processed correctly.
 - **Valid Outputs:** Contains output files corresponding to valid inputs.
 
+Here's an overview of the project structure:
+
+📁 **Project Directory**
+├── 📁 **Build and Configuration**
+│   ├── makefile
+│   ├── assembler
+│   └── ...
+├── 📁 **Header Files**
+│   ├── first_pass.h
+│   ├── second_pass.h
+│   └── ...
+├── 📁 **Invalid Inputs**
+│   ├── invalid_input1.as
+│   ├── invalid_input2.as
+│   └── ...
+├── 📁 **Invalid Outputs**
+│   ├── invalid_output1.txt
+│   ├── invalid_output2.txt
+│   └── ...
+├── 📁 **Source Files**
+│   ├── main.c
+│   ├── first_pass.c
+│   └── ...
+├── 📁 **Valid Inputs**
+│   ├── valid_input1.txt
+│   ├── valid_input2.txt
+│   └── ...
+└── 📁 **Valid Outputs**
+    ├── valid_output1.txt
+    ├── valid_output2.txt
+    └── ...
+
 <!-- License -->
 <h2 id="license">© License</h2>
 
