@@ -106,7 +106,11 @@
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#no-operand-instruction">No-Operand Instruction</a></li>
       </ul>
     </li>
-    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#the-a-r-e-field-encoding">The A,R,E Field Encoding</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#the-a-r-e-field-encoding">The A,R,E Field Encoding</a>
+      <ul>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#the-a-r-e-bits">The A,R,E Bits</a></li>
+      </ul>
+    </li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#macro-handling">Macro Handling</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#assembler-with-two-passes">Assembler with Two Passes</a>
       <ul>
