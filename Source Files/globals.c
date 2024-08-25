@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file globals.c
  * @brief This file contains functions to map strings to their corresponding opcodes,
  * and registers in an assembler.
