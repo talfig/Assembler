@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file error_handling.c
  * @brief Handles error reporting, file validation, and data processing functions.
  *
