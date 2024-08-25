@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file integer_utils.c
  * @brief Contains utility functions for handling integers.
  *
