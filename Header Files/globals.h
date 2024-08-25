@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file globals.h
  * @brief This header file defines constants, enums, and function prototypes for mapping
  * string representations of opcodes, and registers to their corresponding values.
