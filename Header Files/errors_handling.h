@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file errors_handling.h
  * @brief Header file for error handling functions and definitions.
  *
