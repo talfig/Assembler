@@ -208,7 +208,7 @@ These instructions use two operands:
 
 - **mov**: Copies the content of the source operand to the destination operand.
   - Example: `mov A, r1` – Copies the value from memory address `A` to register `r1`.
-- **cmp**: Compares the value of the source operand with the destination operand. The comparison results affect the flags in the status register (PSW).
+- **cmp**: Compares the value of the source operand with the destination operand. The comparison results affect the flags in the PSW.
   - Example: `cmp A, r1` – Compares the value at memory address `A` with the value in register `r1`. The Z flag in the PSW is set if they are equal.
 - **add**: Adds the value of the source operand to the destination operand and stores the result in the destination.
   - Example: `add A, r0` – Adds the value from memory address `A` to register `r0` and stores the result in `r0`.
