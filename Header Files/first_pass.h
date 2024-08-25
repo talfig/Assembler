@@ -1,4 +1,7 @@
 /**
+ * @author Tal Figenblat
+ * @date August 18, 2024
+ *
  * @file first_pass.h
  * @brief This header file declares the functions and macros used in the first pass of the assembler,
  * which processes assembly source code and generates intermediate code.
