@@ -7,11 +7,29 @@
 </p>
 
 <p align="center">
+  <!-- GitHub Stars -->
   <a href="https://github.com/talfig/Assembler">
     <img src="https://img.shields.io/github/stars/talfig/Assembler?style=social" alt="GitHub stars">
   </a>
+  <!-- GitHub Forks -->
+  <a href="https://github.com/talfig/Assembler/fork">
+    <img src="https://img.shields.io/github/forks/talfig/Assembler?style=social" alt="GitHub forks">
+  </a>
+  <!-- Repo Views -->
+  <a href="https://github.com/talfig/Assembler">
+    <img src="https://komarev.com/ghpvc/?username=talfig&color=blue" alt="Repo views">
+  </a>
+  <!-- Last Commit -->
+  <a href="https://github.com/talfig/Assembler/commits/main">
+    <img src="https://img.shields.io/github/last-commit/talfig/Assembler" alt="Last commit">
+  </a>
+  <!-- License -->
+  <a href="https://github.com/talfig/Assembler/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/talfig/Assembler" alt="License">
+  </a>
 </p>
 
+<!-- Creator -->
 <h2 align="center">🌌 Creator: Tal Figenblat 🌌</h2>
 
 <!-- TABLE OF CONTENTS -->
