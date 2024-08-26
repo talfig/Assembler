@@ -1136,7 +1136,7 @@ Common Flags in the PSW:
 
 The flags in the PSW are often used by conditional branch instructions to make decisions based on the result of a previous operation. For example:
 
-- **bne (branch if not equal)**: This instruction checks the Z flag; if the Z flag is `0` (indicating that the previous operation did not result in zero), the program will branch to the specified address.
+**bne (branch if not equal)**: This instruction checks the Z flag; if the Z flag is `0` (indicating that the previous operation did not result in zero), the program will branch to the specified address.
 
 <!-- Linking and Loading -->
 <h3 id="linking-and-loading">🧲 Linking and Loading</h3>
