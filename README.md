@@ -166,7 +166,7 @@ The goal of this project is to write an assembler (i.e., a program that translat
 
 <details>
   <summary>Executable Code Process</summary>
-  <img src="https://github.com/user-attachments/assets/72a12884-2ab6-4340-9eae-0c9290de923b" alt="Executable Code Process">
+  <img src="https://github.com/user-attachments/assets/46b0a641-aa84-443c-b7c2-37d7197c835f" alt="Executable Code Process">
 </details>
 
 <!-- Hardware -->
