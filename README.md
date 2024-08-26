@@ -164,6 +164,11 @@ The task of the assembler is to create a file containing machine code from a giv
 
 The goal of this project is to write an assembler (i.e., a program that translates into machine code) for a specifically defined assembly language for this project.
 
+<details>
+  <summary>Executable Code Process</summary>
+  <img src="https://github.com/user-attachments/assets/0045fc70-7c4e-42aa-ac5e-9d1995b47ee8" alt="Executable Code Process">
+</details>
+
 <!-- Hardware -->
 <h2 id="hardware">🖥️ Hardware</h2>
 
