@@ -1,6 +1,0 @@
->>> Started working on the file ps.as
-    No errors were found in the file ps.as during macro expansion
->>> Finished working on the file ps.as
->>> Started working on the file ps.am
-    No errors were found in the file ps.am
->>> Finished working on the file ps.am
