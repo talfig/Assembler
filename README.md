@@ -973,6 +973,8 @@ clang --version
 
 This configuration sets up an Ubuntu-based environment with the necessary tools installed.
 
+---
+
 After setting up your environment, Navigate to the project directory where the `makefile` is located using:
 
 ```bash
