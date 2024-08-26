@@ -947,7 +947,7 @@ clang --version
 ```
 
 <!-- GitHub Codespaces -->
-<h3 id="github-codespaces"> 🌐 GitHub Codespaces</h3>
+<h3 id="github-codespaces"> ☁️ GitHub Codespaces</h3>
 
 **1.** Go to your GitHub repository.
 
