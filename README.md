@@ -922,7 +922,7 @@ L3 0128
 Ready to build? Follow the appropriate steps according to your operating system:
 
 <!-- Ubuntu/Linux -->
-<h3 id="ubuntu-linux"> Ubuntu/Linux</h3>
+<h3 id="ubuntu-linux"> 🐧 Ubuntu/Linux</h3>
 
 **1.** Open your terminal.
 
@@ -947,7 +947,7 @@ clang --version
 ```
 
 <!-- GitHub Codespaces -->
-<h3 id="github-codespaces"> GitHub Codespaces</h3>
+<h3 id="github-codespaces"> 🌐 GitHub Codespaces</h3>
 
 **1.** Go to your GitHub repository.
 
