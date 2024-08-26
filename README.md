@@ -777,7 +777,7 @@ Here’s a quick demo of an assembly program in action:
 Pre-assembler program:
 
 ```assembly
-; file ps.as 
+; file example.as 
 .entry LIST 
 .extern fn1 
 MAIN: add r3, LIST 
