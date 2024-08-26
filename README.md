@@ -325,7 +325,7 @@ Define and use variables in your code.
 Example:
 
 ```assembly
-var: mov r1, r2
+var: .data 3
 ```
 
 Each instruction and operation is carefully designed to give you complete control over your assembly code, allowing you to write efficient and functional programs.
