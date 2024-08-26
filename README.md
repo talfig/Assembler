@@ -125,7 +125,12 @@
       </ul>
     </li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#example-program">Example Program</a></li>
-    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#installation">Installation</a></li>
+    <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#installation">Installation</a>
+      <ul>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#ubuntu-linux">Ubuntu/Linux</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#github-codespaces">GitHub Codespaces</a></li>
+      </ul>
+    </li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#usage">Usage</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#error-handling">Error Handling</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#directory-structure">Directory Structure</a></li>
@@ -914,11 +919,20 @@ L3 0128
 <!-- Installation -->
 <h2 id="installation">🛠️ Installation</h2>
 
-Ready to build? Follow these steps:
+Ready to build? Follow the appropriate steps according to your operating system:
 
-**1.** Open your terminal or command prompt.
+<!-- Ubuntu/Linux -->
+<h3 id="ubuntu-linux"> Ubuntu/Linux</h3>
 
-**2.** Ensure you have a C compiler installed.
+**1.** Open your terminal.
+
+**2.** Clone this repository with:
+
+```bash
+git clone https://github.com/talfig/Assembler.git
+```
+
+**3.** Ensure you have a C compiler installed.
 
 Run the following command to check if GCC is installed:
 
@@ -932,13 +946,34 @@ If you prefer Clang, you can check its installation with:
 clang --version
 ```
 
-**3.** Clone this repository with:
+<!-- GitHub Codespaces -->
+<h3 id="github-codespaces"> GitHub Codespaces</h3>
 
-```bash
-git clone https://github.com/talfig/Assembler.git
+**1.** Go to your GitHub repository.
+
+**2.** Click on the Code button and select Create codespace on main.
+
+**3.** Once the Codespace is ready, open the terminal within the Codespace.
+
+**4.** (Optional) Customize the Codespace environment for Ubuntu by adding a .devcontainer/devcontainer.json file with the following content:
+
+```json
+{
+  "name": "Ubuntu Development Environment",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+  "features": {
+    "docker-from-docker": "latest"
+  },
+  "extensions": [
+    "ms-vscode.cpptools",
+    "golang.go"
+  ]
+}
 ```
 
-**4.** Navigate to the project directory where the `makefile` is located using:
+This configuration sets up an Ubuntu-based environment with the necessary tools installed.
+
+After setting up your environment, Navigate to the project directory where the `makefile` is located using:
 
 ```bash
 cd Assembler
@@ -946,7 +981,7 @@ cd Assembler
 
 Replace `Assembler` with the actual name of the directory if it differs.
 
-**5.** Run the make command to compile the project and build the assembler:
+Finally, Run the make command to compile the project and build the assembler:
 
 ```bash
 make
