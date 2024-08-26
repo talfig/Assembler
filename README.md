@@ -410,7 +410,7 @@ In our assembler project, instruction encoding is done in the first word of the 
   - The R and E bits are set to 0.
 - This field is added to each word in the instruction's encoding.
 
-Further information about the A,R,E field will be provided later. However, If you’d like to explore this information right away, you can refer to [Linking and Loading: A,R,E Field Encoding](https://github.com/talfig/Assembler/blob/main/README.md#linking-and-loading-a-r-e-field-encoding) section for more details.
+Further information about the A,R,E field will be provided later. However, If you’d like to explore this information right away, you can refer to [The A,R,E Field Encoding](https://github.com/talfig/Assembler/blob/main/README.md#the-a-r-e-field-encoding) section for more details.
 
 For a detailed breakdown of how the bits are allocated, see the table below:
 
