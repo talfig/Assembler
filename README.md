@@ -228,7 +228,7 @@ These instructions use two operands:
 - **add**: Adds the value of the source operand to the destination operand and stores the result in the destination.
   - Example: `add A, r0` – Adds the value from memory address `A` to register `r0` and stores the result in `r0`.
 - **sub**: Subtracts the value of the source operand from the destination operand and stores the result in the destination.
-  - Example: `sub #3, r1` – Subtracts `3` from the value in register `r1` and stores the result in `r1`.
+  - Example: `sub #2, r1` – Subtracts `2` from the value in register `r1` and stores the result in `r1`.
 - **lea**: Loads the effective address of the source operand into the destination register.
   - Example: `lea HELLO, r1` – Loads the address of `HELLO` into register `r1`.
 
@@ -238,13 +238,13 @@ These instructions use two operands:
 These instructions require only one operand:
 
 - **clr**: Clears the content of the operand, setting it to zero.
-  - Example: `clr r2` – Clears the content of register `r2`.
+  - Example: `clr r1` – Clears the content of register `r1`.
 - **not**: Inverts all bits of the operand.
-  - Example: `not r2` – Inverts all bits in register `r2`.
+  - Example: `not r1` – Inverts all bits in register `r1`.
 - **inc**: Increments the content of the operand by one.
-  - Example: `inc r2` – Increments the value in register `r2` by 1.
+  - Example: `inc r1` – Increments the value in register `r1` by 1.
 - **dec**: Decrements the content of the operand by one.
-  - Example: `dec C` – Decrements the value in register `C` by 1.
+  - Example: `dec C` – Decrements the value of the label `C` by 1.
 - **jmp**: Unconditionally jumps to the address specified by the operand.
   - Example: `jmp LINE` – Jumps to the address labeled `LINE`.
 - **bne**: Branches to the specified address if the Z flag in the PSW is not set.
