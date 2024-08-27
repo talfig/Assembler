@@ -553,15 +553,15 @@ This indicates that the label HELLO is defined in another source file and will b
 - A label is a symbolic representation of an address in memory.
 - Syntax:
   -  Maximum length: 31 characters.
-  -  Ends with a colon `:`, which must be directly attached to the label name without spaces.
+  -  Format: Ends with a colon `:`, which must be directly attached to the label name without spaces.
   -  Usage: After a label, there must be an instruction or directive. Labels cannot stand alone.
 
 Example:
 
 ```assembly
-Hello: .data 3
+Hello: .data 1, 2
 X: mov r1, r2
-He5: .string "abcd"
+He3: .string "ab"
 ```
 
 Labels are case-sensitive and must be unique within the same file.
