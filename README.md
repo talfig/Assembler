@@ -561,7 +561,7 @@ Example:
 ```assembly
 Hello: .data 1, 2
 X: mov r1, r2
-He3: .string "ab"
+He3: .string "abcd"
 ```
 
 Labels are case-sensitive and must be unique within the same file.
