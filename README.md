@@ -554,13 +554,14 @@ This indicates that the label HELLO is defined in another source file and will b
 - Syntax:
   -  Maximum length: 31 characters.
   -  Ends with a colon `:`, which must be directly attached to the label name without spaces.
+  -  Usage: After a label, there must be an instruction or directive. Labels cannot stand alone.
 
 Example:
 
 ```assembly
-Hello:
-X:
-He10:
+Hello: .data 3
+X: mov r1, r2
+He5: .string "abcd"
 ```
 
 Labels are case-sensitive and must be unique within the same file.
