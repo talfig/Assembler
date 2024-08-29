@@ -195,7 +195,7 @@ The goal of this project is to write an assembler (i.e., a program that translat
 - **Smart Error Handling:** Get detailed, compiler-like error messages to troubleshoot with ease.
 
 <!-- Supported Opcodes -->
-<h2 id="supported-opcodes">🎮 Supported Opcodes</h2>
+<h2 id="supported-opcodes">🕹️ Supported Opcodes</h2>
 
 Our assembler brings to life a variety of opcodes for your coding pleasure:
 
