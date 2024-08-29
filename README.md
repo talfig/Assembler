@@ -814,7 +814,7 @@ Below is the full binary encoding table obtained from the source file, followed 
 
 | Decimal Address | Source Code        | Explanation                             | Binary Machine Code  |
 |-----------------|--------------------|-----------------------------------------|----------------------|
-| 0100            | MAIN: add r3, LIST  | First word of instruction               | 001010000010100       |
+| 0100            | MAIN: add r3, LIST  | First word of instruction               | 001010000001100       |
 | 0101            |                     | Source register 3                       | 000000011000100       |
 | 0102            |                     | Address of label LIST                   | 000010001001010       |
 | 0103            | jsr fn1             |                                         | 110100000010100       |
