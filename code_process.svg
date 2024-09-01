@@ -2,44 +2,47 @@
   <style>
     .box {
       fill: url(#boxGradient);
-      stroke: #e0aaff;
-      stroke-width: 2;
-      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+      stroke: #d1a8f1;
+      stroke-width: 3;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+      rx: 15; /* Rounded corners */
     }
     .arrow {
-      font-size: 30px;
-      fill: #4b0082;
+      font-size: 36px;
+      fill: #6a1b9a;
       opacity: 0;
+      transform: rotate(90deg);
     }
     .arrow-animation {
-      animation: moveArrow 1.5s linear infinite;
+      animation: moveArrow 2s ease-in-out infinite;
     }
     .highlight {
       fill: url(#highlightGradient);
-      stroke: #f57f17;
-      stroke-width: 3;
+      stroke: #ff6f00;
+      stroke-width: 4;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
     }
     .text {
-      font-size: 16px;
-      fill: #333;
+      font-size: 18px;
+      fill: #222;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .title {
-      font-size: 20px;
-      fill: #c71585;
+      font-size: 22px;
+      fill: #d500f9;
       font-weight: bold;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     @keyframes moveArrow {
-      0% { transform: translateY(0); opacity: 1; }
+      0% { transform: translateY(0) rotate(90deg); opacity: 1; }
       50% { opacity: 1; }
-      100% { transform: translateY(80px); opacity: 0; }
+      100% { transform: translateY(80px) rotate(90deg); opacity: 0; }
     }
     .pointer {
-      fill: #f57f17;
+      fill: #ff6f00;
     }
     .watermark {
-      font-size: 12px;
+      font-size: 14px;
       fill: #888;
       text-anchor: middle;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -49,12 +52,12 @@
   <!-- Define gradients -->
   <defs>
     <linearGradient id="boxGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fad0c4;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#b388ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d1c4e9;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="highlightGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#fff9c4;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fef7c6;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#ffff8d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fff59d;stop-opacity:1" />
     </linearGradient>
   </defs>
 
@@ -92,19 +95,16 @@
   <text x="70" y="790" class="text">Executes Machine Code</text>
 
   <!-- Draw arrows -->
-  <text x="280" y="110" class="arrow arrow-animation">&#x21E9;</text>
-  <text x="280" y="210" class="arrow arrow-animation">&#x21E9;</text>
-  <text x="280" y="310" class="arrow arrow-animation">&#x21E9;</text>
-  <text x="280" y="410" class="arrow arrow-animation">&#x21E9;</text>
-  <text x="280" y="510" class="arrow arrow-animation">&#x21E9;</text>
-  <text x="280" y="610" class="arrow arrow-animation">&#x21E9;</text>
-  <text x="280" y="710" class="arrow arrow-animation">&#x21E9;</text>
+  <text x="280" y="110" class="arrow arrow-animation">&#x2193;</text>
+  <text x="280" y="210" class="arrow arrow-animation">&#x2193;</text>
+  <text x="280" y="310" class="arrow arrow-animation">&#x2193;</text>
+  <text x="280" y="410" class="arrow arrow-animation">&#x2193;</text>
+  <text x="280" y="510" class="arrow arrow-animation">&#x2193;</text>
+  <text x="280" y="610" class="arrow arrow-animation">&#x2193;</text>
+  <text x="280" y="710" class="arrow arrow-animation">&#x2193;</text>
 
   <!-- Highlight box -->
   <rect x="50" y="420" width="500" height="80" class="box highlight"/>
   <text x="70" y="460" class="title">Assembler</text>
   <text x="70" y="490" class="text">Translates Assembly Code into Machine Code</text>
-
-  <!-- Watermark -->
-  <text x="300" y="790" class="watermark">© 2024 talfig</text>
 </svg>
