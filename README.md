@@ -1197,5 +1197,6 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 </table>
 </div>
 
+<p align="center">
 <img src="https://raw.githubusercontent.com/talfig/talfig/main/gratitude.svg" alt="Gratitude Image">
-
+</p>
