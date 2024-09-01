@@ -171,7 +171,9 @@ The goal of this project is to write an assembler (i.e., a program that translat
 
 <details>
   <summary>Executable Code Process</summary>
-  <img src="https://github.com/talfig/Assembler/blob/main/exe_process.svg" alt="Executable Code Process">
+  <p align="center">
+    <img src="https://github.com/talfig/Assembler/blob/main/exe_process.svg" alt="Executable Code Process">
+  </p>
 </details>
 
 <!-- Hardware -->
