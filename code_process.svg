@@ -1,124 +1,110 @@
-<svg width="600" height="1150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1150">
+<svg width="600" height="800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+  <style>
+    .box {
+      fill: url(#boxGradient);
+      stroke: #e0aaff;
+      stroke-width: 2;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+    }
+    .arrow {
+      font-size: 30px;
+      fill: #4b0082;
+      opacity: 0;
+    }
+    .arrow-animation {
+      animation: moveArrow 1.5s linear infinite;
+    }
+    .highlight {
+      fill: url(#highlightGradient);
+      stroke: #f57f17;
+      stroke-width: 3;
+    }
+    .text {
+      font-size: 16px;
+      fill: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .title {
+      font-size: 20px;
+      fill: #c71585;
+      font-weight: bold;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    @keyframes moveArrow {
+      0% { transform: translateY(0); opacity: 1; }
+      50% { opacity: 1; }
+      100% { transform: translateY(80px); opacity: 0; }
+    }
+    .pointer {
+      fill: #f57f17;
+    }
+    .watermark {
+      font-size: 12px;
+      fill: #888;
+      text-anchor: middle;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  </style>
+
   <!-- Define gradients -->
   <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="boxGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#fad0c4;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#a2c2e6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#b9d6f2;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f3e5f5;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e1bee7;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#c6f6d5;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#b9fbc0;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="highlightGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#fff9c4;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#fef7c6;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#fffde7;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fff9c4;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e0f7fa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#b2ebf2;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad8" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e0f2f1;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#b9fbc0;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad9" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dce775;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#d4e157;stop-opacity:1" />
-    </linearGradient>
-
-    <!-- Define animations -->
-    <animate id="fade" attributeName="opacity" from="0" to="1" dur="2s" repeatCount="indefinite" />
-    <animate id="moveDown" attributeName="cy" from="0" to="20" dur="1s" repeatCount="indefinite" />
-    <animate id="arrowPulse" attributeName="stroke-width" from="1" to="3" dur="1s" repeatCount="indefinite" />
-    <animate id="arrowMove" attributeName="transform" type="translate" values="0,0;0,10;0,0" dur="1s" repeatCount="indefinite" />
   </defs>
 
-  <!-- High-Level Programming Code -->
-  <rect x="50" y="30" width="500" height="80" rx="15" ry="15" fill="url(#grad1)" stroke="#e0aaff" stroke-width="2" />
-  <text x="300" y="70" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#c71585">High-Level Programming Code</text>
-  <text x="300" y="90" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">e.g., C, Java, Python</text>
+  <!-- Draw boxes -->
+  <rect x="50" y="20" width="500" height="80" class="box"/>
+  <text x="70" y="60" class="title">High-Level Programming Code</text>
+  <text x="70" y="90" class="text">(e.g., C, Java, Python)</text>
+  
+  <rect x="50" y="120" width="500" height="80" class="box"/>
+  <text x="70" y="160" class="title">Preprocessor</text>
+  <text x="70" y="190" class="text">Handles directives like <tspan fill="#f5f5f5">#include</tspan>, <tspan fill="#f5f5f5">#define</tspan></text>
+  
+  <rect x="50" y="220" width="500" height="80" class="box"/>
+  <text x="70" y="260" class="title">Compiler</text>
+  <text x="70" y="290" class="text">Translates Preprocessed Code into Assembly Code</text>
+  
+  <rect x="50" y="320" width="500" height="80" class="box"/>
+  <text x="70" y="360" class="title">Assembly Language</text>
+  <text x="70" y="390" class="text">(Symbolic Instructions)</text>
+  
+  <rect x="50" y="420" width="500" height="80" class="box"/>
+  <text x="70" y="460" class="title">Assembler</text>
+  <text x="70" y="490" class="text">Translates Assembly Code into Machine Code</text>
+  
+  <rect x="50" y="520" width="500" height="80" class="box"/>
+  <text x="70" y="560" class="title">Linker</text>
+  <text x="70" y="590" class="text">Combines Machine Code Segments into Executable File</text>
 
-  <!-- Arrow -->
-  <polygon points="290,110 310,110 300,130" fill="#4b0082" stroke="#4b0082" stroke-width="2">
-    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
-  </polygon>
+  <rect x="50" y="620" width="500" height="80" class="box"/>
+  <text x="70" y="660" class="title">Executable File</text>
+  <text x="70" y="690" class="text">(Ready to Run on CPU)</text>
 
-  <!-- Preprocessor -->
-  <rect x="50" y="160" width="500" height="80" rx="15" ry="15" fill="url(#grad2)" stroke="#87cefa" stroke-width="2" />
-  <text x="300" y="200" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#4682b4">Preprocessor</text>
-  <text x="300" y="220" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Handles directives like #include, #define</text>
+  <rect x="50" y="720" width="500" height="80" class="box"/>
+  <text x="70" y="760" class="title">CPU</text>
+  <text x="70" y="790" class="text">Executes Machine Code</text>
 
-  <!-- Arrow -->
-  <polygon points="290,270 310,270 300,290" fill="#4b0082" stroke="#4b0082" stroke-width="2">
-    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
-    <animateTransform attributeName="transform" type="translate" values="0,0;0,10;0,0" dur="1s" repeatCount="indefinite" />
-  </polygon>
+  <!-- Draw arrows -->
+  <text x="280" y="110" class="arrow arrow-animation">&#x21E9;</text>
+  <text x="280" y="210" class="arrow arrow-animation">&#x21E9;</text>
+  <text x="280" y="310" class="arrow arrow-animation">&#x21E9;</text>
+  <text x="280" y="410" class="arrow arrow-animation">&#x21E9;</text>
+  <text x="280" y="510" class="arrow arrow-animation">&#x21E9;</text>
+  <text x="280" y="610" class="arrow arrow-animation">&#x21E9;</text>
+  <text x="280" y="710" class="arrow arrow-animation">&#x21E9;</text>
 
-  <!-- Compiler -->
-  <rect x="50" y="300" width="500" height="80" rx="15" ry="15" fill="url(#grad3)" stroke="#d1c4e9" stroke-width="2" />
-  <text x="300" y="340" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#ab47bc">Compiler</text>
-  <text x="300" y="360" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Translates Preprocessed Code into Assembly Code</text>
+  <!-- Highlight box -->
+  <rect x="50" y="420" width="500" height="80" class="box highlight"/>
+  <text x="70" y="460" class="title">Assembler</text>
+  <text x="70" y="490" class="text">Translates Assembly Code into Machine Code</text>
 
-  <!-- Arrow -->
-  <polygon points="290,410 310,410 300,430" fill="#4b0082" stroke="#4b0082" stroke-width="2">
-    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
-  </polygon>
-
-  <!-- Assembly Language -->
-  <rect x="50" y="440" width="500" height="80" rx="15" ry="15" fill="url(#grad4)" stroke="#a5d6a7" stroke-width="2" />
-  <text x="300" y="480" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#2e7d32">Assembly Language</text>
-  <text x="300" y="500" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Symbolic Instructions</text>
-
-  <!-- Arrow -->
-  <polygon points="290,540 310,540 300,560" fill="#4b0082" stroke="#4b0082" stroke-width="2">
-    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
-    <animateTransform attributeName="transform" type="translate" values="0,0;0,10;0,0" dur="1s" repeatCount="indefinite" />
-  </polygon>
-
-  <!-- Assembler -->
-  <rect x="50" y="570" width="500" height="80" rx="15" ry="15" fill="url(#grad5)" stroke="#fbc02d" stroke-width="2" />
-  <text x="300" y="610" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#f57f17">Assembler</text>
-  <text x="300" y="630" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Converts Assembly Code to Machine Code</text>
-
-  <!-- Arrow -->
-  <polygon points="290,690 310,690 300,710" fill="#4b0082" stroke="#4b0082" stroke-width="2">
-    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
-  </polygon>
-
-  <!-- Linker -->
-  <rect x="50" y="720" width="500" height="80" rx="15" ry="15" fill="url(#grad9)" stroke="#aeea00" stroke-width="2" />
-  <text x="300" y="760" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#aeea00">Linker</text>
-  <text x="300" y="780" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Combines Object Files into Executable</text>
-
-  <!-- Arrow -->
-  <polygon points="290,830 310,830 300,850" fill="#4b0082" stroke="#4b0082" stroke-width="2">
-    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
-  </polygon>
-
-  <!-- Machine Code -->
-  <rect x="50" y="860" width="500" height="80" rx="15" ry="15" fill="url(#grad6)" stroke="#c6ff00" stroke-width="2" />
-  <text x="300" y="900" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#aeea00">Machine Code</text>
-  <text x="300" y="920" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Binary Code Executed by CPU</text>
-
-  <!-- Arrow -->
-  <polygon points="290,970 310,970 300,990" fill="#4b0082" stroke="#4b0082" stroke-width="2">
-    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
-  </polygon>
-
-  <!-- CPU Execution -->
-  <rect x="50" y="1000" width="500" height="80" rx="15" ry="15" fill="url(#grad7)" stroke="#00bcd4" stroke-width="2" />
-  <text x="300" y="1040" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#00bcd4">CPU Execution</text>
-  <text x="300" y="1060" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Execution of Machine Code Instructions</text>
+  <!-- Watermark -->
+  <text x="300" y="780" class="watermark">© 2024 talfig</text>
 </svg>
