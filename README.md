@@ -566,7 +566,7 @@ He3: .string "abcd"
 
 Labels are case-sensitive and must be unique within the same file.
 
-> Note: A label defined at the beginning of a line with `.entry` or `.extern` directives is meaningless, and the assembler ignores such a label.
+> Note: A label defined at the beginning of a line with `.entry` or `.extern` directives is redundant and will be ignored by the assembler.
 
 <!-- Numbers -->
 <h3 id="numbers">🔢 Numbers</h3>
