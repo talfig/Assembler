@@ -81,7 +81,7 @@
 
   <!-- Draw boxes with gradient color scheme and rounded corners -->
   <rect x="50" y="20" width="500" height="80" class="box"/>
-  <text x="70" y="60" class="title">Source Code</text>
+  <text x="70" y="60" class="title">High-Level Programming Code</text>
   <text x="70" y="90" class="text">(e.g., C, Java, Python)</text>
   
   <rect x="50" y="120" width="500" height="80" class="box"/>
