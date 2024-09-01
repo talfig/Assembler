@@ -113,7 +113,4 @@
   <text x="280" y="510" class="arrow arrow-animation">&#x21E9;</text>
   <text x="280" y="610" class="arrow arrow-animation">&#x21E9;</text>
   <text x="280" y="710" class="arrow arrow-animation">&#x21E9;</text>
-
-  <!-- Watermark -->
-  <text x="300" y="780" class="watermark">© 2024 talfig</text>
 </svg>
