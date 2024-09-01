@@ -9,8 +9,8 @@
       stroke: #0033FF; /* Dark blue stroke */
     }
     .highlight {
-      fill: url(#assemblerGradient); /* Light blue gradient for Assembler box */
-      stroke: #1f77d0; /* More pronounced blue outline */
+      fill: url(#highlightGradient); /* New gradient for Assembler box */
+      stroke: #ff6f00; /* Orange outline for emphasis */
       stroke-width: 5; /* Thicker stroke */
       rx: 15;
       ry: 15;
@@ -57,9 +57,9 @@
       <stop offset="50%" style="stop-color:#00BFFF;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#0033FF;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="assemblerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#b3e5fc;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#81d4fa;stop-opacity:1" />
+    <linearGradient id="highlightGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFEB3B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF5722;stop-opacity:1" />
     </linearGradient>
   </defs>
 
