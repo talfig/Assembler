@@ -3,60 +3,17 @@
     .box {
       stroke-width: 3;
       filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-    }
-    .box1 {
-      fill: url(#boxGradient1);
-      stroke: #ff6f91;
-      stroke-dasharray: 10;
-    }
-    .box2 {
-      fill: url(#boxGradient2);
-      stroke: #43c6ac;
-      stroke-dasharray: 5;
-    }
-    .box3 {
-      fill: url(#boxGradient3);
-      stroke: #f6d365;
-      stroke-linejoin: round;
-    }
-    .box4 {
-      fill: url(#boxGradient4);
-      stroke: #3498db;
-      stroke-dasharray: 7;
-    }
-    .box5 {
-      fill: url(#boxGradient5);
-      stroke: #f8ffae;
-            stroke-width: 5;
-      stroke-dasharray: 4 2;
-    }
-    .box6 {
-      fill: url(#boxGradient6);
-      stroke: #d4fc79;
-      stroke-linecap: round;
-    }
-    .box7 {
-      fill: url(#boxGradient7);
-      stroke: #1e3c72;
-      stroke-dasharray: 12 5;
-    }
-    .box8 {
-      fill: url(#boxGradient8);
+      rx: 15; /* Rounded corners */
+      ry: 15; /* Rounded corners */
+      fill: url(#boxGradient1); /* Unified color for all boxes */
       stroke: #ff9a9e;
-      stroke-linejoin: bevel;
-    }
-    .arrow {
-      font-size: 30px;
-      fill: #4b0082;
-      opacity: 0;
-    }
-    .arrow-animation {
-      animation: moveArrow 1.5s linear infinite;
     }
     .highlight {
       fill: url(#highlightGradient);
       stroke: #f57f17;
       stroke-width: 3;
+      rx: 15;
+      ry: 15;
     }
     .text {
       font-size: 16px;
@@ -68,13 +25,18 @@
       font-weight: bold;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+    .arrow {
+      font-size: 30px;
+      fill: #4b0082;
+      opacity: 0;
+    }
+    .arrow-animation {
+      animation: moveArrow 1.5s linear infinite;
+    }
     @keyframes moveArrow {
       0% { transform: translateY(0); opacity: 1; }
       50% { opacity: 1; }
       100% { transform: translateY(80px); opacity: 0; }
-    }
-    .pointer {
-      fill: #f57f17;
     }
     .watermark {
       font-size: 12px;
@@ -90,70 +52,42 @@
       <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#fad0c4;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="boxGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#43c6ac;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f8ffae;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="boxGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f6d365;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fda085;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="boxGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8e44ad;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="boxGradient5" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f8ffae;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#43c6ac;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="boxGradient6" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#d4fc79;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#96e6a1;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="boxGradient7" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e3c72;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2a5298;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="boxGradient8" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fad0c4;stop-opacity:1" />
-    </linearGradient>
     <linearGradient id="highlightGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#fff9c4;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#fef7c6;stop-opacity:1" />
     </linearGradient>
   </defs>
 
-  <!-- Draw boxes with creative styles -->
-  <rect x="50" y="20" width="500" height="80" class="box box1"/>
+  <!-- Draw boxes with rounded corners and unified colors -->
+  <rect x="50" y="20" width="500" height="80" class="box"/>
   <text x="70" y="60" class="title">High-Level Programming Code</text>
   <text x="70" y="90" class="text">(e.g., C, Java, Python)</text>
   
-  <rect x="50" y="120" width="500" height="80" class="box box2"/>
+  <rect x="50" y="120" width="500" height="80" class="box"/>
   <text x="70" y="160" class="title">Preprocessor</text>
   <text x="70" y="190" class="text">Handles directives like <tspan fill="#f5f5f5">#include</tspan>, <tspan fill="#f5f5f5">#define</tspan></text>
   
-  <rect x="50" y="220" width="500" height="80" class="box box3"/>
+  <rect x="50" y="220" width="500" height="80" class="box"/>
   <text x="70" y="260" class="title">Compiler</text>
   <text x="70" y="290" class="text">Translates Preprocessed Code into Assembly Code</text>
   
-  <rect x="50" y="320" width="500" height="80" class="box box4"/>
+  <rect x="50" y="320" width="500" height="80" class="box"/>
   <text x="70" y="360" class="title">Assembly Language</text>
   <text x="70" y="390" class="text">(Symbolic Instructions)</text>
   
-  <rect x="50" y="420" width="500" height="80" class="box box5"/>
+  <rect x="50" y="420" width="500" height="80" class="box highlight"/>
   <text x="70" y="460" class="title">Assembler</text>
   <text x="70" y="490" class="text">Translates Assembly Code into Machine Code</text>
   
-  <rect x="50" y="520" width="500" height="80" class="box box6"/>
+  <rect x="50" y="520" width="500" height="80" class="box"/>
   <text x="70" y="560" class="title">Linker</text>
   <text x="70" y="590" class="text">Combines Machine Code Segments into Executable File</text>
 
-  <rect x="50" y="620" width="500" height="80" class="box box7"/>
+  <rect x="50" y="620" width="500" height="80" class="box"/>
   <text x="70" y="660" class="title">Executable File</text>
   <text x="70" y="690" class="text">(Ready to Run on CPU)</text>
 
-  <rect x="50" y="720" width="500" height="80" class="box box8"/>
+  <rect x="50" y="720" width="500" height="80" class="box"/>
   <text x="70" y="760" class="title">CPU</text>
   <text x="70" y="790" class="text">Executes Machine Code</text>
 
@@ -165,11 +99,6 @@
   <text x="280" y="510" class="arrow arrow-animation">&#x21E9;</text>
   <text x="280" y="610" class="arrow arrow-animation">&#x21E9;</text>
   <text x="280" y="710" class="arrow arrow-animation">&#x21E9;</text>
-
-  <!-- Highlight box -->
-  <rect x="50" y="420" width="500" height="80" class="box highlight"/>
-  <text x="70" y="460" class="title">Assembler</text>
-  <text x="70" y="490" class="text">Translates Assembly Code into Machine Code</text>
 
   <!-- Watermark -->
   <text x="300" y="780" class="watermark">© 2024 talfig</text>
