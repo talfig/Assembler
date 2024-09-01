@@ -1,4 +1,4 @@
-<svg width="600" height="1000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1000">
+<svg width="600" height="1150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1150">
   <!-- Define gradients -->
   <defs>
     <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -30,8 +30,12 @@
       <stop offset="100%" style="stop-color:#b2ebf2;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="grad8" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#e0f2f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b9fbc0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dce775;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4e157;stop-opacity:1" />
     </linearGradient>
 
     <!-- Define animations -->
@@ -93,28 +97,28 @@
     <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
   </polygon>
 
-  <!-- Machine Code -->
-  <rect x="50" y="720" width="500" height="80" rx="15" ry="15" fill="url(#grad6)" stroke="#c6ff00" stroke-width="2" />
-  <text x="300" y="760" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#aeea00">Machine Code</text>
-  <text x="300" y="780" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Binary Code Executed by CPU</text>
+  <!-- Linker -->
+  <rect x="50" y="720" width="500" height="80" rx="15" ry="15" fill="url(#grad9)" stroke="#aeea00" stroke-width="2" />
+  <text x="300" y="760" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#aeea00">Linker</text>
+  <text x="300" y="780" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Combines Object Files into Executable</text>
 
   <!-- Arrow -->
   <polygon points="290,830 310,830 300,850" fill="#4b0082" stroke="#4b0082" stroke-width="2">
     <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
   </polygon>
 
-  <!-- CPU Execution -->
-  <rect x="50" y="860" width="500" height="80" rx="15" ry="15" fill="url(#grad7)" stroke="#00bcd4" stroke-width="2" />
-  <text x="300" y="900" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#00bcd4">CPU Execution</text>
-  <text x="300" y="920" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Execution of Machine Code Instructions</text>
+  <!-- Machine Code -->
+  <rect x="50" y="860" width="500" height="80" rx="15" ry="15" fill="url(#grad6)" stroke="#c6ff00" stroke-width="2" />
+  <text x="300" y="900" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#aeea00">Machine Code</text>
+  <text x="300" y="920" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Binary Code Executed by CPU</text>
 
   <!-- Arrow -->
   <polygon points="290,970 310,970 300,990" fill="#4b0082" stroke="#4b0082" stroke-width="2">
     <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
   </polygon>
 
-  <!-- Output -->
-  <rect x="50" y="1000" width="500" height="80" rx="15" ry="15" fill="url(#grad8)" stroke="#eeeeee" stroke-width="2" />
-  <text x="300" y="1040" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#9e9e9e">Output</text>
-  <text x="300" y="1060" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Program Results</text>
+  <!-- CPU Execution -->
+  <rect x="50" y="1000" width="500" height="80" rx="15" ry="15" fill="url(#grad7)" stroke="#00bcd4" stroke-width="2" />
+  <text x="300" y="1040" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#00bcd4">CPU Execution</text>
+  <text x="300" y="1060" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Execution of Machine Code Instructions</text>
 </svg>
