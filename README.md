@@ -171,6 +171,7 @@ The goal of this project is to write an assembler (i.e., a program that translat
 
 <details>
   <summary>Executable Code Process</summary>
+  <img src="https://raw.githubusercontent.com/talfig/talfig/main/code_process.svg" alt="Code Process">
   <img src="https://github.com/user-attachments/assets/271527a4-19bd-4ac1-8c02-b21d279b5fae" alt="Executable Code Process">
 </details>
 
@@ -1198,5 +1199,5 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 </div>
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/talfig/talfig/main/gratitude.svg" alt="Gratitude Image">
+  <img src="https://raw.githubusercontent.com/talfig/talfig/main/gratitude.svg" alt="Gratitude Image">
 </p>
