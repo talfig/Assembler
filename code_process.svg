@@ -37,6 +37,8 @@
     <!-- Define animations -->
     <animate id="fade" attributeName="opacity" from="0" to="1" dur="2s" repeatCount="indefinite" />
     <animate id="moveDown" attributeName="cy" from="0" to="20" dur="1s" repeatCount="indefinite" />
+    <animate id="arrowPulse" attributeName="stroke-width" from="1" to="3" dur="1s" repeatCount="indefinite" />
+    <animate id="arrowMove" attributeName="transform" type="translate" values="0,0;0,10;0,0" dur="1s" repeatCount="indefinite" />
   </defs>
 
   <!-- High-Level Programming Code -->
@@ -45,7 +47,9 @@
   <text x="300" y="80" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">e.g., C, Java, Python</text>
 
   <!-- Arrow -->
-  <text x="300" y="130" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="24" fill="#4b0082">&#x21E9;</text>
+  <polygon points="290,120 310,120 300,140" fill="#4b0082" stroke="#4b0082" stroke-width="2">
+    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
+  </polygon>
 
   <!-- Preprocessor -->
   <rect x="50" y="150" width="500" height="80" rx="15" ry="15" fill="url(#grad2)" stroke="#87cefa" stroke-width="2" />
@@ -53,7 +57,10 @@
   <text x="300" y="210" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Handles directives like #include, #define</text>
 
   <!-- Arrow -->
-  <text x="300" y="260" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="24" fill="#4b0082">&#x21E9;</text>
+  <polygon points="290,250 310,250 300,270" fill="#4b0082" stroke="#4b0082" stroke-width="2">
+    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,10;0,0" dur="1s" repeatCount="indefinite" />
+  </polygon>
 
   <!-- Compiler -->
   <rect x="50" y="280" width="500" height="80" rx="15" ry="15" fill="url(#grad3)" stroke="#d1c4e9" stroke-width="2" />
@@ -61,7 +68,9 @@
   <text x="300" y="340" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Translates Preprocessed Code into Assembly Code</text>
 
   <!-- Arrow -->
-  <text x="300" y="390" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="24" fill="#4b0082">&#x21E9;</text>
+  <polygon points="290,370 310,370 300,390" fill="#4b0082" stroke="#4b0082" stroke-width="2">
+    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
+  </polygon>
 
   <!-- Assembly Language -->
   <rect x="50" y="410" width="500" height="80" rx="15" ry="15" fill="url(#grad4)" stroke="#a5d6a7" stroke-width="2" />
@@ -69,30 +78,32 @@
   <text x="300" y="470" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Symbolic Instructions</text>
 
   <!-- Arrow -->
-  <text x="300" y="520" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="24" fill="#4b0082">&#x21E9;</text>
+  <polygon points="290,490 310,490 300,510" fill="#4b0082" stroke="#4b0082" stroke-width="2">
+    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,10;0,0" dur="1s" repeatCount="indefinite" />
+  </polygon>
 
   <!-- Assembler -->
   <rect x="50" y="540" width="500" height="80" rx="15" ry="15" fill="url(#grad5)" stroke="#fbc02d" stroke-width="2" />
   <text x="300" y="580" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#f57f17">Assembler</text>
   <text x="300" y="600" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Translates Assembly Code into Machine Code</text>
 
-  <!-- Pointer -->
-  <polygon points="530,550 570,570 530,590" fill="#f57f17" />
-
-  <!-- Tooltip -->
-  <rect x="470" y="490" width="120" height="40" rx="5" ry="5" fill="#fff" stroke="#ddd" stroke-width="1" />
-  <text x="530" y="510" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="14" fill="#333">This is where we are focusing!</text>
-
   <!-- Arrow -->
-  <text x="300" y="640" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="24" fill="#4b0082">&#x21E9;</text>
+  <polygon points="290,630 310,630 300,650" fill="#4b0082" stroke="#4b0082" stroke-width="2">
+    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,10;0,0" dur="1s" repeatCount="indefinite" />
+  </polygon>
 
   <!-- Linker -->
-  <rect x="50" y="660" width="500" height="80" rx="15" ry="15" fill="url(#grad6)" stroke="#fff176" stroke-width="2" />
+  <rect x="50" y="660" width="500" height="80" rx="15" ry="15" fill="url(#grad6)" stroke="#4dd0e1" stroke-width="2" />
   <text x="300" y="700" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="20" fill="#fbc02d">Linker</text>
   <text x="300" y="720" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Combines Machine Code Segments into Executable File</text>
 
   <!-- Arrow -->
-  <text x="300" y="770" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="24" fill="#4b0082">&#x21E9;</text>
+  <polygon points="290,770 310,770 300,790" fill="#4b0082" stroke="#4b0082" stroke-width="2">
+    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,10;0,0" dur="1s" repeatCount="indefinite" />
+  </polygon>
 
   <!-- Executable File -->
   <rect x="50" y="790" width="500" height="80" rx="15" ry="15" fill="url(#grad7)" stroke="#4dd0e1" stroke-width="2" />
@@ -100,7 +111,9 @@
   <text x="300" y="850" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="16" fill="#000">Ready to Run on CPU</text>
 
   <!-- Arrow -->
-  <text x="300" y="900" text-anchor="middle" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="24" fill="#4b0082">&#x21E9;</text>
+  <polygon points="290,900 310,900 300,920" fill="#4b0082" stroke="#4b0082" stroke-width="2">
+    <animate attributeName="opacity" from="0.5" to="1" dur="1s" repeatCount="indefinite" />
+  </polygon>
 
   <!-- CPU -->
   <rect x="50" y="920" width="500" height="80" rx="15" ry="15" fill="url(#grad8)" stroke="#bdbdbd" stroke-width="2" />
