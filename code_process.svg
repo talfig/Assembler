@@ -106,5 +106,5 @@
   <text x="70" y="490" class="text">Translates Assembly Code into Machine Code</text>
 
   <!-- Watermark -->
-  <text x="300" y="780" class="watermark">© 2024 talfig</text>
+  <text x="285" y="790" class="watermark">© 2024 talfig</text>
 </svg>
