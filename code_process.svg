@@ -5,12 +5,12 @@
       filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
       rx: 15; /* Rounded corners */
       ry: 15; /* Rounded corners */
-      fill: url(#boxGradient1); /* Unified color for all boxes */
-      stroke: #ff9a9e;
+      fill: url(#boxCoolGradient); /* Cool blue color scheme */
+      stroke: #3498db; /* Cool blue stroke */
     }
     .highlight {
-      fill: url(#highlightGradient);
-      stroke: #f57f17;
+      fill: url(#assemblerGradient); /* Light blue gradient for Assembler box */
+      stroke: #5dade2;
       stroke-width: 3;
       rx: 15;
       ry: 15;
@@ -48,17 +48,17 @@
 
   <!-- Define gradients -->
   <defs>
-    <linearGradient id="boxGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fad0c4;stop-opacity:1" />
+    <linearGradient id="boxCoolGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00c6ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0072ff;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="highlightGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#fff9c4;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fef7c6;stop-opacity:1" />
+    <linearGradient id="assemblerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#b3e5fc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#81d4fa;stop-opacity:1" />
     </linearGradient>
   </defs>
 
-  <!-- Draw boxes with rounded corners and unified colors -->
+  <!-- Draw boxes with cool blue gradient and rounded corners -->
   <rect x="50" y="20" width="500" height="80" class="box"/>
   <text x="70" y="60" class="title">High-Level Programming Code</text>
   <text x="70" y="90" class="text">(e.g., C, Java, Python)</text>
