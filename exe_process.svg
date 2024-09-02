@@ -14,6 +14,12 @@
       stroke-width: 5; /* Thicker stroke */
       rx: 15;
       ry: 15;
+      animation: blink 1s infinite; /* Add blinking animation */
+    }
+    @keyframes blink {
+      0% { stroke: #ff6f00; }  /* Orange outline */
+      50% { stroke: #FFEB3B; } /* Yellow outline */
+      100% { stroke: #ff6f00; } /* Back to Orange */
     }
     .reflection {
       fill: rgba(255, 255, 255, 0.4);
