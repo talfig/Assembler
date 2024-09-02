@@ -1179,7 +1179,7 @@ Loading is the final step before your program runs on the CPU. The loader is res
 <!-- License -->
 <h2 id="license">© License</h2>
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/talfig/Assembler/blob/main/LICENSE) file for details.
+This project is licensed under the GNU Affero General Public License v3.0 (AGPL) - see the [LICENSE](https://github.com/talfig/Assembler/blob/main/LICENSE) file for details.
 
 <!-- Contact -->
 <h2 id="contact">📬 Contact </h2>
