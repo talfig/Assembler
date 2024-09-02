@@ -23,7 +23,7 @@
   </a>
   <!-- License -->
   <a href="https://github.com/talfig/Assembler/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
+    <img src="https://img.shields.io/badge/license-AGPL-blue.svg" alt="License">
   </a>
 </p>
 
