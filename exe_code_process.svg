@@ -92,7 +92,7 @@
   
   <rect x="50" y="120" width="500" height="80" class="box"/>
   <text x="70" y="160" class="title">Preprocessor</text>
-  <text x="70" y="190" class="text">Handles directives like <tspan fill="#f5f5f5">#include</tspan>, <tspan fill="#f5f5f5">#define</tspan></text>
+  <text x="70" y="190" class="text">Handles directives such as <tspan fill="#f5f5f5">#include</tspan>, <tspan fill="#f5f5f5">#define</tspan></text>
   
   <rect x="50" y="220" width="500" height="80" class="box"/>
   <text x="70" y="260" class="title">Compiler</text>
@@ -100,7 +100,7 @@
   
   <rect x="50" y="320" width="500" height="80" class="box"/>
   <text x="70" y="360" class="title">Assembly Code</text>
-  <text x="70" y="390" class="text">(Symbolic instructions)</text>
+  <text x="70" y="390" class="text">(Symbolic Instructions)</text>
   
   <rect x="50" y="420" width="500" height="80" class="box highlight"/>
   <text x="70" y="460" class="title">Assembler</text>
