@@ -1187,7 +1187,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
   <tr>
     <td align="center">
       <a href="https://www.linkedin.com/in/talfig/" target="_blank">
-        <img src="https://bentos.jkominovic.dev/api/v1/bento-cards?url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Ftalfig%2F&subtitle=@talfig&size=square" alt="talfig">
+        <img src="https://bentos.jkominovic.dev/api/v1/bento-cards?url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Ftalfig%2F&subtitle=@Tal+Figenblat&size=square" alt="talfig">
       </a>
     </td>
     <td colspan="3" align="center">
