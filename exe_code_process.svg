@@ -96,27 +96,27 @@
   
   <rect x="50" y="220" width="500" height="80" class="box"/>
   <text x="70" y="260" class="title">Compiler</text>
-  <text x="70" y="290" class="text">Translates Preprocessed Code into Assembly Code</text>
+  <text x="70" y="290" class="text">Translates preprocessed code into Assembly code</text>
   
   <rect x="50" y="320" width="500" height="80" class="box"/>
-  <text x="70" y="360" class="title">Assembly Language</text>
-  <text x="70" y="390" class="text">(Symbolic Instructions)</text>
+  <text x="70" y="360" class="title">Assembly Code</text>
+  <text x="70" y="390" class="text">(Symbolic instructions)</text>
   
   <rect x="50" y="420" width="500" height="80" class="box highlight"/>
   <text x="70" y="460" class="title">Assembler</text>
-  <text x="70" y="490" class="text">Translates Assembly Code into Machine Code</text>
+  <text x="70" y="490" class="text">Translates Assembly code into machine code</text>
   
   <rect x="50" y="520" width="500" height="80" class="box"/>
   <text x="70" y="560" class="title">Linker</text>
-  <text x="70" y="590" class="text">Combines Machine Code Segments into Executable File</text>
+  <text x="70" y="590" class="text">Combines machine code segments into executable file</text>
 
   <rect x="50" y="620" width="500" height="80" class="box"/>
   <text x="70" y="660" class="title">Executable File</text>
-  <text x="70" y="690" class="text">(Ready to Run on CPU)</text>
+  <text x="70" y="690" class="text">(Ready to run on CPU)</text>
 
   <rect x="50" y="720" width="500" height="80" class="box"/>
   <text x="70" y="760" class="title">CPU</text>
-  <text x="70" y="790" class="text">Executes Machine Code</text>
+  <text x="70" y="790" class="text">Executes machine code</text>
 
   <!-- Draw arrows with improved animation -->
   <text x="280" y="100" class="arrow arrow-animation">&#x21E9;</text>
