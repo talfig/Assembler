@@ -4,4 +4,4 @@ object_files/
 # Ignore temporary or backup files
 .~lock.test.as#
 
-exe_code_process.svg#
+.exe_code_process.svg
