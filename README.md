@@ -19,7 +19,7 @@
   </a>
   <!-- Repo Views -->
   <a href="https://github.com/talfig/Assembler">
-    <img src="https://komarev.com/ghpvc/?username=talfig&color=ff6347&style=flat-square" alt="Repo views">
+    <img src="https://shields.io/github/views/talfig/Assembler?color=ff6347&style=flat-square" alt="Repo views">
   </a>
   <!-- License -->
   <a href="https://github.com/talfig/Assembler/blob/main/LICENSE">
