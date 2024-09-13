@@ -127,7 +127,7 @@
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#example-program">Example Program</a></li>
     <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#installation">Installation</a>
       <ul>
-        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#ubuntu-linux">Ubuntu/Linux</a></li>
+        <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#linux">Linux</a></li>
         <li><a href="https://github.com/talfig/Assembler/blob/main/README.md#github-codespaces">GitHub Codespaces</a></li>
       </ul>
     </li>
@@ -928,8 +928,8 @@ L3 0128
 
 Ready to build? Follow the appropriate steps according to your operating system:
 
-<!-- Ubuntu/Linux -->
-<h3 id="ubuntu-linux"> 🐧 Ubuntu/Linux</h3>
+<!-- Linux -->
+<h3 id="linux"> 🐧 Linux</h3>
 
 **1.** Open your terminal.
 
