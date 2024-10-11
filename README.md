@@ -990,6 +990,12 @@ cd Assembler
 
 Replace `Assembler` with the actual name of the directory if it differs.
 
+Move the `makefile` from the `Build and Configuration` directory to the `Assembler` directory:
+
+```bash
+mv "Build and Configuration/makefile" .
+```
+
 Finally, Run the make command to compile the project and build the assembler:
 
 ```bash
