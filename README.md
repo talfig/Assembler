@@ -990,10 +990,10 @@ cd Assembler
 
 Replace `Assembler` with the actual name of the directory if it differs.
 
-Move the `makefile` from the `Build and Configuration` directory to the `Assembler` directory:
+Move the `makefile` from the `Build` directory to the `Assembler` directory:
 
 ```bash
-mv "Build and Configuration/makefile" .
+mv Build/makefile .
 ```
 
 Finally, Run the make command to compile the project and build the assembler:
@@ -1037,16 +1037,15 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
     <p>The project is organized as follows:</p>
     <ul style="list-style-type: none; padding: 0;">
         <li>
-            <strong style="color: #00c4cc;">📁 Build and Configuration</strong>
+            <strong style="color: #00c4cc;">📁 Build</strong>
             <p style="margin: 0; padding: 0 0 10px 20px;">Contains build scripts and configuration files.</p>
             <ul style="list-style-type: none; padding-left: 20px;">
                 <li>makefile</li>
-                <li>assembler</li>
-                <li>...</li>
+                <li>CMakeLists.txt</li>
             </ul>
         </li>
         <li>
-            <strong style="color: #00c4cc;">📁 Header Files</strong>
+            <strong style="color: #00c4cc;">📁 HeaderFiles</strong>
             <p style="margin: 0; padding: 0 0 10px 20px;">Contains header files for the project.</p>
             <ul style="list-style-type: none; padding-left: 20px;">
                 <li>first_pass.h</li>
@@ -1055,7 +1054,7 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
             </ul>
         </li>
         <li>
-            <strong style="color: #00c4cc;">📁 Invalid Inputs</strong>
+            <strong style="color: #00c4cc;">📁 InvalidInputs</strong>
             <p style="margin: 0; padding: 0 0 10px 20px;">Contains input files that are expected to cause errors.</p>
             <ul style="list-style-type: none; padding-left: 20px;">
                 <li>broken_program1.as</li>
@@ -1064,7 +1063,7 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
             </ul>
         </li>
         <li>
-            <strong style="color: #00c4cc;">📁 Invalid Outputs</strong>
+            <strong style="color: #00c4cc;">📁 InvalidOutputs</strong>
             <p style="margin: 0; padding: 0 0 10px 20px;">Contains output files corresponding to invalid inputs.</p>
             <ul style="list-style-type: none; padding-left: 20px;">
                 <li><strong style="color: #00c4cc;">📁 broken_program1</strong>
@@ -1081,7 +1080,7 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
             </ul>
         </li>
         <li>
-            <strong style="color: #00c4cc;">📁 Source Files</strong>
+            <strong style="color: #00c4cc;">📁 SourceFiles</strong>
             <p style="margin: 0; padding: 0 0 10px 20px;">Contains the source code files.</p>
             <ul style="list-style-type: none; padding-left: 20px;">
                 <li>assembler.c</li>
@@ -1090,7 +1089,7 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
             </ul>
         </li>
         <li>
-            <strong style="color: #00c4cc;">📁 Valid Inputs</strong>
+            <strong style="color: #00c4cc;">📁 ValidInputs</strong>
             <p style="margin: 0; padding: 0 0 10px 20px;">Contains input files that should be processed correctly.</p>
             <ul style="list-style-type: none; padding-left: 20px;">
                 <li>fibonacci.as</li>
@@ -1099,7 +1098,7 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
             </ul>
         </li>
         <li>
-            <strong style="color: #00c4cc;">📁 Valid Outputs</strong>
+            <strong style="color: #00c4cc;">📁 ValidOutputs</strong>
             <p style="margin: 0; padding: 0 0 10px 20px;">Contains output files corresponding to valid inputs.</p>
             <ul style="list-style-type: none; padding-left: 20px;">
                 <li><strong style="color: #00c4cc;">📁 fibonacci</strong>
