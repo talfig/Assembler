@@ -2,17 +2,17 @@
 CC = gcc
 
 # Compiler flags
-CFLAGS = -Wall -ansi -pedantic -Iheader_files
+CFLAGS = -Wall -ansi -pedantic -I"Header Files"
 DEBUG = -g
 
 # Executable name
 TARGET = assembler
 
 # Source files directory
-SRC_DIR = source_files
+SRC_DIR = "Source Files"
 
 # Object files directory
-OBJ_DIR = object_files
+OBJ_DIR = "Object Files"
 
 # Source files
 SRCS = $(wildcard $(SRC_DIR)/*.c)
@@ -29,9 +29,9 @@ $(TARGET): $(OBJS)
 
 # Rule to copy the executable to both directories
 copy_executable:
-	@mkdir -p invalid_input valid_input
-	@cp $(TARGET) invalid_input/
-	@cp $(TARGET) valid_input/
+	@mkdir -p "Invalid Input" "Valid Input"
+	@cp $(TARGET) "Invalid Input/"
+	@cp $(TARGET) "Valid Input/"
 
 # Rule to create object files in the object_files directory
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
@@ -44,8 +44,7 @@ debug: clean all
 
 # Clean rule to remove generated files
 clean:
-	rm -f $(OBJ_DIR)/*.o $(TARGET) invalid_input/$(TARGET) valid_input/$(TARGET)
+	rm -f $(OBJ_DIR)/*.o $(TARGET) "Invalid Input"/$(TARGET) "Valid Input"/$(TARGET)
 
 # Phony targets (not actual files)
 .PHONY: all clean debug copy_executable
-
