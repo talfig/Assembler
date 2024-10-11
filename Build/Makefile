@@ -29,9 +29,9 @@ $(TARGET): $(OBJS)
 
 # Rule to copy the executable to both directories
 copy_executable:
-	@mkdir -p InvalidInput ValidInput
-	@cp $(TARGET) InvalidInput/
-	@cp $(TARGET) ValidInput/
+	@mkdir -p InvalidInputs ValidInputs
+	@cp $(TARGET) InvalidInputs/
+	@cp $(TARGET) ValidInputs/
 
 # Rule to create object files in the object_files directory
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
@@ -44,7 +44,7 @@ debug: clean all
 
 # Clean rule to remove generated files
 clean:
-	rm -f $(OBJ_DIR)/*.o $(TARGET) InvalidInput/$(TARGET) ValidInput/$(TARGET)
+	rm -f $(OBJ_DIR)/*.o $(TARGET) InvalidInputs/$(TARGET) ValidInputs/$(TARGET)
 
 # Phony targets (not actual files)
 .PHONY: all clean debug copy_executable
