@@ -982,7 +982,7 @@ This configuration sets up an Ubuntu-based environment with the necessary tools 
 
 ---
 
-After setting up your environment, Navigate to the project directory where the `makefile` is located using:
+After setting up your environment, Navigate to the project directory where the `Makefile` is located using:
 
 ```bash
 cd Assembler
@@ -990,10 +990,10 @@ cd Assembler
 
 Replace `Assembler` with the actual name of the directory if it differs.
 
-Move the `makefile` from the `Build` directory to the `Assembler` directory:
+Move the `Makefile` from the `Build` directory to the `Assembler` directory:
 
 ```bash
-mv Build/makefile .
+mv Build/Makefile .
 ```
 
 Finally, Run the make command to compile the project and build the assembler:
@@ -1002,7 +1002,7 @@ Finally, Run the make command to compile the project and build the assembler:
 make
 ```
 
-The make command will read the `makefile` and execute the specified build instructions to compile the code and link the object files into an executable.
+The make command will read the `Makefile` and execute the specified build instructions to compile the code and link the object files into an executable.
 
 After the build process is complete, you should see the assembler executable in the project directory.
 
@@ -1040,7 +1040,7 @@ Bumped into issues? No worries! Our assembler offers descriptive error messages 
             <strong style="color: #00c4cc;">📁 Build</strong>
             <p style="margin: 0; padding: 0 0 10px 20px;">Contains build scripts and configuration files.</p>
             <ul style="list-style-type: none; padding-left: 20px;">
-                <li>makefile</li>
+                <li>Makefile</li>
                 <li>CMakeLists.txt</li>
             </ul>
         </li>
