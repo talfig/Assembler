@@ -2,7 +2,7 @@
 CC = gcc
 
 # Compiler flags
-CFLAGS = -Wall -ansi -pedantic -I"Header Files"
+CFLAGS = -Wall -ansi -pedantic -IHeader\ Files
 DEBUG = -g
 
 # Executable name
