@@ -1,5 +1,5 @@
 # Ignore object files directory
-Object Files/
+ObjectFiles/
 
 # Ignore temporary or backup files
 .~lock.test.as#
