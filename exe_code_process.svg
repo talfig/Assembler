@@ -104,11 +104,11 @@
   
   <rect x="50" y="420" width="500" height="80" class="box highlight"/>
   <text x="70" y="460" class="title">Assembler</text>
-  <text x="70" y="490" class="text">Translates Assembly code into Machine code</text>
+  <text x="70" y="490" class="text">Translates Assembly code into machine code</text>
   
   <rect x="50" y="520" width="500" height="80" class="box"/>
   <text x="70" y="560" class="title">Linker</text>
-  <text x="70" y="590" class="text">Combines Machine code segments into executable file</text>
+  <text x="70" y="590" class="text">Combines machine code segments into executable file</text>
 
   <rect x="50" y="620" width="500" height="80" class="box"/>
   <text x="70" y="660" class="title">Executable File</text>
@@ -116,7 +116,7 @@
 
   <rect x="50" y="720" width="500" height="80" class="box"/>
   <text x="70" y="760" class="title">CPU</text>
-  <text x="70" y="790" class="text">Executes Machine code</text>
+  <text x="70" y="790" class="text">Executes machine code</text>
 
   <!-- Draw arrows with improved animation -->
   <text x="280" y="100" class="arrow arrow-animation">&#x21E9;</text>
