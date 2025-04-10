@@ -709,6 +709,31 @@ Additionally, the assembler should replace the symbols `K`, `STR`, `LIST`, `MAIN
 
 In the first pass, rules are required to determine the address to be assigned to each symbol. The basic principle is to count the memory locations occupied by the instructions. If each instruction is loaded into memory at the location following the previous instruction, such counting will indicate the address of the next instruction. This counting is performed by the assembler and is maintained in the instruction counter (IC). The initial value of IC is 100 (decimal), so the machine code of the first instruction is constructed to load into memory starting from address 100. The IC is updated with each instruction line that allocates space in memory. After the assembler determines the length of the instruction, the IC is increased by the number of cells (words) occupied by the instruction, and thus it points to the next available cell.
 
+The assembler reads the list of numbers, which appears after the `.data` directive, inserts each number into the data array, and advances the data pointer `DC` (Data Counter) by one for each number inserted.
+
+If the line with the `.data` directive contains a label, this label is inserted into the symbol table with the value of `DC` before inserting the numbers. The label is marked as relocatable and flagged to indicate that the definition is in the data section.
+
+At the end of the first pass, all labels associated with the data section are updated by adding the final value of `IC` (Instruction Counter) to their addresses. This adjustment is required because in the machine code image, the data section comes after the instructions. Therefore, the addresses of data labels must be shifted by the total number of instruction words, which is `IC`.
+
+We divide the machine code into two regions:
+- **Instruction region (code)**, tracked by `IC`
+- **Data region (data)**, tracked by `DC`
+
+Each region maintains its own counter:
+- `IC` is initialized to 100 (decimal), representing the starting memory address for the code.
+- `DC` is initialized to 0, and it increases with every `.data` or `.string` directive.
+
+The memory layout after assembly is as follows:
+
+```
+[ Address 100        ] -> First instruction  
+[ ...                ] -> Instruction region  
+                       (length = IC - 100)
+[ Address 100 + IC   ] -> First data element  
+[ ...                ] -> Data region  
+                       (length = DC)
+```
+
 As mentioned, to encode instructions in machine language, the assembler maintains a table that contains a corresponding code for each operation name. During translation, the assembler replaces each operation name with its code, and each operand is replaced with its corresponding encoding. However, this replacement process is not so simple. The instructions use various addressing methods for operands. The same operation can have different meanings in each addressing method, and therefore different encodings are applied depending on the addressing methods. For example, the `mov` operation can refer to copying the content of a memory cell to a register or copying the content of one register to another, and so on. Each such possibility of `mov` might have a different encoding.
 
 The assembler needs to scan the entire instruction line and decide on the encoding based on the operands. Typically, the encoding is divided into a field for the operation name and additional fields containing information about the addressing methods. All fields together require one or more words in the machine code.
